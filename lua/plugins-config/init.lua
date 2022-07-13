@@ -1,0 +1,6 @@
+require("plugins-config.lualine")
+require("plugins-config.nvim-lastplace")
+require("plugins-config.dashboard")
+require("plugins-config.lspconfig")
+require("plugins-config.barbar")
+require("plugins-config.nvim-tree")
