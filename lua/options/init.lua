@@ -1,4 +1,6 @@
 vim.o.swapfile = false
+vim.o.splitbelow = true
+vim.o.splitright = true
 vim.o.showmode = false
 vim.o.number = true
 vim.o.relativenumber = true
