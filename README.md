@@ -10,6 +10,8 @@ My  own lua based nvim configuration
 * nvim-tree
 * barbar
 * tokyonight
+* indent-blankline
+* nvim-treesitter
 * nvim-web-devicons
 
 ## Screenshot
