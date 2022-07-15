@@ -31,9 +31,9 @@ require("nvim-tree").setup({
 		indent_markers = {
 			enable = true,
 			icons = {
-				corner = "| ",
-				edge = "| ",
-				item = "| ",
+				corner = "┗ ",
+				edge = "┃ ",
+				item = "┃ ",
 				none = "  ",
 			}
 		}
@@ -42,10 +42,11 @@ require("nvim-tree").setup({
 		enable = false,
 		show_on_dirs = false,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+
 		}
 	},
 	filters = {
