@@ -8,8 +8,11 @@ My  own lua based nvim configuration
 * nvim-lspconfig
 * lualine
 * nvim-tree
+* gitsigns
 * barbar
 * tokyonight
+* pywal
+* telescope
 * indent-blankline
 * nvim-treesitter
 * nvim-web-devicons

@@ -4,8 +4,31 @@ vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+-- Must have
+map("n", "Y", "y$", opts)
+map("v", "<", "<gv", opts)
+map("v", ">", ">gv", opts)
+
+-- Cycle through buffers
+map("n", "<A-C>", ":bprevious<CR>", opts)
+map("n", "<A-c>", ":bnext<CR>", opts)
+
+-- Rotate splits
+-- Horizontal to vertical
+map("n", "<leader>tv", "<C-w>t<C-w>H", opts)
+-- Vertical to horizontal
+map("n", "<leader>th", "<C-w>t<C-w>K", opts)
+
 -- Toggle File Tree
 map("n", "<leader>tt", ":NvimTreeToggle<CR>", opts)
+
+-- Telescope
+map("n", "<A-f>", ":Telescope find_files<CR>", opts)
+map("n", "<A-b>", ":Telescope buffers<CR>", opts)
+map("n", "<A-g>", ":Telescope git_status<CR>", opts)
+
+-- Git Signs
+map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
 
 -- Remap splits navigation to just ( Ctrl + hjkl)
 map("n", "<C-h>", "<C-w>h", opts)
@@ -23,3 +46,20 @@ map("n", "<A-j>", ":resize -2<CR>", opts)
 map("n", "/", ":lua vim.o.hlsearch = true<CR>/", opts)
 map("n", "<Esc>", ":lua vim.o.hlsearch = false<CR>", opts)
 
+-- Keeping it centered
+map("n", "n", "nzzzv", opts)
+map("n", "N", "Nzzzv", opts)
+map("n", "}", "}zzzv", opts)
+map("n", "{", "{zzzv", opts)
+map("n", "J", "mzJ`z", opts)
+
+-- Moving text
+map("v", "J", ":m '>+1<CR>gv=gv", opts)
+map("v", "K", ":m '<-2<CR>gv=gv", opts)
+map("n", "<leader>j", ":m .+1<CR>==", opts)
+map("n", "<leader>k", ":m .-2<CR>==", opts)
+map("i", "<A-S-j>", "<Esc>:m .+1<CR>==i", opts)
+map("i", "<A-S-k>", "<Esc>:m .-2<CR>==i", opts)
+
+-- Enable and disable spell checker
+map("n", "<leader>s", ":setlocal spell!<CR>", opts)

@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -118,6 +123,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["pywal.nvim"] = {
+    loaded = true,
+    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/pywal.nvim",
+    url = "https://github.com/AlphaTechnolog/pywal.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
