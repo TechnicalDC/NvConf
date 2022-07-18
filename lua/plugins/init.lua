@@ -5,6 +5,8 @@ return require('packer').startup(function(use)
 	use 'ethanholz/nvim-lastplace'
 	use 'neovim/nvim-lspconfig'
 	use 'lewis6991/gitsigns.nvim'
+	use 'nvim-orgmode/orgmode'
+	use 'rcarriga/nvim-notify'
 	use "lukas-reineke/indent-blankline.nvim"
 	use {
 		'nvim-treesitter/nvim-treesitter',
