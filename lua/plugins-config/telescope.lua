@@ -8,7 +8,7 @@ require('telescope').setup{
 			width = 0.8,
 		},
 		sorting_strategy = "ascending",
-		prompt_prefix = "→ ",
+		prompt_prefix = "  ",
 		entry_prefix = "   ",
 		multi_icon = " ● ",
 		selection_caret = " → ",
