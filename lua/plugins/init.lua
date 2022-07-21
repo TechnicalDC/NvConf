@@ -5,6 +5,8 @@ return require('packer').startup(function(use)
 	use 'navarasu/onedark.nvim'
 	use 'Mofiqul/dracula.nvim'
 	use 'folke/tokyonight.nvim'
+	use "ellisonleao/gruvbox.nvim"
+	use "catppuccin/nvim"
 	use 'AlphaTechnolog/pywal.nvim'
 
 	-- UI
