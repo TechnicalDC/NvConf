@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   ["barbar.nvim"] = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/barbar.nvim",
@@ -128,11 +133,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
-    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lastplace"] = {
     loaded = true,
