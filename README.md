@@ -1,6 +1,6 @@
 # NvConf
 
-My  own purely lua based nvim configuration
+My own purely lua based [neovim](https://neovim.org/) configuration. It is not another neovim distribution.
 
 ## PLugins
 
