@@ -7,7 +7,6 @@ return require('packer').startup(function(use)
 	use 'folke/tokyonight.nvim'
 	use "ellisonleao/gruvbox.nvim"
 	use "catppuccin/nvim"
-	use 'AlphaTechnolog/pywal.nvim'
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
@@ -25,17 +24,16 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-path'
 
 	use 'ethanholz/nvim-lastplace'
+	use 'numToStr/Comment.nvim'
 	use 'neovim/nvim-lspconfig'
 	use "lukas-reineke/indent-blankline.nvim"
 	use "kylechui/nvim-surround"
 	use 'nvim-orgmode/orgmode'
+	use 'nvim-lua/plenary.nvim'
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate'
 	}
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+	use 'nvim-telescope/telescope.nvim'
 end)
 
