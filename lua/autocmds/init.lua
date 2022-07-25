@@ -25,6 +25,12 @@ autocmd({"FileType"},
 		command = ':lua vim.api.nvim_set_keymap("n", "<leader>cn", ":DashboardNewFile<CR>", { noremap = true, silent = true })'
 	}
 )
+autocmd({"FileType"}, 
+	{
+		pattern = "dashboard", 
+		command = ':lua vim.api.nvim_set_keymap("n", "q", ":q!<CR>", { noremap = true })'
+	}
+)
 
 -- Telescope
 autocmd({"FileType"}, 
