@@ -1,7 +1,7 @@
 local db = require('dashboard')
 db.hide_statusline = false
 db.hide_tabline = false
--- db.preview_command = "jp2a ~/.config/nvim/images/neovim.png --colors --width=40"
+db.custom_footer = { " Bye! Bye! "}
 
 db.custom_header = {
 	"",

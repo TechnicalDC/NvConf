@@ -13,8 +13,8 @@ require('telescope').setup{
 		multi_icon = " ● ",
 		selection_caret = " → ",
 		border = true,
-		borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
-		-- borderchars: { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		-- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 		results_title = " Results ",
 		prompt_title = " Prompt ",
 
