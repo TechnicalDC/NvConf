@@ -19,8 +19,8 @@ My  own purely lua based nvim configuration
 * gitsigns
 * nvim-cmp
   - cmp-nvim-lsp
-	- cmp-buffer
-	- cmp-path
+  - cmp-buffer
+  - cmp-path
 * Comment.nvim
 * nvim-surround
 * nvim-orgmode
