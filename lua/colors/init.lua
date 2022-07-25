@@ -5,4 +5,4 @@ require("colors.dracula")
 require("colors.catppuccin")
 require("colors.gruvbox")
 
-vim.cmd[[colorscheme dracula]]
+vim.cmd[[colorscheme pywal]]

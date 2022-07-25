@@ -25,3 +25,5 @@ vim.o.shiftwidth     = 4
 vim.o.softtabstop    = 4
 vim.o.spelllang      = "en_us"
 vim.o.signcolumn     = "yes"
+vim.o.conceallevel   = 2
+vim.o.concealcursor  = 'nc'

@@ -17,7 +17,6 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-tree.lua'
 	use 'lewis6991/gitsigns.nvim'
 	use 'romgrk/barbar.nvim'
-	use 'norcalli/nvim-colorizer.lua'
 
 	-- autocompletions
 	use 'hrsh7th/nvim-cmp'

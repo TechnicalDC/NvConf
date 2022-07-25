@@ -36,6 +36,7 @@ cmp.setup({
 				keyword_length = 1
 			}
 		},
+		{ name = 'orgmode' },
 		{ name = 'path' },
 	})
 })
