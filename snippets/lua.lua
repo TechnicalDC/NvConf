@@ -13,19 +13,17 @@ local rep = require("luasnip.extras").rep
 
 local snippets = {}
 
-local date = function() return {os.date('%d-%m-%Y')} end
-
-local patch_fmt = fmt(
+local addDate = fmt(
 	[[
-	/* Last modified on:{}!
+	Hello {}!
 	]],
 	{
 		i(i, "Dilip"),
 	}
 )
 
-local patch_snippet = s("patch", patch_fmt)
+local addDate_Snippet = s("hello", addDate)
 
-table.insert(snippets, patch_snippet)
+table.insert(snippets, addDate_Snippet)
 
 return snippets
