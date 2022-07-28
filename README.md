@@ -5,6 +5,7 @@ My own purely lua based [neovim](https://neovim.org/) configuration. It is not a
 ## Plugins
 
 * dashboard-nvim
+* packer.nivm
 * nvim-lastplace
 * nvim-lspconfig
 * lualine
@@ -21,6 +22,8 @@ My own purely lua based [neovim](https://neovim.org/) configuration. It is not a
   - cmp-nvim-lsp
   - cmp-buffer
   - cmp-path
+  - cmp_luasnip
+* LuaSnip
 * Comment.nvim
 * nvim-surround
 * nvim-orgmode
