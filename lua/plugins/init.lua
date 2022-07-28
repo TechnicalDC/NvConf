@@ -5,7 +5,6 @@ return require('packer').startup(function(use)
 	use 'navarasu/onedark.nvim'
 	use 'Mofiqul/dracula.nvim'
 	use 'folke/tokyonight.nvim'
-	use 'AlphaTechnolog/pywal.nvim'
 	use "ellisonleao/gruvbox.nvim"
 	use "catppuccin/nvim"
 
@@ -23,6 +22,8 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
+	use 'L3MON4D3/LuaSnip'
+	use 'saadparwaiz1/cmp_luasnip'
 
 	use 'ethanholz/nvim-lastplace'
 	use 'numToStr/Comment.nvim'
@@ -37,4 +38,3 @@ return require('packer').startup(function(use)
 	}
 	use 'nvim-telescope/telescope.nvim'
 end)
-
