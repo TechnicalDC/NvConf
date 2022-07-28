@@ -4,10 +4,15 @@ vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+-- luasnip mapping
+map("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+map("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+
 -- Must have
 map("n", "Y", "y$", opts)
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
+map("n", "<leader>y", "maggVGy`a", opts)
 
 -- Cycle through buffers
 map("n", "<A-C>", ":bprevious<CR>", opts)
