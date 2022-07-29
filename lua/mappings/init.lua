@@ -7,6 +7,13 @@ local opts = { noremap = true, silent = true }
 -- luasnip mapping
 map("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
 map("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+map("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+map("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+
+map("i", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
+map("i", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
+map("s", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
+map("s", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
 
 -- Must have
 map("n", "Y", "y$", opts)
