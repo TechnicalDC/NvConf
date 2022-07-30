@@ -104,9 +104,10 @@ local find_fmt = fmt(
 			i(1, "next"),
 			i(1, "prev")
 		}),
-		d(2, function(_, snip)
-				return sn(1, i(1, snip.captures[1]))
-		end),
+		i(2, "<++>"),
+		-- d(2, function(_, snip)
+		-- 		return sn(1, i(1, snip.captures[1]))
+		-- end),
 		c(3, {
 			i(1, "no-lock"),
 			i(1, "exclusive-lock"),
@@ -116,8 +117,8 @@ local find_fmt = fmt(
 	}
 )
 local find_snippet = s(
-	{trig = "find(%w+%_?%w+)", regTrig = true, hidden = true},
-	-- "find",
+	{trig = "find", regTrig = false, hidden = true},
+	-- {trig = "find(%w+%_?%w+)", regTrig = true, hidden = true},
 	find_fmt
 )
 table.insert(autosnippets, find_snippet)
@@ -151,7 +152,6 @@ local for_fmt = fmt(
 )
 local for_snippet = s(
 	{trig = "for(%w+%_?%w+)", regTrig = true, hidden = true},
-	-- "for",
 	for_fmt
 )
 table.insert(autosnippets, for_snippet)

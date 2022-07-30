@@ -9,5 +9,5 @@ require('orgmode').setup({
 	org_hide_leading_stars = true,
 	org_hide_emphasis_markers = true,
 	org_ellipsis = "",
-	org_indent_mode = noindent,
+	org_indent_mode = indent,
 })

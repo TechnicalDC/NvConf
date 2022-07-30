@@ -13,7 +13,7 @@ local rep = require("luasnip.extras").rep
 
 local snippets = {}
 
-local addDate = fmt(
+local hello_fmt = fmt(
 	[[
 	Hello {}!
 	]],
@@ -22,8 +22,8 @@ local addDate = fmt(
 	}
 )
 
-local addDate_Snippet = s("hello", addDate)
+local hello_snippet = s("hello", hello_fmt)
 
-table.insert(snippets, addDate_Snippet)
+table.insert(snippets, hello_snippet)
 
 return snippets

@@ -1,7 +1,11 @@
 local ls = require("luasnip")
 local types = require("luasnip.util.types")
 
-require("luasnip.loaders.from_lua").load({ paths = "~/AppData/Local/nvim/snippets/" })
+-- For linux
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+
+-- For windows
+--require("luasnip.loaders.from_lua").load({ paths = "~/Appdata/Local/nvim/snippets/" })
 
 ls.config.set_config({
 	store_selection_keys = '<C-s>',

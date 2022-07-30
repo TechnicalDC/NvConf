@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+local extra_opts = { noremap = true, silent = true, expr = true }
 
 -- luasnip mapping
 map("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
@@ -20,6 +21,10 @@ map("n", "Y", "y$", opts)
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 map("n", "<leader>y", "maggVGy`a", opts)
+
+-- Jumplist mutation
+map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", extra_opts)
+map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", extra_opts)
 
 -- Cycle through buffers
 map("n", "<A-C>", ":bprevious<CR>", opts)

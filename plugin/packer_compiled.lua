@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    loaded = true,
+    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["barbar.nvim"] = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/barbar.nvim",
@@ -93,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["dashboard-nvim"] = {
     loaded = true,
@@ -188,11 +198,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["pywal.nvim"] = {
-    loaded = true,
-    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/pywal.nvim",
-    url = "https://github.com/AlphaTechnolog/pywal.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

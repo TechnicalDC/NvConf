@@ -7,6 +7,7 @@ return require('packer').startup(function(use)
 	use 'folke/tokyonight.nvim'
 	use "ellisonleao/gruvbox.nvim"
 	use "catppuccin/nvim"
+	use 'AlphaTechnolog/pywal.nvim'
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
@@ -22,8 +23,8 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
-	use 'L3MON4D3/LuaSnip'
 	use 'saadparwaiz1/cmp_luasnip'
+	use 'L3MON4D3/LuaSnip'
 
 	use 'ethanholz/nvim-lastplace'
 	use 'numToStr/Comment.nvim'
