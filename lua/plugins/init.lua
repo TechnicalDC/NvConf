@@ -38,4 +38,7 @@ return require('packer').startup(function(use)
 		run = ':TSUpdate'
 	}
 	use 'nvim-telescope/telescope.nvim'
+
+	-- Vimscript based plugins
+	use "mattn/emmet-vim"
 end)

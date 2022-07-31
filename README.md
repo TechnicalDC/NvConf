@@ -1,4 +1,6 @@
-# NvConf
+<div class="class" align="center">
+	<image class="banner" src="images/banner.png">
+</div>
 
 My own purely lua based [neovim](https://neovim.org/) configuration. It is not another neovim distribution.
 
