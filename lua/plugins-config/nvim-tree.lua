@@ -1,5 +1,5 @@
 require("nvim-tree").setup({
-	sort_by = "case_sensitive",
+	sort_by = "name",
 	open_on_tab = false,
 	respect_buf_cwd = true,
 	view = {
