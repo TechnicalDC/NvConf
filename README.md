@@ -40,5 +40,18 @@ My own purely lua based [neovim](https://neovim.org/) configuration. It is not a
 * catppuccin
 * pywal
 
-## Screenshot
-![screenshot](https://github.com/TechnicalDC/NvConf/blob/main/images/nvim.png)
+## Screenshots
+
+![tree](https://github.com/TechnicalDC/NvConf/blob/main/images/tree.png)
+
+![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
+
+![dashboard](https://github.com/TechnicalDC/NvConf/blob/main/images/dashboard.png)
+
+![signs](https://github.com/TechnicalDC/NvConf/blob/main/images/signs.png)
+
+![manpage](https://github.com/TechnicalDC/NvConf/blob/main/images/manpage.png)
+
+![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)
+
+![notify](https://github.com/TechnicalDC/NvConf/blob/main/images/notify.png)

@@ -1,4 +1,3 @@
-
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 local autocmd = vim.api.nvim_create_autocmd
