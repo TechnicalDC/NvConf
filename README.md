@@ -1,8 +1,8 @@
 <div class="class" align="center">
 	<image class="banner" src="images/banner.png" style="width:400px;height:auto;">
-</div>
 
 My own purely lua based [neovim](https://neovim.org/) configuration. It is not another neovim distribution.
+</div>
 
 ## Plugins
 
