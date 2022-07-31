@@ -1,7 +1,7 @@
 <div class="class" align="center">
 	<image class="banner" src="images/banner.png" style="width:400px;height:auto;">
 
-	My own lua based [neovim](https://neovim.org/) configuration.
+My own lua based [neovim](https://neovim.org/) configuration.
 </div>
 
 ## Plugins
