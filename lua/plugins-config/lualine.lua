@@ -1,7 +1,7 @@
 local themes = {
 	tokyonight	= "tokyonight",
 	onedark		= "onedark",
-	dracule		= "dracula-nvim",
+	dracula		= "dracula-nvim",
 	catppuccin	= "catppuccin"
 }
 
