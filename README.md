@@ -22,14 +22,17 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * gitsigns
 * nvim-cmp
   - cmp-nvim-lsp
+  - cmp-nvim-lua
   - cmp-buffer
   - cmp-path
+  - cmp-cmdline
   - cmp_luasnip
 * LuaSnip
 * Comment.nvim
 * nvim-surround
 * nvim-orgmode
 * plenary.nvim
+* emmet-vim
 
 ## Colorschemes
 
@@ -39,6 +42,11 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * gruvbox
 * catppuccin
 * pywal
+
+## Installation
+```
+git clone https://github.com/TechnicalDC/NvConf ~/.config/nvim
+```
 
 ## Screenshots
 
