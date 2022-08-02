@@ -1,6 +1,8 @@
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
+local max_count = 15
+
 --   פּ ﯟ   some other good icons
 local kind_icons = {
 	Text = "",
@@ -58,8 +60,8 @@ cmp.setup({
 			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			vim_item.menu = ({
 				copilot = "[Copilot]",
-				luasnip = "LuaSnip",
-				nvim_lua = "[NVim Lua]",
+				luasnip = "[LuaSnip]",
+				nvim_lua = "[Nvim Lua]",
 				nvim_lsp = "[LSP]",
 				buffer = "[Buffer]",
 				path = "[Path]",
@@ -70,20 +72,34 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = 'luasnip' }, -- For luasnip users.
 		{ 
+			name = "nvim_lua",
+			option = {
+				max_item_count = max_count
+			}
+		},
+		{ 
 			name = 'buffer',
 			option = {
 				keyword_length = 1
 			}
 		},
 		{ name = 'path' },
-	})
+	}),
+	experimental = {
+		ghost_text = true
+	}
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
-		{ name = 'buffer' }
+		{ 
+			name = 'buffer',
+			option = {
+				max_item_count = max_count
+			}
+		}
 	}
 })
 
@@ -91,9 +107,20 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
-		{ name = 'path' }
-	}, {
-		{ name = 'cmdline' }
+		{ 
+			name = 'path', 
+			option = {
+				max_item_count = max_count
+			}
+		}
+	}, 
+	{
+		{ 
+			name = 'cmdline',
+			option = {
+				max_item_count = max_count
+			}
+		}
 	})
 })
 
