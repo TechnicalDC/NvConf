@@ -1,6 +1,6 @@
 local db = require('dashboard')
 db.hide_statusline = false
-db.hide_tabline = false
+db.hide_tabline = true
 db.custom_header = {
 	"",
 	"                                             o8o                     ",
@@ -13,7 +13,8 @@ db.custom_header = {
 	"                                                                     ",
 	"                                                                     ",
 }
-
+db.center_pad = 5
+db.footer_pad = 3
 db.custom_center = {
 	{
 		icon = '📁  ',
