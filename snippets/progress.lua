@@ -181,7 +181,7 @@ local for_fmt = fmt(
 				return sn(1, i(1,""))
 			end
 		end),
-		i(6, "<++>"),
+		i(6, "/* Add Logic */"),
 	}
 )
 local for_snippet = s(
