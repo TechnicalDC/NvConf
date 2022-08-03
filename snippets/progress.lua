@@ -16,12 +16,18 @@ local snippets, autosnippets = {}, {}
 -- }}}
 
 -- OTHER STUFFS {{{
-local date = function() return {os.date('%d-%m-%Y')} end
-
-local selection = f(function(_, snip)
-			return snip.env.TM_SELECTED_TEXT[1] or {}
-		end, {})
-
+local lock_type = {
+	"no-lock",
+	"exclusive-lock"
+}
+local def_types = {
+	"variable",
+	"frame",
+	"query",
+	"buffer",
+	"input parameter",
+	"output parameter"
+}
 local data_types = {
 	"character",
 	"decimal",
@@ -29,6 +35,7 @@ local data_types = {
 	"date",
 	"logical"
 }
+-- Returns table containing insert node with provided options
 local get_options = function(arg)
 	local t = {}
 
