@@ -22,6 +22,22 @@ local selection = f(function(_, snip)
 			return snip.env.TM_SELECTED_TEXT[1] or {}
 		end, {})
 
+local data_types = {
+	"character",
+	"decimal",
+	"integer",
+	"date",
+	"logical"
+}
+local get_options = function(arg)
+	local t = {}
+
+	for key, value in pairs(arg) do
+		table.insert(t, i(1, arg[key]))
+	end
+	return t
+end
+
 -- Finds the passed argument in the current buffer
 local find = function(arg)
 	local count = vim.api.nvim_buf_line_count(0)
@@ -188,16 +204,24 @@ table.insert(autosnippets, for_snippet)
 -- FUNCTION SNIPPET {{{
 local function_fmt = fmt(
 	[[
-		function {} ({}):
+		function {} returns {}
+			({}):
+
+			define variable lv_output as {}.
+
 			{}
+
+			return lv_output.
 		end function.
 	]],
 	{
 		d(1, function(_, snip)
-				return sn(1, i(1, snip.captures[1]))
+				return sn(1, i(1, snip.captures[1] or "<++>"))
 		end),
-		i(2, ""),
-		i(3, "<++>"),
+		c(2,get_options(data_types)),
+		i(3, ""),
+		rep(2),
+		i(4, "/* Add Logic */"),
 	}
 )
 local function_snippet = s(
