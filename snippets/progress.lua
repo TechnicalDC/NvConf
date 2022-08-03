@@ -21,6 +21,20 @@ local date = function() return {os.date('%d-%m-%Y')} end
 local selection = f(function(_, snip)
 			return snip.env.TM_SELECTED_TEXT[1] or {}
 		end, {})
+
+-- Finds the passed argument in the current buffer
+local find = function(arg)
+	local count = vim.api.nvim_buf_line_count(0)
+	for line = 1, count, 1 do
+		if string.find(vim.api.nvim_buf_get_lines(0,0,-1,false)[line], arg) then
+			found = true
+			break
+		else
+			found = false
+		end
+	end
+	return found
+end
 -- }}}
 
 -- PATCH SNIPPET {{{
@@ -93,7 +107,7 @@ table.insert(snippets, def_snippet)
 local find_fmt = fmt(
 	[[
 		find {} {} {}
-			where {} no-error.
+			where {} {}no-error.
 		if available {} then do:
 		end.
 	]],
@@ -113,6 +127,13 @@ local find_fmt = fmt(
 			i(1, "exclusive-lock"),
 		}),
 		i(4, "<++>"),
+		d(5, function()
+			if find("mfdeclre.i") or find("mfdtitle.i") then
+				return sn(1, i(1,"= global_domain "))
+			else 
+				return sn(1, i(1,""))
+			end
+		end),
 		rep(2)
 	}
 )
@@ -128,7 +149,7 @@ table.insert(autosnippets, find_snippet)
 local for_fmt = fmt(
 	[[
 		for {} {} {}
-			where {} :
+			where {} {}:
 			{}
 		end.
 	]],
@@ -147,7 +168,14 @@ local for_fmt = fmt(
 			i(1, "exclusive-lock"),
 		}),
 		i(4, "<++>"),
-		i(5, "<++>"),
+		d(5, function()
+			if find("mfdeclre.i") or find("mfdtitle.i") then
+				return sn(1, i(1,"= global_domain"))
+			else 
+				return sn(1, i(1,""))
+			end
+		end),
+		i(6, "<++>"),
 	}
 )
 local for_snippet = s(
