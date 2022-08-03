@@ -97,13 +97,7 @@ local def_fmt = fmt(
 	define {} {} {}.
 	]],
 	{
-		c(1, {
-			i(1, "variable"), 
-			i(1, "input parameter"),
-			i(1, "output parameter"),
-			i(1, "query"),
-			i(1, "frame"),
-		}),
+		c(1, get_options(def_types)),
 		i(2, "<++>"),
 		-- c(2, {
 		-- 	i(1, "<++>"),
@@ -142,13 +136,7 @@ local find_fmt = fmt(
 			i(1, "prev")
 		}),
 		i(2, "<++>"),
-		-- d(2, function(_, snip)
-		-- 		return sn(1, i(1, snip.captures[1]))
-		-- end),
-		c(3, {
-			i(1, "no-lock"),
-			i(1, "exclusive-lock"),
-		}),
+		c(3, get_options(lock_type)),
 		i(4, "<++>"),
 		d(5, function()
 			if find("mfdeclre.i") or find("mfdtitle.i") then
@@ -183,13 +171,8 @@ local for_fmt = fmt(
 			i(1, "next"),
 			i(1, "prev")
 		}),
-		d(2, function(_, snip)
-				return sn(1, i(1, snip.captures[1]))
-		end),
-		c(3, {
-			i(1, "no-lock"),
-			i(1, "exclusive-lock"),
-		}),
+		i(2, "<++>"),
+		c(3, get_options(lock_type)),
 		i(4, "<++>"),
 		d(5, function()
 			if find("mfdeclre.i") or find("mfdtitle.i") then
@@ -202,7 +185,7 @@ local for_fmt = fmt(
 	}
 )
 local for_snippet = s(
-	{trig = "for(%w+%_?%w+)", regTrig = true, hidden = true},
+	{trig = "for", regTrig = false, hidden = true},
 	for_fmt
 )
 table.insert(autosnippets, for_snippet)
