@@ -47,4 +47,23 @@ local image_snippet = s("link", link_fmt)
 table.insert(snippets, image_snippet)
 -- }}}
 
+-- META SNIPPET {{{
+local meta_fmt = fmt(
+	[[
+	---
+	title: {}
+	author: {}
+	date: {}
+	---
+	]],
+	{
+		i(1, "<++>"),
+		i(2, "Dilip Chauhan"),
+		f(function(_,snip) return {os.date('%d-%m-%Y')} end, {})
+	}
+)
+local meta_snippet = s("meta", meta_fmt)
+table.insert(snippets, meta_snippet)
+-- }}}
+
 return snippets, autosnippets

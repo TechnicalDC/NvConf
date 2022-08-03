@@ -1,14 +1,6 @@
-local themes = {
-	tokyonight	= "tokyonight",
-	onedark		= "onedark",
-	dracula		= "dracula-nvim",
-	catppuccin	= "catppuccin"
-}
-
 require('lualine').setup {
 	options = {
 		icons_enabled = true,
-		theme = themes["tokyonight"],
 		-- component_separators = { left = '', right = ''},
 		-- section_separators = { left = '', right = ''},
 		component_separators = { left = '', right = ''},
