@@ -16,11 +16,48 @@ local snippets, autosnippets = {}, {}
 -- }}}
 
 -- OTHER STUFFS {{{
-local date = function() return {os.date('%d-%m-%Y')} end
+local lock_type = {
+	"no-lock",
+	"exclusive-lock"
+}
+local def_types = {
+	"variable",
+	"frame",
+	"query",
+	"buffer",
+	"input parameter",
+	"output parameter"
+}
+local data_types = {
+	"character",
+	"decimal",
+	"integer",
+	"date",
+	"logical"
+}
+-- Returns table containing insert node with provided options
+local get_options = function(arg)
+	local t = {}
 
-local selection = f(function(_, snip)
-			return snip.env.TM_SELECTED_TEXT[1] or {}
-		end, {})
+	for key, value in pairs(arg) do
+		table.insert(t, i(1, arg[key]))
+	end
+	return t
+end
+
+-- Finds the passed argument in the current buffer
+local find = function(arg)
+	local count = vim.api.nvim_buf_line_count(0)
+	for line = 1, count, 1 do
+		if string.find(vim.api.nvim_buf_get_lines(0,0,-1,false)[line], arg) then
+			found = true
+			break
+		else
+			found = false
+		end
+	end
+	return found
+end
 -- }}}
 
 -- PATCH SNIPPET {{{
@@ -60,13 +97,7 @@ local def_fmt = fmt(
 	define {} {} {}.
 	]],
 	{
-		c(1, {
-			i(1, "variable"), 
-			i(1, "input parameter"),
-			i(1, "output parameter"),
-			i(1, "query"),
-			i(1, "frame"),
-		}),
+		c(1, get_options(def_types)),
 		i(2, "<++>"),
 		-- c(2, {
 		-- 	i(1, "<++>"),
@@ -93,7 +124,7 @@ table.insert(snippets, def_snippet)
 local find_fmt = fmt(
 	[[
 		find {} {} {}
-			where {} no-error.
+			where {} {}no-error.
 		if available {} then do:
 		end.
 	]],
@@ -105,14 +136,15 @@ local find_fmt = fmt(
 			i(1, "prev")
 		}),
 		i(2, "<++>"),
-		-- d(2, function(_, snip)
-		-- 		return sn(1, i(1, snip.captures[1]))
-		-- end),
-		c(3, {
-			i(1, "no-lock"),
-			i(1, "exclusive-lock"),
-		}),
+		c(3, get_options(lock_type)),
 		i(4, "<++>"),
+		d(5, function()
+			if find("mfdeclre.i") or find("mfdtitle.i") then
+				return sn(1, i(1,"= global_domain "))
+			else 
+				return sn(1, i(1,""))
+			end
+		end),
 		rep(2)
 	}
 )
@@ -128,7 +160,7 @@ table.insert(autosnippets, find_snippet)
 local for_fmt = fmt(
 	[[
 		for {} {} {}
-			where {} :
+			where {} {}:
 			{}
 		end.
 	]],
@@ -139,19 +171,21 @@ local for_fmt = fmt(
 			i(1, "next"),
 			i(1, "prev")
 		}),
-		d(2, function(_, snip)
-				return sn(1, i(1, snip.captures[1]))
-		end),
-		c(3, {
-			i(1, "no-lock"),
-			i(1, "exclusive-lock"),
-		}),
+		i(2, "<++>"),
+		c(3, get_options(lock_type)),
 		i(4, "<++>"),
-		i(5, "<++>"),
+		d(5, function()
+			if find("mfdeclre.i") or find("mfdtitle.i") then
+				return sn(1, i(1,"= global_domain"))
+			else 
+				return sn(1, i(1,""))
+			end
+		end),
+		i(6, "/* Add Logic */"),
 	}
 )
 local for_snippet = s(
-	{trig = "for(%w+%_?%w+)", regTrig = true, hidden = true},
+	{trig = "for", regTrig = false, hidden = true},
 	for_fmt
 )
 table.insert(autosnippets, for_snippet)
@@ -160,16 +194,24 @@ table.insert(autosnippets, for_snippet)
 -- FUNCTION SNIPPET {{{
 local function_fmt = fmt(
 	[[
-		function {} ({}):
+		function {} returns {}
+			({}):
+
+			define variable lv_output as {}.
+
 			{}
+
+			return lv_output.
 		end function.
 	]],
 	{
 		d(1, function(_, snip)
-				return sn(1, i(1, snip.captures[1]))
+				return sn(1, i(1, snip.captures[1] or "<++>"))
 		end),
-		i(2, ""),
-		i(3, "<++>"),
+		c(2,get_options(data_types)),
+		i(3, ""),
+		rep(2),
+		i(4, "/* Add Logic */"),
 	}
 )
 local function_snippet = s(
