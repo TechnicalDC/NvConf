@@ -1,13 +1,8 @@
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
-	-- colorschemes
-	use 'navarasu/onedark.nvim'
-	use 'Mofiqul/dracula.nvim'
-	use 'folke/tokyonight.nvim'
-	use "ellisonleao/gruvbox.nvim"
-	use "catppuccin/nvim"
-	use 'AlphaTechnolog/pywal.nvim'
+	-- colorscheme
+	use 'RRethy/nvim-base16'
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
@@ -24,6 +19,7 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lua'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
 	use 'saadparwaiz1/cmp_luasnip'
 	use 'L3MON4D3/LuaSnip'
 
