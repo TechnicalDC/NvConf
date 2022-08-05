@@ -51,7 +51,7 @@ git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data
 
 ```
 
-After intalling `packer.nvim`, open nvim and run `:PackerSync`
+After intalling `packer.nvim`, open nvim and run `:PackerSync` to install the plugins.
 
 > Note: On first run, it will give errors but after running `PackerSync` it will launch without any error.
 
