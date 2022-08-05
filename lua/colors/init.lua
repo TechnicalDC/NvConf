@@ -1,1 +1,1 @@
-vim.cmd[[colorscheme base16-ayu-mirage]]
+vim.cmd[[colorscheme base16-onedark]]
