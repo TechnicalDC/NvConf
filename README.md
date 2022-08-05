@@ -13,7 +13,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * lualine
 * nvim-tree
 * gitsigns
-* barbar
+* bufferline
 * telescope
 * indent-blankline
 * nvim-treesitter
@@ -36,17 +36,24 @@ My own lua based [neovim](https://neovim.org/) configuration.
 
 ## Colorschemes
 
-* tokyonight
-* onedark
-* dracula
-* gruvbox
-* catppuccin
-* pywal
+* nvim-base16
 
 ## Installation
 ```
 git clone https://github.com/TechnicalDC/NvConf ~/.config/nvim
+
+# Unix-like
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+ 
+# Windows
+git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
+
 ```
+
+After intalling `packer.nvim`, open nvim and run `:PackerSync`
+
+> Note: On first run, it will give errors but after running `PackerSync` it will launch without any error.
 
 ## Screenshots
 
