@@ -150,7 +150,6 @@ local find_fmt = fmt(
 )
 local find_snippet = s(
 	{trig = "find", regTrig = false, hidden = true},
-	-- {trig = "find(%w+%_?%w+)", regTrig = true, hidden = true},
 	find_fmt
 )
 table.insert(autosnippets, find_snippet)
@@ -185,10 +184,10 @@ local for_fmt = fmt(
 	}
 )
 local for_snippet = s(
-	{trig = "for", regTrig = false, hidden = true},
+	{trig = "for", regTrig = false, hidden = false},
 	for_fmt
 )
-table.insert(autosnippets, for_snippet)
+table.insert(snippets, for_snippet)
 -- }}}
 
 -- FUNCTION SNIPPET {{{
@@ -215,11 +214,11 @@ local function_fmt = fmt(
 	}
 )
 local function_snippet = s(
-	{trig = "fun(%w+%_?%w+)", regTrig = true, hidden = true},
+	{trig = "fun(%w+%_?%w+)", regTrig = true, hidden = false},
 	-- "function",
 	function_fmt
 )
-table.insert(autosnippets, function_snippet)
+table.insert(snippets, function_snippet)
 -- }}}
 
 return snippets, autosnippets
