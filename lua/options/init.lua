@@ -27,3 +27,4 @@ vim.o.spelllang      = "en_us"
 vim.o.signcolumn     = "yes"
 vim.o.conceallevel   = 2
 vim.o.concealcursor  = 'nc'
+vim.o.termguicolors = true
