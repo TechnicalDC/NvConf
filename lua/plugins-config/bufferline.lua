@@ -1,4 +1,4 @@
-require("bufferline").setup({
+require("bufferline").setup{
 	option = {
 		mode = "buffers", -- set to "tabs" to only show tabpages instead
 		numbers = "buffer_id", -- "none" | "ordinal" | "buffer_id,
@@ -25,6 +25,16 @@ require("bufferline").setup({
 				return vim.fn.fnamemodify(buf.name, ':t:r')
 			end
 		end,
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = function()
+					return vim.fn.getcwd()
+				end,
+				highlight = "Directory",
+				text_align = "left"
+			}
+		},
 		max_name_length = 18,
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		tab_size = 18,
@@ -71,4 +81,4 @@ require("bufferline").setup({
 		-- 	return buffer_a.modified > buffer_b.modified
 		-- end
 	}
-})
+}
