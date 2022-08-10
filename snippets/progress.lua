@@ -83,7 +83,7 @@ local cmmt_fmt = fmt(
 	]],
 	{
 		d(1, function(_, snip)
-			return sn(1, t(snip.env.TM_SELECTED_TEXT[1] or {}))
+			return sn(1, t(snip.env.TM_SELECTED_TEXT or {}))
 		end)
 	}
 )
@@ -98,13 +98,9 @@ local def_fmt = fmt(
 	]],
 	{
 		c(1, get_options(def_types)),
-		i(2, "<++>"),
-		-- c(2, {
-		-- 	i(1, "<++>"),
-		-- 	d(1, function(_, snip)
-		-- 		return sn(1, t(snip.env.TM_SELECTED_TEXT[1] or {}))
-		-- 	end)
-		-- }),
+		d(2, function(_, snip)
+			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
+		end),
 		c(3, {
 			i(1, "as character"), 
 			i(1, "as integer"),
@@ -149,10 +145,10 @@ local find_fmt = fmt(
 	}
 )
 local find_snippet = s(
-	{trig = "find", regTrig = false, hidden = true},
+	{trig = "find", regTrig = false, hidden = false},
 	find_fmt
 )
-table.insert(autosnippets, find_snippet)
+table.insert(snippets, find_snippet)
 -- }}}
 
 -- FOR SNIPPET {{{
@@ -214,11 +210,11 @@ local function_fmt = fmt(
 	}
 )
 local function_snippet = s(
-	{trig = "fun(%w+%_?%w+)", regTrig = true, hidden = false},
+	{trig = "function", regTrig = false, hidden = false},
 	-- "function",
 	function_fmt
 )
 table.insert(snippets, function_snippet)
 -- }}}
 
-return snippets, autosnippets
+return snippets
