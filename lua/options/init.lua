@@ -27,4 +27,12 @@ vim.o.spelllang      = "en_us"
 vim.o.signcolumn     = "yes"
 vim.o.conceallevel   = 2
 vim.o.concealcursor  = 'nc'
-vim.o.termguicolors = true
+vim.o.termguicolors  = true
+vim.o.foldtext		 = "v:lua.custom_fold_text()"
+
+function _G.custom_fold_text()
+    local line = vim.fn.getline(vim.v.foldstart)
+	line = string.gsub(line, "{+", "")
+    local line_count = vim.v.foldend - vim.v.foldstart + 1
+    return " " .. line .. ": " .. line_count .. " lines"
+end
