@@ -131,7 +131,9 @@ local find_fmt = fmt(
 			i(1, "next"),
 			i(1, "prev")
 		}),
-		i(2, "<++>"),
+		d(2, function(_, snip)
+			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
+		end),
 		c(3, get_options(lock_type)),
 		i(4, "<++>"),
 		d(5, function()
@@ -166,7 +168,9 @@ local for_fmt = fmt(
 			i(1, "next"),
 			i(1, "prev")
 		}),
-		i(2, "<++>"),
+		d(2, function(_, snip)
+			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
+		end),
 		c(3, get_options(lock_type)),
 		i(4, "<++>"),
 		d(5, function()
@@ -201,7 +205,7 @@ local function_fmt = fmt(
 	]],
 	{
 		d(1, function(_, snip)
-				return sn(1, i(1, snip.captures[1] or "<++>"))
+			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
 		end),
 		c(2,get_options(data_types)),
 		i(3, ""),
