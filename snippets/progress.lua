@@ -74,6 +74,27 @@ local patch_snippet = s("patch", patch_fmt)
 table.insert(snippets, patch_snippet)
 -- }}}
 
+-- MARKER {{{
+local marker_fmt = fmt(
+	[[
+	/* START - {} */
+	{}
+	/* END - {} */
+	]],
+	{
+		d(1, function() 
+			return sn(1,t(os.date('%d%m%Y')))
+		end),
+		d(2, function(_, snip)
+			return sn(1, t(snip.env.TM_SELECTED_TEXT or {}))
+		end),
+		rep(1)
+	}
+)
+local marker_snippet = s("mark", marker_fmt)
+-- table.insert(snippets, marker_snippet)
+--}}}
+
 -- COMMENT SNIPPET {{{
 local cmmt_fmt = fmt(
 	[[
