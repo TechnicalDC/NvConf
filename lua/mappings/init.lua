@@ -27,8 +27,8 @@ map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", extra_opts)
 map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", extra_opts)
 
 -- Cycle through buffers
-map("n", "<A-C>", ":bprevious<CR>", opts)
-map("n", "<A-c>", ":bnext<CR>", opts)
+-- map("n", "<A-C>", ":bprevious<CR>", opts)
+-- map("n", "<A-c>", ":bnext<CR>", opts)
 
 -- Rotate splits
 -- Horizontal to vertical
