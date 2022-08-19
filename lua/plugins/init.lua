@@ -2,7 +2,7 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- colorscheme
-	use 'RRethy/nvim-base16'
+	use 'TechnicalDC/nvim-base16'
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use 'kyazdani42/nvim-tree.lua'
 	use 'lewis6991/gitsigns.nvim'
-	use 'akinsho/bufferline.nvim'
+	use {'akinsho/bufferline.nvim', tag = "v2.*"}
 
 	-- autocompletions
 	use 'hrsh7th/nvim-cmp'

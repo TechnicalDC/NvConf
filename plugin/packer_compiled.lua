@@ -139,10 +139,15 @@ _G.packer_plugins = {
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  neorg = {
+    loaded = true,
+    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
+  },
   ["nvim-base16"] = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
+    url = "https://github.com/TechnicalDC/nvim-base16"
   },
   ["nvim-cmp"] = {
     loaded = true,
