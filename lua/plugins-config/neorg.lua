@@ -1,5 +1,14 @@
 require('neorg').setup {
     load = {
-        ["core.defaults"] = {}
+        ["core.defaults"] = {},
+		["core.export"] = {},
+		["core.norg.dirman"] = {
+            config = {
+                workspaces = {
+                    work = "~/Documents/work",
+                    home = "~/Documents/home",
+                }
+            }
+        }
     }
 }

@@ -28,7 +28,6 @@ return require('packer').startup(function(use)
 	use 'neovim/nvim-lspconfig'
 	use "lukas-reineke/indent-blankline.nvim"
 	use "kylechui/nvim-surround"
-	use 'nvim-orgmode/orgmode'
 	use 'nvim-lua/plenary.nvim'
 	use {
 		'nvim-treesitter/nvim-treesitter',

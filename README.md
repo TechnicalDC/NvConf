@@ -15,6 +15,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * gitsigns
 * bufferline
 * telescope
+* telescope-ui-select.nvim
 * indent-blankline
 * nvim-treesitter
 * nvim-web-devicons
@@ -30,8 +31,8 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * LuaSnip
 * Comment.nvim
 * nvim-surround
-* nvim-orgmode
 * plenary.nvim
+* neorg
 * emmet-vim
 
 ## Colorschemes
@@ -39,7 +40,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * nvim-base16
 
 ## Installation
-```
+```bash
 git clone https://github.com/TechnicalDC/NvConf ~/.config/nvim
 
 # Unix-like
@@ -48,7 +49,6 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  
 # Windows
 git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
-
 ```
 
 After intalling `packer.nvim`, open nvim and run `:PackerSync` to install the plugins.
@@ -57,16 +57,4 @@ After intalling `packer.nvim`, open nvim and run `:PackerSync` to install the pl
 
 ## Screenshots
 
-![tree](https://github.com/TechnicalDC/NvConf/blob/main/images/tree.png)
-
-![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
-
-![dashboard](https://github.com/TechnicalDC/NvConf/blob/main/images/dashboard.png)
-
-![signs](https://github.com/TechnicalDC/NvConf/blob/main/images/signs.png)
-
-![manpage](https://github.com/TechnicalDC/NvConf/blob/main/images/manpage.png)
-
-![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)
-
-![notify](https://github.com/TechnicalDC/NvConf/blob/main/images/notify.png)
+![neovim](https://github.com/TechnicalDC/NvConf/blob/main/images/neovim.gif)
