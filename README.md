@@ -9,6 +9,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * dashboard-nvim
 * packer.nivm
 * nvim-lastplace
+* nvim-autopairs
 * nvim-lspconfig
 * lualine
 * nvim-tree
