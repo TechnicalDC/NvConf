@@ -26,7 +26,8 @@ local def_types = {
 	"query",
 	"buffer",
 	"input parameter",
-	"output parameter"
+	"output parameter",
+	"temp-table"
 }
 local data_types = {
 	"character",
@@ -83,7 +84,7 @@ local marker_fmt = fmt(
 	]],
 	{
 		d(1, function() 
-			return sn(1,t(os.date('%d%m%Y')))
+			return sn(1,t("ALT" .. sting(os.date('%d%m%Y'))))
 		end),
 		d(2, function(_, snip)
 			return sn(1, t(snip.env.TM_SELECTED_TEXT or {}))
@@ -143,7 +144,7 @@ local find_fmt = fmt(
 		find {} {} {}
 			where {} {}no-error.
 		if available {} then do:
-		end.
+		end. /* if available {} then do: */
 	]],
 	{
 		c(1, {
@@ -164,7 +165,8 @@ local find_fmt = fmt(
 				return sn(1, i(1,""))
 			end
 		end),
-		rep(2)
+		rep(2),
+		rep(2),
 	}
 )
 local find_snippet = s(
@@ -180,7 +182,7 @@ local for_fmt = fmt(
 		for {} {} {}
 			where {} {}:
 			{}
-		end.
+		end. /* for {} {} {} */
 	]],
 	{
 		c(1, {
@@ -202,6 +204,9 @@ local for_fmt = fmt(
 			end
 		end),
 		i(6, "/* Add Logic */"),
+		rep(1),
+		rep(2),
+		rep(3),
 	}
 )
 local for_snippet = s(
@@ -222,7 +227,7 @@ local function_fmt = fmt(
 			{}
 
 			return lv_output.
-		end function.
+		end function. /* function {} returns {} */
 	]],
 	{
 		d(1, function(_, snip)
@@ -232,6 +237,8 @@ local function_fmt = fmt(
 		i(3, ""),
 		rep(2),
 		i(4, "/* Add Logic */"),
+		rep(1),
+		rep(2),
 	}
 )
 local function_snippet = s(
