@@ -7,6 +7,7 @@ require('neorg').setup {
             		config = {
                 	workspaces = {
                     		work = "~/Documents/work",
+							neorg = "~/Neorg",
                     		home = "~/Documents/home",
                 }
             }
