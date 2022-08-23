@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
 	use 'L3MON4D3/LuaSnip'
 
 	use 'ethanholz/nvim-lastplace'
+	use "windwp/nvim-autopairs"
 	use 'numToStr/Comment.nvim'
 	use 'neovim/nvim-lspconfig'
 	use "lukas-reineke/indent-blankline.nvim"
