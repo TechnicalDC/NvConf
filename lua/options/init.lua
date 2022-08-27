@@ -21,6 +21,8 @@ set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
 set.fillchars	   = "fold: ,eob: "
+set.listchars	   = "eol:,tab:  "
+set.list	   = true
 set.mouse          = "a"
 set.tabstop        = 4
 set.shiftwidth     = 4
@@ -30,7 +32,8 @@ set.signcolumn     = "yes"
 set.conceallevel   = 2
 set.concealcursor  = 'nc'
 set.termguicolors  = true
-set.foldtext		 = "v:lua.custom_fold_text()"
+set.foldtext	   = "v:lua.custom_fold_text()"
+set.scrolloff	   = 10
 
 function _G.custom_fold_text()
     local line = vim.fn.getline(vim.v.foldstart)
