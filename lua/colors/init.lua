@@ -1,1 +1,1 @@
-vim.cmd[[colorscheme base16-gruvbox-dark-medium]]
+vim.cmd[[colorscheme base16-atelier-cave]]
