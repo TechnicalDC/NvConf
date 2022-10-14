@@ -22,4 +22,21 @@ require('telescope').setup{
 			color_devicons = true,
 		},
 	},
+	extensions = {
+		file_browser = {
+			hijack_netrw = true,
+			path = "%:p:h",
+			default_selection_index = 2,
+			-- mappings = {
+			-- 	["i"] = {
+			-- 		-- your custom insert mode mappings
+			-- 	},
+			-- 	["n"] = {
+			-- 		-- your custom normal mode mappings
+			-- 	},
+			-- },
+		},
+	},
 }
+
+require("telescope").load_extension "file_browser"
