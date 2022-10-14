@@ -1,8 +1,8 @@
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
-	-- colorscheme
-	use 'TechnicalDC/nvim-base16'
+	-- colorschemes
+	use 'RRethy/nvim-base16'
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use 'kyazdani42/nvim-tree.lua'
 	use 'lewis6991/gitsigns.nvim'
-	use {'akinsho/bufferline.nvim', tag = "v2.*"}
+	use 'akinsho/bufferline.nvim'
 
 	-- autocompletions
 	use 'hrsh7th/nvim-cmp'
@@ -36,8 +36,10 @@ return require('packer').startup(function(use)
 	}
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-telescope/telescope-ui-select.nvim'
-	use "nvim-neorg/neorg"
+	use "nvim-telescope/telescope-file-browser.nvim" 
+	use 'nvim-orgmode/orgmode'
 
 	-- Vimscript based plugins
 	use "mattn/emmet-vim"
+	use 'komissarex/vim-progress'
 end)
