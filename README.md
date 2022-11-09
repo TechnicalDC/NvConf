@@ -14,7 +14,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * lualine
 * nvim-tree
 * gitsigns
-* bufferline
+* barbar
 * telescope
 * telescope-ui-select.nvim
 * indent-blankline
