@@ -22,11 +22,11 @@ set.smartcase      = true
 set.clipboard      = "unnamedplus"
 set.fillchars	   = "fold: ,eob: "
 set.listchars	   = "eol:,tab:  "
-set.list	   	= true
+set.list           = true
 set.mouse          = "a"
-set.tabstop        = 4
-set.shiftwidth     = 4
-set.softtabstop    = 4
+set.tabstop        = 3
+set.shiftwidth     = 3
+set.softtabstop    = 3
 set.spelllang      = "en_us"
 set.signcolumn     = "yes"
 set.conceallevel   = 2
@@ -36,8 +36,8 @@ set.foldtext	   = "v:lua.custom_fold_text()"
 set.scrolloff	   = 10
 
 function _G.custom_fold_text()
-    local line = vim.fn.getline(vim.v.foldstart)
+	local line = vim.fn.getline(vim.v.foldstart)
 	line = string.gsub(line, "{+", "")
-    local line_count = vim.v.foldend - vim.v.foldstart + 1
-    return " " .. line .. ": " .. line_count .. " lines"
+	local line_count = vim.v.foldend - vim.v.foldstart + 1
+	return " " .. line .. ": " .. line_count .. " lines"
 end
