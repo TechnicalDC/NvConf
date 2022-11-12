@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
 	use "windwp/nvim-autopairs"
 	use 'numToStr/Comment.nvim'
 	use 'neovim/nvim-lspconfig'
+	use "glepnir/lspsaga.nvim"
 	use "lukas-reineke/indent-blankline.nvim"
 	use "kylechui/nvim-surround"
 	use 'nvim-lua/plenary.nvim'
@@ -41,5 +42,5 @@ return require('packer').startup(function(use)
 
 	-- Vimscript based plugins
 	use "mattn/emmet-vim"
-	use 'komissarex/vim-progress'
+	-- use 'komissarex/vim-progress'
 end)

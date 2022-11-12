@@ -23,6 +23,11 @@ db.custom_center = {
 	},
 	{
 		icon = '📄  ',
+		desc = 'Browse  File                            ',
+		shortcut = 'SPC f b'
+	},
+	{
+		icon = '📄  ',
 		desc = 'Find  File                              ',
 		shortcut = 'SPC f f'
 	},

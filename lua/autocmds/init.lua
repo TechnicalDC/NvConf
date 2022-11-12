@@ -5,13 +5,19 @@ local autocmd = vim.api.nvim_create_autocmd
 -- Vertically center documents when in insert mode
 autocmd({"InsertEnter"},{pattern = {"*"}, command = "norm zz" })
 
--- Dashboard
+-- Dashboard {{{
 autocmd({"FileType"}, 
 	{
 		pattern = "dashboard", 
 		command = ':lua vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = true, silent = true })'
 	}
 )
+-- autocmd({"FileType"}, 
+-- 	{
+-- 		pattern = "dashboard", 
+-- 		command = ':lua vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope find_browser<CR>", { noremap = true, silent = true })'
+-- 	}
+-- )
 autocmd({"FileType"}, 
 	{
 		pattern = "dashboard", 
@@ -30,11 +36,13 @@ autocmd({"FileType"},
 		command = ':lua vim.api.nvim_set_keymap("n", "q", ":q!<CR>", { noremap = true })'
 	}
 )
+-- }}}
 
--- Telescope
+-- Telescope {{{
 autocmd({"FileType"}, 
 	{
 		pattern = "TelescopePrompt", 
 		command = 'IndentBlanklineDisable'
 	}
 )
+-- }}}
