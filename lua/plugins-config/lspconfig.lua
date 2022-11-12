@@ -1,5 +1,10 @@
+local lspconfig = require('lspconfig')
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
+
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
 
 
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -35,13 +40,38 @@ local on_attach = function(client, bufnr)
 	-- keymap('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-require'lspconfig'.pyright.setup{
+lspconfig.pyright.setup{
 	on_attach = on_attach
 }
 
-require'lspconfig'.tsserver.setup{
+lspconfig.tsserver.setup{
 	on_attach = on_attach
 }
+lspconfig.sumneko_lua.setup({
+	on_attach = on_attach,
+	settings = {
+		Lua = {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+				version = "LuaJIT",
+				-- Setup your lua path
+				path = runtime_path,
+			},
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			workspace = {
+				-- Make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+})
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
