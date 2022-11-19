@@ -199,11 +199,6 @@ _G.packer_plugins = {
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  orgmode = {
-    loaded = true,
-    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/orgmode",
-    url = "https://github.com/nvim-orgmode/orgmode"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -228,11 +223,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dilip/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-progress"] = {
-    loaded = true,
-    path = "/home/dilip/.local/share/nvim/site/pack/packer/start/vim-progress",
-    url = "https://github.com/komissarex/vim-progress"
   }
 }
 
