@@ -1,1 +1,1 @@
-vim.cmd[[colorscheme base16-dracula]]
+vim.cmd[[colorscheme base16-spacemacs]]

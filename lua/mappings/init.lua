@@ -48,17 +48,30 @@ map("n", "<A-g>", ":Telescope git_status<CR>", opts)
 map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
 
 -- Remap splits navigation to just ( Ctrl + hjkl)
-map("n", "<C-h>", "<C-w>h", opts)
-map("n", "<C-j>", "<C-w>j", opts)
-map("n", "<C-k>", "<C-w>k", opts)
-map("n", "<C-l>", "<C-w>l", opts)
+-- map("n", "<C-h>", "<C-w>h", opts)
+-- map("n", "<C-j>", "<C-w>j", opts)
+-- map("n", "<C-k>", "<C-w>k", opts)
+-- map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<A-t>", "<C-w>T", opts)
 
+
+-- TMUX {{{
+map("n", "<C-h>", ":lua require('tmux').move_left()<CR>", opts)
+map("n", "<C-j>", ":lua require('tmux').move_bottom()<CR>", opts)
+map("n", "<C-k>", ":lua require('tmux').move_top()<CR>", opts)
+map("n", "<C-l>", ":lua require('tmux').move_right()<CR>", opts)
+
+map("n", "<A-l>", ":lua require('tmux').resize_right()<CR>", opts)
+map("n", "<A-h>", ":lua require('tmux').resize_left()<CR>", opts)
+map("n", "<A-k>", ":lua require('tmux').resize_top()<CR>", opts)
+map("n", "<A-j>", ":lua require('tmux').resize_bottom()<CR>", opts)
+-- }}}
+
 -- Keybindings for split resizing
-map("n", "<A-l>", ":vertical resize +2<CR>", opts)
-map("n", "<A-h>", ":vertical resize -2<CR>", opts)
-map("n", "<A-k>", ":resize +2<CR>", opts)
-map("n", "<A-j>", ":resize -2<CR>", opts)
+-- map("n", "<A-l>", ":vertical resize +2<CR>", opts)
+-- map("n", "<A-h>", ":vertical resize -2<CR>", opts)
+-- map("n", "<A-k>", ":resize +2<CR>", opts)
+-- map("n", "<A-j>", ":resize -2<CR>", opts)
 
 -- Search highlighting
 map("n", "/", ":lua vim.o.hlsearch = true<CR>/", opts)

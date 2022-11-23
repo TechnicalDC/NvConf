@@ -4,6 +4,8 @@ return require('packer').startup(function(use)
 	-- colorschemes
 	use 'RRethy/nvim-base16'
 
+	use "aserowy/tmux.nvim"
+
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
 	use 'glepnir/dashboard-nvim'
