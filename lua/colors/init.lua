@@ -1,1 +1,1 @@
-vim.cmd[[colorscheme base16-spacemacs]]
+vim.cmd[[colorscheme base16-atelier-seaside]]

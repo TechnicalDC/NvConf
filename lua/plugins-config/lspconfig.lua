@@ -47,6 +47,9 @@ lspconfig.pyright.setup{
 lspconfig.tsserver.setup{
 	on_attach = on_attach
 }
+
+require'lspconfig'.cssls.setup{}
+
 lspconfig.sumneko_lua.setup({
 	on_attach = on_attach,
 	settings = {

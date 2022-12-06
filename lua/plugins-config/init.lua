@@ -1,5 +1,5 @@
 require("plugins-config.autopairs")
-require("plugins-config.barbar")
+require("plugins-config.bufferline")
 require("plugins-config.comment")
 require("plugins-config.dashboard")
 require("plugins-config.emmet")

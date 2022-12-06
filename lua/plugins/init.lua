@@ -3,8 +3,12 @@ return require('packer').startup(function(use)
 
 	-- colorschemes
 	use 'RRethy/nvim-base16'
-
+	use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
 	use "aserowy/tmux.nvim"
+	use {
+		'glacambre/firenvim',
+		run = function() vim.fn['firenvim#install'](0) end 
+	}
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
@@ -13,7 +17,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use 'kyazdani42/nvim-tree.lua'
 	use 'lewis6991/gitsigns.nvim'
-	use 'romgrk/barbar.nvim'
+	use {'akinsho/bufferline.nvim', tag = "v3.*"}
 
 	-- autocompletions
 	use 'hrsh7th/nvim-cmp'
