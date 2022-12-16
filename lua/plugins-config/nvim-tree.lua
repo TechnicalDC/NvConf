@@ -1,12 +1,12 @@
 require("nvim-tree").setup({
-	sort_by = "name",
+	sort_by = "case_sensitive",
 	open_on_tab = false,
 	respect_buf_cwd = true,
 	view = {
 		adaptive_size = false,
 		width = 30,
 		side = "left",
-		hide_root_folder = false,
+		hide_root_folder = true,
 		number = false,
 		relativenumber = false,
 		signcolumn = "yes",
@@ -15,6 +15,18 @@ require("nvim-tree").setup({
 				{ key = "u", action = "dir_up" },
 			},
 		},
+		float = {
+			enable = false,
+			quit_on_focus_loss = true,
+			open_win_config = {
+				relative = "editor",
+				border = "rounded",
+				width = 30,
+				height = 30,
+				row = 1,
+				col = 1,
+			},
+		}
 	},
 	actions = {
 		use_system_clipboard = true,
@@ -39,7 +51,7 @@ require("nvim-tree").setup({
 		}
 	},
 	diagnostics = {
-		enable = false,
+		enable = true,
 		show_on_dirs = false,
 		icons = {
 			hint = "",
