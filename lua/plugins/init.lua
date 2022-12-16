@@ -1,14 +1,11 @@
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
+	-- Browser Integration
+	use 'glacambre/firenvim'
+
 	-- colorschemes
 	use 'RRethy/nvim-base16'
-	use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
-	use "aserowy/tmux.nvim"
-	use {
-		'glacambre/firenvim',
-		run = function() vim.fn['firenvim#install'](0) end 
-	}
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
@@ -18,6 +15,7 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-tree.lua'
 	use 'lewis6991/gitsigns.nvim'
 	use {'akinsho/bufferline.nvim', tag = "v3.*"}
+	use 'fgheng/winbar.nvim'
 
 	-- autocompletions
 	use 'hrsh7th/nvim-cmp'
@@ -44,7 +42,9 @@ return require('packer').startup(function(use)
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-telescope/telescope-ui-select.nvim'
 	use "nvim-telescope/telescope-file-browser.nvim" 
+	use 'nvim-orgmode/orgmode'
 
+	use 'prichrd/netrw.nvim'
 	-- Vimscript based plugins
 	use "mattn/emmet-vim"
 	-- use 'komissarex/vim-progress'
