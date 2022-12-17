@@ -35,6 +35,9 @@ set.termguicolors  = true
 set.foldtext	   = "v:lua.custom_fold_text()"
 set.scrolloff	   = 10
 
+-- GUI Configuration
+set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=13"
+
 function _G.custom_fold_text()
 	local line = vim.fn.getline(vim.v.foldstart)
 	line = string.gsub(line, "{+", "")
