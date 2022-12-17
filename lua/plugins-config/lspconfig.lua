@@ -1,7 +1,8 @@
+local nvim_lsp = require('lspconfig')
+local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
--- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
--- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
@@ -15,7 +16,7 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap=true, silent=true, buffer=bufnr }
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+	vim.keymap.set('n', 'K', ":Lspsaga hover_doc<CR>", bufopts)
 	-- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
 	-- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 	-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -23,20 +24,27 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set('n', '<space>wl', function()
 	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	-- end, bufopts)
+	vim.keymap.set('n', '[d', "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+	vim.keymap.set('n', ']d', "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 	vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set('n', '<space>d', "<cmd>Lspsaga peek_definition<CR>", bufopts)
+	vim.keymap.set('n', '<space>rn', "<cmd>Lspsaga rename<CR>", bufopts)
+	vim.keymap.set('n', '<leader>ca', "<cmd>Lspsaga code_action<CR>", bufopts)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	-- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-require'lspconfig'.pyright.setup{
-	on_attach = on_attach
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 
+	'pyright', 
+	'tsserver' 
 }
-
-require'lspconfig'.tsserver.setup{
-	on_attach = on_attach
-}
+for _, lsp in ipairs(servers) do
+	nvim_lsp[lsp].setup {
+		on_attach = on_attach,
+	}
+end
 
 local signs = { 
 	Error = " ", 

@@ -1,4 +1,3 @@
-local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
 saga.init_lsp_saga({
@@ -31,18 +30,18 @@ saga.init_lsp_saga({
 	code_action_num_shortcut = true,
 	-- same as nvim-lightbulb but async
 	code_action_lightbulb = {
-		enable = true,
-		enable_in_insert = true,
+		enable            = true,
+		enable_in_insert  = true,
 		cache_code_action = true,
-		sign = true,
-		update_time = 150,
-		sign_priority = 20,
-		virtual_text = true,
+		sign              = true,
+		update_time       = 150,
+		sign_priority     = 20,
+		virtual_text      = true,
 	},
 	-- finder icons
 	finder_icons = {
-		def = '  ',
-		ref = '諭 ',
+		def  = '  ',
+		ref  = '諭 ',
 		link = '  ',
 	},
 	-- finder do lsp request timeout
@@ -50,22 +49,22 @@ saga.init_lsp_saga({
 	-- you may need to increase this value
 	finder_request_timeout = 3000,
 	finder_action_keys = {
-		open = {'o', '<CR>'},
+		open   = {'o', '<CR>'},
 		vsplit = 's',
-		split = 'i',
-		tabe = 't',
-		quit = {'q', '<ESC>'},
+		split  = 'i',
+		tabe   = 't',
+		quit   = {'q', '<ESC>'},
 	},
 	code_action_keys = {
 		quit = 'q',
 		exec = '<CR>',
 	},
 	definition_action_keys = {
-		edit = '<C-c>o',
+		edit   = '<C-c>o',
 		vsplit = '<C-c>v',
-		split = '<C-c>i',
-		tabe = '<C-c>t',
-		quit = 'q',
+		split  = '<C-c>i',
+		tabe   = '<C-c>t',
+		quit   = 'q',
 	},
 	rename_action_quit = '<C-c>',
 	rename_in_select = true,
