@@ -10,13 +10,16 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * packer.nivm
 * nvim-lastplace
 * nvim-autopairs
+* mason.nvim
+	- mason-lspconfig.nvim
 * nvim-lspconfig
 * lualine
 * nvim-tree
 * gitsigns
-* barbar
+* bufferline
 * telescope
-* telescope-ui-select.nvim
+	- telescope-ui-select.nvim
+	- telescope-file-browser.nvim
 * indent-blankline
 * nvim-treesitter
 * nvim-web-devicons
@@ -33,12 +36,14 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * Comment.nvim
 * nvim-surround
 * plenary.nvim
-* neorg
+* orgmode
+* tmux.nvim
 * emmet-vim
 
 ## Colorschemes
 
 * nvim-base16
+* pywal.nvim
 
 ## Installation
 ```bash

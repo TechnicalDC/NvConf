@@ -72,13 +72,13 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = 'luasnip' }, -- For luasnip users.
 		{ name = 'nvim_lsp' },
-		{ 
+		{
 			name = "nvim_lua",
 			option = {
 				max_item_count = max_count
 			}
 		},
-		{ 
+		{
 			name = 'buffer',
 			option = {
 				keyword_length = 1
@@ -96,7 +96,7 @@ cmp.setup({
 cmp.setup.cmdline('/', {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
-		{ 
+		{
 			name = 'buffer',
 			option = {
 				max_item_count = max_count
@@ -109,15 +109,15 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
-		{ 
-			name = 'path', 
+		{
+			name = 'path',
 			option = {
 				max_item_count = max_count
 			}
 		}
-	}, 
+	},
 	{
-		{ 
+		{
 			name = 'cmdline',
 			option = {
 				max_item_count = max_count

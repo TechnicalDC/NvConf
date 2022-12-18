@@ -1,1 +1,1 @@
-vim.cmd[[colorscheme base16-atelier-seaside]]
+vim.cmd.colorscheme("base16-atelier-seaside")

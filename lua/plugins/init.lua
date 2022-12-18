@@ -20,19 +20,28 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-tree.lua'
 	use 'lewis6991/gitsigns.nvim'
 	use {'akinsho/bufferline.nvim', tag = "v3.*"}
-	use 'fgheng/winbar.nvim'
 
-	-- autocompletions and LSP
-	use 'hrsh7th/nvim-cmp'
-	use 'hrsh7th/cmp-nvim-lsp'
-	use 'hrsh7th/cmp-nvim-lua'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-cmdline'
-	use 'saadparwaiz1/cmp_luasnip'
-	use 'L3MON4D3/LuaSnip'
-	use 'neovim/nvim-lspconfig'
-	use "glepnir/lspsaga.nvim"
+	-- LSP stuffs
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		'neovim/nvim-lspconfig',
+		"glepnir/lspsaga.nvim"
+	}
+
+	-- autocompletions stuffs
+	use {
+		'hrsh7th/nvim-cmp',
+		requires = {
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'hrsh7th/cmp-nvim-lua'},
+			{'hrsh7th/cmp-buffer'},
+			{'hrsh7th/cmp-path'},
+			{'hrsh7th/cmp-cmdline'},
+			{'saadparwaiz1/cmp_luasnip'},
+			{'L3MON4D3/LuaSnip'},
+		}
+	}
 
 	use 'ethanholz/nvim-lastplace'
 	use "windwp/nvim-autopairs"
@@ -46,7 +55,7 @@ return require('packer').startup(function(use)
 	}
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-telescope/telescope-ui-select.nvim'
-	use "nvim-telescope/telescope-file-browser.nvim" 
+	use "nvim-telescope/telescope-file-browser.nvim"
 	use 'nvim-orgmode/orgmode'
 
 	-- Vimscript based plugins

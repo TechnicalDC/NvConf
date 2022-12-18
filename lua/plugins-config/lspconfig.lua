@@ -1,3 +1,8 @@
+require("mason").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = { "sumneko_lua", "pyright", "tsserver" }
+})
+
 local nvim_lsp = require('lspconfig')
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -7,6 +12,7 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	-- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -30,15 +36,17 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>d', "<cmd>Lspsaga peek_definition<CR>", bufopts)
 	vim.keymap.set('n', '<space>rn', "<cmd>Lspsaga rename<CR>", bufopts)
 	vim.keymap.set('n', '<leader>ca', "<cmd>Lspsaga code_action<CR>", bufopts)
+	vim.keymap.set('n', '<leader>o', "<cmd>Lspsaga outline<CR>", bufopts)
 	-- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 	-- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 
-	'pyright', 
-	'tsserver' 
+local servers = {
+	'pyright',
+	'tsserver',
+	'sumneko_lua'
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
@@ -46,11 +54,11 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
-local signs = { 
-	Error = " ", 
-	Warn = " ", 
-	Hint = " ", 
-	Info = " " 
+local signs = {
+	Error = " ",
+	Warn = " ",
+	Hint = " ",
+	Info = " "
 }
 
 for type, icon in pairs(signs) do
