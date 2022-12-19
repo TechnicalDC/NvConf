@@ -46,7 +46,9 @@ end
 local servers = {
 	'pyright',
 	'tsserver',
-	'sumneko_lua'
+	'sumneko_lua',
+	'gopls',
+	'texlab'
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {

@@ -47,7 +47,11 @@ My own lua based [neovim](https://neovim.org/) configuration.
 
 ## Installation
 ```bash
+# Linux
 git clone https://github.com/TechnicalDC/NvConf ~/.config/nvim
+
+# Windows
+git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 # Unix-like
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
