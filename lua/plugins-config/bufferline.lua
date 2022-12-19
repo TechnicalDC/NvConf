@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 require("bufferline").setup{
 	options = {
 		mode = "buffers", -- set to "tabs" to only show tabpages instead
@@ -8,13 +9,13 @@ require("bufferline").setup{
 		middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
 		indicator = {
 			icon = '▎', -- this should be omitted if indicator style is not 'icon'
-			style = 'icon', -- 'icon' | 'underline' | 'none',
+			style = 'none', -- 'icon' | 'underline' | 'none',
 		},
 		buffer_close_icon = '',
 		modified_icon = '●',
 		close_icon = '',
-		left_trunc_marker = '',
-		right_trunc_marker = '',
+		left_trunc_marker = '',
+		right_trunc_marker = '',
 		--- name_formatter can be used to change the buffer's label in the bufferline.
 		--- Please note some names can/will break the
 		--- bufferline so use this at your discretion knowing that it has
@@ -29,7 +30,7 @@ require("bufferline").setup{
 		max_name_length = 18,
 		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
 		truncate_names = true, -- whether or not tab names should be truncated
-		tab_size = 18,
+		tab_size = 20,
 		diagnostics = false, -- false | "nvim_lsp" | "coc",
 		diagnostics_update_in_insert = false,
 		-- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
@@ -61,7 +62,7 @@ require("bufferline").setup{
 				filetype = "NvimTree",
 				text = "File Explorer", -- | function ,
 				text_align = "center", -- "left" | "center" | "right"
-				separator = true
+				separator = false
 			}
 		},
 		color_icons = false, -- true | false, -- whether or not to add the filetype icon highlights
