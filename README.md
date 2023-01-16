@@ -67,4 +67,4 @@ After intalling `packer.nvim`, open nvim and run `:PackerSync` to install the pl
 
 ## Screenshots
 
-![neovim](https://github.com/TechnicalDC/NvConf/blob/main/images/neovim.gif)
+![neovim](https://github.com/TechnicalDC/NvConf/blob/main/images/screenshot.png)
