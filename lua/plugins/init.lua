@@ -9,8 +9,9 @@ return require('packer').startup(function(use)
 	use "aserowy/tmux.nvim"
 
 	-- colorschemes
-	use 'RRethy/nvim-base16'
-	use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
+	use "catppuccin/nvim"
+	use 'Mofiqul/dracula.nvim'
+	use 'folke/tokyonight.nvim'
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
@@ -19,7 +20,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use 'kyazdani42/nvim-tree.lua'
 	use 'lewis6991/gitsigns.nvim'
-	use {'akinsho/bufferline.nvim', tag = "v3.*"}
+	use 'romgrk/barbar.nvim'
 
 	-- LSP stuffs
 	use {

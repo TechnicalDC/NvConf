@@ -12,6 +12,13 @@ let g:firenvim_config = {
 			\ 'selector': 'textarea',
 			\ 'takeover': 'always',
 		\ },
+		\ 'https?://.*\.chatovod\.com/.*': {
+			\ 'cmdline': 'neovim',
+			\ 'content': 'text',
+			\ 'priority': 0,
+			\ 'selector': 'textarea',
+			\ 'takeover': 'never',
+		\ },
 	\ }
 \ }
 ]])
