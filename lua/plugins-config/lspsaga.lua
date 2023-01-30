@@ -1,6 +1,4 @@
-local saga = require('lspsaga')
-
-saga.init_lsp_saga({
+require('lspsaga').setup({
 	-- Options with default value
 	-- "single" | "double" | "rounded" | "bold" | "plus"
 	border_style = "single",
@@ -74,7 +72,7 @@ saga.init_lsp_saga({
 	-- if in_cusomt = true you must set in_enable to false
 	symbol_in_winbar = {
 		in_custom = false,
-		enable = true,
+		enable = false,
 		separator = ' ',
 		show_file = true,
 		-- define how to customize filename, eg: %:., %
