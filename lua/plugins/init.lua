@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
-	use 'glepnir/dashboard-nvim'
+	use 'goolord/alpha-nvim'
 	use 'rcarriga/nvim-notify'
 	use 'nvim-lualine/lualine.nvim'
 	use 'kyazdani42/nvim-tree.lua'
