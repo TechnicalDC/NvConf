@@ -3,4 +3,4 @@ require("colors.onedark")
 require("colors.dracula")
 require("colors.tokyonight")
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("onedark")
