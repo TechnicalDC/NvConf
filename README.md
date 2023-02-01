@@ -6,7 +6,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 
 ## Plugins
 
-* dashboard-nvim
+* alpha
 * packer.nivm
 * nvim-lastplace
 * nvim-autopairs
@@ -44,6 +44,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * [catppuccin](https://github.com/catppuccin/nvim)
 * [dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+* [onedark.nvim](https://github.com/navarasu/onedark.nvim)
 
 ## Installation
 ```bash
