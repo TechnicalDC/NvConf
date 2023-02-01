@@ -38,7 +38,9 @@ end
 dashboard.section.buttons.val = {
 	dashboard.button("e", "  New file", ":ene | startinsert <CR>"),
 	dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
+	dashboard.button("r", "  Find recent file", ":Telescope oldfiles<CR>"),
 	dashboard.button("g", "  Find word", ":Telescope live_grep<CR>"),
+	dashboard.button("c", "  Colorscheme", ":Telescope colorscheme<CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
