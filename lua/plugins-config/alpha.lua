@@ -23,7 +23,7 @@ local function colorize_header()
 			type = "text",
 			val = chars,
 			opts = {
-				hl = "StartLogo" .. i,
+				hl = "Function",
 				shrink_margin = false,
 				position = "center",
 			},
