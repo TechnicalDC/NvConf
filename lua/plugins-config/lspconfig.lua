@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "sumneko_lua", "pyright", "tsserver" }
+	ensure_installed = { "lua_ls", "pyright", "tsserver" }
 })
 
 local nvim_lsp = require('lspconfig')
@@ -47,7 +47,7 @@ end
 local servers = {
 	'pyright',
 	'tsserver',
-	'sumneko_lua',
+	'lua_ls',
 	'jsonls',
 	'gopls',
 	'texlab'
