@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
 	use 'Mofiqul/dracula.nvim'
 	use 'folke/tokyonight.nvim'
 	use 'navarasu/onedark.nvim'
+	use 'Shatur/neovim-ayu'
+	use 'shaunsingh/nord.nvim'
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
