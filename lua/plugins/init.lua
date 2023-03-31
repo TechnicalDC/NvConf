@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
 	use 'navarasu/onedark.nvim'
 	use 'Shatur/neovim-ayu'
 	use 'shaunsingh/nord.nvim'
+	use 'TechnicalDC/pywal.nvim'
 
 	-- UI
 	use 'kyazdani42/nvim-web-devicons'
