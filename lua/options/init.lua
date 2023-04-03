@@ -34,6 +34,7 @@ set.concealcursor = 'nc'
 set.termguicolors = true
 set.foldtext	   = "v:lua.custom_fold_text()"
 set.scrolloff	   = 10
+set.laststatus 	   = 3
 set.undofile		= true
 
 -- GUI Configuration
