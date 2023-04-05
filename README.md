@@ -7,13 +7,14 @@ My own lua based [neovim](https://neovim.org/) configuration.
 ## Plugins
 
 * alpha
-* packer.nivm
-* nvim-lastplace
+* lazy.nvim
 * nvim-autopairs
 * mason.nvim
 	- mason-lspconfig.nvim
-* nvim-lspconfig
+	- nvim-lspconfig
 * lualine
+* noice.nvim
+* nui.nvim
 * nvim-tree
 * gitsigns
 * barbar
@@ -34,7 +35,6 @@ My own lua based [neovim](https://neovim.org/) configuration.
   - cmp_luasnip
 * LuaSnip
 * Comment.nvim
-* nvim-surround
 * plenary.nvim
 * tmux.nvim
 * emmet-vim
