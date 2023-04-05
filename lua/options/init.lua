@@ -21,7 +21,8 @@ set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
 set.fillchars	   = "fold: ,eob: "
-set.listchars	   = "eol:,tab:  "
+set.listchars	   = "tab:  "
+-- set.listchars	   = "eol:,tab:  "
 set.list          = true
 set.mouse         = "a"
 set.tabstop       = 3
@@ -34,8 +35,11 @@ set.concealcursor = 'nc'
 set.termguicolors = true
 set.foldtext	   = "v:lua.custom_fold_text()"
 set.scrolloff	   = 10
-set.laststatus 	   = 3
+set.laststatus 	= 3
 set.undofile		= true
+
+vim.g.mapleader		= " "
+vim.g.maplocalleader = " "
 
 -- GUI Configuration
 set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
