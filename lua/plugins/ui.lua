@@ -28,13 +28,60 @@ return {
 					-- lua = false, -- to disable a format, set to `false`
 				},
 			},
+			popupmenu = {
+				enabled = true, -- enables the Noice popupmenu UI
+				---@type 'nui'|'cmp'
+				backend = "nui", -- backend to use to show regular cmdline completions
+				---@type NoicePopupmenuItemKind|false
+				-- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
+				kind_icons = {}, -- set to `false` to disable icons
+			},
+			routes = {
+				{
+					filter = {
+						event = "msg_show",
+						kind = "search_count",
+					},
+					opts = { skip = true },
+				},
+			},
 			presets = {
 				bottom_search = false, -- use a classic bottom cmdline for search
 				command_palette = true, -- position the cmdline and popupmenu together
 				long_message_to_split = true, -- long messages will be sent to a split
 				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = false, -- add a border to hover docs and signature help
-			}
+			},
+			views = {
+				cmdline_popup = {
+					position = {
+						row = 5,
+						col = "50%",
+					},
+					size = {
+						width = 60,
+						height = "auto",
+					},
+				},
+				popupmenu = {
+					relative = "editor",
+					position = {
+						row = 8,
+						col = "50%",
+					},
+					size = {
+						width = 60,
+						height = 10,
+					},
+					border = {
+						style = "rounded",
+						padding = { 0, 1 },
+					},
+					win_options = {
+						winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+					},
+				},
+			},
 		})
 
 		vim.notify = require("notify")
