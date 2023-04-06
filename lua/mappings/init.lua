@@ -1,6 +1,5 @@
 
-
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local extra_opts = { noremap = true, silent = true, expr = true }
 
@@ -24,10 +23,6 @@ map("n", "<leader>y", "maggVGy`a", opts)
 -- Jumplist mutation
 map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", extra_opts)
 map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", extra_opts)
-
--- Cycle through buffers
--- map("n", "<A-C>", ":bprevious<CR>", opts)
--- map("n", "<A-c>", ":bnext<CR>", opts)
 
 -- Rotate splits
 -- Horizontal to vertical

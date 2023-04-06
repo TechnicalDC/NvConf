@@ -36,7 +36,7 @@ set.termguicolors = true
 set.foldtext	   = "v:lua.custom_fold_text()"
 set.scrolloff	   = 10
 set.laststatus 	= 3
-set.undofile		= true
+set.undofile		= false
 
 vim.g.mapleader		= " "
 vim.g.maplocalleader = " "

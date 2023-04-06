@@ -38,6 +38,8 @@ return {
 			map('n', 'K', vim.lsp.buf.hover, bufopts)
 			map('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 			map('n', 'gr', vim.lsp.buf.references, bufopts)
+			map('n', '[d', vim.diagnostic.goto_prev, bufopts)
+			map('n', ']d', vim.diagnostic.goto_next, bufopts)
 			-- map('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 			-- map('n', 'gi', vim.lsp.buf.implementation, bufopts)
 			-- map('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
