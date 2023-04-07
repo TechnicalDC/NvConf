@@ -4,6 +4,7 @@ set.swapfile       = false
 set.splitbelow     = true
 set.splitright     = true
 set.showmode       = false
+set.laststatus 	 = 3
 set.number         = true
 set.relativenumber = true
 set.wildmenu       = true
@@ -21,8 +22,8 @@ set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
 set.fillchars	   = "fold: ,eob: "
-set.listchars	   = "tab:  "
--- set.listchars	   = "eol:,tab:  "
+-- set.listchars	   = "tab:  "
+set.listchars	   = "eol:,tab:  "
 set.list          = true
 set.mouse         = "a"
 set.tabstop       = 3
@@ -35,14 +36,11 @@ set.concealcursor = 'nc'
 set.termguicolors = true
 set.foldtext	   = "v:lua.custom_fold_text()"
 set.scrolloff	   = 10
-set.laststatus 	= 3
 set.undofile		= false
 
-vim.g.mapleader		= " "
-vim.g.maplocalleader = " "
-
 -- GUI Configuration
-set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
+-- set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
+set.guifont			= "Iosevka Nerd Font:h10"
 
 function _G.custom_fold_text()
 	local line = vim.fn.getline(vim.v.foldstart)

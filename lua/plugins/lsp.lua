@@ -54,6 +54,7 @@ return {
 		-- map buffer local keybindings when the language server attaches
 		local servers = {
 			'pyright',
+			'openedge_ls',
 			'tsserver',
 			'lua_ls',
 			'jsonls',
@@ -61,9 +62,20 @@ return {
 			'texlab'
 		}
 		for _, lsp in ipairs(servers) do
-			nvim_lsp[lsp].setup {
-				on_attach = on_attach,
-			}
+			if nvim_lsp[lsp] == "openedge_ls then" then
+				nvim_lsp[lsp].setup {
+					on_attach = on_attach,
+					root_dir = root_pattern('openedge-project.json'),
+					oe_jar_path = '/path/to/abl-lsp.jar',
+					dlc = '12.2:/path/to/dlc-12.2', -- Version number and OpenEdge root directory (colon separator)
+					debug = false, -- Set to true for debug logging
+					trace = false -- Set to true for trace logging (REALLY verbose)
+				}
+			else
+				nvim_lsp[lsp].setup {
+					on_attach = on_attach,
+				}
+			end
 		end
 
 		local signs = {

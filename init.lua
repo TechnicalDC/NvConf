@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 --							__           
 -- .-----.-----.-----.--.--.|__|.--------.
 -- |     |  -__|  _  |  |  ||  ||        |
@@ -6,7 +7,8 @@
 -- Github: https://github.com/TechnicalDC/NvConf
 
 -- REQUIRED
-require("options")
+vim.g.mapleader		= " "
+vim.g.maplocalleader = " "
 
 -- require("plugins")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -23,7 +25,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup("plugins")
-	
+
+require("options")
 require("highlights")
 require("mappings")
 require("autocmds")

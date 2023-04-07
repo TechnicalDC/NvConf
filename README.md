@@ -14,7 +14,8 @@ My own lua based [neovim](https://neovim.org/) configuration.
 	- nvim-lspconfig
 * lualine
 * noice.nvim
-* nui.nvim
+	- nui.nvim
+	- nvim-notify
 * nvim-tree
 * gitsigns
 * barbar
@@ -24,7 +25,6 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * indent-blankline
 * nvim-treesitter
 * nvim-web-devicons
-* nvim-notify
 * gitsigns
 * nvim-cmp
   - cmp-nvim-lsp
@@ -45,6 +45,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * [dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 * [onedark.nvim](https://github.com/navarasu/onedark.nvim)
+* [neovim-ayu](https://github.com/Shatur/neovim-ayu)
 
 ## Installation
 ```bash
@@ -61,10 +62,6 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 # Windows
 git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 ```
-
-After intalling `packer.nvim`, open nvim and run `:PackerSync` to install the plugins.
-
-> Note: On first run, it will give errors but after running `PackerSync` it will launch without any error.
 
 ## Screenshots
 
