@@ -27,9 +27,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup("plugins")
 
+vim.opt.laststatus = 3
+
 -- REQUIRED
 require("highlights")
 require("mappings")
 require("autocmds")
 
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("ayu-mirage")

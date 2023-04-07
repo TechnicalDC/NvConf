@@ -15,6 +15,19 @@ return {
 
 		local max_count = 15
 
+		local function border(hl_name)
+			return {
+				{ "╭", hl_name },
+				{ "─", hl_name },
+				{ "╮", hl_name },
+				{ "│", hl_name },
+				{ "╯", hl_name },
+				{ "─", hl_name },
+				{ "╰", hl_name },
+				{ "│", hl_name },
+			}
+		end
+
 		--   פּ ﯟ   some other good icons
 		local kind_icons = {
 			Text          = "",
@@ -52,8 +65,15 @@ return {
 				end,
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				completion = {
+					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None",
+					border = border(None),
+					scrollbar = false,
+				},
+				documentation = {
+					border = border(None),
+					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None",
+				},
 			},
 			mapping = cmp.mapping.preset.insert({
 				['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior }),
