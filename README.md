@@ -54,15 +54,12 @@ git clone https://github.com/TechnicalDC/NvConf ~/.config/nvim
 
 # Windows
 git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
-
-# Unix-like
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
- 
-# Windows
-git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 ```
 
 ## Screenshots
 
-![neovim](https://github.com/TechnicalDC/NvConf/blob/main/images/screenshot.png)
+![dashboard](https://github.com/TechnicalDC/NvConf/blob/main/images/dashboard.png)
+
+![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
+
+![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)

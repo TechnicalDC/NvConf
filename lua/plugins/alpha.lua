@@ -31,7 +31,7 @@ return {
 					val = chars,
 					opts = {
 						hl = "Function",
-						shrink_margin = false,
+						shrink_margin = true,
 						position = "center",
 					},
 				}
