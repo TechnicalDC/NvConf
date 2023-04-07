@@ -12,7 +12,6 @@ return {
 				layout_config = {
 					height = 0.95,
 					prompt_position = "top",
-					preview_width = 0.5,
 					width = 0.8,
 				},
 				sorting_strategy = "ascending",
@@ -31,6 +30,9 @@ return {
 				},
 			},
 			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown()
+				},
 				file_browser = {
 					hijack_netrw = true,
 					path = "%:p:h",
@@ -43,10 +45,11 @@ return {
 								-- 		-- your custom normal mode mappings
 								-- 	},
 								-- },
-				},
-			},
-		}
+							},
+						},
+					}
 
-		require("telescope").load_extension "file_browser"
-	end
-}
+					require("telescope").load_extension("ui-select")
+					require("telescope").load_extension "file_browser"
+				end
+			}

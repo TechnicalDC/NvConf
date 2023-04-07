@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global
---							__           
+--      							__           
 -- .-----.-----.-----.--.--.|__|.--------.
 -- |     |  -__|  _  |  |  ||  ||        |
 -- |__|__|_____|_____|\___/ |__||__|__|__|
@@ -10,7 +10,7 @@
 vim.g.mapleader		= " "
 vim.g.maplocalleader = " "
 
--- require("plugins")
+-- LAZY BOOTSTRAP
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -26,6 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup("plugins")
 
+-- REQUIRED
 require("options")
 require("highlights")
 require("mappings")
