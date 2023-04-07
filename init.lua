@@ -7,6 +7,7 @@
 -- Github: https://github.com/TechnicalDC/NvConf
 
 -- REQUIRED
+require("options")
 vim.g.mapleader		= " "
 vim.g.maplocalleader = " "
 
@@ -27,7 +28,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup("plugins")
 
 -- REQUIRED
-require("options")
 require("highlights")
 require("mappings")
 require("autocmds")
