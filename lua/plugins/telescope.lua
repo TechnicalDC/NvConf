@@ -37,19 +37,11 @@ return {
 					hijack_netrw = true,
 					path = "%:p:h",
 					default_selection_index = 2,
-					-- mappings = {
-						-- 	["i"] = {
-							-- 		-- your custom insert mode mappings
-							-- 	},
-							-- 	["n"] = {
-								-- 		-- your custom normal mode mappings
-								-- 	},
-								-- },
-							},
-						},
-					}
+				},
+			},
+		}
 
-					require("telescope").load_extension("ui-select")
-					require("telescope").load_extension "file_browser"
-				end
-			}
+		require("telescope").load_extension("ui-select")
+		require("telescope").load_extension "file_browser"
+	end
+}
