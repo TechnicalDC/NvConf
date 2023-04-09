@@ -22,6 +22,18 @@ return {
 			"                                                    ",
 		}
 
+		header_collection.dash = {
+			"           ▄ ▄                   ",
+			"       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
+			"       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
+			"    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
+			"  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
+			"  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
+			"▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
+			"█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
+			"    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
+		}
+
 		header_collection.neovim_mini1 = {
 			'  _  _             _        ',
 			' | \\| |___ _____ _(_)_ __   ',
@@ -42,7 +54,7 @@ return {
 			'',
 		}
 
-		local header = header_collection.neovim_mini2
+		local header = header_collection.dash
 
 		-- Make the header a bit more fun with some color!
 		local function colorize_header()
@@ -105,7 +117,7 @@ return {
 
 		alpha.setup({
 			layout = {
-				{ type = "padding", val = 6 },
+				{ type = "padding", val = 3 },
 				{ type = "group", val = colorize_header() },
 				{ type = "padding", val = 3 },
 				dashboard.section.buttons,
