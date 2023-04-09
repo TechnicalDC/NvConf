@@ -59,7 +59,7 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ## Screenshots
 
-![dashboard](https://github.com/TechnicalDC/NvConf/blob/main/images/dashboard.png)
+![dash](https://github.com/TechnicalDC/NvConf/blob/main/images/dash.png)
 
 ![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
 
