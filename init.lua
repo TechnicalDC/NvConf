@@ -28,7 +28,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup("plugins")
 
 -- REQUIRED
-require("highlights")
 require("mappings")
 require("autocmds")
 
