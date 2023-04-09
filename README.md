@@ -8,7 +8,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 
 * alpha
 * lazy.nvim
-* nvim-autopairs
+* toggleterm
 * mason.nvim
 	- mason-lspconfig.nvim
 	- nvim-lspconfig
@@ -23,8 +23,6 @@ My own lua based [neovim](https://neovim.org/) configuration.
 	- telescope-ui-select.nvim
 	- telescope-file-browser.nvim
 * indent-blankline
-* nvim-treesitter
-* nvim-web-devicons
 * gitsigns
 * nvim-cmp
   - cmp-nvim-lsp
@@ -36,7 +34,10 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * LuaSnip
 * Comment.nvim
 * plenary.nvim
+* nvim-treesitter
 * tmux.nvim
+* nvim-web-devicons
+* nvim-autopairs
 * emmet-vim
 
 ## Colorschemes
@@ -63,5 +64,7 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 ![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
 
 ![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
+
+![terminal](https://github.com/TechnicalDC/NvConf/blob/main/images/terminal.png)
 
 ![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)
