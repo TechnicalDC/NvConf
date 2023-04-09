@@ -9,8 +9,9 @@ return {
 		local dashboard = require("alpha.themes.dashboard")
 		local fortune = require("alpha.fortune")
 
-		-- Inspired by https://github.com/glepnir/dashboard-nvim with my own flair
-		local header = {
+		local header_collection = {}
+
+		header_collection.default = {
 			"                                                    ",
 			" ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
 			" ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
@@ -20,6 +21,28 @@ return {
 			" ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
 			"                                                    ",
 		}
+
+		header_collection.neovim_mini1 = {
+			'  _  _             _        ',
+			' | \\| |___ _____ _(_)_ __   ',
+			' | .` / -_) _ \\ V / | \'  \\  ',
+			' |_|\\_\\___\\___/\\_/|_|_|_|_| ',
+		}
+		header_collection.neovim_mini2 = {
+			"                          __           ",
+			" .-----.-----.-----.--.--|__|--------. ",
+			" |     |  -__|  _  |  |  |  |        | ",
+			" |__|__|_____|_____|\\___/|__|__|__|__| ",
+			""
+		}
+
+		header_collection.japan = {
+			'',
+			'几乇ㄖᐯ丨爪',
+			'',
+		}
+
+		local header = header_collection.neovim_mini2
 
 		-- Make the header a bit more fun with some color!
 		local function colorize_header()

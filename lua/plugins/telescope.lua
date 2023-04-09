@@ -8,9 +8,12 @@ return {
 	config = function ()
 		require('telescope').setup{
 			defaults = {
-				layout_strategy = 'horizontal',
+				-- layout_strategy = 'center',
+				-- layout_strategy = 'vertical',
+				-- layout_strategy = 'horizontal',
+				layout_strategy = 'flex',
 				layout_config = {
-					height = 0.95,
+					height = 0.7,
 					prompt_position = "top",
 					width = 0.8,
 				},
