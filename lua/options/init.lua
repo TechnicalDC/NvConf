@@ -42,6 +42,18 @@ set.undofile		= false
 -- set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
 set.guifont			= "Iosevka Nerd Font:h10"
 
+if vim.fn.has("win32") then
+	set.shell = vim.fn.executable "powershell" == 1 and "powershell" or "pwsh"
+	set.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+	set.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+	set.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	set.shellquote = ""
+	set.shellxquote = ""
+else
+	set.shell = "zsh"
+end
+
+
 function _G.custom_fold_text()
 	local line = vim.fn.getline(vim.v.foldstart)
 	line = string.gsub(line, "{+", "")
