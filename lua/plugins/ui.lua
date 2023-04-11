@@ -7,6 +7,11 @@ return {
 	},
 	enabled = true,
 	config = function ()
+		local border_style = {
+			top_left    = "┌", top    = "─",    top_right = "┐",
+			left        = "│",                      right = "│",
+			bottom_left = "└", bottom = "─", bottom_right = "┘",
+		}
 		require("noice").setup({
 			cmdline = {
 				enabled = true, -- enables the Noice cmdline UI
@@ -207,6 +212,9 @@ return {
 						width = 60,
 						height = "auto",
 					},
+					border = {
+						style = border_style
+					}
 				},
 				popupmenu = {
 					relative = "editor",
@@ -219,7 +227,7 @@ return {
 						height = 10,
 					},
 					border = {
-						style = "rounded",
+						style = border_style,
 						padding = { 0, 1 },
 					},
 					win_options = {
