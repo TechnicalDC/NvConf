@@ -3,42 +3,21 @@
 
 My own lua based [neovim](https://neovim.org/) configuration.
 </div>
+<br>
+<img src="https://github.com/TechnicalDC/NvConf/blob/main/images/dash.png" alt="img" align="right" width="400px">
 
-## Plugins
+## Features
 
-* alpha
-* lazy.nvim
-* toggleterm
-* mason.nvim
-	- mason-lspconfig.nvim
-	- nvim-lspconfig
-* lualine
-* noice.nvim
-	- nui.nvim
-	- nvim-notify
-* nvim-tree
-* gitsigns
-* barbar
-* telescope
-	- telescope-ui-select.nvim
-	- telescope-file-browser.nvim
-* indent-blankline
-* gitsigns
-* nvim-cmp
-  - cmp-nvim-lsp
-  - cmp-nvim-lua
-  - cmp-buffer
-  - cmp-path
-  - cmp-cmdline
-  - cmp_luasnip
-* LuaSnip
-* Comment.nvim
-* plenary.nvim
-* nvim-treesitter
-* tmux.nvim
-* nvim-web-devicons
-* nvim-autopairs
-* emmet-vim
+* Dashboard via [alpha-nvim](https://github.com/goolord/alpha-nvim)
+* Autocompletion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+* Integrated terminal via [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+* Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
+* Explore files via [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+* Fuzzy finder via [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+* Amazing default theme via [neovim-ayu](https://github.com/Shatur/neovim-ayu) and many [more](https://github.com/TechnicalDC/NvConf#colorschemes)
+* UI enhancements via [noice](https://github.com/folke/noice.nvim)
+* Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
+* Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 
 ## Colorschemes
 
@@ -59,7 +38,7 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ## Screenshots
 
-![dash](https://github.com/TechnicalDC/NvConf/blob/main/images/dash.png)
+![cmdline](https://github.com/TechnicalDC/NvConf/blob/main/images/cmdline.png)
 
 ![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
 
