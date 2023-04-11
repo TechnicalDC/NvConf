@@ -8,7 +8,6 @@ return {
 	},
 	config = function ()
 		local border_char = { '─', '│', '─', '│', '┌', '┐', '┘', '└'}
-		local dropdown_border_char = { '─', '│', '─', '│', '┌', '┐', '┤', '├'}
 		local full_border_chars = {
 			{ '─', '│', '─', '│', '┌', '┐', '┘', '└'},
 			prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
@@ -17,14 +16,15 @@ return {
 		}
 		require('telescope').setup{
 			defaults = {
-				-- layout_strategy = 'center',
+				layout_strategy = 'center',
 				-- layout_strategy = 'vertical',
 				-- layout_strategy = 'horizontal',
-				layout_strategy = 'flex',
+				-- layout_strategy = 'flex',
 				layout_config = {
-					height = 0.7,
+					preview_cutoff = 1,
+					height = 0.5,
 					prompt_position = "top",
-					width = 0.8,
+					width = 0.7,
 				},
 				sorting_strategy = "ascending",
 				prompt_prefix = "  ",
@@ -32,20 +32,28 @@ return {
 				multi_icon = " ●  ",
 				selection_caret = "  ",
 				border = true,
-				borderchars = border_char,
+				borderchars = full_border_chars,
 				results_title = false,
-				-- results_title = " Results ",
 				prompt_title = " Prompt ",
 
 				-- Preview
 				preview = {
 					color_devicons = true,
 				},
+				mappings = {
+					i = {
+						-- map actions.which_key to <C-h> (default: <C-/>)
+						-- actions.which_key shows the mappings for your picker,
+						-- e.g. git_{create, delete, ...}_branch for the git_branches picker
+						["<C-/>"] = "which_key"
+					}
+				}
 			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown({
-						borderchars = dropdown_border_char
+						borderchars = full_border_chars,
+						previewer = false
 					})
 				},
 				file_browser = {
