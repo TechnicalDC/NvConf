@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 return {
 	'nvim-telescope/telescope.nvim',
 	dependencies = {
@@ -6,6 +7,14 @@ return {
 		"nvim-telescope/telescope-file-browser.nvim"
 	},
 	config = function ()
+		local border_char = { '─', '│', '─', '│', '┌', '┐', '┘', '└'}
+		local dropdown_border_char = { '─', '│', '─', '│', '┌', '┐', '┤', '├'}
+		local full_border_chars = {
+			{ '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+			prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+			results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+			preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+		}
 		require('telescope').setup{
 			defaults = {
 				-- layout_strategy = 'center',
@@ -23,8 +32,9 @@ return {
 				multi_icon = " ●  ",
 				selection_caret = "  ",
 				border = true,
-				borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-				results_title = " Results ",
+				borderchars = border_char,
+				results_title = false,
+				-- results_title = " Results ",
 				prompt_title = " Prompt ",
 
 				-- Preview
@@ -34,7 +44,9 @@ return {
 			},
 			extensions = {
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown()
+					require("telescope.themes").get_dropdown({
+						borderchars = dropdown_border_char
+					})
 				},
 				file_browser = {
 					hijack_netrw = true,
