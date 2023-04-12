@@ -39,13 +39,18 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ## Screenshots
 
+Noice:
 ![cmdline](https://github.com/TechnicalDC/NvConf/blob/main/images/cmdline.png)
 
+Cmp:
 ![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
 
+Telescope:
 ![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
 
+Toggleterm:
 ![terminal](https://github.com/TechnicalDC/NvConf/blob/main/images/terminal.png)
 
+LuaSnip:
 ![luasnip](https://github.com/TechnicalDC/NvConf/blob/main/images/luasnip.png)
 
