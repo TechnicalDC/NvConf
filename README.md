@@ -48,3 +48,4 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 ![terminal](https://github.com/TechnicalDC/NvConf/blob/main/images/terminal.png)
 
 ![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)
+
