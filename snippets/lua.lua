@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 local ls = require("luasnip")
 local s = ls.s --> snippet
 local i = ls.i --> insert node
@@ -41,4 +42,4 @@ local use_snippet = s(
 )
 table.insert(autosnippets, use_snippet)
 
-return snippets, autosnippets
+-- return snippets, autosnippets

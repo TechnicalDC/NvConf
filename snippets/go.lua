@@ -32,7 +32,7 @@ local boiler = fmt(
 		i(1, "<++>"),
 	}
 )
-local boiler_snippet = s("go", boiler)
+local boiler_snippet = s("!main", boiler)
 table.insert(autosnippets, boiler_snippet)
 -- }}}
 
