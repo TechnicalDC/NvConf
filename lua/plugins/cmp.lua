@@ -125,38 +125,38 @@ return {
 			}
 		})
 
-				-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-		-- cmp.setup.cmdline('/', {
-		-- 	mapping = cmp.mapping.preset.cmdline(),
-		-- 	sources = {
-		-- 		{
-		-- 			name = 'buffer',
-		-- 			option = {
-		-- 				max_item_count = max_count
-		-- 			}
-		-- 		}
-		-- 	}
-		-- })
+		-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+		cmp.setup.cmdline('/', {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{
+					name = 'buffer',
+					option = {
+						max_item_count = max_count
+					}
+				}
+			}
+		})
 
 		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-		-- cmp.setup.cmdline(':', {
-		-- 	mapping = cmp.mapping.preset.cmdline(),
-		-- 	sources = cmp.config.sources({
-		-- 		{
-		-- 			name = 'path',
-		-- 			option = {
-		-- 				max_item_count = max_count
-		-- 			}
-		-- 		}
-		-- 	},
-		-- 	{
-		-- 		{
-		-- 			name = 'cmdline',
-		-- 			option = {
-		-- 				max_item_count = max_count
-		-- 			}
-		-- 		}
-		-- 	})
-		-- })
+		cmp.setup.cmdline(':', {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{
+					name = 'path',
+					option = {
+						max_item_count = max_count
+					}
+				}
+			},
+			{
+				{
+					name = 'cmdline',
+					option = {
+						max_item_count = max_count
+					}
+				}
+			})
+		})
 	end
 }
