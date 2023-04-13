@@ -125,7 +125,7 @@ return {
 			}
 		})
 
-		-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+		-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 		cmp.setup.cmdline('/', {
 			formatting = {
 				fields = { "kind", "abbr" },
@@ -133,8 +133,29 @@ return {
 					-- Kind icons
 					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 					vim_item.menu = ({
-						buffer = "[Buffer]",
-						path = "[Path]",
+						buffer = "[Buffer]"
+					})[entry.source.name]
+					return vim_item
+				end,
+			},
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{
+					name = 'buffer',
+					option = {
+						max_item_count = max_count
+					}
+				}
+			}
+		})
+		cmp.setup.cmdline('?', {
+			formatting = {
+				fields = { "kind", "abbr" },
+				format = function(entry, vim_item)
+					-- Kind icons
+					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+					vim_item.menu = ({
+						buffer = "[Buffer]"
 					})[entry.source.name]
 					return vim_item
 				end,
@@ -152,6 +173,18 @@ return {
 
 		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 		cmp.setup.cmdline(':', {
+			formatting = {
+				fields = { "kind", "abbr" },
+				format = function(entry, vim_item)
+					-- Kind icons
+					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+					vim_item.menu = ({
+						buffer = "[Buffer]",
+						path = "[Path]",
+					})[entry.source.name]
+					return vim_item
+				end,
+			},
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
 				{
