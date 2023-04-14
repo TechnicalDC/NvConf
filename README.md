@@ -19,6 +19,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+* Wiki system with [Vimwiki](https://github.com/vimwiki/vimwiki)
 
 ## Colorschemes
 
