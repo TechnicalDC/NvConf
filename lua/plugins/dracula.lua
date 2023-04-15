@@ -1,6 +1,6 @@
 return {
 	'Mofiqul/dracula.nvim',
-	lazy = false,
+	lazy = true,
 	config = function ()
 		local dracula = require("dracula")
 		dracula.setup({

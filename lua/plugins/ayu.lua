@@ -1,6 +1,6 @@
 return {
 	'Shatur/neovim-ayu',
-	lazy = false,
+	lazy = true,
 	config = function ()
 		local colors = require('ayu.colors')
 		colors.generate() -- Pass `true` to enable mirage

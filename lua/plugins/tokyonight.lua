@@ -1,7 +1,7 @@
 ---@diagnostic disable: unused-local
 return {
 	'folke/tokyonight.nvim',
-	lazy = false,
+	lazy = true,
 	config = function ()
 		require("tokyonight").setup({
 			-- your configuration comes here
