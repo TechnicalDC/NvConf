@@ -17,9 +17,6 @@ return {
 		require('telescope').setup{
 			defaults = {
 				layout_strategy = 'center',
-				-- layout_strategy = 'vertical',
-				-- layout_strategy = 'horizontal',
-				-- layout_strategy = 'flex',
 				layout_config = {
 					preview_cutoff = 1,
 					height = 0.5,
