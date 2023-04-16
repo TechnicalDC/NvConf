@@ -38,6 +38,8 @@ set.foldtext	   = "v:lua.custom_fold_text()"
 set.scrolloff	   = 10
 set.undofile		= false
 
+vim.g.editorconfig = true
+
 -- GUI Configuration
 -- set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
 set.guifont			= "Iosevka Nerd Font:h10"
