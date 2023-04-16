@@ -47,9 +47,9 @@ return {
 				-- Enables / disables diagnostic symbols
 				diagnostics = {
 					[vim.diagnostic.severity.ERROR] = {enabled = true, icon = ' '},
-					[vim.diagnostic.severity.WARN] = {enabled = false},
-					[vim.diagnostic.severity.INFO] = {enabled = false},
-					[vim.diagnostic.severity.HINT] = {enabled = true},
+					[vim.diagnostic.severity.WARN] = {enabled = false, icon = ' '},
+					[vim.diagnostic.severity.INFO] = {enabled = false, icon = ' '},
+					[vim.diagnostic.severity.HINT] = {enabled = true, icon = '󰌵 '},
 				},
 				filetype = {
 					-- Sets the icon's highlight group.
@@ -70,17 +70,23 @@ return {
 				-- Supports all the base icon options, plus `modified` and `pinned`.
 				alternate = {filetype = {enabled = false}},
 				current = {buffer_index = false},
-				inactive = {button = ' '},
+				inactive = {
+					button = ' ',
+					separator = {
+						left = '',
+						right = ''
+					}
+				},
 				visible = {modified = {buffer_number = false}},
 			},
 
 			-- If true, new buffers will be inserted at the start/end of the list.
 			-- Default is to insert after current buffer.
-			insert_at_end = false,
+			insert_at_end = true,
 			insert_at_start = false,
 
 			-- Sets the maximum padding width with which to surround each tab
-			maximum_padding = 1,
+			maximum_padding = 5,
 
 			-- Sets the minimum padding width with which to surround each tab
 			minimum_padding = 3,
