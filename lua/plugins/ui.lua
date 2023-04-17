@@ -38,7 +38,7 @@ return {
 				-- NOTE: If you enable messages, then the cmdline is enabled automatically.
 				-- This is a current Neovim limitation.
 				enabled = true, -- enables the Noice messages UI
-				view = "notify", -- default view for messages
+				view = "mini", -- default view for messages
 				view_error = "notify", -- view for errors
 				view_warn = "notify", -- view for warnings
 				view_history = "messages", -- view for :messages
@@ -237,11 +237,13 @@ return {
 			}, ---@see section on views
 			---@type NoiceRouteConfig[]
 			routes = {
-				filter = {
-					event = "msg_show",
-					kind = "search_count",
+				{
+					filter = {
+						event = "msg_show",
+						kind = "search_count",
+					},
+					opts = { skip = true },
 				},
-				opts = { skip = true },
 			}, --- @see section on routes
 			---@type table<string, NoiceFilter>
 			status = {}, --- @see section on statusline components
@@ -263,6 +265,7 @@ return {
 			},
 			level = 2,
 			minimum_width = 50,
+			maximum_width = 50,
 			render = "default",
 			stages = "slide",
 			timeout = 3000

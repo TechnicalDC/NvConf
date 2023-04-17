@@ -19,7 +19,15 @@ return {
 				lualine_a = {'mode'},
 				lualine_b = {'branch', 'diff', 'diagnostics'},
 				lualine_c = {},
-				lualine_x = {'searchcount','filetype'},
+				lualine_x = {
+					{
+						require("noice").api.status.mode.get,
+						cond = require("noice").api.status.mode.has,
+						color = {link = "lualine_b_diff_added_insert"},
+					},
+					'searchcount',
+					'filetype'
+				},
 				lualine_y = {'progress'},
 				lualine_z = {'location'}
 			},
