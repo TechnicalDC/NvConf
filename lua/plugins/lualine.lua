@@ -5,8 +5,10 @@ return {
 			options = {
 				icons_enabled = true,
 				theme = 'ayu',
-				component_separators = { left = '', right = ''},
-				section_separators = { left = '', right = ''},
+				component_separators = { left = '', right = ''},
+				section_separators = { left = '', right = ''},
+				-- component_separators = { left = '', right = ''},
+				-- section_separators = { left = '', right = ''},
 				-- component_separators = { left = '╲', right = '╱'},
 				-- section_separators = { left = '', right = ' '},
 				disabled_filetypes = {},
@@ -16,7 +18,7 @@ return {
 			sections = {
 				lualine_a = {'mode'},
 				lualine_b = {'branch', 'diff', 'diagnostics'},
-				lualine_c = {'filename'},
+				lualine_c = {},
 				lualine_x = {'searchcount','filetype'},
 				lualine_y = {'progress'},
 				lualine_z = {'location'}
