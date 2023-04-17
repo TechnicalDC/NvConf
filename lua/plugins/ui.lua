@@ -245,10 +245,6 @@ return {
 					opts = { skip = true },
 				},
 			}, --- @see section on routes
-			---@type table<string, NoiceFilter>
-			status = {}, --- @see section on statusline components
-			---@type NoiceFormatOptions
-			format = {}, --- @see section on formatting
 		})
 
 		vim.notify = require("notify")
