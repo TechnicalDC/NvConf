@@ -9,7 +9,6 @@ return {
 				adaptive_size = false,
 				width = 30,
 				side = "left",
-				hide_root_folder = true,
 				number = false,
 				relativenumber = false,
 				signcolumn = "yes",
@@ -41,6 +40,7 @@ return {
 			renderer = {
 				group_empty = true,
 				root_folder_modifier = ":~",
+				root_folder_label = false,
 				highlight_git = false,
 				full_name = false,
 				indent_markers = {
