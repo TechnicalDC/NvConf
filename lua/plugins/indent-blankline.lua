@@ -6,5 +6,13 @@ return {
 			show_current_context = false,
 			show_current_context_start = false,
 		}
+		vim.g.indent_blankline_filetype_exclude = {
+        "lspinfo",
+        "vimwiki",
+        "checkhealth",
+        "help",
+		  "TelescopePrompt",
+        "man",
+		}
 	end
 }
