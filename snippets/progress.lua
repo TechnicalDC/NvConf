@@ -116,7 +116,7 @@ table.insert(snippets, cmmt_snippet)
 -- DEFINITION SNIPPET {{{
 local def_fmt = fmt(
 	[[
-	define {} {} {}.
+	define {} {} {} no-undo.
 	]],
 	{
 		c(1, get_options(def_types)),
@@ -124,7 +124,7 @@ local def_fmt = fmt(
 			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
 		end),
 		c(3, {
-			i(1, "as character"), 
+			i(1, "as character"),
 			i(1, "as integer"),
 			i(1, "as decimal"),
 			i(1, "as date"),
