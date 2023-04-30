@@ -8,6 +8,7 @@ return {
 		'hrsh7th/cmp-cmdline',
 		'saadparwaiz1/cmp_luasnip',
 		'L3MON4D3/LuaSnip',
+		'TechnicalDC/cmp-abl'
 	},
 	config = function ()
 		-- Setup nvim-cmp.
@@ -97,6 +98,7 @@ return {
 						nvim_lua = "[Nvim Lua]",
 						nvim_lsp = "[LSP]",
 						buffer = "[Buffer]",
+						abl = "[ABL]",
 						path = "[Path]",
 					})[entry.source.name]
 					return vim_item
@@ -105,6 +107,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'luasnip' }, -- For luasnip users.
 				{ name = 'nvim_lsp' },
+				{ name = 'abl' },
 				{
 					name = "nvim_lua",
 					option = {
