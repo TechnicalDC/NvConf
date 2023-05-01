@@ -6,9 +6,9 @@ return {
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-cmdline',
+		'TechnicalDC/cmp-abl',
 		'saadparwaiz1/cmp_luasnip',
 		'L3MON4D3/LuaSnip',
-		'TechnicalDC/cmp-abl'
 	},
 	config = function ()
 		-- Setup nvim-cmp.
@@ -93,13 +93,13 @@ return {
 					-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 					vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 					vim_item.menu = ({
-						copilot = "[Copilot]",
-						luasnip = "[LuaSnip]",
+						copilot	= "[Copilot]",
+						luasnip	= "[LuaSnip]",
 						nvim_lua = "[Nvim Lua]",
 						nvim_lsp = "[LSP]",
-						buffer = "[Buffer]",
-						abl = "[ABL]",
-						path = "[Path]",
+						buffer	= "[Buffer]",
+						abl		= "[ABL]",
+						path		= "[Path]",
 					})[entry.source.name]
 					return vim_item
 				end,
@@ -107,7 +107,6 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'luasnip' }, -- For luasnip users.
 				{ name = 'nvim_lsp' },
-				{ name = 'abl' },
 				{
 					name = "nvim_lua",
 					option = {
@@ -128,30 +127,17 @@ return {
 			}
 		})
 
-		-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-		cmp.setup.cmdline('/', {
-			formatting = {
-				fields = { "kind", "abbr" },
-				format = function(entry, vim_item)
-					-- Kind icons
-					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-					vim_item.menu = ({
-						buffer = "[Buffer]"
-					})[entry.source.name]
-					return vim_item
-				end,
-			},
-			mapping = cmp.mapping.preset.cmdline(),
-			sources = {
-				{
-					name = 'buffer',
-					option = {
-						max_item_count = max_count
-					}
-				}
-			}
+		-- Set configuration for specific filetype.
+		cmp.setup.filetype("progress", {
+			sources = cmp.config.sources({
+				{ name = 'abl' }, -- For Progress 4GL
+				{ name = "path" },
+				{ name = 'buffer' },
+			})
 		})
-		cmp.setup.cmdline('?', {
+
+		-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+		cmp.setup.cmdline({'/','?'}, {
 			formatting = {
 				fields = { "kind", "abbr" },
 				format = function(entry, vim_item)
