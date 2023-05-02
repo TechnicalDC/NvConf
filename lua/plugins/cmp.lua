@@ -131,6 +131,7 @@ return {
 		cmp.setup.filetype("progress", {
 			sources = cmp.config.sources({
 				{ name = 'abl' }, -- For Progress 4GL
+				{ name = 'luasnip' }, -- For luasnip users.
 				{ name = "path" },
 				{ name = 'buffer' },
 			})
