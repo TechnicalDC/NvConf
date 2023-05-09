@@ -27,7 +27,6 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 * [onedark.nvim](https://github.com/navarasu/onedark.nvim)
 * [neovim-ayu](https://github.com/Shatur/neovim-ayu)
-* [vscode.nvim](https://github.com/TechnicalDC/vscode.nvim)
 
 ## Installation
 ```bash
