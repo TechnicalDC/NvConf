@@ -55,21 +55,24 @@ return {
 		-- map buffer local keybindings when the language server attaches
 		local servers = {
 			'pyright',
-			'openedge_ls',
+			-- 'openedge_ls',
 			'tsserver',
 			'lua_ls',
 			'jsonls',
-			'gopls',
-			'texlab'
+			-- 'gopls',
+			-- 'texlab'
 		}
+		local oe_jar_path = 'C:\\Users\\Dilip Chauhan\\AppData\\Local\\nvim-data\\mason\\packages\\openedge-language-server\\abl-lsp.jar'
 		for _, lsp in ipairs(servers) do
-			if nvim_lsp[lsp] == "openedge_ls then" then
+			if nvim_lsp[lsp] == "openedge_ls" then
 				nvim_lsp[lsp].setup {
 					on_attach = on_attach,
+					cmd = {},
 					root_dir = root_pattern('openedge-project.json'),
-					oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
-					dlc = '12.2:/path/to/dlc-12.2', -- Version number and OpenEdge root directory (colon separator)
-					debug = false, -- Set to true for debug logging
+					oe_jar_path = oe_jar_path,
+					-- oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
+					dlc = '12.2:C\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
+					debug = true, -- Set to true for debug logging
 					trace = false -- Set to true for trace logging (REALLY verbose)
 				}
 			else
@@ -106,5 +109,12 @@ return {
 				focus = false
 			}
 		})
+
+		local lspconfig = require 'lspconfig'
+		lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, function(config)
+			if some_condition and config.name == "openedge_ls" then
+				config.cmd = {"java","-jar", oe_jar_path}
+			end
+		end)
 	end
 }
