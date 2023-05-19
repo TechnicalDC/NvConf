@@ -10,7 +10,7 @@ return {
 				PmenuSel = {link = "lualine_a_insert"},
 				TelescopeSelection = {link = "lualine_a_insert"},
 				TelescopePromptBorder = { fg = "" },
-				BufferTabpages = {link = "lualine_a_visual"}
+				BufferTabpages = {link = "lualine_a_visual"},
 			}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
 		})
 	end

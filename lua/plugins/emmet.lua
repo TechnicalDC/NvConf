@@ -1,5 +1,6 @@
 return {
 	"mattn/emmet-vim",
+	enabled = false,
 	config = function ()
 		vim.g.user_emmet_leader_key=','
 		vim.cmd([[
