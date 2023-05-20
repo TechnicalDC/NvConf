@@ -1,5 +1,8 @@
 return {
 	'fgheng/winbar.nvim',
+	dependencies = {
+		"SmiteshP/nvim-navic"
+	},
 	config = function ()
 		require('winbar').setup({
 			enabled = true,

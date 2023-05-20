@@ -5,7 +5,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		'neovim/nvim-lspconfig',
 		"nvim-treesitter/nvim-treesitter",
-		'kyazdani42/nvim-web-devicons'
+		'kyazdani42/nvim-web-devicons',
+		"SmiteshP/nvim-navic"
 	},
 	config = function ()
 		require("mason").setup()
@@ -13,6 +14,7 @@ return {
 			ensure_installed = { "lua_ls", "pyright", "tsserver" }
 		})
 
+		local navic = require("nvim-navic")
 		local nvim_lsp = require('lspconfig')
 		local map = vim.keymap.set
 		local opts = { noremap = true, silent = true }
@@ -27,8 +29,11 @@ return {
 			-- Enable completion triggered by <c-x><c-o>
 			-- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+			if client.server_capabilities.documentSymbolProvider then
+				navic.attach(client, bufnr)
+			end
+
 			-- Mappings.
-			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
 			-- Native lsp client keybindings
