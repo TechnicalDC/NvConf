@@ -37,10 +37,13 @@ return {
 		}
 
 		header_collection.neovim_mini1 = {
-			'  _  _             _        ',
-			' | \\| |___ _____ _(_)_ __   ',
-			' | .` / -_) _ \\ V / | \'  \\  ',
-			' |_|\\_\\___\\___/\\_/|_|_|_|_| ',
+			" _______             ____   ____.__         ",
+			" \\      \\   ____  ___\\   \\ /   /|__| _____  ",
+			" /   |   \\_/ __ \\/  _ \\   Y   / |  |/     \\ ",
+			"/    |    \\  ___(  <_> )     /  |  |  Y Y  \\",
+			"\\____|__  /\\___  >____/ \\___/   |__|__|_|  /",
+			"        \\/     \\/                        \\/ ",
+
 		}
 		header_collection.neovim_mini2 = {
 			"                          __           ",
@@ -83,8 +86,8 @@ return {
 			dashboard.button("e", "  New file", ":ene<CR>"),
 			dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
 			dashboard.button("r", "  Find recent file", ":Telescope oldfiles<CR>"),
-			-- dashboard.button("g", "  Find word", ":Telescope live_grep<CR>"),
-			-- dashboard.button("c", "  Colorscheme", ":Telescope colorscheme<CR>"),
+			dashboard.button("b", "  Browse file", ":Telescope file_browser<CR>"),
+			dashboard.button("g", "  Find word", ":Telescope live_grep<CR>"),
 			dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 		}
 
