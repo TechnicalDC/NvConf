@@ -37,6 +37,7 @@ map("n", "<leader>tt", ":NvimTreeToggle<CR>", opts)
 map("n", "<A-f>", ":Telescope find_files<CR>", opts)
 map("n", "<A-b>", ":Telescope buffers<CR>", opts)
 map("n", "<A-g>", ":Telescope git_status<CR>", opts)
+map("n", "<leader>=", ":Telescope spell_suggest<CR>", opts)
 
 -- Git Signs
 map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
