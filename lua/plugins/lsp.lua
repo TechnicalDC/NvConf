@@ -4,36 +4,56 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		'neovim/nvim-lspconfig',
+		"glepnir/lspsaga.nvim",
 		"nvim-treesitter/nvim-treesitter",
-		'kyazdani42/nvim-web-devicons',
-		"SmiteshP/nvim-navic"
+		'kyazdani42/nvim-web-devicons'
 	},
 	config = function ()
+		-- MASON {{{
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = { "lua_ls", "pyright", "tsserver" }
 		})
+		-- }}}
 
-		local navic = require("nvim-navic")
+		-- LSPSAGA {{{
+		require("lspsaga").setup({
+			ui = {
+				-- This option only works in Neovim 0.9
+				title = true,
+				-- Border type can be single, double, rounded, solid, shadow.
+				border = "single",
+				winblend = 0,
+				expand = "",
+				collapse = "",
+				code_action = "💡",
+				incoming = " ",
+				outgoing = " ",
+				hover = ' ',
+				kind = {},
+			},
+			symbol_in_winbar = {
+				enable = true,
+				separator = "  ",
+				ignore_patterns={},
+				hide_keyword = true,
+				show_file = true,
+				folder_level = 2,
+				respect_root = false,
+				color_mode = true,
+			},
+		})
+		-- }}}
+
+		-- LSPCONFIG {{{
 		local nvim_lsp = require('lspconfig')
 		local map = vim.keymap.set
 		local opts = { noremap = true, silent = true }
 
 		map('n', '<space>e', vim.diagnostic.open_float, opts)
-		-- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-		-- Use an on_attach function to only map the following keys
-		-- after the language server attaches to the current buffer
 		---@diagnostic disable-next-line: unused-local
 		local on_attach = function(client, bufnr)
-			-- Enable completion triggered by <c-x><c-o>
-			-- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-			if client.server_capabilities.documentSymbolProvider then
-				navic.attach(client, bufnr)
-			end
-
-			-- Mappings.
 			local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
 			-- Native lsp client keybindings
@@ -56,8 +76,6 @@ return {
 				-- end, bufopts)
 		end
 
-		-- Use a loop to conveniently call 'setup' on multiple servers and
-		-- map buffer local keybindings when the language server attaches
 		local servers = {
 			'pyright',
 			-- 'openedge_ls',
@@ -121,5 +139,7 @@ return {
 				config.cmd = {"java","-jar", oe_jar_path}
 			end
 		end)
+		-- }}}
+
 	end
 }
