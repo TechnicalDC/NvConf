@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 -- REQUIRED {{{
 local ls = require("luasnip")
 local s = ls.s --> snippet
@@ -25,6 +26,7 @@ local def_types = {
 	"frame",
 	"query",
 	"buffer",
+	"stream",
 	"input parameter",
 	"output parameter",
 	"temp-table"
@@ -38,16 +40,17 @@ local data_types = {
 }
 -- Returns table containing insert node with provided options
 local get_options = function(arg)
-	local t = {}
+	local x = {}
 
 	for key, value in pairs(arg) do
-		table.insert(t, i(1, arg[key]))
+		table.insert(x, i(1, arg[key]))
 	end
-	return t
+	return x
 end
 
 -- Finds the passed argument in the current buffer
 local find = function(arg)
+	local found = false
 	local count = vim.api.nvim_buf_line_count(0)
 	for line = 1, count, 1 do
 		if string.find(vim.api.nvim_buf_get_lines(0,0,-1,false)[line], arg) then
@@ -64,15 +67,28 @@ end
 -- PATCH SNIPPET {{{
 local patch_fmt = fmt(
 	[[
-	/* Last modified on: {} Last modified by: Dilip Chauhan ECO: ALT{} */
+	/* Last modified on: {} Last modified by: Dilip Chauhan ECO: {} */
 	]],
 	{
 		f(function(_,snip) return {os.date('%d-%m-%Y')} end, {}),
-		f(function(_,snip) return {os.date('%d%m%Y')} end, {})
+		i(2,"<++>"),
 	}
 )
 local patch_snippet = s("patch", patch_fmt)
 table.insert(snippets, patch_snippet)
+-- }}}
+
+-- PATCH MARKER SNIPPET {{{
+local patch_mark_fmt = fmt(
+	[[
+	/* ALT{} */
+	]],
+	{
+		f(function(_,snip) return {os.date('%d%m%Y')} end, {}),
+	}
+)
+local patch_mark_snippet = s("ALT", patch_mark_fmt)
+table.insert(autosnippets, patch_mark_snippet)
 -- }}}
 
 -- MARKER {{{
@@ -83,8 +99,8 @@ local marker_fmt = fmt(
 	/* END - {} */
 	]],
 	{
-		d(1, function() 
-			return sn(1,t("ALT" .. sting(os.date('%d%m%Y'))))
+		d(1, function()
+			return sn(1,t("ALT" .. string(os.date('%d%m%Y'))))
 		end),
 		d(2, function(_, snip)
 			return sn(1, t(snip.env.TM_SELECTED_TEXT or {}))
@@ -138,6 +154,25 @@ local def_snippet = s("define", def_fmt)
 table.insert(snippets, def_snippet)
 -- }}}
 
+-- MESSAGE SNIPPET {{{
+local msg_fmt = fmt(
+	[[
+	{{ us/bbi/pxmsg.i {}={} &errorlevel={} }}
+	]],
+	{
+		c(1, {
+			i(1, "&msgnum"),
+			i(1, "&msgtext"),
+			}
+		),
+		i(2, "<++>"),
+		i(3, "<++>"),
+	}
+)
+local msg_snippet = s("msg", msg_fmt)
+table.insert(snippets, msg_snippet)
+-- }}}
+
 -- FIND SNIPPET {{{
 local find_fmt = fmt(
 	[[
@@ -161,7 +196,7 @@ local find_fmt = fmt(
 		d(5, function()
 			if find("mfdeclre.i") or find("mfdtitle.i") then
 				return sn(1, i(1,"= global_domain "))
-			else 
+			else
 				return sn(1, i(1,""))
 			end
 		end),
@@ -199,7 +234,7 @@ local for_fmt = fmt(
 		d(5, function()
 			if find("mfdeclre.i") or find("mfdtitle.i") then
 				return sn(1, i(1,"= global_domain"))
-			else 
+			else
 				return sn(1, i(1,""))
 			end
 		end),
@@ -220,7 +255,7 @@ table.insert(snippets, for_snippet)
 local function_fmt = fmt(
 	[[
 		function {} returns {}
-			({}):
+			(input {}):
 
 			define variable lv_output as {}.
 
@@ -249,4 +284,4 @@ local function_snippet = s(
 table.insert(snippets, function_snippet)
 -- }}}
 
-return snippets
+return snippets, autosnippets
