@@ -38,7 +38,7 @@ return {
 			persist_size = true,
 			persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered
 			-- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
-			direction = 'horizontal',
+			direction = 'float',
 			close_on_exit = true, -- close the terminal window when the process exits
 			shell = vim.o.shell, -- change the default shell
 			auto_scroll = true, -- automatically scroll to the bottom on terminal output
@@ -50,10 +50,10 @@ return {
 				-- not natively supported but implemented in this plugin.
 
 				-- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-				border = 'double',
+				border = 'single',
 				-- like `size`, width and height can be a number or function which is passed the current terminal
-				-- width = <value>,
-				-- height = <value>,
+				width = vim.o.columns * 0.6,
+				height = 25,
 				-- winblend = 3,
 				-- zindex = <value>,
 			},
