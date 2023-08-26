@@ -14,7 +14,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
 * Explore files via [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 * Fuzzy finder via [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-* Amazing default theme via [neovim-ayu](https://github.com/Shatur/neovim-ayu) and many [more](https://github.com/TechnicalDC/NvConf#colorschemes)
+* Amazing default theme via [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) and many [more](https://github.com/TechnicalDC/NvConf#colorschemes)
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -26,7 +26,6 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * [dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 * [onedark.nvim](https://github.com/navarasu/onedark.nvim)
-* [neovim-ayu](https://github.com/Shatur/neovim-ayu)
 
 ## Installation
 ```bash
