@@ -1,6 +1,10 @@
 return {
 	'akinsho/toggleterm.nvim',
 	version = "*",
+	lazy = true,
+	keys = {
+		{ "<C-t>", "<cmd>Toggleterm<cr>", desc = "Open terminal" },
+	},
 	config = function ()
 		require("toggleterm").setup {
 			-- size can be a number or function which is passed the current terminal
