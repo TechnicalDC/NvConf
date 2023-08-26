@@ -1,7 +1,11 @@
 return {
 	'vimwiki/vimwiki',
 	enabled = true,
-	init  = function ()
+	lazy = true,
+	keys = {
+		{ "<leader>ww", "<cmd>VimwikiIndex<cr>", desc = "Open vimwiki homepage" },
+	},
+	init = function ()
 		-- Work Wiki Setup
 		local path = {}
 		path.work = {
@@ -15,6 +19,6 @@ return {
 			list_margin = 0,
 		}
 
-		vim.g.vimwiki_list = { path.home }
+		vim.g.vimwiki_list = { path.work }
 	end
 }

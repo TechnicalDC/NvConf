@@ -16,12 +16,13 @@ return {
 		}
 		require('telescope').setup{
 			defaults = {
-				layout_strategy = 'center',
+				layout_strategy = 'horizontal',
+				-- layout_strategy = 'center',
 				layout_config = {
 					preview_cutoff = 1,
-					height = 0.5,
+					height = 0.8,
 					prompt_position = "top",
-					width = 0.7,
+					width = 0.8,
 				},
 				sorting_strategy = "ascending",
 				prompt_prefix = "   ",
@@ -29,7 +30,7 @@ return {
 				multi_icon = "   ",
 				selection_caret = "  ",
 				border = true,
-				borderchars = full_border_chars,
+				borderchars = border_char,
 				results_title = false,
 				prompt_title = " Prompt ",
 

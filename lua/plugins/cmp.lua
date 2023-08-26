@@ -31,31 +31,31 @@ return {
 
 		--   פּ ﯟ   some other good icons
 		local kind_icons = {
-			Class         = "",
-			Color         = "",
-			Constant      = "󰏿",
-			Constructor   = "",
-			Enum          = "",
-			EnumMember    = "",
-			Event         = "",
-			Field         = "",
-			File          = "",
-			Folder        = "",
-			Function      = "",
-			Interface     = "",
-			Keyword       = "",
-			Method        = "m",
-			Module        = "",
-			Operator      = "",
-			Property      = "",
-			Reference     = "",
-			Snippet       = "",
-			Struct        = "",
 			Text          = "",
-			TypeParameter = "",
+			Method        = "m",
+			Function      = "",
+			Constructor   = "",
+			Field         = "",
+			Variable      = "",
+			Class         = "",
+			Interface     = "",
+			Module        = "",
+			Property      = "",
 			Unit          = "",
 			Value         = "",
-			Variable      = "",
+			Enum          = "",
+			Keyword       = "",
+			Snippet       = "",
+			Color         = "",
+			File          = "",
+			Reference     = "",
+			Folder        = "",
+			EnumMember    = "",
+			Constant      = "",
+			Struct        = "",
+			Event         = "",
+			Operator      = "",
+			TypeParameter = "",
 		}
 
 		cmp.setup({
@@ -123,16 +123,21 @@ return {
 				{ name = 'orgmode' },
 			}),
 			experimental = {
-				ghost_text = true
+				ghost_text = false
 			}
 		})
 
 		-- Set configuration for specific filetype.
 		cmp.setup.filetype("progress", {
 			sources = cmp.config.sources({
-				{ name = 'abl' }, -- For Progress 4GL
-				{ name = 'luasnip' }, -- For luasnip users.
+				{
+					name = 'abl',
+					option = {
+						max_item_count = max_count
+					}
+				}, -- For Progress 4GL
 				{ name = "path" },
+				{ name = 'luasnip' }, -- For luasnip users.
 				{ name = 'buffer' },
 			})
 		})
