@@ -4,7 +4,7 @@ return {
 		require('lualine').setup {
 			options = {
 				icons_enabled = true,
-				theme = 'ayu',
+				theme = 'tokyonight',
 				component_separators = { left = '', right = ''},
 				section_separators = { left = '', right = ''},
 				-- component_separators = { left = '', right = ''},
@@ -14,6 +14,11 @@ return {
 				disabled_filetypes = {},
 				always_divide_middle = true,
 				globalstatus = true,
+				refresh = {                  -- sets how often lualine should refresh it's contents (in ms)
+					statusline = 1000,         -- The refresh option sets minimum time that lualine tries
+					tabline = 1000,            -- to maintain between refresh. It's not guarantied if situation
+					winbar = 1000              -- arises that lualine needs to refresh itself before this time
+				}
 			},
 			sections = {
 				lualine_a = {'mode'},
@@ -40,7 +45,8 @@ return {
 				lualine_z = {}
 			},
 			tabline = {},
-			extensions = {'nvim-tree'}
+			winbar = {},
+			extensions = {'toggleterm', 'lazy'}
 		}
 	end
 }

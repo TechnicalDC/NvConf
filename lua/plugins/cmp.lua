@@ -74,6 +74,8 @@ return {
 				documentation = {
 					border = border(None),
 					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None",
+					max_height = 15,
+					-- scrollof = true
 				},
 			},
 			mapping = cmp.mapping.preset.insert({

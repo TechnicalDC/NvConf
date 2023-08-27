@@ -8,7 +8,7 @@ return {
 			light = "latte",
 			dark = "mocha",
 		},
-		transparent_background = false,
+		transparent_background = true,
 		show_end_of_buffer = false, -- show the '~' characters after the end of buffers
 		term_colors = false,
 		dim_inactive = {
@@ -44,7 +44,7 @@ return {
 			nvimtree = true,
 			telescope = true,
 			notify = true,
-			mini = false,
+			mini = true,
 			-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 		},
 	})

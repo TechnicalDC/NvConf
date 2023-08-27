@@ -12,7 +12,7 @@ return {
 		-- MASON {{{
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "pyright", "tsserver" }
+			ensure_installed = { "lua_ls", "pyright", "tsserver"}
 		})
 		-- }}}
 
@@ -26,7 +26,7 @@ return {
 				winblend = 0,
 				expand = "",
 				collapse = "",
-				code_action = "💡",
+				code_action = "",
 				incoming = " ",
 				outgoing = " ",
 				hover = ' ',
@@ -163,19 +163,29 @@ return {
 			map('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
 			map('n', '[d', vim.diagnostic.goto_prev, bufopts)
 			map('n', ']d', vim.diagnostic.goto_next, bufopts)
-			-- map('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-			-- map('n', 'gi', vim.lsp.buf.implementation, bufopts)
-			-- map('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-			-- map('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-			-- map('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-			-- map('n', '<space>wl', function()
-				-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				-- end, bufopts)
+			map('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+			map('n', 'gi', vim.lsp.buf.implementation, bufopts)
+			map('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+			map('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+			map('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+			map('n', '<space>wl', function()
+					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+				end, bufopts)
+
+			-- lspsaga keybindings
+			-- map('n', 'gD', "<cmd>Lspsaga goto_definition<cr>", bufopts)
+			-- map('n', 'gd', "<cmd>Lspsaga peek_definition<cr>", bufopts)
+			-- map('n', '<space>D', "<cmd>Lspsaga peek_type_definition<cr>", bufopts)
+			-- map('n', 'K', "<cmd>Lspsaga hover_doc<cr>", bufopts)
+			-- map('n', '<leader>ca', "<cmd>Lspsaga code_action<cr>", bufopts)
+			-- map('n', '<leader>rn', "<cmd>Lspsaga rename<cr>", bufopts)
+			-- map('n', '[d', "<cmd>Lspsaga diagnostic_jump_prev<cr>", bufopts)
+			-- map('n', ']d', "<cmd>Lspsaga diagnostic_jump_next<cr>", bufopts)
 		end
 
 		local servers = {
 			'pyright',
-			-- 'openedge_ls',
+			'openedge_ls',
 			'tsserver',
 			'lua_ls',
 			'jsonls',
@@ -187,7 +197,16 @@ return {
 			if nvim_lsp[lsp] == "openedge_ls" then
 				nvim_lsp[lsp].setup {
 					on_attach = on_attach,
-					cmd = {},
+					cmd = {
+						 'java',
+						 '--add-opens=java.base/java.lang=ALL-UNNAMED',
+						 '--add-opens=java.base/java.math=ALL-UNNAMED',
+						 '--add-opens=java.base/java.util=ALL-UNNAMED',
+						 '--add-opens=java.base/java.util.concurrent=ALL-UNNAMED',
+						 '--add-opens=java.base/java.net=ALL-UNNAMED',
+						 '--add-opens=java.base/java.text=ALL-UNNAMED',
+						 oe_jar_path
+					},
 					root_dir = root_pattern('openedge-project.json'),
 					oe_jar_path = oe_jar_path,
 					-- oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
