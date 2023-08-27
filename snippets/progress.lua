@@ -169,7 +169,7 @@ local msg_fmt = fmt(
 		i(3, "<++>"),
 	}
 )
-local msg_snippet = s("msg", msg_fmt)
+local msg_snippet = s("pxmsg", msg_fmt)
 table.insert(snippets, msg_snippet)
 -- }}}
 
@@ -177,7 +177,7 @@ table.insert(snippets, msg_snippet)
 local find_fmt = fmt(
 	[[
 		find {} {} {}
-			where {} {}no-error.
+			where {} {} no-error.
 		if available {} then do:
 		end. /* if available {} then do: */
 	]],
@@ -221,6 +221,7 @@ local for_fmt = fmt(
 	]],
 	{
 		c(1, {
+			i(1, "each"),
 			i(1, "first"),
 			i(1, "last"),
 			i(1, "next"),
@@ -257,11 +258,11 @@ local function_fmt = fmt(
 		function {} returns {}
 			(input {}):
 
-			define variable lv_output as {}.
+			define variable {} as {}.
 
 			{}
 
-			return lv_output.
+			return {}.
 		end function. /* function {} returns {} */
 	]],
 	{
@@ -270,8 +271,10 @@ local function_fmt = fmt(
 		end),
 		c(2,get_options(data_types)),
 		i(3, ""),
+		i(4, "<++>"),
 		rep(2),
-		i(4, "/* Add Logic */"),
+		i(5, "/* Add Logic */"),
+		rep(4),
 		rep(1),
 		rep(2),
 	}
