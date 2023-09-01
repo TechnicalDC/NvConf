@@ -67,15 +67,15 @@ return {
 			},
 			window = {
 				completion = {
-					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None",
+					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None,ScrollbarHandle:None",
 					border = border(None),
 					scrollbar = false,
 				},
 				documentation = {
 					border = border(None),
-					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None",
+					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None",
 					max_height = 15,
-					-- scrollof = true
+					scrollbar = false,
 				},
 			},
 			mapping = cmp.mapping.preset.insert({
@@ -90,19 +90,31 @@ return {
 			formatting = {
 				-- fields = {"abbr", "kind"},
 				fields = { "abbr", "kind", "menu" },
+				-- fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
 					-- Kind icons
-					-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-					vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+					-- vim_item.kind = string.format(" %s ", kind_icons[vim_item.kind])
+					vim_item.kind = string.format('   %s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+
+					local source = entry.source.name
 					vim_item.menu = ({
-						copilot	= "[Copilot]",
-						luasnip	= "[LuaSnip]",
-						nvim_lua = "[Nvim Lua]",
-						nvim_lsp = "[LSP]",
-						buffer	= "[Buffer]",
-						abl		= "[ABL]",
-						path		= "[Path]",
-					})[entry.source.name]
+						copilot	= "(copilot)",
+						luasnip	= "(luasnip)",
+						nvim_lua = "(nvim_lua)",
+						nvim_lsp = "(lsp)",
+						buffer	= "(buffer)",
+						abl		= "(abl)",
+						path		= "(path)",
+					})[source]
+
+					-- Removing dublicates
+					if source == "luasnip"
+						or source == "nvim_lsp"
+						or source == "nvim_lua"
+						or source == "abl" then
+						vim_item.dup = 0
+					end
+
 					return vim_item
 				end,
 			},
@@ -125,22 +137,43 @@ return {
 				{ name = 'orgmode' },
 			}),
 			experimental = {
-				ghost_text = false
+				ghost_text = true
 			}
 		})
 
 		-- Set configuration for specific filetype.
 		cmp.setup.filetype("progress", {
 			sources = cmp.config.sources({
+				{ name = 'luasnip' }, -- For luasnip users.
 				{
 					name = 'abl',
 					option = {
 						max_item_count = max_count
 					}
 				}, -- For Progress 4GL
+				{
+					name = 'buffer',
+					-- entry_filter = function (entry, context)
+					-- 	local kind = entry:get_kind()
+					--
+					-- 	local line = context.cursor_line
+					-- 	local col  = context.cursor.col
+					-- 	local trigger = string.sub(line, col -1, col -1)
+					--
+					-- 	print(trigger)
+					--
+					-- 	if trigger == "." then
+					-- 		local curr_line = vim.api.nvim_get_current_line()
+					-- 		print(curr_line)
+					-- 		return true
+					-- 	elseif string.match(line, "^%s*%w*$") then
+					-- 		return true
+					-- 	end
+					--
+					-- 	return true
+					-- end
+				},
 				{ name = "path" },
-				{ name = 'luasnip' }, -- For luasnip users.
-				{ name = 'buffer' },
 			})
 		})
 
@@ -152,7 +185,7 @@ return {
 					-- Kind icons
 					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 					vim_item.menu = ({
-						buffer = "[Buffer]"
+						buffer = "(buffer)"
 					})[entry.source.name]
 					return vim_item
 				end,
@@ -176,8 +209,8 @@ return {
 					-- Kind icons
 					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 					vim_item.menu = ({
-						buffer = "[Buffer]",
-						path = "[Path]",
+						buffer = "(buffer)",
+						path = "(path)",
 					})[entry.source.name]
 					return vim_item
 				end,
