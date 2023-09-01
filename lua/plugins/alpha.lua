@@ -88,6 +88,7 @@ return {
 			dashboard.button("r", "  Find recent file", ":Telescope oldfiles<CR>"),
 			dashboard.button("b", "  Browse file", ":Telescope file_browser<CR>"),
 			dashboard.button("g", "  Find word", ":Telescope live_grep<CR>"),
+			dashboard.button("t", "  Todo", ":TodoTelescope<CR>"),
 			dashboard.button("s", "  Settings", ":Telescope find_files cwd=~/AppData/Local/nvim/<CR>"),
 			dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 		}
