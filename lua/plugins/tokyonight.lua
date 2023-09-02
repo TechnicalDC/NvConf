@@ -35,6 +35,7 @@ return {
 			on_highlights = function(hl, colors)
 				-- hl.lualine_c_normal = { bg = "NONE"}
 				-- hl.lualine_x_normal = { bg = colors.none }
+				-- hl.CmpItemKindText = { link = "lualine_a_normal" }
 				hl.NoiceMini = { link = "NoiceVirtualText" }
 				hl.PmenuSel = { link = "lualine_a_insert"}
 				hl.TelescopeSelection = {link = "lualine_a_insert"}

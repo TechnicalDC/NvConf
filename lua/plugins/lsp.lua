@@ -3,7 +3,8 @@ return {
 	"williamboman/mason.nvim",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
-		'neovim/nvim-lspconfig',
+		'TechnicalDC/nvim-lspconfig',
+		-- 'neovim/nvim-lspconfig',
 		"glepnir/lspsaga.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		'kyazdani42/nvim-web-devicons'
@@ -185,7 +186,7 @@ return {
 
 		local servers = {
 			'pyright',
-			'openedge_ls',
+			-- 'openedge_ls',
 			'tsserver',
 			'lua_ls',
 			'jsonls',
@@ -194,32 +195,20 @@ return {
 		}
 		local oe_jar_path = 'C:\\Users\\Dilip Chauhan\\AppData\\Local\\nvim-data\\mason\\packages\\openedge-language-server\\abl-lsp.jar'
 		for _, lsp in ipairs(servers) do
-			if nvim_lsp[lsp] == "openedge_ls" then
-				nvim_lsp[lsp].setup {
-					on_attach = on_attach,
-					cmd = {
-						 'java',
-						 '--add-opens=java.base/java.lang=ALL-UNNAMED',
-						 '--add-opens=java.base/java.math=ALL-UNNAMED',
-						 '--add-opens=java.base/java.util=ALL-UNNAMED',
-						 '--add-opens=java.base/java.util.concurrent=ALL-UNNAMED',
-						 '--add-opens=java.base/java.net=ALL-UNNAMED',
-						 '--add-opens=java.base/java.text=ALL-UNNAMED',
-						 oe_jar_path
-					},
-					root_dir = root_pattern('openedge-project.json'),
-					oe_jar_path = oe_jar_path,
-					-- oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
-					dlc = '12.2:C\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
-					debug = true, -- Set to true for debug logging
-					trace = false -- Set to true for trace logging (REALLY verbose)
-				}
-			else
 				nvim_lsp[lsp].setup {
 					on_attach = on_attach,
 				}
-			end
 		end
+
+		nvim_lsp.openedge_ls.setup {
+			on_attach = on_attach,
+			-- root_dir = root_pattern('openedge-project.json'),
+			oe_jar_path = oe_jar_path,
+			-- oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
+			dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
+			debug = true, -- Set to true for debug logging
+			trace = false -- Set to true for trace logging (REALLY verbose)
+		}
 
 		local border_chars = { '┌', '─', '┐', '│', '┘', '─', '└', '│'}
 		local signs = {
@@ -235,10 +224,10 @@ return {
 		end
 
 		vim.diagnostic.config({
-			-- virtual_text = {
-			-- 	prefix = '󱓻 ',
-			-- }
-			virtual_text = false,
+			virtual_text = {
+				prefix = '󱓻 ',
+			},
+			-- virtual_text = false,
 			float = {
 				border = border_chars,
 				max_width = 50,
