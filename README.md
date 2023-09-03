@@ -4,7 +4,6 @@
 My own lua based [neovim](https://neovim.org/) configuration.
 </div>
 <br>
-<img src="https://github.com/TechnicalDC/NvConf/blob/main/images/dash.png" alt="img" align="right" width="400px">
 
 ## Features
 
