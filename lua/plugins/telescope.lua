@@ -20,6 +20,9 @@ return {
 			-- results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
 			-- preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
 		}
+
+		local toggle_preview = require("telescope.actions.layout").toggle_preview
+
 		require('telescope').setup{
 			defaults = {
 				-- layout_strategy = 'horizontal',
@@ -51,7 +54,7 @@ return {
 						-- actions.which_key shows the mappings for your picker,
 						-- e.g. git_{create, delete, ...}_branch for the git_branches picker
 						["<C-/>"] = "which_key",
-						-- ["<C-p>"] = "layout.toggle_preview",
+						["<C-p>"] = toggle_preview
 					}
 				}
 			},
