@@ -202,7 +202,6 @@ return {
 
 		nvim_lsp.openedge_ls.setup {
 			on_attach = on_attach,
-			-- root_dir = root_pattern('openedge-project.json'),
 			oe_jar_path = oe_jar_path,
 			-- oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
 			dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
@@ -210,7 +209,8 @@ return {
 			trace = false -- Set to true for trace logging (REALLY verbose)
 		}
 
-		local border_chars = { '┌', '─', '┐', '│', '┘', '─', '└', '│'}
+		-- local border_chars = { '┌', '─', '┐', '│', '┘', '─', '└', '│'}
+		local rounded_border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│'}
 		local signs = {
 			Error = " ",
 			Warn = " ",
@@ -229,7 +229,7 @@ return {
 			},
 			-- virtual_text = false,
 			float = {
-				border = border_chars,
+				border = rounded_border,
 				max_width = 50,
 				max_height = 10,
 				wrap = true,

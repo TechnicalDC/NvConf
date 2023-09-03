@@ -11,14 +11,14 @@ return {
 		local full_border_char = {
 			-- { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
 			-- Rounded
-			-- preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-			-- prompt = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-			-- results = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+			preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+			prompt = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+			results = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
 
 			-- Pointed
-			prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
-			results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
-			preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+			-- prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+			-- results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+			-- preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
 		}
 		require('telescope').setup{
 			defaults = {
@@ -37,7 +37,7 @@ return {
 				multi_icon = "   ",
 				selection_caret = "  ",
 				border = true,
-				borderchars = border_char,
+				borderchars = full_border_char,
 				results_title = false,
 				prompt_title = " Prompt ",
 

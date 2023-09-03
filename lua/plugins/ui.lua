@@ -7,10 +7,15 @@ return {
 	},
 	enabled = true,
 	config = function ()
-		local border_style = {
-			top_left    = "┌", top    = "─",    top_right = "┐",
+		-- local border_style = {
+		-- 	top_left    = "┌", top    = "─",    top_right = "┐",
+		-- 	left        = "│",                      right = "│",
+		-- 	bottom_left = "└", bottom = "─", bottom_right = "┘",
+		-- }
+		local rounded_border_style = {
+			top_left    = "╭", top    = "─",    top_right = "╮",
 			left        = "│",                      right = "│",
-			bottom_left = "└", bottom = "─", bottom_right = "┘",
+			bottom_left = "╰", bottom = "─", bottom_right = "╯",
 		}
 		require("noice").setup({
 			cmdline = {
@@ -40,7 +45,7 @@ return {
 				enabled = true, -- enables the Noice messages UI
 				view = "mini", -- default view for messages
 				view_error = "notify", -- view for errors
-				view_warn = "notify", -- view for warnings
+				view_warn = "mini", -- view for warnings
 				view_history = "messages", -- view for :messages
 				view_search = false,
 				-- view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
@@ -213,7 +218,12 @@ return {
 						height = "auto",
 					},
 					border = {
-						style = border_style
+						style = rounded_border_style
+					}
+				},
+				notify = {
+					size = {
+						width = 30
 					}
 				},
 				popupmenu = {
@@ -227,7 +237,7 @@ return {
 						height = 10,
 					},
 					border = {
-						style = border_style,
+						style = rounded_border_style,
 						padding = { 0, 1 },
 					},
 					win_options = {

@@ -15,18 +15,32 @@ return {
 		local cmp = require'cmp'
 
 		local max_count = 15
+		local rounded_border = true
 
 		local function border(hl_name)
-			return {
-				{ "┌", hl_name },
-				{ "─", hl_name },
-				{ "┐", hl_name },
-				{ "│", hl_name },
-				{ "┘", hl_name },
-				{ "─", hl_name },
-				{ "└", hl_name },
-				{ "│", hl_name },
-			}
+			if rounded_border then
+				return {
+					{ "╭", hl_name },
+					{ "─", hl_name },
+					{ "╮", hl_name },
+					{ "│", hl_name },
+					{ "╯", hl_name },
+					{ "─", hl_name },
+					{ "╰", hl_name },
+					{ "│", hl_name },
+				}
+			else
+				return {
+					{ "┌", hl_name },
+					{ "─", hl_name },
+					{ "┐", hl_name },
+					{ "│", hl_name },
+					{ "┘", hl_name },
+					{ "─", hl_name },
+					{ "└", hl_name },
+					{ "│", hl_name },
+				}
+			end
 		end
 
 		--   פּ ﯟ   some other good icons
