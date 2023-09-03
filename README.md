@@ -5,6 +5,8 @@ My own lua based [neovim](https://neovim.org/) configuration.
 </div>
 <br>
 
+![home](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-36.png)
+
 ## Features
 
 * Dashboard via [alpha-nvim](https://github.com/goolord/alpha-nvim)
@@ -38,18 +40,15 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ## Screenshots
 
-**Noice:**
-![cmdline](https://github.com/TechnicalDC/NvConf/blob/main/images/cmdline.png)
+![noice](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-39.png)
 
-**Cmp:**
-![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
+![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-43.png)
 
-**Telescope:**
-![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
+![telescope-file-browser](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-45.png)
 
-**Toggleterm:**
-![terminal](https://github.com/TechnicalDC/NvConf/blob/main/images/terminal.png)
+![toggleterm](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-47.png)
 
-**LuaSnip:**
-![luasnip](https://github.com/TechnicalDC/NvConf/blob/main/images/luasnip.png)
+![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-50.png)
+
+![todo-comments](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-54.png)
 
