@@ -38,7 +38,8 @@ return {
 				-- hl.CmpItemKindText = { link = "lualine_a_normal" }
             hl.TelescopePromptTitle = { link = "lualine_a_visual" }
             hl.TelescopePreviewTitle = { link = "lualine_a_replace" }
-            hl.TelescopeResultTitle = { link = "lualine_a_normal" }
+            hl.TelescopeTitle = { link = "lualine_a_normal" }
+
 				hl.PmenuSel = { link = "lualine_a_insert"}
 				hl.TelescopeSelection = {link = "lualine_a_insert"}
 

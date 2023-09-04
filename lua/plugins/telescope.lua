@@ -41,7 +41,6 @@ return {
 				selection_caret = "  ",
 				border = true,
 				borderchars = full_border_char,
-				results_title = false,
 				prompt_title = " Prompt ",
 
 				-- Preview
@@ -77,6 +76,7 @@ return {
 		}
 
 		require("telescope").load_extension("ui-select")
+		require("telescope").load_extension("noice")
 		require("telescope").load_extension("file_browser")
 	end
 }
