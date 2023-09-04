@@ -36,9 +36,15 @@ return {
 				-- hl.lualine_c_normal = { bg = "NONE"}
 				-- hl.lualine_x_normal = { bg = colors.none }
 				-- hl.CmpItemKindText = { link = "lualine_a_normal" }
-				hl.NoiceMini = { link = "NoiceVirtualText" }
+            hl.TelescopePromptTitle = { link = "lualine_a_visual" }
+            hl.TelescopePreviewTitle = { link = "lualine_a_replace" }
+            hl.TelescopeResultTitle = { link = "lualine_a_normal" }
 				hl.PmenuSel = { link = "lualine_a_insert"}
 				hl.TelescopeSelection = {link = "lualine_a_insert"}
+
+				hl.NoiceMini = { link = "NoiceVirtualText" }
+				-- hl.NoiceCmdlinePopupTitle = { link = "lualine_a_normal" }
+
 				hl.BufferTabpages = {link = "lualine_a_visual"}
 				hl.BufferTabpagesSep = {link = "lualine_a_visual"}
 			end,

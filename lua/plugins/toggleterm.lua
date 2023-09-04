@@ -54,7 +54,7 @@ return {
 				-- not natively supported but implemented in this plugin.
 
 				-- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-				border = 'single',
+				border = 'curved',
 				-- like `size`, width and height can be a number or function which is passed the current terminal
 				width = vim.o.columns * 0.6,
 				height = 25,
