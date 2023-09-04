@@ -40,15 +40,15 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ## Screenshots
 
-![noice](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-39.png)
+![noice](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-15.png)
 
 ![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-43.png)
 
-![telescope-file-browser](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-45.png)
+![telescope-file-browser](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-13.png)
 
-![toggleterm](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-47.png)
+![toggleterm](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-12.png)
 
-![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-50.png)
+![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-11.png)
 
-![todo-comments](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-54.png)
+![todo-comments](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-09.png)
 
