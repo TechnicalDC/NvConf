@@ -12,6 +12,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * Dashboard via [alpha-nvim](https://github.com/goolord/alpha-nvim)
 * Autocompletion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 * Integrated terminal via [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+* LSP Support using [mason.nvim](https://github.com/williamboman/mason.nvim)
 * Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
 * Explore files via [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 * Fuzzy finder via [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
