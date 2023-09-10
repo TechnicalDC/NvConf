@@ -33,6 +33,8 @@ return {
 			---@param highlights Highlights
 			---@param colors ColorScheme
 			on_highlights = function(hl, colors)
+
+				-- local color = vim.api.nvim_get_hl()
 				-- hl.lualine_c_normal = { bg = "NONE"}
 				-- hl.lualine_x_normal = { bg = colors.none }
 				-- hl.CmpItemKindText = { link = "lualine_a_normal" }
@@ -41,10 +43,11 @@ return {
             hl.TelescopeTitle = { link = "lualine_a_normal" }
 
 				hl.PmenuSel = { link = "lualine_a_insert"}
+				-- hl.PmenuThumb = { bg = colors.}
 				hl.TelescopeSelection = {link = "lualine_a_insert"}
 
 				hl.NoiceMini = { link = "NoiceVirtualText" }
-				-- hl.NoiceCmdlinePopupTitle = { link = "lualine_a_normal" }
+				hl.NoiceCmdlinePopupTitle = { link = "lualine_a_command" }
 
 				hl.BufferTabpages = {link = "lualine_a_visual"}
 				hl.BufferTabpagesSep = {link = "lualine_a_visual"}
