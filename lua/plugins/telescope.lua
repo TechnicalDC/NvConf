@@ -9,16 +9,14 @@ return {
 	config = function ()
 		local border_char = { '─', '│', '─', '│', '┌', '┐', '┘', '└'}
 		local full_border_char = {
-			-- { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-			-- Rounded
 			preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
 			prompt = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
 			results = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-
-			-- Pointed
-			-- prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
-			-- results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
-			-- preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+		}
+		local dropdown_border = {
+			prompt = {"─", "│", " ", "│", '╭', '╮', "│", "│"},
+			results = {"─", "│", "─", "│", "├", "┤", "╯", "╰"},
+			preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰'},
 		}
 
 		local toggle_preview = require("telescope.actions.layout").toggle_preview
@@ -60,7 +58,7 @@ return {
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown({
-						borderchars = full_border_char,
+						borderchars = dropdown_border,
 						previewer = false,
 						layout_config = {
 							width = 0.5
@@ -77,6 +75,6 @@ return {
 
 		require("telescope").load_extension("ui-select")
 		require("telescope").load_extension("noice")
-		require("telescope").load_extension("file_browser")
+		-- require("telescope").load_extension("file_browser")
 	end
 }

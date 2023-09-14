@@ -4,8 +4,10 @@ return {
 	lazy = true,
 	keys = {
 		{ "<leader>ww", "<cmd>VimwikiIndex<cr>", desc = "Open vimwiki homepage" },
+		{ "<leader>wi", "<cmd>VimwikiDiaryIndex<cr>", desc = "Open vimwiki diary" },
 	},
 	init = function ()
+
 		-- Work Wiki Setup
 		local path = {}
 		path.work = {
