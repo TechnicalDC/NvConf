@@ -14,14 +14,14 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * Integrated terminal via [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 * LSP Support using [mason.nvim](https://github.com/williamboman/mason.nvim)
 * Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
-* Explore files via [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+* Explore files via [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
 * Fuzzy finder via [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 * Amazing default theme via [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) and many [more](https://github.com/TechnicalDC/NvConf#colorschemes)
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 * Todo comments with [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
-* Wiki system with [Vimwiki](https://github.com/vimwiki/vimwiki)
+* Note taking with [neorg](https://github.com/nvim-neorg/neorg)
 
 ## Colorschemes
 
@@ -45,7 +45,7 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-43.png)
 
-![telescope-file-browser](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-13.png)
+![nvim-tree](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-16_14-53.png)
 
 ![toggleterm](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-12.png)
 
