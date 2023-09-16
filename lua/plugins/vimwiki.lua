@@ -1,6 +1,6 @@
 return {
 	'vimwiki/vimwiki',
-	enabled = true,
+	enabled = false,
 	lazy = true,
 	keys = {
 		{ "<leader>ww", "<cmd>VimwikiIndex<cr>", desc = "Open vimwiki homepage" },

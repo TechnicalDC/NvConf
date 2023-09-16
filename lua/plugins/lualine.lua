@@ -46,7 +46,7 @@ return {
 			},
 			tabline = {},
 			winbar = {},
-			extensions = {'toggleterm', 'lazy'}
+			extensions = {'toggleterm', 'lazy','nvim-tree'}
 		}
 	end
 }

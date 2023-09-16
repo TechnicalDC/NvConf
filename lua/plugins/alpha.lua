@@ -83,11 +83,12 @@ return {
 		end
 
 		dashboard.section.buttons.val = {
-			dashboard.button("e", "  New file", ":ene<CR>"),
-			dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
-			dashboard.button("r", "  Find recent file", ":Telescope oldfiles<CR>"),
-			dashboard.button("b", "  Browse file", ":Telescope file_browser<CR>"),
-			dashboard.button("g", "  Find word", ":Telescope live_grep<CR>"),
+			dashboard.button("e", "  New file", ":ene<CR>"),
+			dashboard.button("n", "  Open notes", ":Neorg index<CR>"),
+			dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
+			dashboard.button("r", "  Find recent file", ":Telescope oldfiles<CR>"),
+			-- dashboard.button("b", "  Browse file", ":Telescope file_browser<CR>"),
+			-- dashboard.button("g", "  Find word", ":Telescope live_grep<CR>"),
 			dashboard.button("t", "  Todo", ":TodoTelescope<CR>"),
 			dashboard.button("s", "  Settings", ":Telescope find_files cwd=~/AppData/Local/nvim/<CR>"),
 			dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
@@ -124,9 +125,9 @@ return {
 
 		alpha.setup({
 			layout = {
-				{ type = "padding", val = 3 },
+				{ type = "padding", val = 1 },
 				{ type = "group", val = colorize_header() },
-				{ type = "padding", val = 3 },
+				{ type = "padding", val = 2 },
 				dashboard.section.buttons,
 				dashboard.section.footer,
 			},
