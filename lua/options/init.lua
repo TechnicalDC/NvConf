@@ -21,7 +21,7 @@ set.wrap           = false
 set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
-set.fillchars	   = "fold: ,eob: "
+set.fillchars	   = "fold: ,eob: ,foldclose:,foldopen:,diff:-"
 set.listchars	   = "tab:  "
 -- set.listchars	   = "eol:,tab:  "
 set.list          = true
@@ -35,10 +35,9 @@ set.conceallevel  = 2
 set.concealcursor = 'nc'
 set.termguicolors = true
 set.foldtext	   = "v:lua.custom_fold_text()"
+set.foldcolumn		= "3"
 set.scrolloff	   = 10
 set.undofile		= false
-
-vim.g.editorconfig = true
 
 -- GUI Configuration
 -- set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
@@ -60,5 +59,7 @@ function _G.custom_fold_text()
 	local line = vim.fn.getline(vim.v.foldstart)
 	line = string.gsub(line, "{+", "")
 	local line_count = vim.v.foldend - vim.v.foldstart + 1
-	return " " .. line .. ": " .. line_count .. " lines"
+	-- local fill_char = vim.o.columns - string.len(line) - string.len(line_count)
+	return line .. ": " .. line_count .. " lines"
+	-- return " " .. line .. ": " .. line_count .. " lines"
 end
