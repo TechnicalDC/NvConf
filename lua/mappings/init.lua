@@ -20,6 +20,8 @@ map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 map("n", "<leader>y", "maggVGy`a", opts)
 
+map("n", "<leader>td", "<cmd>TodoTelescope<CR>", opts)
+
 -- Jumplist mutation
 map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", extra_opts)
 map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", extra_opts)
@@ -30,14 +32,11 @@ map("n", "<leader>tv", "<C-w>t<C-w>H", opts)
 -- Vertical to horizontal
 map("n", "<leader>th", "<C-w>t<C-w>K", opts)
 
--- Toggle File Tree
-map("n", "<leader>tt", ":NvimTreeToggle<CR>", opts)
-
 -- Telescope
+-- map("n", "<leader>tt", ":Telescope file_browser<CR>", opts)
 map("n", "<A-f>", ":Telescope find_files<CR>", opts)
 map("n", "<A-b>", ":Telescope buffers<CR>", opts)
 map("n", "<A-g>", ":Telescope git_status<CR>", opts)
-map("n", "<leader>=", ":Telescope spell_suggest<CR>", opts)
 
 -- Git Signs
 map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
