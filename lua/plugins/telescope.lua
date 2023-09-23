@@ -39,6 +39,7 @@ return {
 				selection_caret = "  ",
 				border = true,
 				borderchars = full_border_char,
+				results_title = "",
 				prompt_title = " Prompt ",
 
 				-- Preview

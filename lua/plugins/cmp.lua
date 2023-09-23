@@ -81,13 +81,13 @@ return {
 			},
 			window = {
 				completion = {
-					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None,ScrollbarHandle:None",
-					border = border(None),
+					-- winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None,ScrollbarHandle:None",
+					-- border = border(None),
 					scrollbar = true,
 				},
 				documentation = {
-					border = border(None),
-					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None",
+					-- border = border(None),
+					-- winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None",
 					max_height = 15,
 					scrollbar = false,
 				},
@@ -245,6 +245,22 @@ return {
 						max_item_count = max_count
 					}
 				}
+			})
+		})
+
+		cmp.setup.filetype("norg", {
+			sources = cmp.config.sources({
+				{ name = 'luasnip' }, -- For luasnip users.
+				{
+					name = 'neorg',
+					option = {
+						max_item_count = max_count
+					}
+				},
+				{
+					name = 'buffer',
+				},
+				{ name = "path" },
 			})
 		})
 	end

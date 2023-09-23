@@ -5,7 +5,7 @@ return {
 		require('onedark').setup  {
 			-- Main options --
 			style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-			transparent = true,  -- Show/hide background
+			transparent = false,  -- Show/hide background
 			term_colors = true, -- Change terminal color as per the selected theme style
 			ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 			cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
@@ -18,7 +18,7 @@ return {
 			-- Options are italic, bold, underline, none
 			-- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
 			code_style = {
-				comments = 'none',
+				comments = 'italic',
 				keywords = 'none',
 				functions = 'none',
 				strings = 'none',
@@ -33,10 +33,20 @@ return {
 			-- Custom Highlights --
 			colors = {}, -- Override default colors
 			highlights = {
-				-- ["PmenuSel"] = {link = "lualine_a_insert"},
+            -- ["TelescopePromptTitle"] = { link = "lualine_a_visual" },
+            -- ["TelescopePreviewTitle"] = { link = "lualine_a_replace" },
+            -- ["TelescopeTitle"] = { link = "lualine_a_normal" },
+
+				-- ["PmenuSel"] = { link = "lualine_a_insert"},
+				-- ["PmenuThumb"] = { bg = "#c0caf5" },
 				-- ["TelescopeSelection"] = {link = "lualine_a_insert"},
+
+				-- ["NoiceMini"] = { link = "NoiceVirtualText" },
+				-- ["NoiceCmdlinePopupTitle"] = { link = "lualine_a_command" },
+
 				-- ["BufferTabpages"] = {link = "lualine_a_visual"},
-				-- ["BufferTabpagesSep"] = {link = "lualine_a_visual"}
+				-- ["BufferTabpagesSep"] = {link = "lualine_a_visual"},
+				["FoldColumn"] = { bg = "NONE"},
 			}, -- Override highlight groups
 
 			-- Plugins Config --

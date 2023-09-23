@@ -10,7 +10,7 @@ return {
 			-- size can be a number or function which is passed the current terminal
 			size = function(term)
 				if term.direction == "horizontal" then
-					return 12
+					return 15
 				elseif term.direction == "vertical" then
 					return vim.o.columns * 0.2
 				end
@@ -42,7 +42,7 @@ return {
 			persist_size = true,
 			persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered
 			-- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
-			direction = 'float',
+			direction = 'horizontal',
 			close_on_exit = true, -- close the terminal window when the process exits
 			shell = vim.o.shell, -- change the default shell
 			auto_scroll = true, -- automatically scroll to the bottom on terminal output
