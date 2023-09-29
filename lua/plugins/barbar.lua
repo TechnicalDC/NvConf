@@ -5,18 +5,12 @@ return {
 	},
 	config = function ()
 		require'barbar'.setup {
-			-- Enable/disable animations
 			animation = true,
-
-			-- Enable/disable auto-hiding the tab bar when there is a single buffer
 			auto_hide = false,
 
 			-- Enable/disable current/total tabpages indicator (top right corner)
 			tabpages = true,
 
-			-- Enables/disable clickable tabs
-			--  - left-click: go to buffer
-			--  - middle-click: delete buffer
 			clickable = true,
 
 			-- Excludes buffers from the tabline
@@ -47,7 +41,7 @@ return {
 				-- Enables / disables diagnostic symbols
 				diagnostics = {
 					[vim.diagnostic.severity.ERROR] = {enabled = true, icon = ' '},
-					[vim.diagnostic.severity.WARN] = {enabled = false, icon = ' '},
+					[vim.diagnostic.severity.WARN] = {enabled = true, icon = ' '},
 					[vim.diagnostic.severity.INFO] = {enabled = false, icon = ' '},
 					[vim.diagnostic.severity.HINT] = {enabled = true, icon = '󰌵 '},
 				},
@@ -71,7 +65,7 @@ return {
 				alternate = {filetype = {enabled = false}},
 				current = {buffer_index = false},
 				inactive = {
-					button = ' ',
+					button = '  ',
 					separator = {
 						left = '',
 						right = ''
@@ -85,16 +79,9 @@ return {
 			insert_at_end = true,
 			insert_at_start = false,
 
-			-- Sets the maximum padding width with which to surround each tab
 			maximum_padding = 5,
-
-			-- Sets the minimum padding width with which to surround each tab
 			minimum_padding = 3,
-
-			-- Sets the maximum buffer name length.
 			maximum_length = 30,
-
-			-- Sets the minimum buffer name length.
 			minimum_length = 0,
 
 			-- If set, the letters for each buffer in buffer-pick mode will be
@@ -121,7 +108,7 @@ return {
 
 			-- Sets the name of unnamed buffers. By default format is "[Buffer X]"
 			-- where X is the buffer number. But only a static string is accepted here.
-			no_name_title = nil,
+			no_name_title = "Untitled", -- nil,
 		}
 	end
 }

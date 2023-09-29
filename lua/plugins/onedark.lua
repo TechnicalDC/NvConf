@@ -1,5 +1,6 @@
 return {
-	'navarasu/onedark.nvim',
+	'TechnicalDC/onedark.nvim',
+	-- 'navarasu/onedark.nvim',
 	lazy = true,
 	config = function ()
 		require('onedark').setup  {
@@ -33,19 +34,6 @@ return {
 			-- Custom Highlights --
 			colors = {}, -- Override default colors
 			highlights = {
-            -- ["TelescopePromptTitle"] = { link = "lualine_a_visual" },
-            -- ["TelescopePreviewTitle"] = { link = "lualine_a_replace" },
-            -- ["TelescopeTitle"] = { link = "lualine_a_normal" },
-
-				-- ["PmenuSel"] = { link = "lualine_a_insert"},
-				-- ["PmenuThumb"] = { bg = "#c0caf5" },
-				-- ["TelescopeSelection"] = {link = "lualine_a_insert"},
-
-				-- ["NoiceMini"] = { link = "NoiceVirtualText" },
-				-- ["NoiceCmdlinePopupTitle"] = { link = "lualine_a_command" },
-
-				-- ["BufferTabpages"] = {link = "lualine_a_visual"},
-				-- ["BufferTabpagesSep"] = {link = "lualine_a_visual"},
 				["FoldColumn"] = { bg = "NONE"},
 			}, -- Override highlight groups
 
