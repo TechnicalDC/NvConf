@@ -47,6 +47,7 @@ map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
 -- map("n", "<C-k>", "<C-w>k", opts)
 -- map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<A-t>", "<C-w>T", opts)
+map("n", "<A-=>", "<C-w>=", opts)
 
 -- TMUX {{{
 map("n", "<C-h>", ":lua require('tmux').move_left()<CR>", opts)
