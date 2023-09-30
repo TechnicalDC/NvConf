@@ -31,5 +31,5 @@ require('lazy').setup("plugins")
 require("mappings")
 require("autocmds")
 
-vim.cmd.colorscheme("tokyonight")
--- vim.cmd.colorscheme("onedark")
+-- vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("onedark")
