@@ -1,5 +1,6 @@
 local set = vim.opt
 
+set.guicursor		 = ""
 set.swapfile       = false
 set.splitbelow     = true
 set.splitright     = true
@@ -21,7 +22,7 @@ set.wrap           = false
 set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
-set.fillchars	   = "fold: ,eob: ,foldclose:,foldopen:,diff:-"
+set.fillchars	   = "fold: ,eob: ,foldclose:,foldopen:,diff:-"
 set.listchars	   = "tab:  "
 -- set.listchars	   = "eol:,tab:  "
 set.list          = true
