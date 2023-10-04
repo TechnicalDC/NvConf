@@ -1,6 +1,7 @@
 return {
 	'nvim-lualine/lualine.nvim',
 	config = function ()
+		local default_icon = '  '
 		local mode_map = {
 			['NORMAL'] = '  ',
 			['O-PENDING'] = '  ',
@@ -19,6 +20,14 @@ return {
 			['SELECT'] = '  ',
 			['CONFIRM'] = '  ',
 			['MORE'] = '  ',
+		}
+
+		local mode = {
+			'mode',
+			fmt = function(s)
+				local icon = default_icon
+				return icon .. s
+			end
 		}
 
 		local tabs = {
@@ -61,14 +70,26 @@ return {
 			shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
 			-- for other components. (terrible name, any suggestions?)
 			symbols = {
-				modified = '[+]',      -- Text to show when the file is modified.
+				modified = '󰏫 ',      -- Text to show when the file is modified.
 				readonly = ' ',      -- Text to show when the file is non-modifiable or readonly.
-				unnamed = '[No Name]', -- Text to show for unnamed buffers.
-				newfile = '[New]',     -- Text to show for newly created file before first write
+				unnamed = ' [Untitled]', -- Text to show for unnamed buffers.
+				newfile = ' [New]',     -- Text to show for newly created file before first write
 			}
 		}
 
 		local help = { sections = { lualine_a = { {'filetype', colored = false}} }, filetypes = {'help'} }
+		local alpha = {
+			sections = {
+				lualine_a = {
+					mode
+				},
+				lualine_b = {
+					'branch'
+				},
+				lualine_z = { 'hostname' }
+			},
+			filetypes = {'alpha'}
+		}
 
 		require('lualine').setup {
 			options = {
@@ -91,7 +112,8 @@ return {
 			}
 		},
 		sections = {
-			lualine_a = {{'mode', fmt = function(s) return mode_map[s] ..  s end} },
+			lualine_a = { mode },
+			-- lualine_a = {{'mode', fmt = function(s) return default_icon ..  s end} },
 			lualine_b = {'branch', 'diff', diagnostics},
 			lualine_c = { filename },
 			lualine_x = {
@@ -133,7 +155,7 @@ return {
 			-- lualine_z = {tabs}
 			},
 			winbar = {},
-			extensions = {'toggleterm', 'lazy','nvim-tree', help}
+			extensions = {'toggleterm', 'lazy','nvim-tree', help, alpha}
 		}
 	end
 }
