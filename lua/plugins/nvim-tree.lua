@@ -103,7 +103,7 @@ return {
 			renderer = {
 				group_empty = true,
 				root_folder_modifier = ":~",
-				root_folder_label = true,
+				root_folder_label = false,
 				highlight_git = false,
 				full_name = false,
 				indent_markers = {
@@ -120,9 +120,9 @@ return {
 				enable = true,
 				show_on_dirs = false,
 				icons = {
-					hint = "",
+					hint = "󰌵 ",
 					info = "",
-					warning = "",
+					warning = "",
 					error = "",
 
 				}

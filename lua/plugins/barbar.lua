@@ -22,10 +22,10 @@ return {
 			focus_on_close = 'left',
 
 			-- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
-			hide = {extensions = true, inactive = true},
+			hide = {extensions = false, inactive = true},
 
 			-- Disable highlighting alternate buffers
-			highlight_alternate = false,
+			highlight_alternate = true,
 
 			-- Disable highlighting file icons in inactive buffers
 			highlight_inactive_file_icons = false,
