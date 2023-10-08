@@ -5,7 +5,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 </div>
 <br>
 
-![home](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-36.png)
+![home](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-10.png)
 
 ## Features
 
