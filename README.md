@@ -16,7 +16,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 * Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
 * Explore files via [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
 * Fuzzy finder via [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-* Amazing default theme via [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) and many [more](https://github.com/TechnicalDC/NvConf#colorschemes)
+* Amazing default theme via [onedark.nvim](https://github.com/navarasu/onedark.nvim) and many [more](https://github.com/TechnicalDC/NvConf#colorschemes)
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -41,15 +41,15 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ## Screenshots
 
-![noice](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-15.png)
+![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-31.png)
 
-![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-03_20-43.png)
+![noice](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-33.png)
 
-![nvim-tree](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-16_14-53.png)
+![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-16.png)
 
-![toggleterm](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-12.png)
+![nvim-tree](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-27.png)
 
-![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-11.png)
+![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-29.png)
 
-![todo-comments](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-09-04_23-09.png)
+![todo-comments](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-10_1.png)
 
