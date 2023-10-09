@@ -1,5 +1,6 @@
 return {
 	'romgrk/barbar.nvim',
+	enabled = true,
 	dependencies = {
 		'kyazdani42/nvim-web-devicons'
 	},
@@ -53,7 +54,9 @@ return {
 					-- Requires `nvim-web-devicons` if `true`
 					enabled = true,
 				},
-				separator = {left = '▎', right = ''},
+				-- separator = {left = '', right = ' '},
+				-- separator = {left = '▎', right = ''},
+				separator = {left = '', right = ''},
 
 				-- Configure the icons on the bufferline when modified or pinned.
 				-- Supports all the base icon options.
@@ -108,7 +111,7 @@ return {
 
 			-- Sets the name of unnamed buffers. By default format is "[Buffer X]"
 			-- where X is the buffer number. But only a static string is accepted here.
-			no_name_title = "Untitled", -- nil,
+			no_name_title = nil,
 		}
 	end
 }

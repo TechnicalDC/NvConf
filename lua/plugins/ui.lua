@@ -263,11 +263,11 @@ return {
 			background_colour = "Normal",
 			fps = 30,
 			icons = {
-				DEBUG = "",
-				ERROR = "",
-				INFO = "",
+				DEBUG = " ",
+				ERROR = " ",
+				INFO = " ",
 				TRACE = "✎",
-				WARN = ""
+				WARN = " "
 			},
 			level = 2,
 			minimum_width = 50,
