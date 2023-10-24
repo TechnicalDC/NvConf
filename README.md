@@ -5,11 +5,11 @@ My own lua based [neovim](https://neovim.org/) configuration.
 </div>
 <br>
 
-![home](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-10.png)
+![home](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-24_17-26.png)
 
 ## Features
 
-* Dashboard via [alpha-nvim](https://github.com/goolord/alpha-nvim)
+* Dashboard via [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
 * Autocompletion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 * Integrated terminal via [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 * LSP Support using [mason.nvim](https://github.com/williamboman/mason.nvim)
