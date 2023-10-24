@@ -1,7 +1,7 @@
 return {
 	'TechnicalDC/onedark.nvim',
-	-- 'navarasu/onedark.nvim',
 	lazy = true,
+	enabled = true,
 	config = function ()
 		require('onedark').setup  {
 			-- Main options --

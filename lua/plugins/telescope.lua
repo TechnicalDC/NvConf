@@ -77,9 +77,9 @@ return {
 			extensions = {
 				["ui-select"] = {
 					previewer = false,
-					layout_config = {
-						width = 0.5,
-						height = 0.5,
+					layout_config = {    
+						width = 0.4,
+						height = 0.4,
 					}
 				},
 				file_browser = {

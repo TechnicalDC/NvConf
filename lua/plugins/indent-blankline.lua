@@ -5,7 +5,7 @@ return {
 		require("ibl").setup({
 			indent = {
 				char = "▏",
-				smart_indent_cap = false,
+				smart_indent_cap = true,
 			},
 			whitespace = {
 				remove_blankline_trail = false,
@@ -17,6 +17,7 @@ return {
 					"packer",
 					"checkhealth",
 					"help",
+					"dashboard",
 					"man",
 					"gitcommit",
 					"TelescopePrompt",

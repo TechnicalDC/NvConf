@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		'kyazdani42/nvim-web-devicons'
 	},
+	enabled = false,
 	config = function()
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
@@ -59,7 +60,7 @@ return {
 			'',
 		}
 
-		local header = header_collection.dash
+		local header = header_collection.neovim_mini1
 
 		-- Make the header a bit more fun with some color!
 		local function colorize_header()
