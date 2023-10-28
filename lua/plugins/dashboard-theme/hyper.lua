@@ -17,7 +17,7 @@ return {
 				},
 				packages = { enable = true }, -- show how many plugins neovim loaded
 				project = {
-					enable = true,
+					enable = false,
 					limit = 8,
 					icon = ' ',
 					group = '@function',

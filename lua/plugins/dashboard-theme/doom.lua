@@ -5,23 +5,21 @@ return {
 		header = header_collection.dash,
 		center = {
 			{
-				icon = ' ',
+				icon = '  ',
 				icon_hl = 'Title',
 				desc = 'Find File           ',
 				desc_hl = 'String',
-				key = 'b',
-				keymap = 'SPC f f',
+				key = 'f',
 				key_hl = 'Number',
 				key_format = ' %s', -- remove default surrounding `[]`
-				action = 'lua print(2)'
+				action = 'Telescope find_files'
 			},
 			{
-				icon = ' ',
-				desc = 'Find Dotfiles',
-				key = 'f',
-				keymap = 'SPC f d',
+				icon = '  ',
+				desc = 'Quit',
+				key = 'q',
 				key_format = ' %s', -- remove default surrounding `[]`
-				action = 'lua print(3)'
+				action = 'qa'
 			},
 		},
 		footer = {}  --your footer
