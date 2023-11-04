@@ -88,3 +88,10 @@ map("i", "<A-S-k>", "<Esc>:m .-2<CR>==i", opts)
 
 -- Enable and disable spell checker
 map("n", "<leader>s", ":setlocal spell!<CR>", opts)
+
+map("n", "<leader>co", "<cmd>copen<CR>", opts)
+map("n", "<leader>cc", "<cmd>cclose<CR>", opts)
+map("n", "<leader>cf", "<cmd>cfirst<CR>", opts)
+map("n", "<leader>cl", "<cmd>clast<CR>", opts)
+map("n", "<leader>cn", "<cmd>cnext<CR>", opts)
+map("n", "<leader>cp", "<cmd>cprev<CR>", opts)
