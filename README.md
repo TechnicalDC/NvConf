@@ -26,7 +26,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 ## Colorschemes
 
 * [catppuccin](https://github.com/catppuccin/nvim)
-* [dracula.nvim](https://github.com/Mofiqul/dracula.nvim)
+* [dracula.nvim](https://github.com/TechnicalDC/dracula.nvim)
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 * [onedark.nvim](https://github.com/navarasu/onedark.nvim)
 
