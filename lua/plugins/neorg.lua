@@ -9,6 +9,8 @@ return {
 				["core.defaults"] = {}, -- Loads default behaviour
 				["core.concealer"] = {}, -- Adds pretty icons to your documents
 				["core.summary"] = {},
+				["core.looking-glass"] = {},
+				-- ["core.ui.calendar"] = {},
 				-- ["core.completion"] = {
 				-- 	engine = "nvim-cmp",
 				-- 	name	 = "(neorg)"
@@ -17,7 +19,7 @@ return {
 					config = {
 						workspaces = {
 							work  = "~\\Desktop\\WORK\\Neorg",
-							-- notes = "~/Neorg",
+							personal = "~\\Desktop\\PERSONAL\\Neorg"
 						},
 						default_workspace = "work",
 					},

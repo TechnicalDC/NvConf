@@ -4,7 +4,6 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		'TechnicalDC/nvim-lspconfig',
-		-- 'neovim/nvim-lspconfig',
 		"glepnir/lspsaga.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		'kyazdani42/nvim-web-devicons'
@@ -13,7 +12,7 @@ return {
 		-- MASON {{{
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "pyright", "tsserver"}
+			ensure_installed = { "lua_ls", "pyright", "tsserver", "jdtls"}
 		})
 		-- }}}
 
