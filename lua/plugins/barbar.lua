@@ -1,6 +1,6 @@
 return {
 	'romgrk/barbar.nvim',
-	enabled = true,
+	enabled = false,
 	dependencies = {
 		'kyazdani42/nvim-web-devicons'
 	},
@@ -15,7 +15,7 @@ return {
 			clickable = true,
 
 			-- Excludes buffers from the tabline
-			exclude_ft = {'javascript'},
+			exclude_ft = {'javascript', 'q'},
 			exclude_name = {'package.json'},
 
 			-- A buffer to this direction will be focused (if it exists) when closing the current buffer.
@@ -65,9 +65,10 @@ return {
 
 				-- Configure the icons on the bufferline based on the visibility of a buffer.
 				-- Supports all the base icon options, plus `modified` and `pinned`.
-				alternate = {filetype = {enabled = false}},
+				alternate = {filetype = {enabled = true }},
 				current = {buffer_index = false},
 				inactive = {
+					filetype = { enabled = true },
 					button = '  ',
 					separator = {
 						left = '',

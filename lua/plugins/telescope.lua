@@ -3,8 +3,8 @@ return {
 	'nvim-telescope/telescope.nvim',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
-		'nvim-telescope/telescope-ui-select.nvim',
-		"nvim-telescope/telescope-file-browser.nvim"
+		-- 'nvim-telescope/telescope-ui-select.nvim',
+		-- "nvim-telescope/telescope-file-browser.nvim"
 	},
 	config = function ()
 		local border_char = { '─', '│', '─', '│', '┌', '┐', '┘', '└'}
@@ -75,22 +75,22 @@ return {
 				}
 			},
 			extensions = {
-				["ui-select"] = {
-					previewer = false,
-					layout_config = {    
-						width = 0.4,
-						height = 0.4,
-					}
-				},
-				file_browser = {
-					hijack_netrw = true,
-					path = "%:p:h",
-					default_selection_index = 2,
-				},
+				-- ["ui-select"] = {
+				-- 	previewer = false,
+				-- 	layout_config = {    
+				-- 		width = 0.4,
+				-- 		height = 0.4,
+				-- 	}
+				-- },
+				-- file_browser = {
+				-- 	hijack_netrw = true,
+				-- 	path = "%:p:h",
+				-- 	default_selection_index = 2,
+				-- },
 			},
 		}
 
-		require("telescope").load_extension("ui-select")
+		-- require("telescope").load_extension("ui-select")
 		require("telescope").load_extension("noice")
 		-- require("telescope").load_extension("file_browser")
 	end

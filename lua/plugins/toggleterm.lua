@@ -26,13 +26,14 @@ return {
 			shade_filetypes = {},
 			autochdir = true, -- when neovim changes it current directory the terminal will change it's own when next it's opened
 			highlights = {
-				-- NormalFloat = {
-				-- 	link = 'Normal'
-				-- },
-				-- FloatBorder = {
-				-- 	guifg = "<VALUE-HERE>",
-				-- 	guibg = "<VALUE-HERE>",
-				-- },
+				NormalFloat = {
+					link = 'TelescopeResultsNormal'
+				},
+				FloatBorder = {
+					link = 'TelescopeResultsBorder'
+					-- guifg = "<VALUE-HERE>",
+					-- guibg = "<VALUE-HERE>",
+				},
 			},
 			shade_terminals = false, -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
 			-- shading_factor = '<number>', -- the percentage by which to lighten terminal background, default: -30 (gets multiplied by -3 if background is light)
@@ -42,7 +43,7 @@ return {
 			persist_size = true,
 			persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered
 			-- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
-			direction = 'horizontal',
+			direction = 'float',
 			close_on_exit = true, -- close the terminal window when the process exits
 			shell = vim.o.shell, -- change the default shell
 			auto_scroll = true, -- automatically scroll to the bottom on terminal output
@@ -56,7 +57,8 @@ return {
 				-- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
 				border = 'curved',
 				-- like `size`, width and height can be a number or function which is passed the current terminal
-				width = vim.o.columns * 0.6,
+				-- width = vim.o.columns * 0.6,
+				width = 120,
 				height = 25,
 				-- winblend = 3,
 				-- zindex = <value>,

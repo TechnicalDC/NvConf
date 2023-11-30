@@ -96,7 +96,7 @@ return {
 			actions = {
 				use_system_clipboard = true,
 				open_file = {
-					quit_on_open = true,
+					quit_on_open = false,
 					resize_window = true,
 				}
 			},
