@@ -1,19 +1,19 @@
 return {
 	'nvim-lualine/lualine.nvim',
 	config = function ()
-		local default_icon = '  '
+		local default_icon = ' '
 		local mode_map = {
-			['NORMAL'] = '  ',
+			['NORMAL'] = '  ',
 			['O-PENDING'] = '  ',
-			['INSERT'] = '  ',
+			['INSERT'] = '  ',
 			['VISUAL'] = '  ',
 			['V-BLOCK'] = '  ',
 			['V-LINE'] = '  ',
 			['V-REPLACE'] = '  ',
-			['REPLACE'] = '  ',
-			['COMMAND'] = '  ',
-			['SHELL'] = '  ',
-			['TERMINAL'] = '  ',
+			['REPLACE'] = '󰛔  ',
+			['COMMAND'] = '󰘳  ',
+			['SHELL'] = '  ',
+			['TERMINAL'] = '  ',
 			['EX'] = '  ',
 			['S-BLOCK'] = '  ',
 			['S-LINE'] = '  ',
@@ -60,7 +60,11 @@ return {
 		local diff = {
 			'diff',
 			colored = true, -- Displays a colored diff status if set to true
-			symbols = {added = ' ', modified = ' ', removed = ' '}, -- Changes the symbols used by the diff.
+			symbols = {
+				added = ' ',
+				modified = '󱇧 ',
+				removed = ' '
+			}, -- Changes the symbols used by the diff.
 			source = nil, -- A function that works as a data source for diff.
 		}
 
@@ -97,14 +101,26 @@ return {
 		},
 		filetypes = {'alpha'}
 	}
+	local dashboard = {
+		sections = {
+			lualine_a = {
+				mode
+			},
+			lualine_b = {
+				'branch'
+			},
+			lualine_z = { filetype }
+		},
+		filetypes = {'dashboard'}
+	}
 
 	require('lualine').setup {
 		options = {
 			icons_enabled = true,
 			theme = 'onedark',
 			-- theme = 'tokyonight',
-			component_separators = { left = '•', right = '•'},
-			section_separators = { left = ' ', right = ' '},
+			component_separators = { left = '  ', right = '  '},
+			section_separators = { left = '', right = ''},
 			disabled_filetypes = {},
 			always_divide_middle = true,
 			globalstatus = true,
@@ -124,12 +140,12 @@ return {
 				cond = require("noice").api.status.mode.has,
 				color = {link = "lualine_b_diff_added_insert"},
 			},
-			'searchcount',
+			-- 'searchcount',
 			'selectioncount',
-			'progress'
+			filetype
 		},
-		lualine_y = { filetype },
-		lualine_z = {'location'}
+		lualine_y = { 'progress', },
+		lualine_z = {'location' }
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -157,7 +173,7 @@ return {
 					-- lualine_z = {tabs}
 				},
 				winbar = {},
-				extensions = {'toggleterm', 'lazy','nvim-tree', help, alpha}
+				extensions = {'toggleterm', 'lazy','nvim-tree', help, alpha, 'quickfix', dashboard }
 			}
 		end
 	}
