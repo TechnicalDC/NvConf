@@ -11,7 +11,7 @@ My own lua based [neovim](https://neovim.org/) configuration.
 
 * Dashboard via [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
 * Autocompletion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-* Integrated terminal via [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+* Integrated with terminal multiplexers via [smart-splits.nvim ](https://github.com/mrjones2014/smart-splits.nvim)
 * LSP Support using [mason.nvim](https://github.com/williamboman/mason.nvim)
 * Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
 * Explore files via [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
