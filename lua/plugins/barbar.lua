@@ -1,6 +1,6 @@
 return {
 	'romgrk/barbar.nvim',
-	enabled = false,
+	enabled = true,
 	dependencies = {
 		'kyazdani42/nvim-web-devicons'
 	},
@@ -55,8 +55,8 @@ return {
 					enabled = true,
 				},
 				-- separator = {left = '', right = ' '},
-				-- separator = {left = '▎', right = ''},
-				separator = {left = '', right = ''},
+				separator = {left = '▎', right = ''},
+				-- separator = {left = '', right = ''},
 
 				-- Configure the icons on the bufferline when modified or pinned.
 				-- Supports all the base icon options.
