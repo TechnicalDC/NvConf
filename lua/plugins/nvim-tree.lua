@@ -1,5 +1,6 @@
 return {
 	'kyazdani42/nvim-tree.lua',
+	enabled = true,
 	keys = {
 		{ "<leader>tt", "<cmd>NvimTreeToggle<cr>", desc = "Toggle file explorer" },
 	},

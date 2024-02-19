@@ -81,13 +81,13 @@ return {
 			},
 			window = {
 				completion = {
-					-- winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None,ScrollbarHandle:None",
-					-- border = border(None),
-					scrollbar = true,
+					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None,ScrollbarHandle:None",
+					border = border(None),
+					scrollbar = false,
 				},
 				documentation = {
-					-- border = border(None),
-					-- winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None",
+					border = border(None),
+					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None",
 					max_height = 15,
 					scrollbar = false,
 				},
