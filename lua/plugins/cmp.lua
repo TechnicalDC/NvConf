@@ -83,13 +83,13 @@ return {
 				completion = {
 					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None,ScrollbarHandle:None",
 					border = border(None),
-					scrollbar = false,
+					scrollbar = true,
 				},
 				documentation = {
 					border = border(None),
 					winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None",
 					max_height = 15,
-					scrollbar = false,
+					scrollbar = true,
 				},
 			},
 			mapping = cmp.mapping.preset.insert({
@@ -165,28 +165,7 @@ return {
 						max_item_count = max_count
 					}
 				}, -- For Progress 4GL
-				{
-					name = 'buffer',
-					-- entry_filter = function (entry, context)
-					-- 	local kind = entry:get_kind()
-					--
-					-- 	local line = context.cursor_line
-					-- 	local col  = context.cursor.col
-					-- 	local trigger = string.sub(line, col -1, col -1)
-					--
-					-- 	print(trigger)
-					--
-					-- 	if trigger == "." then
-					-- 		local curr_line = vim.api.nvim_get_current_line()
-					-- 		print(curr_line)
-					-- 		return true
-					-- 	elseif string.match(line, "^%s*%w*$") then
-					-- 		return true
-					-- 	end
-					--
-					-- 	return true
-					-- end
-				},
+				{ name = 'buffer', },
 				{ name = "path" },
 			})
 		})
@@ -218,7 +197,7 @@ return {
 		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 		cmp.setup.cmdline(':', {
 			formatting = {
-				fields = { "kind", "abbr" },
+				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
 					-- Kind icons
 					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])

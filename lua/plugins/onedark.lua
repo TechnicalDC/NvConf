@@ -37,13 +37,12 @@ return {
 			colors = {}, -- Override default colors
 			highlights = {
 				["FoldColumn"] = { bg = "NONE"},
-				["VertSplit"] = { fg  = "#3b3f4c" },
+				["VertSplit"] = { fg  = "#535965" },
+				["WinSeparator"] = { fg  = "#535965" },
 				["FloatBorder"] = { bg = "None" },
-				-- ["NormalFloat"] = { link = "Normal" },
-				-- ["lualine_a_normal"] = {},
-				-- ["lualine_z_normal"] = {},
-				-- ["BufferCurrentSign"] = { fg = "#21252b"},
-				-- ["BufferVisibleSign"] = { fg = "#21252b"}
+				["NormalFloat"] = { bg = "None" },
+				["WarningMsg"] = { bg = "#282c34" },
+				["ErrorMsg"] = { bg = "None" },
 			}, -- Override highlight groups
 
 			-- Plugins Config --

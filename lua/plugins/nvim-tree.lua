@@ -65,8 +65,7 @@ return {
 			map('n', 'x',     api.fs.cut,                            opts('Cut'))
 			map('n', 'y',     api.fs.copy.filename,                  opts('Copy Name'))
 			map('n', 'Y',     api.fs.copy.relative_path,             opts('Copy Relative Path'))
-			map('n', '<2-LeftMouse>',  api.node.open.edit,           opts('Open'))
-			map('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
+			map('n', '+', api.tree.change_root_to_node, opts('CD'))
 		end
 
 		require("nvim-tree").setup({
@@ -121,11 +120,10 @@ return {
 				enable = true,
 				show_on_dirs = false,
 				icons = {
-					hint = "󰌵 ",
+					hint = "󰌵",
 					info = "",
 					warning = "",
 					error = "",
-
 				}
 			},
 			filters = {

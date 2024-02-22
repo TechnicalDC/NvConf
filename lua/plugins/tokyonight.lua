@@ -2,11 +2,12 @@
 return {
 	'folke/tokyonight.nvim',
 	lazy = true,
+	enable = true,
 	config = function ()
 		require("tokyonight").setup({
-			style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+			style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 			light_style = "day", -- The theme is used when the background is set to light
-			transparent = false,
+			transparent = true,
 			terminal_colors = true,
 			styles = {
 				comments = { italic = true },
@@ -14,14 +15,14 @@ return {
 				functions = {},
 				variables = {},
 				-- Background styles. Can be "dark", "transparent" or "normal"
-				sidebars = "dark",
-				floats = "dark",
+				sidebars = "transparent",
+				floats = "transparent",
 			},
 			sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
 			day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
 			hide_inactive_statusline = false,
 			dim_inactive = false, -- dims inactive windows
-			lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+			lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
 
 			--- You can override specific color groups to use other groups or a hex color
 			--- function will be called with a ColorScheme table
@@ -34,31 +35,16 @@ return {
 			---@param colors ColorScheme
 			on_highlights = function(hl, colors)
 
-            hl.TelescopePromptTitle = { link = "lualine_a_visual" }
-            hl.TelescopePreviewTitle = { link = "lualine_a_replace" }
-            hl.TelescopeTitle = { link = "lualine_a_normal" }
-
-				-- hl.TelescopeBorder = { fg = colors.bg_dark }
-				-- hl.TelescopePromptNormal = { bg = colors.bg_dark }
-				-- hl.TelescopePromptBorder = { fg = colors.bg_dark, bg = colors.bg_dark}
-				-- hl.TelescopePromptTitle = { fg = colors.bg2, bg = colors.red }
-				-- hl.TelescopeResultsNormal = { bg = colors.bg_dark }
-				-- hl.TelescopeResultsBorder = { fg = colors.bg_dark, bg = colors.bg_dark}
-				-- hl.TelescopeResultsTitle = { fg = colors.bg_dark, bg = colors.bg_dark}
-				-- hl.TelescopePreviewNormal = { bg = colors.bg_dark }
-				-- hl.TelescopePreviewBorder = { fg = colors.bg_dark, bg = colors.bg_dark}
-				-- hl.TelescopePreviewTitle = { fg = colors.bg2, bg = colors.green }
-				-- hl.TelescopeMatching = { fg = colors.orange, fmt = "bold" }
-				-- hl.TelescopePromptPrefix = colors.Green
-				-- hl.TelescopeSelection =  { bg = colors.bg2 }
-				-- hl.TelescopeSelectionCaret = colors.Yello
+				hl.NormalFloat = { bg = "None" }
+				hl.FloatBorder = { bg = "None" }
+				hl.VirtualText = { bg = "None" }
 
 				hl.PmenuSel = { link = "lualine_a_insert"}
 				-- hl.PmenuThumb = { bg = "#c0caf5" }
 				hl.TelescopeSelection = {link = "lualine_a_insert"}
 
 				hl.NoiceMini = { link = "NoiceVirtualText" }
-				hl.NoiceCmdlinePopupTitle = { link = "lualine_a_command" }
+				-- hl.NoiceCmdlinePopupTitle = { link = "lualine_a_command" }
 				hl.NoiceCmdline = { link = "lualine_c_normal" }
 
 				hl.BufferTabpages = {link = "lualine_a_visual"}
