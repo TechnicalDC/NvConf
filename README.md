@@ -1,7 +1,7 @@
 <div class="class" align="center">
 	<image class="banner" src="images/banner.png" style="width:400px;height:auto;">
 
-My own lua based [neovim](https://neovim.org/) configuration.
+My own lua-based [neovim](https://neovim.org/) configuration.
 </div>
 <br>
 
@@ -45,11 +45,10 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ![noice](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-33.png)
 
-![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-16.png)
+![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
 
-![nvim-tree](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-27.png)
+![nvim-tree](https://github.com/TechnicalDC/NvConf/blob/main/images/nvim-tree.png)
 
-![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-29.png)
+![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
 
-![todo-comments](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-10_1.png)
 
