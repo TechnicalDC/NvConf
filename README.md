@@ -5,7 +5,7 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 </div>
 <br>
 
-![home](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-24_17-26.png)
+![home](https://github.com/TechnicalDC/NvConf/blob/main/images/dashboard.png)
 
 ## Features
 
@@ -41,9 +41,9 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ## Screenshots
 
-![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-31.png)
+![whichkey](https://github.com/TechnicalDC/NvConf/blob/main/images/whichkey.png)
 
-![noice](https://github.com/TechnicalDC/NvConf/blob/main/images/2023-10-08_00-33.png)
+![lspsaga](https://github.com/TechnicalDC/NvConf/blob/main/images/lspsaga.png)
 
 ![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
 
