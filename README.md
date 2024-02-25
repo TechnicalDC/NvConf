@@ -20,7 +20,7 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-* Todo comments with [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+* Git integration with [neogit](https://github.com/NeogitOrg/neogit) [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [fugitive](https://github.com/tpope/vim-fugitive)
 * Note taking with [neorg](https://github.com/nvim-neorg/neorg)
 
 ## Colorschemes
@@ -51,4 +51,4 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
 
-
+![neogit](https://github.com/TechnicalDC/NvConf/blob/main/images/neogit.png)
