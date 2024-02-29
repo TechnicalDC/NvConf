@@ -43,11 +43,26 @@ return {
 				["NormalFloat"] = { bg = "None" },
 				["WarningMsg"] = { bg = "#282c34" },
 				["ErrorMsg"] = { bg = "None" },
+				["MoreMsg"] = { bg = "None" },
+				["DiagnosticWarn"] = { bg = "None" },
+				["DiagnosticError"] = { bg = "None" },
+				["DiagnosticHint"] = { bg = "None" },
+				["DiagnosticOK"] = { bg = "None" },
+				["DiagnosticInfo"] = { bg = "None" },
+				["lualine_b_normal"] = { bg = "None" },
+				["lualine_y_normal"] = { bg = "None" },
+				["QuickFixLine"] = { bg = "#282c34", fmt = "italic,bold" },
+				["NoiceCmdlinePopupTitle"] = { fg = "#e55561" },
+				-- ["DiagnosticVirtualTextInfo"] = { fmt = "italic" },
+				-- ["DiagnosticVirtualTextOK"] = { fmt = "italic" },
+				-- ["DiagnosticVirtualTextHint"] = { fmt = "italic" },
+				-- ["DiagnosticVirtualTextError"] = { fmt = "italic" },
+				-- ["DiagnosticVirtualTextWarn"] = { fmt = "italic" },
 			}, -- Override highlight groups
 
 			-- Plugins Config --
 			diagnostics = {
-				darker = true, -- darker colors for diagnostic
+				darker = false, -- darker colors for diagnostic
 				undercurl = true,   -- use undercurl instead of underline for diagnostics
 				background = false,    -- use background color for virtual text
 			},
