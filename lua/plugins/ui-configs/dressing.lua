@@ -1,3 +1,5 @@
+local defaults = require("plugins.ui-configs.defaults")
+
 require("dressing").setup({
 	input = {
 		-- Set to false to disable the vim.ui.input implementation
@@ -7,7 +9,7 @@ require("dressing").setup({
 		default_prompt = "Input",
 
 		-- Can be 'left', 'right', or 'center'
-		title_pos = "left",
+		title_pos = "center",
 
 		-- When true, <Esc> will close the modal
 		insert_only = true,
@@ -18,7 +20,7 @@ require("dressing").setup({
 		-- These are passed to nvim_open_win
 		border = "rounded",
 		-- 'editor' and 'win' will default to being centered
-		relative = "cursor",
+		relative = "editor",
 
 		-- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
 		prefer_width = 40,
@@ -79,7 +81,7 @@ require("dressing").setup({
 		telescope = {
 			previewer = false,
 			layout_config = {
-				width = 0.4,
+				width = defaults.get_popup_width(),
 				height = 0.4,
 			}
 		},
