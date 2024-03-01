@@ -70,7 +70,8 @@ end
 
 vim.diagnostic.config({
 	virtual_text = {
-		prefix = '󱓻 ',
+		prefix = '',
+		-- prefix = '󱓻 ',
 	},
 	-- virtual_text = false,
 	float = {
