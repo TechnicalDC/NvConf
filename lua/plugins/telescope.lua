@@ -3,7 +3,6 @@ return {
 	'nvim-telescope/telescope.nvim',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
-		-- 'nvim-telescope/telescope-ui-select.nvim',
 		"nvim-telescope/telescope-file-browser.nvim"
 	},
 	config = function ()
@@ -24,13 +23,6 @@ return {
 				layout_strategy = "center",
 				-- layout_strategy = "flex",
 				layout_config = center.layout_config,
-				-- layout_config = {
-				-- 	preview_cutoff = 20,
-				-- 	height = 0.8,
-				-- 	anchor = "CENTER",
-				-- 	prompt_position = "top",
-				-- 	width = 0.8,
-				-- },
 				sorting_strategy = "ascending",
 				prompt_prefix = "   ",
 				entry_prefix = "   ",
@@ -79,22 +71,14 @@ return {
 				}
 			},
 			extensions = {
-				["ui-select"] = {
-					previewer = false,
-					layout_config = {
-						width = 0.4,
-						height = 0.4,
-					}
+				file_browser = {
+					hijack_netrw = true,
+					path = "%:p:h",
+					default_selection_index = 2,
 				},
-				-- file_browser = {
-				-- 	hijack_netrw = true,
-				-- 	path = "%:p:h",
-				-- 	default_selection_index = 2,
-				-- },
 			},
 		}
 
-		-- require("telescope").load_extension("ui-select")
 		require("telescope").load_extension("noice")
 		require("telescope").load_extension("file_browser")
 	end
