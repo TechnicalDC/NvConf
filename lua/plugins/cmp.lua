@@ -137,15 +137,11 @@ return {
 				{ name = 'nvim_lsp' },
 				{
 					name = "nvim_lua",
-					option = {
-						max_item_count = max_count
-					}
+					option = { max_item_count = max_count }
 				},
 				{
 					name = 'buffer',
-					option = {
-						keyword_length = 1
-					}
+					option = { keyword_length = 1 }
 				},
 				{ name = 'path' },
 				{ name = 'orgmode' },
@@ -161,9 +157,7 @@ return {
 				{ name = 'luasnip' }, -- For luasnip users.
 				{
 					name = 'abl',
-					option = {
-						max_item_count = max_count
-					}
+					option = { max_item_count = max_count }
 				}, -- For Progress 4GL
 				{ name = 'buffer', },
 				{ name = "path" },
@@ -187,9 +181,7 @@ return {
 			sources = {
 				{
 					name = 'buffer',
-					option = {
-						max_item_count = max_count
-					}
+					option = { max_item_count = max_count }
 				}
 			}
 		})
@@ -212,17 +204,13 @@ return {
 			sources = cmp.config.sources({
 				{
 					name = 'path',
-					option = {
-						max_item_count = max_count
-					}
+					option = { max_item_count = max_count }
 				}
 			},
 			{
 				{
 					name = 'cmdline',
-					option = {
-						max_item_count = max_count
-					}
+					option = { max_item_count = max_count }
 				}
 			})
 		})
@@ -232,13 +220,9 @@ return {
 				{ name = 'luasnip' }, -- For luasnip users.
 				{
 					name = 'neorg',
-					option = {
-						max_item_count = max_count
-					}
+					option = { max_item_count = max_count }
 				},
-				{
-					name = 'buffer',
-				},
+				{ name = 'buffer', },
 				{ name = "path" },
 			})
 		})

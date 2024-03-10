@@ -1,12 +1,19 @@
 ---@diagnostic disable: unused-local
 return {
 	'nvim-telescope/telescope.nvim',
+	lazy = false,
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 		"nvim-telescope/telescope-file-browser.nvim"
 	},
+	keys = {
+		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+		{ "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "Browse files" },
+		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
+		{ "<leaderlg", "<cmd>Telescope live_grep<cr>", desc = "Find file by word" },
+	},
 	config = function ()
-		local center = require("plugins.telescope.layouts.center")
+		local center = require("plugins.telescope.layout.center")
 		local border_char = { '─', '│', '─', '│', '┌', '┐', '┘', '└'}
 		local full_border_char = {
 			preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },

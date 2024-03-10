@@ -53,6 +53,7 @@ return {
 				["lualine_y_normal"] = { bg = "None" },
 				["QuickFixLine"] = { bg = "#282c34", fmt = "italic,bold" },
 				["NoiceCmdlinePopupTitle"] = { fg = "#e55561" },
+				["BufferLineBufferSelected"] = { fmt = "bold" },
 				-- ["DiagnosticVirtualTextInfo"] = { fmt = "italic" },
 				-- ["DiagnosticVirtualTextOK"] = { fmt = "italic" },
 				-- ["DiagnosticVirtualTextHint"] = { fmt = "italic" },

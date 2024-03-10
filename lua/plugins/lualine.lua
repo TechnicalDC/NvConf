@@ -5,15 +5,15 @@ return {
 		local mode_map = {
 			['NORMAL'] = '󰘳  ',
 			['O-PENDING'] = '  ',
-			-- ['INSERT'] = '  ',
-			-- ['VISUAL'] = '  ',
-			-- ['V-BLOCK'] = '  ',
-			-- ['V-LINE'] = '  ',
+			['INSERT'] = '  ',
+			['VISUAL'] = '󰒉  ',
+			['V-BLOCK'] = '󰒉  ',
+			['V-LINE'] = '󰒉  ',
 			-- ['V-REPLACE'] = '  ',
 			['REPLACE'] = '󰛔  ',
 			['COMMAND'] = '󰘳  ',
 			['SHELL'] = '  ',
-			-- ['TERMINAL'] = '  ',
+			['TERMINAL'] = '  ',
 			-- ['EX'] = '  ',
 			-- ['S-BLOCK'] = '  ',
 			-- ['S-LINE'] = '  ',
@@ -84,8 +84,8 @@ return {
 			symbols = {
 				modified = '[] ',      -- Text to show when the file is modified.
 				readonly = ' ',      -- Text to show when the file is non-modifiable or readonly.
-				unnamed = ' [Untitled]', -- Text to show for unnamed buffers.
-				newfile = ' [New]',     -- Text to show for newly created file before first write
+				unnamed = ' [untitled]', -- Text to show for unnamed buffers.
+				newfile = ' [new file]',     -- Text to show for newly created file before first write
 			}
 		}
 
@@ -115,6 +115,16 @@ return {
 			filetypes = {'dashboard'}
 		}
 
+		local telescope = {
+			sections = {
+				lualine_a = {
+					mode
+				},
+				lualine_z = { filetype }
+			},
+			filetypes = {'TelescopePrompt'}
+		}
+
 		require('lualine').setup {
 			options = {
 				icons_enabled = true,
@@ -134,8 +144,13 @@ return {
 		},
 		sections = {
 			lualine_a = { mode },
-			lualine_b = {'branch', diff, diagnostics},
-			lualine_c = { filename },
+			lualine_b = {},
+			lualine_c = {
+				-- filename,
+				'branch',
+				diff,
+				diagnostics
+			},
 			lualine_x = {
 				{
 					require("noice").api.status.mode.get,
@@ -144,9 +159,9 @@ return {
 				},
 				-- 'searchcount',
 				'selectioncount',
-				filetype
+				filetype,
 			},
-			lualine_y = { 'progress' },
+			lualine_y = {},
 			lualine_z = {'location' }
 		},
 		inactive_sections = {
@@ -157,25 +172,7 @@ return {
 			lualine_y = {},
 			lualine_z = {}
 		},
-		tabline = {
-			-- lualine_a = {
-				-- 	{
-					-- 		'buffers',
-					-- 		symbols = {
-						-- 			modified = ' ●',      -- Text to show when the buffer is modified
-						-- 			alternate_file = '', -- Text to show to identify the alternate file
-						-- 			directory =  '',     -- Text to show when the buffer is a directory
-						-- 		},
-						-- 	}
-						-- },
-						-- lualine_b = {'branch'},
-						-- lualine_c = {},
-						-- lualine_x = {},
-						-- lualine_y = {},
-						-- lualine_z = {tabs}
-		},
-		winbar = {},
-		extensions = {'toggleterm', 'lazy','nvim-tree', help, alpha, 'quickfix', dashboard }
+		extensions = {'toggleterm', 'lazy','nvim-tree', help, alpha, 'quickfix', dashboard, telescope }
 		}
 	end
 }
