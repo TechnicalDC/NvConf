@@ -20,8 +20,6 @@ map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 map("n", "<leader>y", "maggVGy`a", opts)
 
-map("n", "<leader>td", "<cmd>TodoTelescope<CR>", opts)
-
 -- Jumplist mutation
 map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", extra_opts)
 map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", extra_opts)
@@ -31,12 +29,6 @@ map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", extra_opts)
 map("n", "<leader>tv", "<C-w>t<C-w>H", opts)
 -- Vertical to horizontal
 map("n", "<leader>th", "<C-w>t<C-w>K", opts)
-
--- Telescope
--- map("n", "<leader>tt", ":Telescope file_browser<CR>", opts)
-map("n", "<A-f>", ":Telescope find_files<CR>", opts)
-map("n", "<A-b>", ":Telescope buffers<CR>", opts)
-map("n", "<A-g>", ":Telescope git_status<CR>", opts)
 
 -- Git Signs
 map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
@@ -48,6 +40,10 @@ map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
 -- map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<A-t>", "<C-w>T", opts)
 map("n", "<A-=>", "<C-w>=", opts)
+
+-- mapping for navigating buffers
+map("n", "gb", "<cmd>bnext<CR>", opts)
+map("n", "gB", "<cmd>bprevious<CR>", opts)
 
 -- TMUX {{{
 -- map("n", "<C-h>", ":lua require('tmux').move_left()<CR>", opts)
@@ -114,11 +110,11 @@ map("n", "<leader>cn", "<cmd>cnext<CR>", opts)
 map("n", "<leader>cp", "<cmd>cprev<CR>", opts)
 
 -- TODO Comments
-map("n", "]t", function()
-  require("todo-comments").jump_next()
-end, opts)
-map("n", "[t", function()
-  require("todo-comments").jump_prev()
-end, opts)
+-- map("n", "]t", function()
+--   require("todo-comments").jump_next()
+-- end, opts)
+-- map("n", "[t", function()
+--   require("todo-comments").jump_prev()
+-- end, opts)
 
 map("n", "<leader>dt", "<cmd>diffthis<CR>", opts)
