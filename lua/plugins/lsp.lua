@@ -13,7 +13,12 @@ return {
 		-- MASON {{{
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "pyright", "tsserver", "jdtls"}
+			ensure_installed = {
+				"lua_ls",
+				"pyright",
+				"tsserver",
+				"jdtls",
+			}
 		})
 		-- }}}
 
