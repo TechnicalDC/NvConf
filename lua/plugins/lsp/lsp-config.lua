@@ -2,25 +2,33 @@ local nvim_lsp = require('lspconfig')
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+
 map('n', '<space>e', vim.diagnostic.open_float, opts)
 
 ---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
 	local bufopts = { noremap=true, silent=true, buffer=bufnr }
-
-	-- Native lsp client keybindings
-	map('n', 'gD', vim.lsp.buf.declaration, bufopts)
-	map('n', 'gd', vim.lsp.buf.definition, bufopts)
-	map('n', 'go', "<cmd>Lspsaga outline<cr>", bufopts)
-	map('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-	map('n', 'K', vim.lsp.buf.hover, bufopts)
-	map('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-	map('n', 'gr', vim.lsp.buf.references, bufopts)
-	map('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-	map('n', '[d', vim.diagnostic.goto_prev, bufopts)
-	map('n', ']d', vim.diagnostic.goto_next, bufopts)
-	map('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-	map('n', 'gi', vim.lsp.buf.implementation, bufopts)
+	local ok, wk = pcall(require, 'which-key')
+	if ok then
+		wk.register({
+			["<leader>"] = {
+				c = { a = { vim.lsp.buf.code_action, "Code Actions" } },
+				r = { n = { vim.lsp.buf.rename, "Rename" } },
+				D = { vim.lsp.buf.type_definition,"Go to type definition"},
+				f = {vim.lsp.buf.formatting, "Format code"},
+			},
+			K = {vim.lsp.buf.hover, "Hover docs"},
+			g = {
+				d = {vim.lsp.buf.definition, "Go to definition"},
+				D = {vim.lsp.buf.declaration, "Go to declaration"},
+				o = { "<cmd>Lspsaga outline<cr>", "Toggle outline"},
+				i = {vim.lsp.buf.implementation, "Go to implementation"},
+				r = {vim.lsp.buf.references, "Go to references"},
+			},
+			["["] = { d = { vim.diagnostic.goto_prev, "Go to previous diagnostics" } },
+			["]"] = { d = { vim.diagnostic.goto_next, "Go to next diagnostics" } },
+		})
+	end
 	map('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 	map('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
 	map('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -54,7 +62,6 @@ nvim_lsp.openedge_ls.setup {
 	trace = false -- Set to true for trace logging (REALLY verbose)
 }
 
--- local border_chars = { '┌', '─', '┐', '│', '┘', '─', '└', '│'}
 local rounded_border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│'}
 local signs = {
 	Error = " ",
@@ -86,7 +93,7 @@ vim.diagnostic.config({
 
 local lspconfig = require 'lspconfig'
 lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, function(config)
-	if some_condition and config.name == "openedge_ls" then
+	if config.name == "openedge_ls" then
 		config.cmd = {"java","-jar", oe_jar_path}
 	end
 end)
