@@ -1,7 +1,42 @@
-
+---@diagnostic disable: undefined-global
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local extra_opts = { noremap = true, silent = true, expr = true }
+-- local extra_opts = { noremap = true, silent = true, expr = true }
+
+local ok, wk = pcall(require, 'which-key')
+if not ok then
+	return nil
+end
+
+wk.register({
+	["<leader>"] = {
+		y = { "maggVGy`a", "Copy entire content"},
+		s = { ":setlocal spell!<CR>", "Toggle spell checker"},
+		j = { ":m .+1<CR>==", "Move line down"},
+		k = { ":m .-2<CR>==", "Move line up"},
+		d = {
+			t = {"<cmd>diffthis<CR>", "Toggle diff for current buffer"},
+		},
+		t = {
+			v = {"<C-w>t<C-w>H", "Turn horizontal splits to vertical"},
+			h = { "<C-w>t<C-w>K", "Turn vertical splits to horizontal"},
+		},
+		c = {
+			o = {"<cmd>copen<cr>","Open quickfix list"},
+			c = {"<cmd>cclose<cr>","Close quickfix list"},
+			f = {"<cmd>cfirst<cr>","Go to first item in quickfix list"},
+			l = {"<cmd>clast<cr>","Go to last item in quickfix list"},
+			n = {"<cmd>cnext<cr>","Go to next item in quickfix list"},
+			p = {"<cmd>cprev<cr>","Go to previous item in quickfix list"},
+		},
+	},
+	g = {
+		b = {":bnext","Jump to next buffer"},
+		B = {":bprevious","Jump to previous buffer"},
+	},
+	Y = {"y$", "Copy text till end of line"},
+	["<A-S-g>"] = { ":Gitsigns stage_buffer<CR>", "Stage the changes in current buffer"},
+},{mode = 'n'})
 
 -- luasnip mapping
 map("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
@@ -15,23 +50,8 @@ map("s", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
 map("s", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
 
 -- Must have
-map("n", "Y", "y$", opts)
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
-map("n", "<leader>y", "maggVGy`a", opts)
-
--- Jumplist mutation
-map("n", "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", extra_opts)
-map("n", "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", extra_opts)
-
--- Rotate splits
--- Horizontal to vertical
-map("n", "<leader>tv", "<C-w>t<C-w>H", opts)
--- Vertical to horizontal
-map("n", "<leader>th", "<C-w>t<C-w>K", opts)
-
--- Git Signs
-map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
 
 -- Remap splits navigation to just ( Ctrl + hjkl)
 -- map("n", "<C-h>", "<C-w>h", opts)
@@ -40,10 +60,6 @@ map("n", "<A-S-g>", ":Gitsigns stage_buffer<CR>", opts)
 -- map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<A-t>", "<C-w>T", opts)
 map("n", "<A-=>", "<C-w>=", opts)
-
--- mapping for navigating buffers
-map("n", "gb", "<cmd>bnext<CR>", opts)
-map("n", "gB", "<cmd>bprevious<CR>", opts)
 
 -- TMUX {{{
 -- map("n", "<C-h>", ":lua require('tmux').move_left()<CR>", opts)
@@ -94,27 +110,6 @@ map("n", "J", "mzJ`z", opts)
 -- Moving text
 map("v", "J", ":m '>+1<CR>gv=gv", opts)
 map("v", "K", ":m '<-2<CR>gv=gv", opts)
-map("n", "<leader>j", ":m .+1<CR>==", opts)
-map("n", "<leader>k", ":m .-2<CR>==", opts)
 map("i", "<A-S-j>", "<Esc>:m .+1<CR>==i", opts)
 map("i", "<A-S-k>", "<Esc>:m .-2<CR>==i", opts)
 
--- Enable and disable spell checker
--- map("n", "<leader>s", ":setlocal spell!<CR>", opts)
-
-map("n", "<leader>co", "<cmd>copen<CR>", opts)
-map("n", "<leader>cc", "<cmd>cclose<CR>", opts)
-map("n", "<leader>cf", "<cmd>cfirst<CR>", opts)
-map("n", "<leader>cl", "<cmd>clast<CR>", opts)
-map("n", "<leader>cn", "<cmd>cnext<CR>", opts)
-map("n", "<leader>cp", "<cmd>cprev<CR>", opts)
-
--- TODO Comments
--- map("n", "]t", function()
---   require("todo-comments").jump_next()
--- end, opts)
--- map("n", "[t", function()
---   require("todo-comments").jump_prev()
--- end, opts)
-
-map("n", "<leader>dt", "<cmd>diffthis<CR>", opts)
