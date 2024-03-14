@@ -2,18 +2,29 @@ return {
 	"tpope/vim-fugitive",
 	enabled = true,
 	lazy = false,
-	-- cmd = "Git",
 	config = function ()
 		local map = vim.keymap.set
 		local opts = { noremap = true, silent = true }
-		map("n","<leader>ga", "<cmd>Git add %<cr>", opts)
-		map("n","<leader>gs", "<cmd>Git stage %<cr>", opts)
-		map("n","<leader>gc", function ()
-			vim.ui.input({ prompt = 'Commit message:', default = 'Committed on ' .. os.date('%d-%m-%y') }, function(input)
-				vim.cmd("Git commit -m '" .. input .. "'")
-			end)
-		end, opts)
-		map("n","<leader>gp", "<cmd>Git push<cr>", opts)
-		map("n","<leader>gP", "<cmd>Git pull<cr>", opts)
+
+		local ok, wk = pcall(require, 'which-key')
+		if not ok then
+			return nil
+		end
+
+		wk.register({
+			["<leader>"] = {
+				g = {
+					a = { "<cmd>Git add %<cr>", "Add the file/changes"},
+					s = { "<cmd>Git stage %<cr>", "Stage the file/changes"},
+					c = { function ()
+						vim.ui.input({ prompt = 'Commit message:', default = 'Committed on ' .. os.date('%d-%m-%y') }, function(input)
+							vim.cmd("Git commit -m '" .. input .. "'")
+						end)
+					end, "Commit the changes"},
+					p = { "<cmd>Git push<cr>", "Push the changes"},
+					P = { "<cmd>Git pull<cr>", "Pull the latest changes"},
+				},
+			}
+		})
 	end
 }
