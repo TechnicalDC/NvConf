@@ -101,8 +101,8 @@ return {
 			symbols = {
 				modified = '[] ',      -- Text to show when the file is modified.
 				readonly = ' ',      -- Text to show when the file is non-modifiable or readonly.
-				unnamed = ' [untitled]', -- Text to show for unnamed buffers.
-				newfile = ' [new file]',     -- Text to show for newly created file before first write
+				unnamed = ' [No Name]', -- Text to show for unnamed buffers.
+				newfile = ' [New File]',     -- Text to show for newly created file before first write
 			}
 		}
 
@@ -161,11 +161,10 @@ return {
 			},
 			sections = {
 				lualine_a = { mode },
-				lualine_b = {},
+				lualine_b = { diff, },
 				lualine_c = {
 					filename,
 					'branch',
-					diff,
 					diagnostics
 				},
 				lualine_x = {
@@ -189,7 +188,17 @@ return {
 				lualine_y = {},
 				lualine_z = {}
 			},
-			extensions = {'toggleterm', 'lazy','nvim-tree', help, alpha, 'quickfix', dashboard, telescope }
+			extensions = {
+				'toggleterm',
+				'trouble',
+				'lazy',
+				'nvim-tree',
+				help,
+				alpha,
+				'quickfix',
+				dashboard,
+				telescope,
+			}
 		}
 	end
 }
