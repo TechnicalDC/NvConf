@@ -8,6 +8,7 @@ return {
 	},
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+		{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Find old files" },
 		{ "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "Browse files" },
 		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
 		{ "<leaderlg", "<cmd>Telescope live_grep<cr>", desc = "Find file by word" },
@@ -33,7 +34,7 @@ return {
 				sorting_strategy = "ascending",
 				prompt_prefix = "   ",
 				entry_prefix = "   ",
-				multi_icon = "   ",
+				multi_icon = "  ",
 				selection_caret = "  ",
 				border = true,
 				borderchars = center.border,

@@ -1,19 +1,35 @@
+-- LSP clients attached to buffer
+local clients_lsp = function ()
+	local bufnr = vim.api.nvim_get_current_buf()
+
+	local clients = vim.lsp.buf_get_clients(bufnr)
+	if next(clients) == nil then
+		return ''
+	end
+
+	local c = {}
+	for _, client in pairs(clients) do
+		table.insert(c, client.name)
+	end
+	return '  ' .. table.concat(c, '|')
+end
+
 return {
 	'nvim-lualine/lualine.nvim',
 	config = function ()
-		local default_icon = '󰘳 '
+		local default_icon = '  '
 		local mode_map = {
-			['NORMAL'] = '󰘳  ',
-			['O-PENDING'] = '  ',
-			['INSERT'] = '  ',
-			['VISUAL'] = '󰒉  ',
-			['V-BLOCK'] = '󰒉  ',
-			['V-LINE'] = '󰒉  ',
+			-- ['NORMAL'] = '󰘳  ',
+			-- ['O-PENDING'] = '  ',
+			-- ['INSERT'] = '  ',
+			-- ['VISUAL'] = '󰒉  ',
+			-- ['V-BLOCK'] = '󰒉  ',
+			-- ['V-LINE'] = '󰒉  ',
 			-- ['V-REPLACE'] = '  ',
-			['REPLACE'] = '󰛔  ',
-			['COMMAND'] = '󰘳  ',
-			['SHELL'] = '  ',
-			['TERMINAL'] = '  ',
+			-- ['REPLACE'] = '󰛔  ',
+			-- ['COMMAND'] = '󰘳  ',
+			-- ['SHELL'] = '  ',
+			-- ['TERMINAL'] = '  ',
 			-- ['EX'] = '  ',
 			-- ['S-BLOCK'] = '  ',
 			-- ['S-LINE'] = '  ',
@@ -21,6 +37,7 @@ return {
 			-- ['CONFIRM'] = '  ',
 			-- ['MORE'] = '  ',
 		}
+
 
 		local mode = {
 			'mode',
@@ -120,7 +137,7 @@ return {
 				lualine_a = {
 					mode
 				},
-				lualine_z = { filetype }
+				lualine_x = { filetype }
 			},
 			filetypes = {'TelescopePrompt'}
 		}
@@ -137,42 +154,42 @@ return {
 				always_divide_middle = true,
 				globalstatus = true,
 				refresh = {                  -- sets how often lualine should refresh it's contents (in ms)
-				statusline = 1000,         -- The refresh option sets minimum time that lualine tries
-				tabline = 1000,            -- to maintain between refresh. It's not guarantied if situation
-				winbar = 1000              -- arises that lualine needs to refresh itself before this time
-			}
-		},
-		sections = {
-			lualine_a = { mode },
-			lualine_b = {},
-			lualine_c = {
-				-- filename,
-				'branch',
-				diff,
-				diagnostics
+					statusline = 1000,         -- The refresh option sets minimum time that lualine tries
+					tabline = 1000,            -- to maintain between refresh. It's not guarantied if situation
+					winbar = 1000              -- arises that lualine needs to refresh itself before this time
+				}
 			},
-			lualine_x = {
-				{
-					require("noice").api.status.mode.get,
-					cond = require("noice").api.status.mode.has,
-					color = {link = "lualine_b_diff_added_insert"},
+			sections = {
+				lualine_a = { mode },
+				lualine_b = {},
+				lualine_c = {
+					filename,
+					'branch',
+					diff,
+					diagnostics
 				},
-				-- 'searchcount',
-				'selectioncount',
-				filetype,
+				lualine_x = {
+					{
+						require("noice").api.status.mode.get,
+						cond = require("noice").api.status.mode.has,
+						color = {link = "lualine_b_diff_added_insert"},
+					},
+					-- 'searchcount',
+					'selectioncount',
+					filetype,
+				},
+				lualine_y = {clients_lsp},
+				lualine_z = {'location' }
 			},
-			lualine_y = {},
-			lualine_z = {'location' }
-		},
-		inactive_sections = {
-			lualine_a = {},
-			lualine_b = {},
-			lualine_c = {filename},
-			lualine_x = {'location'},
-			lualine_y = {},
-			lualine_z = {}
-		},
-		extensions = {'toggleterm', 'lazy','nvim-tree', help, alpha, 'quickfix', dashboard, telescope }
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {filename},
+				lualine_x = {'location'},
+				lualine_y = {},
+				lualine_z = {}
+			},
+			extensions = {'toggleterm', 'lazy','nvim-tree', help, alpha, 'quickfix', dashboard, telescope }
 		}
 	end
 }

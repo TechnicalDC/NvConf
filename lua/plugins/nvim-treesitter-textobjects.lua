@@ -1,3 +1,4 @@
 return {
-	'nvim-treesitter/nvim-treesitter-textobjects'
+	'nvim-treesitter/nvim-treesitter-textobjects',
+	enabled = false,
 }

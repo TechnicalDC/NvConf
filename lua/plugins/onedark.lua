@@ -1,6 +1,6 @@
 return {
-	"navarasu/onedark.nvim",
-	-- 'TechnicalDC/onedark.nvim',
+	-- "navarasu/onedark.nvim",
+	'TechnicalDC/onedark.nvim',
 	lazy = true,
 	enabled = true,
 	config = function ()
@@ -50,15 +50,11 @@ return {
 				["DiagnosticOK"] = { bg = "None" },
 				["DiagnosticInfo"] = { bg = "None" },
 				["lualine_b_normal"] = { bg = "None" },
-				["lualine_y_normal"] = { bg = "None" },
+				["lualine_y_normal"] = { bg = "None", },
 				["QuickFixLine"] = { bg = "#282c34", fmt = "italic,bold" },
 				["NoiceCmdlinePopupTitle"] = { fg = "#e55561" },
 				["BufferLineBufferSelected"] = { fmt = "bold" },
-				-- ["DiagnosticVirtualTextInfo"] = { fmt = "italic" },
-				-- ["DiagnosticVirtualTextOK"] = { fmt = "italic" },
-				-- ["DiagnosticVirtualTextHint"] = { fmt = "italic" },
-				-- ["DiagnosticVirtualTextError"] = { fmt = "italic" },
-				-- ["DiagnosticVirtualTextWarn"] = { fmt = "italic" },
+
 			}, -- Override highlight groups
 
 			-- Plugins Config --
