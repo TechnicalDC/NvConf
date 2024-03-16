@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local set = vim.opt
 local fn = vim.fn
 
@@ -25,7 +26,20 @@ set.wrap           = false
 set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
-set.fillchars	   = "fold: ,eob: ,foldclose:,foldopen:,diff:-"
+set.fillchars:append({
+	fold = " ",
+	foldopen = "",
+	foldclose = "",
+	diff = "-",
+	horiz = " ",
+	horizup = " ",
+	horizdown = " ",
+	vert = " ",
+	vertleft = " ",
+	vertright = " ",
+	verthoriz = " ",
+	eob = " ",
+})
 set.listchars	   = "tab:  "
 set.list          = true
 set.mouse         = "a"

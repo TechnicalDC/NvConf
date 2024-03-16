@@ -31,12 +31,23 @@ wk.register({
 		},
 	},
 	g = {
-		b = {":bnext","Jump to next buffer"},
-		B = {":bprevious","Jump to previous buffer"},
+		b = {":bnext<cr>","Jump to next buffer"},
+		B = {":bprevious<cr>","Jump to previous buffer"},
 	},
 	Y = {"y$", "Copy text till end of line"},
 	["<A-S-g>"] = { ":Gitsigns stage_buffer<CR>", "Stage the changes in current buffer"},
+	["<A-t>"] = { "<C-w>T", "Turn split into tab"},
+	["<A-=>"] = { "<C-w>=", "Equal the split size"},
+	-- ["/"] = { ":lua vim.o.hlsearch = true<CR>", "Enable incremental search highlighting and search"},
+	["<Esc>"] = { ":lua vim.o.hlsearch = false<CR>", "Disable incremental search highlighting"},
 },{mode = 'n'})
+
+wk.register({
+	["<"] = { "<gv", ""},
+	[">"] = { ">gv", ""},
+	J = { ":m '>+1<CR>gv=gv", "Move selected lines down"},
+	K = { ":m '<-2<CR>gv=gv", "Move selected lines up"},
+},{mode = 'v'})
 
 -- luasnip mapping
 map("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
@@ -49,17 +60,11 @@ map("i", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
 map("s", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
 map("s", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
 
--- Must have
-map("v", "<", "<gv", opts)
-map("v", ">", ">gv", opts)
-
 -- Remap splits navigation to just ( Ctrl + hjkl)
 -- map("n", "<C-h>", "<C-w>h", opts)
 -- map("n", "<C-j>", "<C-w>j", opts)
 -- map("n", "<C-k>", "<C-w>k", opts)
 -- map("n", "<C-l>", "<C-w>l", opts)
-map("n", "<A-t>", "<C-w>T", opts)
-map("n", "<A-=>", "<C-w>=", opts)
 
 -- TMUX {{{
 -- map("n", "<C-h>", ":lua require('tmux').move_left()<CR>", opts)
@@ -97,8 +102,6 @@ vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
 -- map("n", "<A-j>", ":resize -2<CR>", opts)
 
 -- Search highlighting
-map("n", "/", ":lua vim.o.hlsearch = true<CR>/", opts)
-map("n", "<Esc>", ":lua vim.o.hlsearch = false<CR>", opts)
 
 -- Keeping it centered
 map("n", "n", "nzzzv", opts)
@@ -108,8 +111,6 @@ map("n", "{", "{zzzv", opts)
 map("n", "J", "mzJ`z", opts)
 
 -- Moving text
-map("v", "J", ":m '>+1<CR>gv=gv", opts)
-map("v", "K", ":m '<-2<CR>gv=gv", opts)
 map("i", "<A-S-j>", "<Esc>:m .+1<CR>==i", opts)
 map("i", "<A-S-k>", "<Esc>:m .-2<CR>==i", opts)
 
