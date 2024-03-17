@@ -12,6 +12,7 @@ local sn = ls.snippet_node
 
 local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
+local fmta = require("luasnip.extras.fmt").fmta
 
 local snippets, autosnippets = {}, {}
 -- }}}
@@ -65,17 +66,18 @@ end
 -- }}}
 
 -- PATCH SNIPPET {{{
-local patch_fmt = fmt(
+local patch_fmt = fmta(
 	[[
-	/* Last modified on: {} Last modified by: Dilip Chauhan ECO: {} */
+	/* Last modified on: <date> Last modified by: Dilip Chauhan ECO: <marker> */
 	]],
 	{
-		f(function(_,snip) return {os.date('%d-%m-%Y')} end, {}),
-		i(2,"<++>"),
+		date = f(function(_,snip) return {os.date('%d-%m-%y')} end, {}),
+		marker = i(1, "<++>")
+		-- f(function(_,snip) return { "ALT" .. os.date('%d%m%y')} end, {}),
 	}
 )
 local patch_snippet = s("patch", patch_fmt)
-table.insert(snippets, patch_snippet)
+table.insert(autosnippets, patch_snippet)
 -- }}}
 
 -- PATCH MARKER SNIPPET {{{
@@ -99,17 +101,15 @@ local marker_fmt = fmt(
 	/* END - {} */
 	]],
 	{
-		d(1, function()
-			return sn(1,t("ALT" .. string(os.date('%d%m%Y'))))
-		end),
+		i(1,"<++>"),
 		d(2, function(_, snip)
 			return sn(1, t(snip.env.TM_SELECTED_TEXT or {}))
 		end),
 		rep(1)
 	}
 )
-local marker_snippet = s("mark", marker_fmt)
--- table.insert(snippets, marker_snippet)
+local marker_snippet = s("MARK", marker_fmt)
+table.insert(autosnippets, marker_snippet)
 --}}}
 
 -- COMMENT SNIPPET {{{
