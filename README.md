@@ -41,15 +41,21 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ## Screenshots
 
+whichkey
 ![whichkey](https://github.com/TechnicalDC/NvConf/blob/main/images/whichkey.png)
 
+Trouble
 ![trouble](https://github.com/TechnicalDC/NvConf/blob/main/images/trouble.png)
 
+Quickfix
 ![quickfix](https://github.com/TechnicalDC/NvConf/blob/main/images/quickfix.png)
 
+Splits
 ![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)
 
+Telescope
 ![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
 
+Neogit
 ![neogit](https://github.com/TechnicalDC/NvConf/blob/main/images/neogit.png)
 
