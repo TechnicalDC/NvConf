@@ -10,7 +10,6 @@ local c = ls.choice_node
 local f = ls.function_node
 local sn = ls.snippet_node
 
-local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
 local fmta = require("luasnip.extras.fmt").fmta
 
@@ -68,12 +67,11 @@ end
 -- PATCH SNIPPET {{{
 local patch_fmt = fmta(
 	[[
-	/* Last modified on: <date> Last modified by: Dilip Chauhan ECO: <marker> */
+	/* Last modified on: <new_date> Last modified by: Dilip Chauhan ECO: <marker> */
 	]],
 	{
-		date = f(function(_,snip) return {os.date('%d-%m-%y')} end, {}),
+		new_date = f(function(_,snip) return {os.date('%d-%m-%y')} end, {}),
 		marker = i(1, "<++>")
-		-- f(function(_,snip) return { "ALT" .. os.date('%d%m%y')} end, {}),
 	}
 )
 local patch_snippet = s("patch", patch_fmt)
@@ -81,65 +79,29 @@ table.insert(autosnippets, patch_snippet)
 -- }}}
 
 -- PATCH MARKER SNIPPET {{{
-local patch_mark_fmt = fmt(
+local patch_mark_fmt = fmta(
 	[[
-	/* ALT{} */
+	/* ALT<marker> */
 	]],
 	{
-		f(function(_,snip) return {os.date('%d%m%Y')} end, {}),
+		marker = f(function(_,snip) return {os.date('%d%m%Y')} end, {}),
 	}
 )
 local patch_mark_snippet = s("ALT", patch_mark_fmt)
 table.insert(autosnippets, patch_mark_snippet)
 -- }}}
 
--- MARKER {{{
-local marker_fmt = fmt(
-	[[
-	/* START - {} */
-	{}
-	/* END - {} */
-	]],
-	{
-		i(1,"<++>"),
-		d(2, function(_, snip)
-			return sn(1, t(snip.env.TM_SELECTED_TEXT or {}))
-		end),
-		rep(1)
-	}
-)
-local marker_snippet = s("MARK", marker_fmt)
-table.insert(autosnippets, marker_snippet)
---}}}
-
--- COMMENT SNIPPET {{{
-local cmmt_fmt = fmt(
-	[[
-	/*
-	{}
-	*/
-	]],
-	{
-		d(1, function(_, snip)
-			return sn(1, t(snip.env.TM_SELECTED_TEXT or {}))
-		end)
-	}
-)
-local cmmt_snippet = s("comment", cmmt_fmt)
-table.insert(snippets, cmmt_snippet)
--- }}}
-
 -- DEFINITION SNIPPET {{{
-local def_fmt = fmt(
+local def_fmt = fmta(
 	[[
-	define {} {} {} no-undo.
+	define <var_type> <var_name> <data_type> no-undo.
 	]],
 	{
-		c(1, get_options(def_types)),
-		d(2, function(_, snip)
+		var_type = c(1, get_options(def_types)),
+		var_name = d(2, function(_, snip)
 			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
 		end),
-		c(3, {
+		data_type = c(3, {
 			i(1, "as character"),
 			i(1, "as integer"),
 			i(1, "as decimal"),
@@ -155,18 +117,18 @@ table.insert(snippets, def_snippet)
 -- }}}
 
 -- MESSAGE SNIPPET {{{
-local msg_fmt = fmt(
+local msg_fmt = fmta(
 	[[
-	{{ us/bbi/pxmsg.i {}={} &errorlevel={} }}
+	{{ us/bbi/pxmsg.i <mesg_type>=<mesg> &errorlevel=<error_level> }}
 	]],
 	{
-		c(1, {
+		mesg_type = c(1, {
 			i(1, "&msgnum"),
 			i(1, "&msgtext"),
 			}
 		),
-		i(2, "<++>"),
-		i(3, "<++>"),
+		mesg = i(2, "<++>"),
+		error_level = i(3, "<++>"),
 	}
 )
 local msg_snippet = s("pxmsg", msg_fmt)
@@ -174,34 +136,34 @@ table.insert(snippets, msg_snippet)
 -- }}}
 
 -- FIND SNIPPET {{{
-local find_fmt = fmt(
+local find_fmt = fmta(
 	[[
-		find {} {} {}
-			where {} {} no-error.
-		if available {} then do:
-		end. /* if available {} then do: */
+		find <no> <table_name> <lock>
+			where <table_field> <condition> no-error.
+		if available <table_name1> then do:
+		end. /* if available <table_name2> then do: */
 	]],
 	{
-		c(1, {
+		no = c(1, {
 			i(1, "first"),
 			i(1, "last"),
 			i(1, "next"),
 			i(1, "prev")
 		}),
-		d(2, function(_, snip)
+		table_name = d(2, function(_, snip)
 			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
 		end),
-		c(3, get_options(lock_type)),
-		i(4, "<++>"),
-		d(5, function()
+		lock = c(3, get_options(lock_type)),
+		table_field = i(4, "<++>"),
+		condition = d(5, function()
 			if find("mfdeclre.i") or find("mfdtitle.i") then
 				return sn(1, i(1,"= global_domain "))
 			else
 				return sn(1, i(1,""))
 			end
 		end),
-		rep(2),
-		rep(2),
+		table_name1 = rep(2),
+		table_name2 = rep(2),
 	}
 )
 local find_snippet = s(
@@ -212,37 +174,37 @@ table.insert(snippets, find_snippet)
 -- }}}
 
 -- FOR SNIPPET {{{
-local for_fmt = fmt(
+local for_fmt = fmta(
 	[[
-		for {} {} {}
-			where {} {}:
-			{}
-		end. /* for {} {} {} */
+		for <no> <table_name> <lock>
+			where <table_field> <condition>:
+			<code>
+		end. /* for <no1> <table_name1> <lock1> */
 	]],
 	{
-		c(1, {
+		no = c(1, {
 			i(1, "each"),
 			i(1, "first"),
 			i(1, "last"),
 			i(1, "next"),
 			i(1, "prev")
 		}),
-		d(2, function(_, snip)
+		table_name = d(2, function(_, snip)
 			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
 		end),
-		c(3, get_options(lock_type)),
-		i(4, "<++>"),
-		d(5, function()
+		lock = c(3, get_options(lock_type)),
+		table_field = i(4, "<++>"),
+		condition = d(5, function()
 			if find("mfdeclre.i") or find("mfdtitle.i") then
 				return sn(1, i(1,"= global_domain"))
 			else
 				return sn(1, i(1,""))
 			end
 		end),
-		i(6, "/* Add Logic */"),
-		rep(1),
-		rep(2),
-		rep(3),
+		code = i(6, "/* Add Logic */"),
+		no1 = rep(1),
+		table_name1 = rep(2),
+		lock1 = rep(3),
 	}
 )
 local for_snippet = s(
@@ -253,30 +215,30 @@ table.insert(snippets, for_snippet)
 -- }}}
 
 -- FUNCTION SNIPPET {{{
-local function_fmt = fmt(
+local function_fmt = fmta(
 	[[
-		function {} returns {}
-			(input {}):
+		function <func_name> returns <return_type>
+			(input <args>):
 
-			define variable {} as {}.
+			define variable <var_name> as <data_type>.
 
-			{}
+			<code>
 
-			return {}.
-		end function. /* function {} returns {} */
+			return <var_name1>.
+		end function. /* function <func_name1> returns <return_type1> */
 	]],
 	{
-		d(1, function(_, snip)
+		func_name = d(1, function(_, snip)
 			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
 		end),
-		c(2,get_options(data_types)),
-		i(3, ""),
-		i(4, "<++>"),
-		rep(2),
-		i(5, "/* Add Logic */"),
-		rep(4),
-		rep(1),
-		rep(2),
+		return_type = c(2,get_options(data_types)),
+		args = i(3, ""),
+		var_name = i(4, "<++>"),
+		data_type = rep(2),
+		code = i(5, "/* Add Logic */"),
+		var_name1 = rep(4),
+		func_name1 = rep(1),
+		return_type1 = rep(2),
 	}
 )
 local function_snippet = s(
