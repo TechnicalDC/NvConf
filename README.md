@@ -5,7 +5,7 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 </div>
 <br>
 
-![home](https://github.com/TechnicalDC/NvConf/blob/main/images/dashbaord.png)
+![home](https://github.com/TechnicalDC/NvConf/blob/main/images/dashboard.png)
 
 ## Features
 
@@ -52,3 +52,4 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 ![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
 
 ![neogit](https://github.com/TechnicalDC/NvConf/blob/main/images/neogit.png)
+
