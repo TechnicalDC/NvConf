@@ -45,9 +45,9 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ![trouble](https://github.com/TechnicalDC/NvConf/blob/main/images/trouble.png)
 
-![neogit](https://github.com/TechnicalDC/NvConf/blob/main/images/neogit.png)
+![quickfix](https://github.com/TechnicalDC/NvConf/blob/main/images/quickfix.png)
 
-![nvim-tree](https://github.com/TechnicalDC/NvConf/blob/main/images/nvim-tree.png)
+![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)
 
 ![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
 
