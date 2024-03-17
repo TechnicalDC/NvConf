@@ -43,9 +43,9 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 
 ![whichkey](https://github.com/TechnicalDC/NvConf/blob/main/images/whichkey.png)
 
-![lspsaga](https://github.com/TechnicalDC/NvConf/blob/main/images/lspsaga.png)
+![trouble](https://github.com/TechnicalDC/NvConf/blob/main/images/trouble.png)
 
-![cmp](https://github.com/TechnicalDC/NvConf/blob/main/images/cmp.png)
+![neogit](https://github.com/TechnicalDC/NvConf/blob/main/images/neogit.png)
 
 ![nvim-tree](https://github.com/TechnicalDC/NvConf/blob/main/images/nvim-tree.png)
 
