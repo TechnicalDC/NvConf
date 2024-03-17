@@ -4,9 +4,11 @@ return {
 		'nvim-treesitter/nvim-treesitter',
 	},
 	keys = {
-		'<space>m',
-		'<space>j',
-		'<space>s',
+		{
+			'<space>tt',
+			"<cmd>TSJToggle<cr>",
+			desc = "Split / Join the block",
+		},
 	},
 	config = function()
 		local tsj = require('treesj')
