@@ -133,7 +133,7 @@ function _G.qftf(info)
 	return ret
 end
 
-function SetIndent (newIndent)
+function SetIndent ()
 	vim.ui.input({ prompt = 'New Indent', default = tostring(vim.opt.tabstop._value)}, function(input)
 		set.tabstop       = tonumber(input)
 		set.shiftwidth    = tonumber(input)

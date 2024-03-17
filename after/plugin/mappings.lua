@@ -40,6 +40,11 @@ wk.register({
 	["<A-=>"] = { "<C-w>=", "Equal the split size"},
 	-- ["/"] = { ":lua vim.o.hlsearch = true<CR>", "Enable incremental search highlighting and search"},
 	["<Esc>"] = { ":lua vim.o.hlsearch = false<CR>", "Disable incremental search highlighting"},
+	-- n = { "nzzzv", ""},
+	-- N = { "Nzzzv", ""},
+	-- ["}"] = { "}zzzv", ""},
+	-- ["{"] = { "{zzzv", ""},
+	-- J = { "mzJ`z", ""},
 },{mode = 'n'})
 
 wk.register({
@@ -60,11 +65,6 @@ map("i", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
 map("s", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
 map("s", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
 
--- Remap splits navigation to just ( Ctrl + hjkl)
--- map("n", "<C-h>", "<C-w>h", opts)
--- map("n", "<C-j>", "<C-w>j", opts)
--- map("n", "<C-k>", "<C-w>k", opts)
--- map("n", "<C-l>", "<C-w>l", opts)
 
 -- TMUX {{{
 -- map("n", "<C-h>", ":lua require('tmux').move_left()<CR>", opts)
@@ -95,20 +95,8 @@ vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
 -- vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
 -- }}}}
 
--- Keybindings for split resizing
--- map("n", "<A-l>", ":vertical resize +2<CR>", opts)
--- map("n", "<A-h>", ":vertical resize -2<CR>", opts)
--- map("n", "<A-k>", ":resize +2<CR>", opts)
--- map("n", "<A-j>", ":resize -2<CR>", opts)
-
--- Search highlighting
 
 -- Keeping it centered
-map("n", "n", "nzzzv", opts)
-map("n", "N", "Nzzzv", opts)
-map("n", "}", "}zzzv", opts)
-map("n", "{", "{zzzv", opts)
-map("n", "J", "mzJ`z", opts)
 
 -- Moving text
 map("i", "<A-S-j>", "<Esc>:m .+1<CR>==i", opts)
