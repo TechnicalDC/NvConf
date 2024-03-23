@@ -1,5 +1,6 @@
 return {
 	"NeogitOrg/neogit",
+	cmd = "Neogit",
 	config = function ()
 		local neogit = require("neogit")
 

@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function ()
 		require("todo-comments").setup({
-			signs = true, -- show icons in the signs column
+			signs = false, -- show icons in the signs column
 			sign_priority = 8, -- sign priority
 			-- keywords recognized as todo comments
 			keywords = {
@@ -15,7 +15,7 @@ return {
 				},
 				TODO = { icon = " ", color = "info" },
 				HACK = { icon = " ", color = "warning" },
-				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+				WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX","DEBUG" } },
 				PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 				NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
 				TEST = { icon = "󰙨 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
@@ -66,10 +66,19 @@ return {
 				-- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
 			},
 		})
+
+		-- KEYBINDING
+		local ok, wk = pcall(require, 'which-key')
+		if ok then
+			wk.register({
+				["]"] = { t = {function()
+					require("todo-comments").jump_next()
+				end, "Next todo comment" },},
+				["["] = { t = {function()
+					require("todo-comments").jump_prev()
+				end, "Previous todo comment" },},
+			})
+		end
 	end
-	-- opts = {
-		-- 	-- your configuration comes here
-		-- 	-- or leave it empty to use the default settings
-		-- 	-- refer to the configuration section below
-		-- }
 	}
+

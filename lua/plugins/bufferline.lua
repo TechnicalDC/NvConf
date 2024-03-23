@@ -36,7 +36,7 @@ return {
 					-- tabnr (tabs only)   | int        | the "handle" of the tab, can be converted to its ordinal number using: `vim.api.nvim_tabpage_get_number(buf.tabnr)`
 				end,
 				max_name_length = 18,
-				max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+				max_prefix_length = 10, -- prefix used when a buffer is de-duplicated
 				truncate_names = true, -- whether or not tab names should be truncated
 				tab_size = 18,
 				diagnostics = false, -- false | "nvim_lsp" | "coc",
@@ -48,7 +48,7 @@ return {
 				-- NOTE: this will be called a lot so don't do any heavy processing here
 				custom_filter = function(buf_number, buf_numbers)
 					-- filter out filetypes you don't want to see
-					if not vim.bo[buf_number].filetype ~= "qf" then
+					if vim.bo[buf_number].filetype ~= "qf" then
 						return true
 					end
 					-- filter out by buffer name

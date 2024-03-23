@@ -143,8 +143,8 @@ return {
 					name = 'buffer',
 					option = { keyword_length = 1 }
 				},
-				{ name = 'path' },
-				{ name = 'orgmode' },
+				{ name = "path" },
+				{ name = "orgmode" },
 			}),
 			experimental = {
 				ghost_text = true

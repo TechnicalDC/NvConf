@@ -5,9 +5,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		'TechnicalDC/nvim-lspconfig',
 		"nvim-treesitter/nvim-treesitter",
-		"nvimdev/lspsaga.nvim",
 		'kyazdani42/nvim-web-devicons',
-		"nvimtools/none-ls.nvim"
 	},
 	config = function ()
 		-- MASON {{{
@@ -22,8 +20,7 @@ return {
 		})
 		-- }}}
 
-		require("plugins.lsp.none-ls")
+		-- require("plugins.lsp.none-ls")
 		require("plugins.lsp.lsp-config")
-		require("plugins.lsp.lspsaga")
 	end
 }

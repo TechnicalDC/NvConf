@@ -8,10 +8,12 @@ return {
 	},
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+		{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find symbols" },
+		{ "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Find workspace symbols" },
 		{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Find old files" },
 		{ "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "Browse files" },
 		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
-		{ "<leaderlg", "<cmd>Telescope live_grep<cr>", desc = "Find file by word" },
+		{ "<leader>lg", "<cmd>Telescope live_grep<cr>", desc = "Find file by word" },
 	},
 	config = function ()
 		local center = require("plugins.telescope.layout.center")
@@ -40,6 +42,7 @@ return {
 				borderchars = center.border,
 				results_title = "",
 				prompt_title = " Prompt ",
+				file_ignore_patterns = { "**\\*.xlsx" },
 
 				-- Preview
 				preview = {
@@ -74,7 +77,7 @@ return {
 						-- actions.which_key shows the mappings for your picker,
 						-- e.g. git_{create, delete, ...}_branch for the git_branches picker
 						["<C-/>"] = "which_key",
-						["<C-p>"] = toggle_preview
+						-- ["<C-p>"] = toggle_preview
 					}
 				}
 			},
