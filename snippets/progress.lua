@@ -138,8 +138,9 @@ table.insert(snippets, msg_snippet)
 -- FIND SNIPPET {{{
 local find_fmt = fmta(
 	[[
-		find <no> <table_name> <lock>
-			where <table_field> <condition> no-error.
+		find <no> <table_name> where
+			<table_field> <condition>
+      <lock> no-error.
 		if available <table_name1> then do:
 		end. /* if available <table_name2> then do: */
 	]],
@@ -153,15 +154,15 @@ local find_fmt = fmta(
 		table_name = d(2, function(_, snip)
 			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
 		end),
-		lock = c(3, get_options(lock_type)),
-		table_field = i(4, "<++>"),
-		condition = d(5, function()
+		table_field = i(3, "<++>"),
+		condition = d(4, function()
 			if find("mfdeclre.i") or find("mfdtitle.i") then
 				return sn(1, i(1,"= global_domain "))
 			else
-				return sn(1, i(1,""))
+				return sn(1, i(1,"= <++>"))
 			end
 		end),
+		lock = c(5, get_options(lock_type)),
 		table_name1 = rep(2),
 		table_name2 = rep(2),
 	}
