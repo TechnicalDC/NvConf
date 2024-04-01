@@ -38,6 +38,10 @@ return {
          -- ['MORE'] = '  ',
       }
 
+      local branch = {
+         'branch',
+         icon = '',
+      }
 
       local mode = {
          'mode',
@@ -145,7 +149,7 @@ return {
       require('lualine').setup {
          options = {
             icons_enabled = true,
-            theme = 'onedark',
+            theme = "base16",
             -- theme = 'tokyonight',
             component_separators = { left = '  ', right = '  '},
             section_separators = { left = '', right = ''},
@@ -162,8 +166,8 @@ return {
       sections = {
          lualine_a = { mode },
          lualine_b = {
+            branch,
             diff,
-            'branch',
          },
          lualine_c = {
             filename,

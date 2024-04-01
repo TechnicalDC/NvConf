@@ -30,13 +30,16 @@ return {
    config = function ()
       require("ibl").setup({
          indent = {
-            char = "│",
+            char = "╎",
             smart_indent_cap = true,
          },
          whitespace = {
             remove_blankline_trail = true,
          },
-         scope = { enabled = false },
+         scope = {
+            enabled = true,
+            show_start = false,
+         },
          exclude = {
             filetypes = {
                "lspinfo",
