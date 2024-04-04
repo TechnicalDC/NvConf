@@ -14,22 +14,17 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 * Integrated with terminal multiplexers via [smart-splits.nvim ](https://github.com/mrjones2014/smart-splits.nvim)
 * LSP Support using [mason.nvim](https://github.com/williamboman/mason.nvim)
 * Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
-* Explore files via [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
 * Fuzzy finder via [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-* Amazing default theme via [onedark.nvim](https://github.com/navarasu/onedark.nvim) and many [more](https://github.com/TechnicalDC/NvConf#colorschemes)
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 * Git integration with [neogit](https://github.com/NeogitOrg/neogit) [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [fugitive](https://github.com/tpope/vim-fugitive)
-* Note taking with [neorg](https://github.com/nvim-neorg/neorg)
+* Notetaking with [neorg](https://github.com/nvim-neorg/neorg)
 
 ## Colorschemes
 
-* [catppuccin](https://github.com/catppuccin/nvim)
-* [dracula.nvim](https://github.com/TechnicalDC/dracula.nvim)
-* [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
-* [onedark.nvim](https://github.com/navarasu/onedark.nvim)
-
+* base16
+  
 ## Installation
 ```bash
 # Linux
