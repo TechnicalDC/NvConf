@@ -47,6 +47,7 @@ set.expandtab     = true
 set.tabstop       = 3
 set.shiftwidth    = 3
 set.softtabstop   = 3
+set.breakindent   = true
 set.spelllang     = "en_us"
 set.signcolumn    = "yes"
 set.conceallevel  = 2
@@ -56,7 +57,7 @@ set.foldtext	   = "v:lua.custom_fold_text()"
 set.quickfixtextfunc = "v:lua.qftf"
 set.foldcolumn		= "0"
 set.scrolloff	   = 10
-set.undofile		= false
+set.undofile		= true
 set.shada			= "!,'300,<50,s10,h"
 
 -- GUI Configuration
