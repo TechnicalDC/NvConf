@@ -1,2 +1,2 @@
 ---@diagnostic disable: undefined-global
-vim.opt.foldcolumn		= "3"
+-- vim.opt.foldcolumn		= "3"
