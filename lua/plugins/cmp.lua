@@ -137,10 +137,6 @@ return {
             { name = 'luasnip' }, -- For luasnip users.
             { name = 'nvim_lsp' },
             {
-               name = "nvim_lua",
-               option = { max_item_count = max_count }
-            },
-            {
                name = 'buffer',
                option = { keyword_length = 1 }
             },
@@ -205,15 +201,32 @@ return {
          sources = cmp.config.sources({
             {
                name = 'path',
-               option = { max_item_count = max_count }
+               option = { max_item_count = 10 }
             }
          },
          {
             {
                name = 'cmdline',
-               option = { max_item_count = max_count }
+               option = { max_item_count = 10 }
             }
          })
+      })
+
+      cmp.setup.filetype("lua", {
+         sources = cmp.config.sources({
+            { name = 'luasnip' }, -- For luasnip users.
+            { name = 'nvim_lsp' },
+            {
+               name = "nvim_lua",
+               option = { max_item_count = max_count }
+            },
+            {
+               name = 'buffer',
+               option = { keyword_length = 1 }
+            },
+            { name = "path" },
+            { name = "orgmode" },
+         }),
       })
 
       cmp.setup.filetype("norg", {

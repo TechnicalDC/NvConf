@@ -72,7 +72,7 @@ return {
                i = {
                   ["<C-/>"] = "which_key",
                   ["<C-p>"] = toggle_preview,
-                  ["<c-t>"] = trouble.open_with_trouble
+                  ["<c-b>"] = trouble.open_with_trouble
                }
             }
          },

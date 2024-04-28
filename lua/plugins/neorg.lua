@@ -1,29 +1,34 @@
 return {
    {
-      "vhyrro/luarocks.nvim",
-      priority = 1000, -- We'd like this plugin to load first out of the rest
-      config = true, -- This automatically runs `require("luarocks-nvim").setup()`
-   },
-   {
       "nvim-neorg/neorg",
       dependencies = {
          "nvim-lua/plenary.nvim",
       },
       event = "VimEnter",
+      version = "v7.0.0", -- This is the important part!
       lazy = false,
       config = function()
          require("neorg").setup {
             load = {
                ["core.defaults"] = {}, -- Loads default behaviour
-               ["core.concealer"] = {}, -- Adds pretty icons to your documents
+               ["core.concealer"] = {
+                  config = {
+                     folds = true,
+                     icon_present = "diamond",
+                  }
+               }, -- Adds pretty icons to your documents
                ["core.summary"] = {},
+               ["core.export"] = {},
                ["core.looking-glass"] = {},
                -- ["core.ui.calendar"] = {},
-               -- ["core.completion"] = {
-                  -- 	engine = "nvim-cmp",
-                  -- 	name	 = "(neorg)"
-                  -- },
-                  ["core.dirman"] = { -- Manages Neorg workspaces
+               ["core.integrations.nvim-cmp"] = {},
+               ["core.completion"] = {
+                  config = {
+                     engine = "nvim-cmp",
+                     name	 = "(neorg)"
+                  }
+               },
+               ["core.dirman"] = { -- Manages Neorg workspaces
                   config = {
                      workspaces = {
                         work  = "~\\Desktop\\WORK\\Neorg",
