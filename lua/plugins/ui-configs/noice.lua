@@ -201,11 +201,11 @@ require("noice").setup({
 	views = {
 		cmdline_popup = {
 			position = {
-				row = "3",
+				row = "50%",
 				col = "50%",
 			},
 			size = {
-				width = "50%",
+				width = "40%",
 				height = "auto",
 			},
 			border = {
