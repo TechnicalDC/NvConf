@@ -50,6 +50,8 @@ autocmd("ColorScheme", {
       local filename = ""
       if vim.fn.has("win32") == 1 then
          filename = vim.fn.expand("~\\.wezterm\\colors.lua")
+      else
+         filename = vim.fn.expand("~/.config/wezterm/colors.lua")
       end
 
       assert(type(filename) == "string")
