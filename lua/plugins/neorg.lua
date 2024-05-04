@@ -1,3 +1,10 @@
+local default_workspace = ""
+if vim.fn.has("win32") == 1 then
+   default_workspace = "work"
+else
+   default_workspace = "personal"
+end
+
 return {
    {
       "nvim-neorg/neorg",
@@ -34,7 +41,7 @@ return {
                         work  = "~\\Desktop\\WORK\\Neorg",
                         personal = "~\\Desktop\\PERSONAL\\Neorg"
                      },
-                     default_workspace = "personal",
+                     default_workspace = default_workspace,
                   },
                },
                ["core.keybinds"] = {
