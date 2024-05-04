@@ -47,7 +47,11 @@ autocmd("ColorScheme", {
       end
 
       -- exporting ColorScheme to custom wezterm module
-      local filename = vim.fn.expand("~\\.wezterm\\colors.lua")
+      local filename = ""
+      if vim.fn.has("win32") == 1 then
+         filename = vim.fn.expand("~\\.wezterm\\colors.lua")
+      end
+
       assert(type(filename) == "string")
       local file = io.open(filename, "w")
       assert(file)
