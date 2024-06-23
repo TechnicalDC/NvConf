@@ -20,7 +20,7 @@ return {
       local flex = require("plugins.telescope.layout.flex")
 
       local toggle_preview = require("telescope.actions.layout").toggle_preview
-      local trouble = require("trouble.providers.telescope")
+      local trouble = require("trouble.sources.telescope")
 
       require('telescope').setup{
          defaults = {
@@ -38,6 +38,9 @@ return {
             prompt_title = " Prompt ",
             file_ignore_patterns = {
                "**\\*.xlsx",
+               "**\\*.png",
+               "**\\*.jpg",
+               "**\\*.jpeg",
                "**\\*.pdf",
             },
 

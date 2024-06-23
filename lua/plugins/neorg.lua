@@ -27,6 +27,7 @@ return {
                ["core.summary"] = {},
                ["core.export"] = {},
                ["core.looking-glass"] = {},
+               -- ["core.tempus"] = {},
                -- ["core.ui.calendar"] = {},
                ["core.integrations.nvim-cmp"] = {},
                ["core.completion"] = {
@@ -38,10 +39,10 @@ return {
                ["core.dirman"] = { -- Manages Neorg workspaces
                   config = {
                      workspaces = {
-                        work  = "~\\Desktop\\WORK\\Neorg",
+                        work  = "/mnt/d/WORK/Neorg",
                         personal = "~\\Desktop\\PERSONAL\\Neorg"
                      },
-                     default_workspace = default_workspace,
+                     default_workspace = "work",
                   },
                },
                ["core.keybinds"] = {

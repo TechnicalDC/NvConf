@@ -14,7 +14,7 @@ local on_attach = function(client, bufnr)
             r = { n = { vim.lsp.buf.rename, "Rename" } },
             D = { vim.lsp.buf.type_definition,"Go to type definition"},
             F = {vim.lsp.buf.formatting, "Format code"},
-            t = { b = { "<cmd>TroubleToggle<cr>", "Toggle trouble" }},
+            -- t = { b = { "<cmd>TroubleToggle<cr>", "Toggle trouble" }},
             w = {
                a = { vim.lsp.buf.add_workspace_folder, "Add folder to workspace"},
                r = { vim.lsp.buf.remove_workspace_folder, "Remove folder from workspace"},
@@ -40,11 +40,7 @@ end
 
 local servers = {
    'pyright',
-   -- 'openedge_ls',
-   -- 'tsserver',
    'jsonls',
-   -- 'gopls',
-   -- 'texlab'
 }
 local oe_jar_path = 'C:\\Users\\Dilip Chauhan\\AppData\\Local\\nvim-data\\mason\\packages\\openedge-language-server\\abl-lsp.jar'
 for _, lsp in ipairs(servers) do
