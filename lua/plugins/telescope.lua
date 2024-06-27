@@ -4,15 +4,14 @@ return {
    lazy = false,
    dependencies = {
       'nvim-lua/plenary.nvim',
-      "nvim-telescope/telescope-file-browser.nvim"
    },
    keys = {
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
       { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find symbols" },
       { "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Find workspace symbols" },
       { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Find recent files" },
-      { "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "Browse files" },
-      { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
+      { "<leader>fB", "<cmd>Telescope file_browser<cr>", desc = "Browse files" },
+      { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
       { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find word" },
    },
    config = function ()
@@ -80,15 +79,14 @@ return {
             }
          },
          extensions = {
-            file_browser = {
-               hijack_netrw = true,
-               path = "%:p:h",
-               default_selection_index = 2,
-            },
+            -- file_browser = {
+            --    hijack_netrw = true,
+            --    path = "%:p:h",
+            --    default_selection_index = 2,
+            -- },
          },
       }
 
       require("telescope").load_extension("noice")
-      require("telescope").load_extension("file_browser")
    end
 }

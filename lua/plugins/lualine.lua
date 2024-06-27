@@ -19,23 +19,23 @@ return {
    config = function ()
       local default_icon = '󰘳 '
       local mode_map = {
-         -- ['NORMAL'] = '󰘳  ',
-         -- ['O-PENDING'] = '  ',
-         -- ['INSERT'] = '  ',
-         -- ['VISUAL'] = '󰒉  ',
-         -- ['V-BLOCK'] = '󰒉  ',
-         -- ['V-LINE'] = '󰒉  ',
-         -- ['V-REPLACE'] = '  ',
-         -- ['REPLACE'] = '󰛔  ',
-         -- ['COMMAND'] = '󰘳  ',
-         -- ['SHELL'] = '  ',
-         -- ['TERMINAL'] = '  ',
+         ['NORMAL'] = '󰘳 ',
+         ['O-PENDING'] = '  ',
+         ['INSERT'] = ' ',
+         ['VISUAL'] = '󰒉 ',
+         ['V-BLOCK'] = '󰒉 ',
+         ['V-LINE'] = '󰒉 ',
+         ['V-REPLACE'] = ' ',
+         ['REPLACE'] = '󰬳 ',
+         ['COMMAND'] = '󰘳 ',
+         ['SHELL'] = ' ',
+         ['TERMINAL'] = ' ',
          -- ['EX'] = '  ',
          -- ['S-BLOCK'] = '  ',
          -- ['S-LINE'] = '  ',
-         -- ['SELECT'] = '  ',
-         -- ['CONFIRM'] = '  ',
-         -- ['MORE'] = '  ',
+         ['SELECT'] = ' ',
+         ['CONFIRM'] = ' ',
+         ['MORE'] = '󰍻 ',
       }
 
       local branch = {
