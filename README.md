@@ -11,20 +11,20 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 
 * Dashboard via [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
 * Autocompletion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-* Integrated with terminal multiplexers via [smart-splits.nvim ](https://github.com/mrjones2014/smart-splits.nvim)
+* Integrated with tmux via [smart-splits.nvim ](https://github.com/mrjones2014/smart-splits.nvim)
 * LSP Support using [mason.nvim](https://github.com/williamboman/mason.nvim)
 * Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
 * Fuzzy finder via [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-* Git integration with [neogit](https://github.com/NeogitOrg/neogit) [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [fugitive](https://github.com/tpope/vim-fugitive)
+* Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [fugitive](https://github.com/tpope/vim-fugitive)
 * Notetaking with [neorg](https://github.com/nvim-neorg/neorg)
 
 ## Colorschemes
 
 * base16
-  
+
 ## Installation
 ```bash
 # Linux
