@@ -40,7 +40,7 @@ return {
                   config = {
                      workspaces = {
                         work  = "/mnt/d/WORK/Neorg",
-                        personal = "~\\Desktop\\PERSONAL\\Neorg"
+                        personal = "~/Neorg"
                      },
                      default_workspace = "work",
                   },
