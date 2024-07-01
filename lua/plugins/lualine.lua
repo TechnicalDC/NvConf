@@ -1,4 +1,4 @@
--- LSP clients attached to buffer
+-- LSP clients attached to bufferlualine
 local clients_lsp = function ()
    local bufnr = vim.api.nvim_get_current_buf()
 
@@ -149,7 +149,8 @@ return {
       require('lualine').setup {
          options = {
             icons_enabled = true,
-            theme = "base16",
+            theme = "catppuccin",
+            -- theme = "base16",
             -- theme = 'tokyonight',
             component_separators = { left = '  ', right = '  '},
             section_separators = { left = '', right = ''},

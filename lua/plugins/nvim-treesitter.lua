@@ -7,7 +7,7 @@ return {
          ensure_installed = { "lua", "python", "json", "http", "typescript" },
          sync_install = false,
          auto_install = true,
-         ignore_install = { "javascript" },
+         ignore_install = { "latex", "javascript" },
 
          highlight = {
             -- `false` will disable the whole extension

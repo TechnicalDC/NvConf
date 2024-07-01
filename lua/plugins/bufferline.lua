@@ -7,6 +7,7 @@ return {
    config = function ()
       local bufferline = require('bufferline')
       bufferline.setup {
+         highlights = require("catppuccin.groups.integrations.bufferline").get(),
          options = {
             mode = "buffers", -- set to "tabs" to only show tabpages instead
             themable = true, -- true | false, -- allows highlight groups to be overriden i.e. sets highlights as default
@@ -85,7 +86,7 @@ return {
                -- local custom_map = {my_thing_ft: {icon = "my_thing_icon", hl}}
                -- return custom_map[element.filetype]
             end,
-            show_buffer_icons = true, --true | false, -- disable filetype icons for buffers
+            show_buffer_icons = false, --true | false, -- disable filetype icons for buffers
             show_buffer_close_icons = false, --true | false,
             show_close_icon = false, --true | false,
             show_tab_indicators = false, --true | false,
