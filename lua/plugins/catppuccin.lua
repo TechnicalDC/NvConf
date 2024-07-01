@@ -1,5 +1,3 @@
--- locan border_color =
-
 return {
    "catppuccin/nvim",
    name = "catppuccin",
