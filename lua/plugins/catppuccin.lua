@@ -38,6 +38,8 @@ return {
          custom_highlights = function(colors)
             return{
                YaziFloat = { link = "NormalFloat" },
+               TroubleNormal = { link = "NormalFloat" },
+               TroubleNormalNC = { link = "NormalFloat" },
                FloatBorder = { fg = colors.mantle },
                BufferLineFill = { bg = colors.surface0 },
                NoiceCmdlinePopupBorder = { fg = colors.surface0, bg = colors.surface0 },

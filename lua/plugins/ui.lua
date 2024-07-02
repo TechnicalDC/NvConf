@@ -9,7 +9,7 @@ return {
 	enabled = true,
 	config = function ()
 		require("plugins.ui-configs.dressing")
-		require("plugins.ui-configs.noice")
+		require("plugins.ui-configs.noice-ui")
 		require("plugins.ui-configs.notify")
 	end
 }

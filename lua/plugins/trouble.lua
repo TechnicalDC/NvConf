@@ -1,11 +1,44 @@
+local kind_icons = {
+   Array         = " ",
+   Boolean       = "󰨙 ",
+   Class         = " ",
+   Constant      = " ",
+   Constructor   = " ",
+   Enum          = " ",
+   EnumMember    = " ",
+   Event         = " ",
+   Field         = " ",
+   File          = " ",
+   Function      = "󰊕 ",
+   Interface     = " ",
+   Key           = " ",
+   Method        = "󰊕 ",
+   Module        = " ",
+   Namespace     = "󰦮 ",
+   Null          = " ",
+   Number        = "󰎠 ",
+   Object        = " ",
+   Operator      = " ",
+   Package       = " ",
+   Property      = " ",
+   String        = " ",
+   Struct        = "󰆼 ",
+   TypeParameter = " ",
+   Variable      = " ",
+}
+
 return {
    "folke/trouble.nvim",
    dependencies = { "kyazdani42/nvim-web-devicons" },
    opts = {
       position = "bottom", -- position of the list can be: bottom, top, left, right
-      height = 10, -- height of the trouble list when position is top or bottom
+      -- height = 10, -- height of the trouble list when position is top or bottom
       width = 50, -- width of the list when position is left or right
-      icons = true, -- use devicons for filenames
+      icons = {
+         folder_closed   = " ",
+         folder_open     = " ",
+         kinds = kind_icons,
+      },
       mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
       severity = nil, -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
       fold_open = "", -- icon used for open folds
