@@ -30,6 +30,13 @@ local kind_icons = {
 return {
    "folke/trouble.nvim",
    dependencies = { "kyazdani42/nvim-web-devicons" },
+   keys = {
+      {
+         "<leader>td",
+         "<cmd>Trouble diagnostics toggle<cr>",
+         desc = "Diagnostics (Trouble)",
+      },
+   },
    opts = {
       position = "bottom", -- position of the list can be: bottom, top, left, right
       -- height = 10, -- height of the trouble list when position is top or bottom
