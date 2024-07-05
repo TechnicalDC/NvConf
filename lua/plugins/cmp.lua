@@ -131,42 +131,42 @@ return {
                return vim_item
             end,
          },
-         sources = cmp.config.sources({
-            { name = 'luasnip' }, -- For luasnip users.
-            { name = 'nvim_lsp' },
-            {
-               name = 'buffer',
-               option = { keyword_length = 1 }
-            },
-            { name = "path" },
-            { name = "orgmode" },
-         }),
-         experimental = {
-            ghost_text = false
+         sources = cmp.config.sources({
+            { name = 'luasnip' }, -- For luasnip users.
+            { name = 'nvim_lsp' },
+            {
+               name = 'buffer',
+               option = { keyword_length = 1 }
+            },
+            { name = "path" },
+            { name = "orgmode" },
+         }),
+         experimental = {
+            ghost_text = false
          }
       })
 
-      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline({'/','?'}, {
-         formatting = {
-            fields = { "kind", "abbr" },
-            format = function(entry, vim_item)
-               -- Kind icons
-               vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-               vim_item.menu = ({
-                  buffer = "(buffer)"
-               })[entry.source.name]
-               return vim_item
-            end,
-         },
-         mapping = cmp.mapping.preset.cmdline(),
-         sources = {
-            {
-               name = 'buffer',
-               option = { max_item_count = max_count }
-            }
-         }
-      })
+      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline({'/','?'}, {
+         formatting = {
+            fields = { "kind", "abbr" },
+            format = function(entry, vim_item)
+               -- Kind icons
+               vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+               vim_item.menu = ({
+                  buffer = "(buffer)"
+               })[entry.source.name]
+               return vim_item
+            end,
+         },
+         mapping = cmp.mapping.preset.cmdline(),
+         sources = {
+            {
+               name = 'buffer',
+               option = { max_item_count = max_count }
+            }
+         }
+      })
 
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(':', {
