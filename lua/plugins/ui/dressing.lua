@@ -1,4 +1,4 @@
-local defaults = require("plugins.ui-configs.defaults")
+local defaults = require("plugins.ui.defaults")
 
 require("dressing").setup({
    input = {
