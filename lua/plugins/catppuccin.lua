@@ -40,8 +40,12 @@ return {
                YaziFloat = { link = "NormalFloat" },
                TroubleNormal = { link = "NormalFloat" },
                TroubleNormalNC = { link = "NormalFloat" },
+               CursorLineNr = { link = "CursorLine" },
+               -- CursorLineFold = { link = "CursorLine" },
+               -- CursorLineSign = { link = "CursorLine" },
                FloatBorder = { fg = colors.mantle },
                BufferLineFill = { bg = colors.surface0 },
+
                NoiceCmdlinePopupBorder = { fg = colors.surface0, bg = colors.surface0 },
                NoiceCmdlinePopupBorderSearch     = { link = "NoiceCmdlinePopupBorder" },
                NoiceCmdlinePopupBorderLua        = { link = "NoiceCmdlinePopupBorder" },
