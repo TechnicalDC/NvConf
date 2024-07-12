@@ -46,6 +46,10 @@ return {
                FloatBorder = { fg = colors.mantle },
                BufferLineFill = { bg = colors.surface0 },
 
+               -- TELESCOPE
+               TelescopeSelectionCaret = { bg = colors.surface0 },
+
+               -- NOICE
                NoiceCmdlinePopupBorder = { fg = colors.surface0, bg = colors.surface0 },
                NoiceCmdlinePopupBorderSearch     = { link = "NoiceCmdlinePopupBorder" },
                NoiceCmdlinePopupBorderLua        = { link = "NoiceCmdlinePopupBorder" },
