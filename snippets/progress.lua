@@ -35,9 +35,17 @@ local data_types = {
 	"character",
 	"decimal",
 	"integer",
+   "handle",
 	"date",
-	"logical"
+	"logical",
+   "void"
 }
+local access_type = {
+   "public",
+   "private",
+   "protected"
+}
+
 -- Returns table containing insert node with provided options
 local get_options = function(arg)
 	local x = {}
@@ -213,6 +221,10 @@ local for_snippet = s(
 	for_fmt
 )
 table.insert(snippets, for_snippet)
+-- }}}
+
+-- METHOD SNIPPET {{{
+-- local method_fmt =
 -- }}}
 
 -- FUNCTION SNIPPET {{{

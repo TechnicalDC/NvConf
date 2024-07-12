@@ -45,6 +45,8 @@ return {
                -- CursorLineSign = { link = "CursorLine" },
                FloatBorder = { fg = colors.mantle },
                BufferLineFill = { bg = colors.surface0 },
+               LazyGitFloat = { link = "NormalFloat" },
+               LazyGitBorder = { link = "FloatBorder" },
 
                -- TELESCOPE
                TelescopeSelectionCaret = { bg = colors.surface0 },
