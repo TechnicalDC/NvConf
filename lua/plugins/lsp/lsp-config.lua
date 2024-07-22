@@ -14,7 +14,6 @@ local on_attach = function(client, bufnr)
             r = { n = { vim.lsp.buf.rename, "Rename" } },
             D = { vim.lsp.buf.type_definition,"Go to type definition"},
             F = {vim.lsp.buf.formatting, "Format code"},
-            -- t = { b = { "<cmd>TroubleToggle<cr>", "Toggle trouble" }},
             w = {
                a = { vim.lsp.buf.add_workspace_folder, "Add folder to workspace"},
                r = { vim.lsp.buf.remove_workspace_folder, "Remove folder from workspace"},
@@ -27,7 +26,6 @@ local on_attach = function(client, bufnr)
          g = {
             d = {vim.lsp.buf.definition, "Go to definition"},
             D = {vim.lsp.buf.declaration, "Go to declaration"},
-            -- o = { "<cmd>Lspsaga outline<cr>", "Toggle outline"},
             i = {vim.lsp.buf.implementation, "Go to implementation"},
             r = {vim.lsp.buf.references, "Go to references"},
          },
@@ -142,7 +140,6 @@ nvim_lsp.lua_ls.setup({
    }
 })
 
-
 local rounded_border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│'}
 local signs = {
    Error = " ",
@@ -172,12 +169,12 @@ vim.diagnostic.config({
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-vim.lsp.handlers.hover, {
-   -- Use a sharp border with `FloatBorder` highlights
-   border = "single",
-   -- add the title in hover float window
-   title = "hover"
-}
+   vim.lsp.handlers.hover, {
+      -- Use a sharp border with `FloatBorder` highlights
+      border = "single",
+      -- add the title in hover float window
+      title = "hover"
+   }
 )
 
 local lspconfig = require 'lspconfig'
