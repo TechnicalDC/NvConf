@@ -171,6 +171,15 @@ vim.diagnostic.config({
    }
 })
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+vim.lsp.handlers.hover, {
+   -- Use a sharp border with `FloatBorder` highlights
+   border = "single",
+   -- add the title in hover float window
+   title = "hover"
+}
+)
+
 local lspconfig = require 'lspconfig'
 lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, function(config)
    if config.name == "openedge_ls" then
