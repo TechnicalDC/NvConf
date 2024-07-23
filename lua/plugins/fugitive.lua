@@ -1,6 +1,6 @@
 return {
 	"tpope/vim-fugitive",
-	enabled = true,
+	enabled = false,
 	lazy = false,
 	config = function ()
 		local map = vim.keymap.set

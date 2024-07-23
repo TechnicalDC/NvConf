@@ -7,33 +7,28 @@ local on_attach = function(client, bufnr)
    local bufopts = { noremap=true, silent=true, buffer=bufnr }
    local ok, wk = pcall(require, 'which-key')
    if ok then
-      wk.register({
-         ["<leader>"] = {
-            e = { vim.diagnostic.open_float, "Open float" },
-            c = { a = { vim.lsp.buf.code_action, "Code Actions" } },
-            r = { n = { vim.lsp.buf.rename, "Rename" } },
-            D = { vim.lsp.buf.type_definition,"Go to type definition"},
-            F = {vim.lsp.buf.formatting, "Format code"},
-            w = {
-               a = { vim.lsp.buf.add_workspace_folder, "Add folder to workspace"},
-               r = { vim.lsp.buf.remove_workspace_folder, "Remove folder from workspace"},
-               l = { function()
-                  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-               end, "List workspace folder"},
-            },
-         },
-         K = {vim.lsp.buf.hover, "Hover docs"},
-         g = {
-            d = {vim.lsp.buf.definition, "Go to definition"},
-            D = {vim.lsp.buf.declaration, "Go to declaration"},
-            i = {vim.lsp.buf.implementation, "Go to implementation"},
-            r = {vim.lsp.buf.references, "Go to references"},
-         },
-         ["["] = { d = { vim.diagnostic.goto_prev, "Go to previous diagnostics" } },
-         ["]"] = { d = { vim.diagnostic.goto_next, "Go to next diagnostics" } },
+      wk.add({
+         mode = "n",
+         {"<leader>e",  vim.diagnostic.open_float, desc = "Open float" },
+         {"<leader>ca", vim.lsp.buf.code_action, desc = "Code Actions" },
+         {"<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
+         {"<leader>D",  vim.lsp.buf.type_definition, desc = "Go to type definition"},
+         {"<leader>F", vim.lsp.buf.formatting, desc = "Format code"},
+         {"<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "Add folder to workspace"},
+         {"<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove folder from workspace"},
+         {"<leader>wl", function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+         end, desc = "List workspace folder"},
+         {"<leader>K", vim.lsp.buf.hover, desc = "Hover docs" },
+         {"<leader>gd", vim.lsp.buf.definition, desc = "Go to definition"},
+         {"<leader>gD", vim.lsp.buf.declaration, desc = "Go to declaration"},
+         {"<leader>gi", vim.lsp.buf.implementation, desc = "Go to implementation"},
+         {"<leader>gr", vim.lsp.buf.references, desc = "Go to references"},
+         {"[d", vim.diagnostic.goto_prev, desc = "Go to previous diagnostics" },
+         {"]d", vim.diagnostic.goto_next, desc = "Go to next diagnostics" },
+         {'<C-k>', vim.lsp.buf.signature_help, desc = "Signature help" },
       })
    end
-   map('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 end
 
 local servers = {

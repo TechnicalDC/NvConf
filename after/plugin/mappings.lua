@@ -8,51 +8,41 @@ if not ok then
    return nil
 end
 
-wk.register({
-   ["<leader>"] = {
-      y = { "maggVGy`a", "Copy entire content"},
-      s = { ":setlocal spell!<CR>", "Toggle spell checker"},
-      j = { ":m .+1<CR>==", "Move line down"},
-      k = { ":m .-2<CR>==", "Move line up"},
-      d = {
-         t = {"<cmd>diffthis<CR>", "Toggle diff for current buffer"},
-      },
-      t = {
-         v = {"<C-w>t<C-w>H", "Turn horizontal splits to vertical"},
-         h = { "<C-w>t<C-w>K", "Turn vertical splits to horizontal"},
-      },
-      c = {
-         o = {"<cmd>copen<cr>","Open quickfix list"},
-         c = {"<cmd>cclose<cr>","Close quickfix list"},
-         f = {"<cmd>cfirst<cr>","Go to first item in quickfix list"},
-         l = {"<cmd>clast<cr>","Go to last item in quickfix list"},
-         n = {"<cmd>cnext<cr>","Go to next item in quickfix list"},
-         p = {"<cmd>cprev<cr>","Go to previous item in quickfix list"},
-      },
-   },
-   g = {
-      b = {":bnext<cr>","Jump to next buffer"},
-      B = {":bprevious<cr>","Jump to previous buffer"},
-   },
-   Y = {"y$", "Copy text till end of line"},
-   ["<A-S-g>"] = { ":Gitsigns stage_buffer<CR>", "Stage the changes in current buffer"},
-   ["<A-t>"] = { "<C-w>T", "Turn split into tab"},
-   ["<A-=>"] = { "<C-w>=", "Equal the split size"},
-   -- ["/"] = { ":lua vim.o.hlsearch = true<CR>", "Enable incremental search highlighting and search"},
-   ["<Esc>"] = { ":lua vim.o.hlsearch = false<CR>", "Disable incremental search highlighting"},
-   -- n = { "nzzzv", ""},
-   -- N = { "Nzzzv", ""},
-   -- ["}"] = { "}zzzv", ""},
-   -- ["{"] = { "{zzzv", ""},
-   -- J = { "mzJ`z", ""},
-},{mode = 'n'})
+wk.add({
+   {
+      mode = "n",
+      { "<leader>Y", "maggVGy`a",                       desc = "Copy entire content"},
+      { "<leader>s", ":setlocal spell!<CR>",            desc = "Toggle spell checker"},
+      { "Y",         "y$",                              desc = "Copy text till end of line"},
+      { "gb",        ":bnext<cr>",                      desc = "Jump to next buffer"},
+      { "gB",        ":bprevious<cr>",                  desc = "Jump to previous buffer"},
+      {"<Esc>",      ":lua vim.o.hlsearch = false<CR>", desc = "Disable incremental search highlighting"},
 
-wk.register({
-   ["<"] = { "<gv", ""},
-   [">"] = { ">gv", ""},
-   J = { ":m '>+1<CR>gv=gv", "Move selected lines down"},
-   K = { ":m '<-2<CR>gv=gv", "Move selected lines up"},
-},{mode = 'v'})
+      -- Quickfix
+      { "<leader>co", "<cmd>copen<cr>",  desc = "Open quickfix list"},
+      { "<leader>cc", "<cmd>cclose<cr>", desc = "Close quickfix list"},
+      { "<leader>cf", "<cmd>cfirst<cr>", desc = "Go to first item in quickfix list"},
+      { "<leader>cl", "<cmd>clast<cr>",  desc = "Go to last item in quickfix list"},
+      { "<leader>cn", "<cmd>cnext<cr>",  desc = "Go to next item in quickfix list"},
+      { "<leader>cp", "<cmd>cprev<cr>",  desc = "Go to previous item in quickfix list"},
+
+      { "<A-=>", "<C-w>=", desc = "Equal the split size" },
+      { "<A-S-g>", ":Gitsigns stage_buffer<CR>", desc = "Stage the changes in current buffer" },
+      { "<A-t>", "<C-w>T", desc = "Turn split into tab" },
+      { "<leader>dt", "<cmd>diffthis<CR>", desc = "Toggle diff for current buffer" },
+      { "<leader>j", ":m .+1<CR>==", desc = "Move line down" },
+      { "<leader>k", ":m .-2<CR>==", desc = "Move line up" },
+      { "<leader>th", "<C-w>t<C-w>K", desc = "Turn vertical splits to horizontal" },
+      { "<leader>tv", "<C-w>t<C-w>H", desc = "Turn horizontal splits to vertical" },
+   },
+   {
+      mode = "v",
+      { "<", "<gv", desc = "Indent inwards"},
+      { ">", ">gv", desc = "Indent outwards"},
+      { "J", ":m '>+1<CR>gv=gv", desc = "Move selected lines down"},
+      { "K", ":m '<-2<CR>gv=gv", desc = "Move selected lines up"},
+   }
+})
 
 -- luasnip mapping
 map("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
@@ -94,9 +84,6 @@ map("s", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
       -- vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
       -- vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
       -- }}}}
-
-
--- Keeping it centered
 
 -- Moving text
 map("i", "<A-S-j>", "<Esc>:m .+1<CR>==i", opts)
