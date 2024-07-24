@@ -5,7 +5,9 @@ local ok, wk = pcall(require, 'which-key')
 
 if ok then
    wk.add({
-      mode =  "n",
-      {"<leader>tc", "<cmd>Neorg toc right<cr>" , "Open Neorg TOC" }
+      {
+         mode =  "n",
+         {"<leader>tc", "<cmd>Neorg toc right<cr>" , desc = "Open Neorg TOC" }
+      }
    })
 end
