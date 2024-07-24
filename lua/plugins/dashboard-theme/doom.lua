@@ -64,7 +64,7 @@ return {
             icon_hl = 'Title',
             desc = 'Open journal               ',
             desc_hl = 'String',
-            key = 'j',
+            key = 'J',
             key_hl = 'Title',
             key_format = '[%s]', -- remove default surrounding `[]`
             action = 'Neorg journal toc open'
