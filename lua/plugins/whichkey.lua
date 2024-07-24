@@ -68,7 +68,7 @@ return {
             -- col = 0,
             -- row = math.huge,
             -- border = "none",
-            padding = { 1, 2 }, -- extra window padding [top/bottom, right/left]
+            padding = { 2, 3 }, -- extra window padding [top/bottom, right/left]
             title = true,
             title_pos = "center",
             zindex = 1000,
@@ -80,7 +80,7 @@ return {
          },
          layout = {
             width = { min = 20 }, -- min and max width of the columns
-            spacing = 3, -- spacing between columns
+            spacing = 5, -- spacing between columns
          },
          keys = {
             scroll_down = "<c-d>", -- binding to scroll down inside the popup
@@ -130,17 +130,16 @@ return {
                -- set to false to disable all mapping icons,
                -- both those explicitely added in a mapping
                -- and those from rules
-               mappings = true,
+               mappings = false,
                --- See `lua/which-key/icons.lua` for more details
                --- Set to `false` to disable keymap icons from rules
                ---@type wk.IconRule[]|false
-               rules = false,
-               -- rules = {
-               --    { pattern = "folder" , icon = " ", color = "blue" },
-               --    { pattern = "doc" , icon = " ", color = "blue" },
-               --    { pattern = "next" , icon = " ", color = "green" },
-               --    { pattern = "prev" , icon = " ", color = "green" },
-               -- },
+               rules = {
+                  { pattern = "folder" , icon = " ", color = "blue" },
+                  { pattern = "doc" , icon = " ", color = "blue" },
+                  { pattern = "next" , icon = " ", color = "green" },
+                  { pattern = "prev" , icon = " ", color = "green" },
+               },
                -- use the highlights from mini.icons
                -- When `false`, it will use `WhichKeyIcon` instead
                colors = true,

@@ -43,7 +43,7 @@ return {
                CursorLineNr = { link = "CursorLine" },
                -- CursorLineFold = { link = "CursorLine" },
                -- CursorLineSign = { link = "CursorLine" },
-               FloatBorder = { fg = colors.mantle },
+               FloatBorder = { fg = colors.mantle, bg = colors.mantle },
                BufferLineFill = { bg = colors.surface0 },
                LazyGitFloat = { link = "NormalFloat" },
                LazyGitBorder = { link = "FloatBorder" },
