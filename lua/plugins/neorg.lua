@@ -42,7 +42,7 @@ return {
                         work  = "/mnt/d/WORK/Neorg",
                         personal = "~/Neorg"
                      },
-                     default_workspace = "work",
+                     default_workspace = "personal",
                   },
                },
                ["core.keybinds"] = {
