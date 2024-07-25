@@ -9,24 +9,23 @@ local on_attach = function(client, bufnr)
    if ok then
       wk.add({
          mode = "n",
-         {"<leader>e",  vim.diagnostic.open_float, desc = "Open floating window"},
-         {"<leader>ca", vim.lsp.buf.code_action, desc = "Open code Actions" },
-         {"<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
-         {"<leader>D",  vim.lsp.buf.type_definition, desc = "Go to type definition"},
-         {"<leader>F", vim.lsp.buf.formatting, desc = "Format code"},
-         {"<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "Add folder to workspace"},
+         {"<leader>e",  vim.diagnostic.open_float,           desc = "Open floating window"},
+         {"<leader>ca", vim.lsp.buf.code_action,             desc = "Open code Actions" },
+         {"<leader>rn", vim.lsp.buf.rename,                  desc = "Rename" },
+         {"<leader>D",  vim.lsp.buf.type_definition,         desc = "Go to type definition"},
+         {"<leader>F",  vim.lsp.buf.formatting,              desc = "Format code"},
+         {"<leader>wa", vim.lsp.buf.add_workspace_folder,    desc = "Add folder to workspace"},
          {"<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove folder from workspace"},
          {"<leader>wl", function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
          end, desc = "List workspace folder"},
-         {"<leader>K", vim.lsp.buf.hover, desc = "Hover docs" },
-         {"<leader>gd", vim.lsp.buf.definition, desc = "Go to definition"},
-         {"<leader>gD", vim.lsp.buf.declaration, desc = "Go to declaration"},
+         {"<leader>K",  vim.lsp.buf.hover,          desc = "Hover docs" },
+         {"<leader>gd", vim.lsp.buf.definition,     desc = "Go to definition"},
+         {"<leader>gD", vim.lsp.buf.declaration,    desc = "Go to declaration"},
          {"<leader>gi", vim.lsp.buf.implementation, desc = "Go to implementation"},
-         {"<leader>gr", vim.lsp.buf.references, desc = "Go to references"},
-         {"[d", vim.diagnostic.goto_prev, desc = "Go to previous diagnostics" },
-         {"]d", vim.diagnostic.goto_next, desc = "Go to next diagnostics" },
-         {'<C-k>', vim.lsp.buf.signature_help, desc = "Signature help" },
+         {"<leader>gr", vim.lsp.buf.references,     desc = "Go to references"},
+         {"[d",         vim.diagnostic.goto_prev,   desc = "Go to previous diagnostics" },
+         {"]d",         vim.diagnostic.goto_next,   desc = "Go to next diagnostics" },
       })
    end
 end
@@ -44,8 +43,8 @@ end
 
 nvim_lsp.openedge_ls.setup {
    on_attach = on_attach,
-   oe_jar_path = oe_jar_path,
-   -- oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
+   -- oe_jar_path = oe_jar_path,
+   oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
    dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
    debug = true, -- Set to true for debug logging
    trace = false -- Set to true for trace logging (REALLY verbose)

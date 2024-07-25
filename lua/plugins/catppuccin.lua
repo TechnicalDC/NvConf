@@ -24,7 +24,7 @@ return {
             conditionals = { "italic" },
             loops = {},
             functions = {},
-            keywords = {},
+            keywords = { 'bold' },
             strings = {},
             variables = {},
             numbers = {},
@@ -90,7 +90,7 @@ return {
             },
             indent_blankline = {
                enabled = true,
-               scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+               scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
                colored_indent_levels = false,
             },
             telescope = {
@@ -100,14 +100,14 @@ return {
             native_lsp = {
                enabled = true,
                virtual_text = {
-                  errors = { "italic" },
+                  errors = { "italic","bold" },
                   hints = { "italic" },
                   warnings = { "italic" },
                   information = { "italic" },
                   ok = { "italic" },
                },
                underlines = {
-                  errors = { "underline" },
+                  errors = { "underline","bold" },
                   hints = { "underline" },
                   warnings = { "underline" },
                   information = { "underline" },
