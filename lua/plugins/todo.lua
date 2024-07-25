@@ -70,13 +70,14 @@ return {
          -- KEYBINDING
          local ok, wk = pcall(require, 'which-key')
          if ok then
-            wk.register({
-               ["]"] = { t = {function()
+            wk.add({
+               mode = "n",
+               {"]t", function()
                   require("todo-comments").jump_next()
-               end, "Next todo comment" },},
-               ["["] = { t = {function()
+               end, desc = "Next todo comment" },
+               {"[t", function()
                   require("todo-comments").jump_prev()
-               end, "Previous todo comment" },},
+               end, desc = "Previous todo comment" },
             })
          end
       end
