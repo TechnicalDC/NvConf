@@ -34,7 +34,6 @@ local servers = {
    'pyright',
    'jsonls',
 }
-local oe_jar_path = 'C:\\Users\\Dilip Chauhan\\AppData\\Local\\nvim-data\\mason\\packages\\openedge-language-server\\abl-lsp.jar'
 for _, lsp in ipairs(servers) do
    nvim_lsp[lsp].setup {
       on_attach = on_attach,
@@ -43,9 +42,8 @@ end
 
 nvim_lsp.openedge_ls.setup {
    on_attach = on_attach,
-   -- oe_jar_path = oe_jar_path,
    oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
-   dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
+   -- dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
    debug = true, -- Set to true for debug logging
    trace = false -- Set to true for trace logging (REALLY verbose)
 }

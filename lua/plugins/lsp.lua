@@ -9,15 +9,15 @@ return {
    },
    config = function ()
       -- MASON {{{
-         require("mason").setup()
-         require("mason-lspconfig").setup({
-            ensure_installed = {
-               "lua_ls",
-               "pyright",
-               "tsserver",
-               "jdtls",
-            }
-         })
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+         ensure_installed = {
+            "lua_ls",
+            "pyright",
+            "tsserver",
+            "jdtls",
+         }
+      })
       -- }}}
 
       -- require("plugins.lsp.none-ls")
