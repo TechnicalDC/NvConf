@@ -31,7 +31,6 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
-   'pyright',
    'jsonls',
 }
 for _, lsp in ipairs(servers) do
@@ -40,6 +39,18 @@ for _, lsp in ipairs(servers) do
    }
 end
 
+nvim_lsp.pyright.setup {
+   on_attach = on_attach,
+   settings = {
+      python = {
+         analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = "workspace",
+            useLibraryCodeForTypes = true
+         }
+      }
+   }
+}
 nvim_lsp.openedge_ls.setup {
    on_attach = on_attach,
    oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
@@ -169,10 +180,10 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
    }
 )
 
-local lspconfig = require 'lspconfig'
-lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, function(config)
-   if config.name == "openedge_ls" then
-      config.cmd = {"java","-jar", oe_jar_path}
-   end
-end)
+-- local lspconfig = require 'lspconfig'
+-- lspconfig.util.on_setup = lspconfig.util.add_hook_before(lspconfig.util.on_setup, function(config)
+--    if config.name == "openedge_ls" then
+--       config.cmd = {"java","-jar", oe_jar_path}
+--    end
+-- end)
 
