@@ -53,6 +53,7 @@ return {
                "TelescopeResults",
                "lazy",
                "alpha",
+               "undotree",
                "norg"
             }
          }

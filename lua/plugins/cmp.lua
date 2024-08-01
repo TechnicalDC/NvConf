@@ -4,6 +4,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-buffer',
+      'TechnicalDC/cmp-abl',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       'saadparwaiz1/cmp_luasnip',
@@ -116,15 +117,15 @@ return {
                   nvim_lua = "(nvim_lua)",
                   nvim_lsp = "(lsp)",
                   buffer	= "(buffer)",
-                  -- abl		= "(abl)",
+                  abl		= "(abl)",
                   path		= "(path)",
                })[source]
 
                -- Removing dublicates
                if source == "luasnip"
                   or source == "nvim_lsp"
-                  or source == "nvim_lua" then
-                  -- or source == "abl" then
+                  or source == "nvim_lua"
+                  or source == "abl" then
                   vim_item.dup = 0
                end
 
@@ -222,6 +223,17 @@ return {
                option = { max_item_count = max_count }
             },
             { name = 'buffer', },
+            { name = "path" },
+         })
+      })
+      cmp.setup.filetype("progress", {
+         sources = cmp.config.sources({
+            { name = 'luasnip' }, -- For luasnip users.
+            { name = 'buffer', },
+            {
+               name = 'abl',
+               option = { max_item_count = max_count }
+            },
             { name = "path" },
          })
       })
