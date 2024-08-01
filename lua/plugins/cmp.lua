@@ -229,11 +229,11 @@ return {
       cmp.setup.filetype("progress", {
          sources = cmp.config.sources({
             { name = 'luasnip' }, -- For luasnip users.
+            { name = 'buffer', },
             {
                name = 'abl',
                option = { max_item_count = max_count }
             },
-            { name = 'buffer', },
             { name = "path" },
          })
       })
