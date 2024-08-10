@@ -97,7 +97,7 @@ return {
             -- [focused and unfocused]. eg: { '|', '|' }
             separator_style = {"", ""}, --"slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
             enforce_regular_tabs = false, --false | true,
-            always_show_bufferline = true, --true | false,
+            always_show_bufferline = false, --true | false,
             hover = {
                enabled = true,
                delay = 200,
