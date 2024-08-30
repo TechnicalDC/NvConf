@@ -3,10 +3,10 @@ return {
    name = "catppuccin",
    config = function ()
       require("catppuccin").setup({
-         flavour = "macchiato", -- latte, frappe, macchiato, mocha
+         flavour = "mocha", -- latte, frappe, macchiato, mocha
          background = { -- :h background
             light = "latte",
-            dark = "macchiato",
+            dark = "mocha",
          },
          transparent_background = false, -- disables setting the background color.
          show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
