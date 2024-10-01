@@ -30,14 +30,12 @@ local on_attach = function(client, bufnr)
    end
 end
 
-local servers = {
-   'jsonls',
+nvim_lsp.jsonls.setup {
+   on_attach = on_attach,
 }
-for _, lsp in ipairs(servers) do
-   nvim_lsp[lsp].setup {
-      on_attach = on_attach,
-   }
-end
+nvim_lsp.gopls.setup {
+   on_attach = on_attach,
+}
 
 nvim_lsp.pyright.setup {
    on_attach = on_attach,
