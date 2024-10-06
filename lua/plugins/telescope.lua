@@ -18,6 +18,7 @@ return {
       local flex = require("plugins.telescope.layout.flex")
 
       local toggle_preview = require("telescope.actions.layout").toggle_preview
+      local actions = require("telescope.actions")
       local trouble = require("trouble.sources.telescope")
 
       require('telescope').setup{
@@ -70,12 +71,27 @@ return {
                end
             },
             mappings = {
+               n = {
+                  ["q"] = actions.close
+               },
                i = {
                   ["<C-/>"] = "which_key",
                   ["<C-p>"] = toggle_preview,
                   ["<c-b>"] = trouble.open_with_trouble
                }
             }
+         },
+         pickers = {
+            buffers = {
+               sort_mru = false,
+               sort_lastused = true,
+               initial_mode = "normal",
+               mappings = {
+                  n = {
+                     ["d"] = actions.delete_buffer
+                  },
+               }
+            },
          },
          extensions = {},
       }
