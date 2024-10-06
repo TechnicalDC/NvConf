@@ -20,6 +20,7 @@ return {
       local toggle_preview = require("telescope.actions.layout").toggle_preview
       local actions = require("telescope.actions")
       local trouble = require("trouble.sources.telescope")
+      local entry_maker = require("plugins.telescope.utils.buffer_entry_make")
 
       require('telescope').setup{
          defaults = {
@@ -86,8 +87,10 @@ return {
                sort_mru = false,
                sort_lastused = true,
                initial_mode = "normal",
+               entry_maker = entry_maker.gen_from_buffer_like_leaderf(),
                mappings = {
                   n = {
+                     ["p"] = toggle_preview,
                      ["d"] = actions.delete_buffer
                   },
                }
