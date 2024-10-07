@@ -40,6 +40,8 @@ return {
                "**\\*.jpg",
                "**\\*.jpeg",
                "**\\*.pdf",
+               "**\\*.zip",
+               "**\\*.docx",
             },
 
             -- Preview

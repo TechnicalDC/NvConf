@@ -39,18 +39,19 @@ for _, lsp in ipairs(servers) do
    }
 end
 
-nvim_lsp.pyright.setup {
-   on_attach = on_attach,
-   settings = {
-      python = {
-         analysis = {
-            autoSearchPaths = true,
-            diagnosticMode = "workspace",
-            useLibraryCodeForTypes = true
-         }
-      }
-   }
-}
+-- nvim_lsp.pyright.setup {
+--    on_attach = on_attach,
+--    settings = {
+--       python = {
+--          analysis = {
+--             autoSearchPaths = true,
+--             diagnosticMode = "workspace",
+--             useLibraryCodeForTypes = true
+--          }
+--       }
+--    }
+-- }
+
 nvim_lsp.openedge_ls.setup {
    on_attach = on_attach,
    oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
@@ -87,6 +88,7 @@ nvim_lsp.tsserver.setup({
       },
    },
 })
+
 nvim_lsp.texlab.setup({
    settings ={
       texlab = {
@@ -166,7 +168,7 @@ vim.diagnostic.config({
       max_width = 50,
       max_height = 10,
       wrap = true,
-      focusable = true,
+      focusable = false,
       focus = false
    }
 })
