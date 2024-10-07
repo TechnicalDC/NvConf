@@ -25,12 +25,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup("plugins", {
+   install = { colorscheme = { "catppuccin" } },
    ui = {
       -- a number <1 is a percentage., >1 is a fixed size
       size = { width = 0.8, height = 0.8 },
       wrap = true, -- wrap the lines in the ui
       -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-      border = "none",
+      border = "single",
       title = " Lazy ", ---@type string only works when border is not "none"
       title_pos = "center", ---@type "center" | "left" | "right"
       -- Show pills on top of the Lazy window

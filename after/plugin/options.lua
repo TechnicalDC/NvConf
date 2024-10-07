@@ -9,6 +9,7 @@ set.swapfile       = false
 set.splitbelow     = true
 set.splitright     = true
 set.showmode       = false
+set.showtabline    = 1
 set.laststatus 	 = 3
 set.number         = true
 set.relativenumber = true
