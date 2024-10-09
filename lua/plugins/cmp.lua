@@ -81,8 +81,8 @@ return {
          },
          window = {
             completion = {
-               -- winhighlight = "FloatBorder:None,CursorLine:PmenuSel,Normal:None,Search:None,ScrollbarHandle:None",
-               border = false, -- border(None),
+               winhighlight = "CursorLine:PmenuSel,Normal:NormalFloat,Search:None",
+               border = border("FloatBorder"),
                scrollbar = true,
             },
             documentation = {
