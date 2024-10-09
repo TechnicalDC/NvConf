@@ -51,7 +51,7 @@ function my_make_entry.gen_from_buffer_like_leaderf(opts)
       local icons = {
          hidden = " ",
          visible = " ",
-         readonly = " ",
+         readonly = " ",
          changed = " ",
          current = " ",
          alternate = " "
