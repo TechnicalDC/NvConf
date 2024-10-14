@@ -83,7 +83,7 @@ return {
             completion = {
                winhighlight = "CursorLine:PmenuSel,Normal:NormalFloat,Search:None",
                border = border("FloatBorder"),
-               scrollbar = true,
+               scrollbar = false,
             },
             documentation = {
                border = border("FloatBorder"),

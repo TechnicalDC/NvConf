@@ -35,7 +35,7 @@ return {
             borderchars = flex.border,
             -- borderchars = center.border,
             results_title = "",
-            prompt_title = " Prompt ",
+            prompt_title = " prompt ",
             file_ignore_patterns = {
                "**\\*.xlsx",
                "**\\*.png",
