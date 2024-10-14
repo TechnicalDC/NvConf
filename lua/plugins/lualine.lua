@@ -208,7 +208,7 @@ return {
             'nvim-tree',
             'quickfix',
             createExtention("help"),
-            createExtention("dashboard",{"branch"}),
+            createExtention("dashboard",{branch}),
             createExtention("yazi"),
             createExtention("lazygit"),
             createExtention("TelescopePrompt"),
