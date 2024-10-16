@@ -84,6 +84,7 @@ return {
                winhighlight = "CursorLine:PmenuSel,Normal:NormalFloat,Search:None",
                border = border("FloatBorder"),
                scrollbar = false,
+               col_offset = -1,
             },
             documentation = {
                border = border("FloatBorder"),
