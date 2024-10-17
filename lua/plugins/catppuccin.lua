@@ -45,6 +45,7 @@ return {
                -- CursorLineSign = { link = "CursorLine" },
                FloatBorder = { fg = colors.mantle, bg = colors.mantle },
                BufferLineFill = { bg = colors.surface0 },
+               PmenuSel = { fg = colors.base, bg = colors.green },
                LazyGitFloat = { link = "NormalFloat" },
                LazyGitBorder = { link = "FloatBorder" },
 
