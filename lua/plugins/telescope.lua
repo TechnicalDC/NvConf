@@ -75,6 +75,8 @@ return {
             },
             mappings = {
                n = {
+                  ["p"] = toggle_preview,
+                  ["d"] = actions.delete_buffer,
                   ["q"] = actions.close
                },
                i = {
@@ -90,12 +92,6 @@ return {
                sort_lastused = true,
                initial_mode = "normal",
                entry_maker = entry_maker.gen_from_buffer_like_leaderf(),
-               mappings = {
-                  n = {
-                     ["p"] = toggle_preview,
-                     ["d"] = actions.delete_buffer
-                  },
-               }
             },
          },
          extensions = {},

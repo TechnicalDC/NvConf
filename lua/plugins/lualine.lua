@@ -126,7 +126,7 @@ local buf_count = function ()
       end
    end
 
-   return " buffer: " .. tostring(current) .. "/" .. tostring(bufcnt)
+   return " " .. tostring(current) .. "/" .. tostring(bufcnt)
 end
 
 local createExtention = function (filetype_name,b,y)

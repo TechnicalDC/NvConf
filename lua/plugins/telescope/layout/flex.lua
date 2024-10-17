@@ -11,7 +11,7 @@ M.layout_config = {
    anchor_padding = 0,
    mirror = false,
    prompt_position = "top",
-   width = 0.999,    -- to make width 100%
+   width = { padding = 0 }, -- padding to 0 to cover full width
 }
 
 return M
