@@ -6,12 +6,12 @@ return {
       'nvim-lua/plenary.nvim',
    },
    keys = {
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-      { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find symbols" },
+      { "<leader>ff", "<cmd>Telescope find_files<cr>",            desc = "Find files"    },
+      { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>",  desc = "Find symbols"  },
       { "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Find workspace symbols" },
-      { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Find recent files" },
-      { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
-      { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find word" },
+      { "<leader>fo", "<cmd>Telescope oldfiles<cr>",              desc = "Find recent    files"   },
+      { "<leader>fb", "<cmd>Telescope buffers<cr>",               desc = "Find buffers"  },
+      { "<leader>fw", "<cmd>Telescope live_grep<cr>",             desc = "Find word"     },
    },
    config = function ()
       local center = require("plugins.telescope.layout.center")
