@@ -3,15 +3,16 @@ return {
    "folke/noice.nvim",
    dependencies = {
       'stevearc/dressing.nvim',
-      'fgheng/winbar.nvim',
       "MunifTanjim/nui.nvim",
-      'rcarriga/nvim-notify'
+      'rcarriga/nvim-notify',
+      "SmiteshP/nvim-navic",
+      "utilyre/barbecue.nvim",
    },
    enabled = true,
    config = function ()
       require("plugins.ui.dressing")
-      require("plugins.ui.winbar")
       require("plugins.ui.noice-ui")
       require("plugins.ui.notify")
+      require("plugins.ui.barbecue")
    end
 }

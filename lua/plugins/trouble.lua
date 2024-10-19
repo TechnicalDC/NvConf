@@ -45,17 +45,36 @@ return {
          folder_closed   = " ",
          folder_open     = " ",
          kinds = kind_icons,
+         indent = {
+            top           = "│ ",
+            middle        = "├╴",
+            last          = "└╴",
+            fold_open     = " ",
+            fold_closed   = " ",
+            ws            = "  ",
+         },
+      },
+      win = {},
+      preview = {
+         type = "float",
+         relative = "editor",
+         border = "rounded",
+         title = " Preview ",
+         title_pos = "center",
+         position = { 0, -2 },
+         size = { width = 0.4, height = 0.5 },
+         zindex = 200,
+         -- when a buffer is not yet loaded, the preview window will be created
+         -- in a scratch buffer with only syntax highlighting enabled.
+         -- Set to false, if you want the preview to always be a real loaded buffer.
+         scratch = true,
       },
       mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
       severity = nil, -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
-      fold_open = "", -- icon used for open folds
-      fold_closed = "", -- icon used for closed folds
       group = true, -- group results by file
       padding = true, -- add an extra new line on top of the list
       cycle_results = true, -- cycle item list when reaching beginning or end of list
       action_keys = { -- key mappings for actions in the trouble list
-         -- map to {} to remove a mapping, for example:
-         -- close = {},
          close = "q", -- close the list
          cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
          refresh = "r", -- manually refresh
