@@ -57,21 +57,14 @@ require("barbecue").setup({
    context_follow_icon_color = false,
 
    symbols = {
-      modified = "●",
+      modified = " ",
       ellipsis = "…",
-      separator = "",
+      separator = "",
    },
 
-   ---@alias barbecue.Config.kinds
-   ---|false # Disable kind icons.
-   ---|table<string, string> # Type to icon mapping.
-   ---
-   ---Icons for different context entry kinds.
-   ---
-   ---@type barbecue.Config.kinds
    kinds = {
       File = "",
-      Module = "",
+      Module = "",
       Namespace = "",
       Package = "",
       Class = "",
