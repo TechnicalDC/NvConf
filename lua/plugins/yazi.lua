@@ -28,6 +28,6 @@ return {
       open_for_directories = true,
       floating_window_scaling_factor = 0.7,
       -- the transparency of the yazi floating window (0-100). See :h winblend
-      yazi_floating_window_winblend = 1,
+      yazi_floating_window_winblend = 0,
    },
 }

@@ -1,3 +1,4 @@
+local transparent_background = true
 return {
    "catppuccin/nvim",
    name = "catppuccin",
@@ -8,7 +9,7 @@ return {
             light = "latte",
             dark = "mocha",
          },
-         transparent_background = false, -- disables setting the background color.
+         transparent_background = transparent_background, -- disables setting the background color.
          show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
          term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
          dim_inactive = {
@@ -36,43 +37,67 @@ return {
          },
          color_overrides = {},
          custom_highlights = function(colors)
-            return{
-               YaziFloat = { link = "NormalFloat" },
-               TroubleNormal = { link = "NormalFloat" },
-               TroubleNormalNC = { link = "NormalFloat" },
-               CursorLineNr = { link = "CursorLine" },
-               -- CursorLineFold = { link = "CursorLine" },
-               -- CursorLineSign = { link = "CursorLine" },
-               FloatBorder = { fg = colors.mantle, bg = colors.mantle },
-               BufferLineFill = { bg = colors.surface0 },
-               PmenuSel = { fg = colors.base, bg = colors.green },
-               LazyGitFloat = { link = "NormalFloat" },
-               LazyGitBorder = { link = "FloatBorder" },
+            if transparent_background then
+               return {
+                  PmenuSel = { fg = colors.base, bg = colors.green },
+                  CursorLineNr = { link = "CursorLine" },
+                  YaziFloat = { link = "NormalFloat" },
+                  TroubleNormal = { link = "NormalFloat" },
+                  TroubleNormalNC = { link = "NormalFloat" },
+                  LazyGitFloat = { link = "NormalFloat" },
+                  LazyGitBorder = { link = "FloatBorder" },
 
-               -- TELESCOPE
-               TelescopeSelectionCaret = { bg = colors.surface0 },
+                  -- TELESCOPE
+                  TelescopeSelectionCaret = { fg = colors.base, bg = colors.green },
+                  TelescopeSelection      = { fg = colors.base, bg = colors.green },
 
-               -- NOICE
-               NoiceCmdlinePopupBorder = { fg = colors.surface0, bg = colors.surface0 },
-               NoiceCmdlinePopupBorderSearch     = { link = "NoiceCmdlinePopupBorder" },
-               NoiceCmdlinePopupBorderLua        = { link = "NoiceCmdlinePopupBorder" },
-               NoiceCmdlinePopupBorderHelp       = { link = "NoiceCmdlinePopupBorder" },
-               NoiceCmdlinePopupBorderInput      = { link = "NoiceCmdlinePopupBorder" },
-               NoiceCmdlinePopupBorderFilter     = { link = "NoiceCmdlinePopupBorder" },
-               NoiceCmdlinePopupBorderCmdline    = { link = "NoiceCmdlinePopupBorder" },
-               NoiceCmdlinePopupBorderIncRename  = { link = "NoiceCmdlinePopupBorder" },
-               NoiceCmdlinePopupBorderCalculator = { link = "NoiceCmdlinePopupBorder" },
+                  NoiceCmdlinePopupTitle           = { fg = colors.red },
+                  NoiceCmdlinePopupTitleSearch     = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleLua        = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleHelp       = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleInput      = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleFilter     = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleCmdline    = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleIncRename  = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleCalculator = { link = "NoiceCmdlinePopupTitle" },
+               }
+            else
+               return{
+                  YaziFloat = { link = "NormalFloat" },
+                  TroubleNormal = { link = "NormalFloat" },
+                  TroubleNormalNC = { link = "NormalFloat" },
+                  CursorLineNr = { link = "CursorLine" },
+                  FloatBorder = { fg = colors.mantle, bg = colors.mantle },
+                  BufferLineFill = { bg = colors.surface0 },
+                  PmenuSel = { fg = colors.base, bg = colors.green },
+                  LazyGitFloat = { link = "NormalFloat" },
+                  LazyGitBorder = { link = "FloatBorder" },
 
-               NoiceCmdlinePopupTitle  = { fg = colors.base, bg     = colors.red },
-               NoiceCmdlinePopupTitleSearch     = { link = "NoiceCmdlinePopupTitle" },
-               NoiceCmdlinePopupTitleLua        = { link = "NoiceCmdlinePopupTitle" },
-               NoiceCmdlinePopupTitleHelp       = { link = "NoiceCmdlinePopupTitle" },
-               NoiceCmdlinePopupTitleInput      = { link = "NoiceCmdlinePopupTitle" },
-               NoiceCmdlinePopupTitleFilter     = { link = "NoiceCmdlinePopupTitle" },
-               NoiceCmdlinePopupTitleCmdline    = { link = "NoiceCmdlinePopupTitle" },
-               NoiceCmdlinePopupTitleIncRename  = { link = "NoiceCmdlinePopupTitle" },
-               NoiceCmdlinePopupTitleCalculator = { link = "NoiceCmdlinePopupTitle" },
-            }
+                  -- TELESCOPE
+                  TelescopeSelectionCaret = { bg = colors.surface0 },
+
+                  -- NOICE
+                  NoiceCmdlinePopupBorder = { fg = colors.surface0, bg = colors.surface0 },
+                  NoiceCmdlinePopupBorderSearch     = { link = "NoiceCmdlinePopupBorder" },
+                  NoiceCmdlinePopupBorderLua        = { link = "NoiceCmdlinePopupBorder" },
+                  NoiceCmdlinePopupBorderHelp       = { link = "NoiceCmdlinePopupBorder" },
+                  NoiceCmdlinePopupBorderInput      = { link = "NoiceCmdlinePopupBorder" },
+                  NoiceCmdlinePopupBorderFilter     = { link = "NoiceCmdlinePopupBorder" },
+                  NoiceCmdlinePopupBorderCmdline    = { link = "NoiceCmdlinePopupBorder" },
+                  NoiceCmdlinePopupBorderIncRename  = { link = "NoiceCmdlinePopupBorder" },
+                  NoiceCmdlinePopupBorderCalculator = { link = "NoiceCmdlinePopupBorder" },
+
+                  NoiceCmdlinePopupTitle  = { fg = colors.base, bg     = colors.red },
+                  NoiceCmdlinePopupTitleSearch     = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleLua        = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleHelp       = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleInput      = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleFilter     = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleCmdline    = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleIncRename  = { link = "NoiceCmdlinePopupTitle" },
+                  NoiceCmdlinePopupTitleCalculator = { link = "NoiceCmdlinePopupTitle" },
+               }
+            end
          end,
          default_integrations = true,
          integrations = {

@@ -13,7 +13,6 @@ require("notify").setup({
 	level = 2,
 	minimum_width = 30,
 	maximum_width = 30,
-	render = "wrapped-compact",
 	stages = "slide",
 	timeout = 2000
 })

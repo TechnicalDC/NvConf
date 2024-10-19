@@ -24,7 +24,7 @@ return {
 
       require('telescope').setup{
          defaults = {
-            layout_strategy = "flex",  -- Other layouts: vertical, horizontal, center
+            layout_strategy = "center",  -- Other layouts: vertical, horizontal, center
             layout_config = flex.layout_config,
             sorting_strategy = "ascending",
             prompt_prefix = "   ",
@@ -32,8 +32,8 @@ return {
             multi_icon = "  ",
             selection_caret = "  ",
             border = true,
-            borderchars = flex.border,
-            -- borderchars = center.border,
+            -- borderchars = flex.border,
+            borderchars = center.border,
             results_title = "",
             prompt_title = " prompt ",
             file_ignore_patterns = {
@@ -45,34 +45,8 @@ return {
                "**\\*.zip",
                "**\\*.docx",
             },
+            preview = false,
 
-            -- Preview
-            preview = {
-               color_devicons = true,
-               mime_hook = function(filepath, bufnr, opts)
-                  local is_image = function(lFilepath)
-                     local image_extensions = {'png','jpg'}   -- Supported image formats
-                     local split_path = vim.split(lFilepath:lower(), '.', {plain=true})
-                     local extension = split_path[#split_path]
-                     return vim.tbl_contains(image_extensions, extension)
-                  end
-                  if is_image(filepath) then
-                     local term = vim.api.nvim_open_term(bufnr, {})
-                     local function send_output(_, data, _ )
-                        for _, d in ipairs(data) do
-                           vim.api.nvim_chan_send(term, d..'\r\n')
-                        end
-                     end
-                     vim.fn.jobstart(
-                     {
-                        'wezterm','imgcat', filepath  -- Terminal image viewer command
-                     },
-                     {on_stdout=send_output, stdout_buffered=true, pty=true})
-                  else
-                     require("telescope.previewers.utils").set_preview_message(bufnr, opts.winid, "Binary cannot be previewed")
-                  end
-               end
-            },
             mappings = {
                n = {
                   ["p"] = toggle_preview,
