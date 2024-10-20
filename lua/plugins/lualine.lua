@@ -172,11 +172,9 @@ return {
             lualine_b = {
                branch,
                diff,
-            },
-            lualine_c = {
-               filename,
                diagnostics
             },
+            lualine_c = { },
             lualine_x = {
                {
                   require("noice").api.status.mode.get,

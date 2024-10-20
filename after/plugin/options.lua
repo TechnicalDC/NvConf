@@ -31,7 +31,7 @@ set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
 set.fillchars:append({
-   fold = " ",
+   fold = "─",
    foldopen = "",
    foldclose = "",
    diff = "-",
@@ -46,6 +46,7 @@ set.fillchars:append({
 })
 set.listchars	   = "tab:  "
 set.list          = true
+set.diffopt       = "filler,vertical,iwhiteall,iblank"
 set.mouse         = "a"
 set.expandtab     = true
 set.tabstop       = 3
@@ -84,7 +85,7 @@ function _G.custom_fold_text()
    local line_count = vim.v.foldend - vim.v.foldstart + 1
    -- local fill_char = vim.o.columns - string.len(line) - string.len(line_count)
    -- return line .. ": " .. line_count .. " lines"
-   return " " .. line .. ": " .. line_count .. " lines"
+   return "────┤ " .. line .. ": " .. line_count .. " lines ├─"
 end
 
 function _G.qftf(info)
@@ -135,12 +136,4 @@ function _G.qftf(info)
       table.insert(ret, str)
    end
    return ret
-end
-
-function SetIndent ()
-   vim.ui.input({ prompt = 'New Indent', default = tostring(vim.opt.tabstop._value)}, function(input)
-      set.tabstop       = tonumber(input)
-      set.shiftwidth    = tonumber(input)
-      set.softtabstop   = tonumber(input)
-   end)
 end

@@ -18,12 +18,12 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-* Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [fugitive](https://github.com/tpope/vim-fugitive)
+* Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [lazygit](https://github.com/kdheepak/lazygit.nvim)
 * Notetaking with [neorg](https://github.com/nvim-neorg/neorg)
 
 ## Colorschemes
 
-* base16
+* onedark
 
 ## Installation
 ```bash
@@ -42,8 +42,8 @@ whichkey
 Trouble
 ![trouble](https://github.com/TechnicalDC/NvConf/blob/main/images/trouble.png)
 
-Quickfix
-![quickfix](https://github.com/TechnicalDC/NvConf/blob/main/images/quickfix.png)
+Yazi
+![yazi](https://github.com/TechnicalDC/NvConf/blob/main/images/yazi.png)
 
 Splits
 ![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)
@@ -51,6 +51,6 @@ Splits
 Telescope
 ![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
 
-Neogit
-![neogit](https://github.com/TechnicalDC/NvConf/blob/main/images/neogit.png)
+LazyGit
+![lazygit](https://github.com/TechnicalDC/NvConf/blob/main/images/lazygit.png)
 
