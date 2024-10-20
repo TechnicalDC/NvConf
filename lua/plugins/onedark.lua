@@ -1,6 +1,6 @@
 return {
-   -- 'TechnicalDC/onedark.nvim',
-   dir = "~/Gits/onedark.nvim",
+   'TechnicalDC/onedark.nvim',
+   -- dir = "~/Gits/onedark.nvim",
    config = function ()
       -- Lua
       require('onedark').setup  {
