@@ -6,6 +6,7 @@ require("barbecue").setup({
    show_dirname = true,
    show_basename = true,
    show_modified = true,
+   context_follow_icon_color = true,
    include_buftypes = { "" },
    exclude_filetypes = { "netrw", "toggleterm" },
    modifiers = {
@@ -49,12 +50,6 @@ require("barbecue").setup({
    ---
    ---@type fun(bufnr: number, winnr: number): barbecue.Config.custom_section
    custom_section = function() return " " end,
-
-
-   ---Whether context text should follow its icon's color.
-   ---
-   ---@type boolean
-   context_follow_icon_color = false,
 
    symbols = {
       modified = " ",
