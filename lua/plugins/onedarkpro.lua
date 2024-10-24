@@ -4,17 +4,23 @@ return {
    config = function ()
       local colors = require("onedarkpro.helpers").get_colors()
       require("onedarkpro").setup({
-         colors = {},
+         colors = {
+            grey =  "require('onedarkpro.helpers').lighten('black', 10)",
+         },
          highlights = {
-            PmenuSel             = { bg = colors.blue },
-            CursorLine           = { bg = colors.none },
-            CursorLineNr         = { bg = colors.none },
-            CursorLineFold       = { bg = colors.none },
-            CursorLineSign       = { bg = colors.none },
-            FloatBorder          = { fg = colors.cyan },
-            LazyGitBorder        = { fg = colors.cyan },
-            TelescopeBorder      = { fg = colors.cyan },
-            TelescopePromptTitle = { fg = colors.red },
+            PmenuSel                = { fg   = "${grey}", bg = colors.blue },
+            CursorLine              = { bg   = colors.none },
+            CursorLineNr            = { bg   = colors.none },
+            CursorLineFold          = { bg   = colors.none },
+            CursorLineSign          = { bg   = colors.none },
+            FloatBorder             = { fg   = colors.cyan },
+
+            LazyGitBorder           = { fg   = colors.cyan },
+
+            TelescopeBorder         = { fg   = colors.cyan },
+            TelescopePromptTitle    = { fg   = colors.red },
+            TelescopeSelection      = { link = "PmenuSel" },
+            TelescopeSelectionCaret = { link = "PmenuSel" },
 
             NoiceCmdlinePopupBorder           = { link = "FloatBorder" },
             NoiceCmdlinePopupBorderLua        = { link = "FloatBorder" },
