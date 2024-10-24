@@ -2,6 +2,7 @@
 local set = vim.opt
 local fn = vim.fn
 
+-- CONFIGURATION {{{
 set.guicursor		 = ""
 set.title			 = false
 set.titlestring    = "nvim - %F"
@@ -66,7 +67,9 @@ set.shada			= "!,'300,<50,s10,h"
 -- GUI Configuration
 -- set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
 set.guifont			= "Iosevka NF:h12"
+-- }}}
 
+-- SHELL {{{
 if vim.fn.has("win32") == 1 then
    set.shell = vim.fn.executable "powershell" == 1 and "powershell" or "pwsh"
    set.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
@@ -77,17 +80,22 @@ if vim.fn.has("win32") == 1 then
 else
    set.shell = "fish"
 end
+-- }}}
 
-
+-- CUSTOM FOLD TEXT {{{
 function _G.custom_fold_text()
    local line = vim.fn.getline(vim.v.foldstart)
    line = string.gsub(line, "{+", "")
    local line_count = vim.v.foldend - vim.v.foldstart + 1
-   -- local fill_char = vim.o.columns - string.len(line) - string.len(line_count)
-   -- return line .. ": " .. line_count .. " lines"
-   return "────┤ " .. line .. ": " .. line_count .. " lines ├─"
+   local fill_char = "─"
+   local start_char = "────┤ "
+   local end_char = " lines ├─────"
+   local fill_count = vim.o.columns - string.len(start_char) - string.len(line) - string.len(line_count) - string.len(end_char) - 5
+   return start_char .. line .. "├─" .. string.rep(fill_char,fill_count) .. "─┤ " .. line_count .. end_char
 end
+-- }}}
 
+-- QUICKFIX FORMAT {{{
 function _G.qftf(info)
    local items
    local ret = {}
@@ -137,3 +145,4 @@ function _G.qftf(info)
    end
    return ret
 end
+-- }}}
