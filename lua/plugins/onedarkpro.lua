@@ -21,6 +21,7 @@ return {
             TelescopePromptTitle    = { fg   = colors.red },
             TelescopeSelection      = { link = "PmenuSel" },
             TelescopeSelectionCaret = { link = "PmenuSel" },
+            TelescopeMultiSelection = { bg = colors.none },
 
             NoiceCmdlinePopupBorder           = { link = "FloatBorder" },
             NoiceCmdlinePopupBorderLua        = { link = "FloatBorder" },
