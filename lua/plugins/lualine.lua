@@ -151,7 +151,8 @@ return {
       require('lualine').setup {
          options = {
             icons_enabled = true,
-            theme = "onedark",
+            theme = "my-onedark-pro",
+            -- theme = "onedark",
             -- theme = "catppuccin",
             -- theme = "base16",
             -- theme = 'tokyonight',
