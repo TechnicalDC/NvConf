@@ -19,6 +19,7 @@ return {
 
             TelescopeBorder         = { fg   = colors.cyan },
             TelescopePromptTitle    = { fg   = colors.red },
+            TelescopePreviewTitle   = { fg   = colors.red },
             TelescopeSelection      = { link = "PmenuSel" },
             TelescopeSelectionCaret = { link = "PmenuSel" },
             TelescopeMultiSelection = { bg = colors.none },

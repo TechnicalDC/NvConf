@@ -45,7 +45,7 @@ return {
                "**\\*.zip",
                "**\\*.docx",
             },
-            preview = false,
+            preview = true,
 
             mappings = {
                n = {
