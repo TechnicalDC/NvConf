@@ -14,7 +14,7 @@ myOnedarkPro.normal = {
     },
     c = {
        bg = config.options.lualine_transparency and colors.none or colors.bg_statusline,
-       fg = colors.fg
+       fg = colors.cyan
     },
 }
 

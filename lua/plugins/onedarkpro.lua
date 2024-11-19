@@ -2,7 +2,8 @@ return {
    "olimorris/onedarkpro.nvim",
    priority = 1000, -- Ensure it loads first
    config = function ()
-      local colors = require("onedarkpro.helpers").get_colors()
+      local helpers = require("onedarkpro.helpers")
+      local colors = helpers.get_colors()
       require("onedarkpro").setup({
          colors = {
             grey =  "require('onedarkpro.helpers').lighten('black', 10)",
@@ -14,6 +15,10 @@ return {
             CursorLineFold          = { bg   = colors.none },
             CursorLineSign          = { bg   = colors.none },
             FloatBorder             = { fg   = colors.cyan },
+            Visual                  = { fg   = "${grey}",  bg   = colors.cyan },
+            VisualNOS               = { fg   = "${grey}",  bg   = colors.cyan },
+            Search                  = { fg   = "${grey}",  bg   = colors.green },
+            IncSearch               = { fg   = "${grey}",  bg   = colors.green },
 
             LazyGitBorder           = { fg   = colors.cyan },
 
