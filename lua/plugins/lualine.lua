@@ -72,7 +72,7 @@ local filename = {
 
 local colored_filetype = {
    'filetype',
-   colored = true,
+   colored = false,
    icon_only = false,
    icon = { align = 'left' }, -- Display filetype icon on the right hand side
 }
