@@ -21,6 +21,7 @@ return {
             IncSearch               = { fg   = "${grey}",  bg   = colors.green },
 
             LazyGitBorder           = { fg   = colors.cyan },
+            DashboardHeader         = { fg   = colors.red  },
 
             TelescopeBorder         = { fg   = colors.cyan },
             TelescopePromptTitle    = { fg   = colors.red },
