@@ -1,6 +1,14 @@
 return {
    'stevearc/oil.nvim',
    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+   keys = {
+      -- 👇 in this section, choose your own keymappings!
+      {
+         "-",
+         "<CMD>Oil<CR>",
+         desc = "Open the file manager",
+      },
+   },
    config = function ()
       require("oil").setup({
          -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
