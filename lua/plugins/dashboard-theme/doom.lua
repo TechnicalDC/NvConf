@@ -47,7 +47,7 @@ return {
             key = 'b',
             key_hl = 'Title',
             key_format = '[%s]', -- remove default surrounding `[]`
-            action = 'lua require("yazi").yazi()'
+            action = 'Oil'
          },
          {
             icon = '  ',

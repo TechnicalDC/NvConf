@@ -129,6 +129,10 @@ local buf_count = function ()
    return " " .. tostring(current) .. "/" .. tostring(bufcnt)
 end
 
+local oilCurrentDir = function ()
+   return " " .. require("oil").get_current_dir()
+end
+
 local createExtention = function (filetype_name,b,y)
    local b_section = b or {}
    local y_section = y or {}
@@ -208,6 +212,7 @@ return {
             'nvim-tree',
             'quickfix',
             createExtention("help"),
+            createExtention("oil",{ oilCurrentDir }),
             createExtention("dashboard",{branch}),
             createExtention("yazi"),
             createExtention("lazygit"),
