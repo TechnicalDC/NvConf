@@ -14,6 +14,7 @@ return {
             CursorLineNr            = { bg   = colors.none },
             CursorLineFold          = { bg   = colors.none },
             CursorLineSign          = { bg   = colors.none },
+            FloatTitle              = { fg   = colors.red },
             FloatBorder             = { fg   = colors.cyan },
             Visual                  = { fg   = "${grey}",  bg   = colors.cyan },
             VisualNOS               = { fg   = "${grey}",  bg   = colors.cyan },
@@ -22,6 +23,9 @@ return {
 
             LazyGitBorder           = { fg   = colors.cyan },
             DashboardHeader         = { fg   = colors.red  },
+            MiniFilesBorder         = { fg   = colors.cyan },
+            MiniFilesTitle          = { fg   = colors.red },
+            MiniFilesTitleFocused   = { fg   = colors.red },
 
             TelescopeBorder         = { fg   = colors.cyan },
             TelescopePromptTitle    = { fg   = colors.red },

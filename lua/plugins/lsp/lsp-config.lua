@@ -9,7 +9,7 @@ local on_attach = function(client, bufnr)
    if ok then
       wk.add({
          mode = "n",
-         {"<leader>e",  vim.diagnostic.open_float,           desc = "Open floating window"},
+         -- {"<leader>e",  vim.diagnostic.open_float,           desc = "Open floating window"},
          {"<leader>ca", vim.lsp.buf.code_action,             desc = "Open code Actions" },
          {"<leader>rn", vim.lsp.buf.rename,                  desc = "Rename" },
          {"<leader>D",  vim.lsp.buf.type_definition,         desc = "Go to type definition"},

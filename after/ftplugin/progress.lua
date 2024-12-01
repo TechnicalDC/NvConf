@@ -2,5 +2,7 @@
 local set = vim.opt_local
 
 set.colorcolumn = "0"
-set.listchars	 = "eol: ,tab:  "
 set.conceallevel  = 1
+set.tabstop       = 3
+set.shiftwidth    = 3
+set.softtabstop   = 3
