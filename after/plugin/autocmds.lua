@@ -70,3 +70,11 @@ autocmd('User', {
    end,
 })
 -- }}}
+-- MINI INDENT {{{
+autocmd({"Filetype"}, {
+   pattern = {"dashboard"},
+   callback = function (args)
+      vim.b.miniindentscope_disable = true
+   end
+})
+-- }}}

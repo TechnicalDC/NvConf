@@ -23,6 +23,7 @@ return {
 
             LazyGitBorder           = { fg   = colors.cyan },
             DashboardHeader         = { fg   = colors.red  },
+
             MiniFilesBorder         = { fg   = colors.cyan },
             MiniFilesBorderModified = { fg   = colors.yellow },
             MiniFilesTitle          = { fg   = colors.red },
