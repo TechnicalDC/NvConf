@@ -19,9 +19,26 @@ return {
    },
    config = function ()
       require('mini.files').setup({
+         -- Module mappings created only inside explorer.
+         -- Use `''` (empty string) to not create one.
+         mappings = {
+            close       = 'q',
+            go_in       = 'l',
+            go_in_plus  = '<CR>',
+            go_out      = 'h',
+            go_out_plus = 'H',
+            mark_goto   = "'",
+            mark_set    = 'm',
+            reset       = '<BS>',
+            reveal_cwd  = '@',
+            show_help   = 'g?',
+            synchronize = 's',
+            trim_left   = '<',
+            trim_right  = '>',
+         },
          windows = {
             -- Maximum number of windows to show side by side
-            max_number = math.huge,
+            max_number = 3,
             -- Whether to show preview of file/directory under cursor
             preview = true,
             -- Width of focused window

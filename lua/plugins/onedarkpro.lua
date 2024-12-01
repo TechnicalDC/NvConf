@@ -24,8 +24,10 @@ return {
             LazyGitBorder           = { fg   = colors.cyan },
             DashboardHeader         = { fg   = colors.red  },
             MiniFilesBorder         = { fg   = colors.cyan },
+            MiniFilesBorderModified = { fg   = colors.yellow },
             MiniFilesTitle          = { fg   = colors.red },
             MiniFilesTitleFocused   = { fg   = colors.red },
+            MiniFilesDirectory      = { fg   = colors.blue },
 
             TelescopeBorder         = { fg   = colors.cyan },
             TelescopePromptTitle    = { fg   = colors.red },
