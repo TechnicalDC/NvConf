@@ -47,7 +47,7 @@ return {
             key = 'b',
             key_hl = 'Title',
             key_format = '[%s]', -- remove default surrounding `[]`
-            action = 'Oil'
+            action = 'lua require("mini.files").open(vim.uv.cwd(), true)'
          },
          {
             icon = '  ',
