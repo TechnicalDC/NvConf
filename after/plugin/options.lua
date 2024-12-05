@@ -63,7 +63,7 @@ set.quickfixtextfunc = "v:lua.qftf"
 set.scrolloff	   = 10
 set.undofile		= true
 set.shada			= "!,'300,<50,s10,h"
--- set.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum : v:lnum) : ''}%=%s"
+set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
 -- GUI Configuration
 -- set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
 set.guifont			= "Iosevka NF:h12"
