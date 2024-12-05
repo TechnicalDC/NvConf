@@ -55,7 +55,7 @@ set.shiftwidth    = 3
 set.softtabstop   = 3
 set.breakindent   = true
 set.spelllang     = "en_us"
-set.signcolumn    = "yes:1"
+set.signcolumn    = "auto:1"
 set.conceallevel  = 2
 set.concealcursor = 'nc'
 set.termguicolors = true
@@ -63,7 +63,7 @@ set.quickfixtextfunc = "v:lua.qftf"
 set.scrolloff	   = 10
 set.undofile		= true
 set.shada			= "!,'300,<50,s10,h"
-set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
+set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s "
 -- GUI Configuration
 -- set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
 set.guifont			= "Iosevka NF:h12"
