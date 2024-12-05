@@ -1,2 +1,2 @@
-local set = vim.opt
+local set = vim.opt_local
 set.foldmarker     = "{,}"
