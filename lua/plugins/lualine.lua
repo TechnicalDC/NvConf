@@ -1,19 +1,19 @@
-local default_icon = '󰘳 '
+local default_icon = '█ '
 local mode_map = {
-   ['NORMAL']     = '󰘳 ',
-   ['O-PENDING']  = ' ',
-   ['INSERT']     = ' ',
-   ['VISUAL']     = '󰒉 ',
-   ['V-BLOCK']    = '󰒉 ',
-   ['V-LINE']     = '󰒉 ',
-   ['V-REPLACE']  = ' ',
-   ['REPLACE']    = '󰬳 ',
-   ['COMMAND']    = '󰘳 ',
-   ['SHELL']      = ' ',
-   ['TERMINAL']   = ' ',
-   ['SELECT']     = ' ',
-   ['CONFIRM']    = ' ',
-   ['MORE']       = '󰍻 ',
+   -- ['NORMAL']     = '󰘳 ',
+   -- ['O-PENDING']  = ' ',
+   -- ['INSERT']     = ' ',
+   -- ['VISUAL']     = '󰒉 ',
+   -- ['V-BLOCK']    = '󰒉 ',
+   -- ['V-LINE']     = '󰒉 ',
+   -- ['V-REPLACE']  = ' ',
+   -- ['REPLACE']    = '󰬳 ',
+   -- ['COMMAND']    = '󰘳 ',
+   -- ['SHELL']      = ' ',
+   -- ['TERMINAL']   = ' ',
+   -- ['SELECT']     = ' ',
+   -- ['CONFIRM']    = ' ',
+   -- ['MORE']       = '󰍻 ',
 }
 
 local branch = {
@@ -214,6 +214,7 @@ return {
             createExtention("help"),
             createExtention("oil",{ oilCurrentDir }),
             createExtention("dashboard",{branch}),
+            createExtention("ministarter",{branch}),
             createExtention("yazi"),
             createExtention("lazygit"),
             createExtention("TelescopePrompt"),
