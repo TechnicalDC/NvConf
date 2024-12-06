@@ -6,11 +6,11 @@ local myOnedarkPro = {}
 myOnedarkPro.normal = {
     a = {
        bg = config.options.lualine_transparency and colors.none or colors.green,
-       fg = config.options.lualine_transparency and colors.green or colors.bg
+       fg = colors.blue
     },
     b = {
        bg = config.options.lualine_transparency and colors.none or colors.fg_gutter,
-       fg = colors.blue
+       fg = config.options.lualine_transparency and colors.green or colors.bg
     },
     c = {
        bg = config.options.lualine_transparency and colors.none or colors.bg_statusline,
@@ -21,44 +21,44 @@ myOnedarkPro.normal = {
 myOnedarkPro.insert = {
     a = {
        bg = config.options.lualine_transparency and colors.none or colors.blue,
-       fg = config.options.lualine_transparency and colors.blue or colors.bg
+       fg = colors.blue
     },
     b = {
        bg = config.options.lualine_transparency and colors.none or colors.fg_gutter,
-       fg = colors.blue
+       fg = config.options.lualine_transparency and colors.blue or colors.bg
     },
 }
 
 myOnedarkPro.command = {
     a = {
        bg = config.options.lualine_transparency and colors.none or colors.purple,
-       fg = config.options.lualine_transparency and colors.purple or colors.bg
+       fg = colors.blue
     },
     b = {
        bg = config.options.lualine_transparency and colors.none or colors.fg_gutter,
-       fg = colors.blue
+       fg = config.options.lualine_transparency and colors.purple or colors.bg
     },
 }
 
 myOnedarkPro.visual = {
     a = {
        bg = config.options.lualine_transparency and colors.none or colors.yellow,
-       fg = config.options.lualine_transparency and colors.yellow or colors.bg
+       fg = colors.blue
     },
     b = {
        bg = config.options.lualine_transparency and colors.none or colors.fg_gutter,
-       fg = colors.blue
+       fg = config.options.lualine_transparency and colors.yellow or colors.bg
     },
 }
 
 myOnedarkPro.replace = {
     a = {
        bg = config.options.lualine_transparency and colors.none or colors.red,
-       fg = config.options.lualine_transparency and colors.red or colors.bg
+       fg = colors.blue
     },
     b = {
        bg = config.options.lualine_transparency and colors.none or colors.fg_gutter,
-       fg = colors.blue
+       fg = config.options.lualine_transparency and colors.red or colors.bg
     },
 }
 
@@ -66,7 +66,7 @@ local inactive_bg = config.options.highlight_inactive_windows and colors.color_c
 myOnedarkPro.inactive = {
     a = {
        bg = inactive_bg,
-       fg = colors.blue
+       fg = colors.fg_gutter_inactive, gui = "bold"
     },
     b = {
        bg = inactive_bg,

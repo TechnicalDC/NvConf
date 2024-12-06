@@ -65,7 +65,6 @@ autocmd({"Filetype"}, {
 autocmd("User",{
    pattern = "MiniStarterOpened",
    callback = function(args)
-      print("autocmd")
       vim.opt_local.statuscolumn = ""
 end})
 

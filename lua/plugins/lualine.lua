@@ -88,7 +88,7 @@ local mode = {
    'mode',
    fmt = function(s)
       local icon = mode_map[s] or default_icon
-      return icon .. s
+      return s
    end
 }
 
@@ -129,21 +129,23 @@ local buf_count = function ()
    return " " .. tostring(current) .. "/" .. tostring(bufcnt)
 end
 
-local oilCurrentDir = function ()
-   return " " .. require("oil").get_current_dir()
+local block = function ()
+   return '█'
 end
 
-local createExtention = function (filetype_name,b,y)
+local createExtention = function(filetype_name,b,c)
    local b_section = b or {}
-   local y_section = y or {}
+   local c_section = c or {}
    return {
       sections = {
          lualine_a = {
-            mode
+            block
          },
          lualine_b = b_section,
-         lualine_y = y_section,
-         lualine_z = { filetype }
+         lualine_c = c_section,
+         lualine_z = {
+            block
+         }
       },
       filetypes = {filetype_name}
    }
@@ -173,13 +175,15 @@ return {
             }
          },
          sections = {
-            lualine_a = { mode },
+            lualine_a = { block },
             lualine_b = {
+               mode
+            },
+            lualine_c = {
                branch,
                diff,
                diagnostics
             },
-            lualine_c = { },
             lualine_x = {
                {
                   require("noice").api.status.mode.get,
@@ -191,10 +195,12 @@ return {
                buf_count,
                colored_filetype,
             },
-            lualine_y = {clients_lsp},
-            lualine_z = {
+            lualine_y = {
+               clients_lsp,
                'progress',
-               -- 'location',
+            },
+            lualine_z = {
+               block
             }
          },
          inactive_sections = {
@@ -206,16 +212,12 @@ return {
             lualine_z = {}
          },
          extensions = {
-            'toggleterm',
             'trouble',
             'lazy',
-            'nvim-tree',
             'quickfix',
             createExtention("help"),
-            createExtention("oil",{ oilCurrentDir }),
-            createExtention("dashboard",{branch}),
-            createExtention("ministarter",{branch}),
-            createExtention("yazi"),
+            createExtention("minifiles",{mode},{branch}),
+            createExtention("ministarter",{mode},{branch}),
             createExtention("lazygit"),
             createExtention("TelescopePrompt"),
          }
