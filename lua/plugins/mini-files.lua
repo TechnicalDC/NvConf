@@ -18,7 +18,15 @@ return {
       },
    },
    config = function ()
-      require('mini.files').setup({
+      local miniFiles = require('mini.files')
+      local my_prefix = function(fs_entry)
+         if fs_entry.fs_type == 'directory' then
+            -- NOTE: it is usually a good idea to use icon followed by space
+            return ' ', 'MiniFilesDirectory'
+         end
+         return miniFiles.default_prefix(fs_entry)
+      end
+      miniFiles.setup({
          -- Module mappings created only inside explorer.
          -- Use `''` (empty string) to not create one.
          mappings = {
@@ -36,6 +44,7 @@ return {
             trim_left   = '<',
             trim_right  = '>',
          },
+         content = { prefix = my_prefix },
          windows = {
             -- Maximum number of windows to show side by side
             max_number = 3,
