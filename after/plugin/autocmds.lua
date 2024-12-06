@@ -6,7 +6,6 @@ autocmd(
 	{"InsertEnter"},
 	{pattern = {"*"}, command = "norm zz" }
 )
-
 autocmd({'BufWritePre'},{
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
@@ -63,3 +62,10 @@ autocmd({"Filetype"}, {
    end
 })
 -- }}}
+autocmd("User",{
+   pattern = "MiniStarterOpened",
+   callback = function(args)
+      print("autocmd")
+      vim.opt_local.statuscolumn = ""
+end})
+
