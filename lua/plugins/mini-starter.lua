@@ -40,10 +40,19 @@ return  	{
          -- Characters to update query. Each character will have special buffer
          -- mapping overriding your global ones. Be careful to not add `:` as it
          -- allows you to go into command mode.
-         query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
+         query_updaters = [[abcdefghilmoqrstuvwxyz0123456789_-,.ABCDEFGHIJKLMOQRSTUVWXYZ]],
 
          -- Whether to disable showing non-error feedback
          silent = false,
       })
+      vim.cmd([[
+      augroup MiniStarterJK
+      au!
+      au User MiniStarterOpened nmap <buffer> j <Cmd>lua MiniStarter.update_current_item('next')<CR>
+      au User MiniStarterOpened nmap <buffer> k <Cmd>lua MiniStarter.update_current_item('prev')<CR>
+      au User MiniStarterOpened nmap <buffer> <C-p> <Cmd>Telescope find_files<CR>
+      au User MiniStarterOpened nmap <buffer> <C-n> <Cmd>Telescope file_browser<CR>
+      augroup END
+      ]])
    end
 }
