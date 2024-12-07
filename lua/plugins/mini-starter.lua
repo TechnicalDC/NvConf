@@ -3,6 +3,9 @@ return  	{
    version = '*',
    config = function ()
       local starter = require('mini.starter')
+      local autocmd = vim.api.nvim_create_autocmd
+      local map     = vim.keymap.set
+      local opts    = { buffer = true }
       local header_art =
 [[
 ╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
@@ -45,14 +48,15 @@ return  	{
          -- Whether to disable showing non-error feedback
          silent = false,
       })
-      vim.cmd([[
-      augroup MiniStarterJK
-      au!
-      au User MiniStarterOpened nmap <buffer> j <Cmd>lua MiniStarter.update_current_item('next')<CR>
-      au User MiniStarterOpened nmap <buffer> k <Cmd>lua MiniStarter.update_current_item('prev')<CR>
-      au User MiniStarterOpened nmap <buffer> <C-p> <Cmd>Telescope find_files<CR>
-      au User MiniStarterOpened nmap <buffer> <C-n> <Cmd>Telescope file_browser<CR>
-      augroup END
-      ]])
+
+      autocmd("User",{
+         pattern = "MiniStarterOpened",
+         callback = function(args)
+            vim.opt_local.statuscolumn = ""
+            map("n", "j", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", opts)
+            map("n", "k", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", opts)
+            map("n", "<C-p>", "<Cmd>Telescope find_files<CR>", opts)
+            map("n", "<C-n>", "<Cmd>Telescope file_browser<CR>", opts)
+         end})
    end
 }

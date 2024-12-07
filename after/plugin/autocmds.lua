@@ -21,20 +21,3 @@ autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
--- MINI FILES {{{
--- }}}
--- MINI INDENT {{{
-autocmd({"Filetype"}, {
-   pattern = {"dashboard"},
-   callback = function (args)
-      vim.b.miniindentscope_disable = true
-   end
-})
--- }}}
-autocmd("User",{
-   pattern = "MiniStarterOpened",
-   callback = function(args)
-      vim.opt_local.statuscolumn = ""
-end})
-
