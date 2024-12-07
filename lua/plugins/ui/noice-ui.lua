@@ -34,7 +34,7 @@ require("noice").setup({
       -- NOTE: If you enable messages, then the cmdline is enabled automatically.
       -- This is a current Neovim limitation.
       enabled = true, -- enables the Noice messages UI
-      view = "mini", -- default view for messages
+      view = "notify", -- default view for messages
       view_error = "notify", -- view for errors
       view_warn = "notify", -- view for warnings
       view_history = "messages", -- view for :messages
@@ -108,7 +108,7 @@ require("noice").setup({
    },
    lsp = {
       progress = {
-         enabled = true,
+         enabled = false,
          -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
          -- See the section on formatting for more details on how to customize.
          --- @type NoiceFormat|string
@@ -116,7 +116,7 @@ require("noice").setup({
          --- @type NoiceFormat|string
          format_done = "lsp_progress_done",
          throttle = 1000 / 30, -- frequency to update lsp progress message
-         view = "mini",
+         view = "notify",
       },
       override = {
          -- override the default lsp markdown formatter with Noice
@@ -147,7 +147,7 @@ require("noice").setup({
       message = {
          -- Messages shown by lsp servers
          enabled = true,
-         view = "mini",
+         view = "notify",
          opts = {},
       },
       -- defaults for hover and signature help
