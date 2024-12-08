@@ -13,6 +13,8 @@ return {
          OFF   = { duration = 0,    hl_group = 'MiniNotifyNormal' },
       }
 
+      vim.notify = notify.make_notify(opts)
+
       notify.setup({
          -- Content management
          content = {
@@ -41,7 +43,5 @@ return {
             winblend = 0,
          },
       })
-
-      vim.notify = notify.make_notify(opts)
    end
 }

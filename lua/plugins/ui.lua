@@ -2,6 +2,7 @@
 return {
    "folke/noice.nvim",
    dependencies = {
+      'echasnovski/mini.notify',
       'stevearc/dressing.nvim',
       "MunifTanjim/nui.nvim",
       "SmiteshP/nvim-navic",

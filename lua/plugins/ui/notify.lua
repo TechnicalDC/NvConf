@@ -1,4 +1,4 @@
-vim.notify = require("notify")
+-- vim.notify = require("notify")
 
 require("notify").setup({
 	background_colour = "Normal",

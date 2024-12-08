@@ -1,13 +1,3 @@
-local border_style = {
-	top_left    = "┌", top    = "─",    top_right = "┐",
-	left        = "│",                      right = "│",
-	bottom_left = "└", bottom = "─", bottom_right = "┘",
-}
-local rounded_border_style = {
-	top_left    = "╭", top    = "─",    top_right = "╮",
-	left        = "│",                      right = "│",
-	bottom_left = "╰", bottom = "─", bottom_right = "╯",
-}
 require("noice").setup({
    cmdline = {
       enabled = true, -- enables the Noice cmdline UI
@@ -209,8 +199,7 @@ require("noice").setup({
             height = "auto",
          },
          border = {
-            style = rounded_border_style,
-            -- style = "none",
+            style = "rounded",
          },
          filter_options = {},
          win_options = {
@@ -242,7 +231,7 @@ require("noice").setup({
             height = 10,
          },
          border = {
-            style = rounded_border_style,
+            style = "rounded",
             padding = { 0, 1 },
          },
          win_options = {

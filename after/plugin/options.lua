@@ -64,6 +64,7 @@ set.scrolloff	   = 10
 set.undofile		= true
 set.shada			= "!,'300,<50,s10,h"
 set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s "
+set.helpheight   = 15
 -- GUI Configuration
 -- set.guifont			= "FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=10"
 set.guifont			= "Iosevka NF:h12"
