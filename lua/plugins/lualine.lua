@@ -139,12 +139,12 @@ local createExtention = function(filetype_name,b,c)
    return {
       sections = {
          lualine_a = {
-            block
+            { block, padding = 0 }
          },
          lualine_b = b_section,
          lualine_c = c_section,
          lualine_z = {
-            block
+            { block, padding = 0 }
          }
       },
       filetypes = {filetype_name}
@@ -161,7 +161,7 @@ return {
             component_separators = { left = '', right = ''},
             section_separators = { left = '', right = ''},
             -- section_separators = { left = '', right = ''},
-            disabled_filetypes = {},
+            disabled_filetypes = { },
             always_divide_middle = true,
             globalstatus = true,
             refresh = {                  -- sets how often lualine should refresh it's contents (in ms)
@@ -171,7 +171,9 @@ return {
             }
          },
          sections = {
-            lualine_a = { block },
+            lualine_a = {
+               { block, padding = 0 }
+            },
             lualine_b = {
                mode
             },
@@ -195,7 +197,7 @@ return {
                'progress',
             },
             lualine_z = {
-               block
+               { block, padding = 0 }
             }
          },
          inactive_sections = {
@@ -214,7 +216,7 @@ return {
             createExtention("minifiles",{mode},{branch}),
             createExtention("ministarter",{mode},{branch}),
             createExtention("lazygit"),
-            createExtention("TelescopePrompt"),
+            createExtention("TelescopePrompt",{mode},{branch}),
          }
       }
    end
