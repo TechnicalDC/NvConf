@@ -133,16 +133,16 @@ local block = function ()
    return '█'
 end
 
-local createExtention = function(filetype_name,b,y)
+local createExtention = function(filetype_name,b,x)
    local b_section = b or {}
-   local y_section = y or {}
+   local x_section = x or {}
    return {
       sections = {
          lualine_a = {
             { block, padding = 0 }
          },
          lualine_b = b_section,
-         lualine_y = y_section,
+         lualine_x = x_section,
          lualine_z = {
             { block, padding = 0 }
          }
@@ -190,12 +190,11 @@ return {
                'selectioncount',
                buf_count,
                colored_filetype,
-            },
-            lualine_y = {
                branch,
                clients_lsp,
                'progress',
             },
+            lualine_y = {},
             lualine_z = {
                { block, padding = 0 }
             }
