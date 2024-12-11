@@ -30,11 +30,11 @@ return  	{
 
          items = {
             { name = 'edit new buffer', action = 'enew', section = 'Builtin actions' },
-            { name = 'quit Neovim', action = 'qall', section = 'Builtin actions' },
+            { name = 'load session', action = 'lua MiniSessions.select()', section = 'Builtin actions' },
+            { name = 'quit neovim', action = 'qall', section = 'Builtin actions' },
             { name = 'find files', action = 'Telescope find_files', section = 'Section' },
             { name = 'recent files', action = 'Telescope oldfiles', section = 'Section' },
             { name = 'browse files', action = 'lua require("mini.files").open(vim.uv.cwd(), true)', section = 'Section' },
-            starter.sections.sessions(5, true)
          },
 
          header = header_art,
