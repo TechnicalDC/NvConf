@@ -1,12 +1,15 @@
 return {
    'echasnovski/mini.splitjoin',
    version = false,
+   keys = {
+      {"<leader>ts", "<cmd>lua MiniSplitjoin.toggle()<cr>", desc = "Find files"},
+   },
    config = function ()
       require('mini.splitjoin').setup({
          -- Module mappings. Use `''` (empty string) to disable one.
          -- Created for both Normal and Visual modes.
          mappings = {
-            toggle = '<leader>ts',
+            toggle = '',
             split = '',
             join = '',
          },
