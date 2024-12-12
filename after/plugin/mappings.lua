@@ -14,6 +14,7 @@ wk.add({
       { "<leader>Y", "maggVGy`a",                       desc = "Copy entire content"},
       { "<leader>s", ":setlocal spell!<CR>",            desc = "Toggle spell checker"},
       { "Y",         "y$",                              desc = "Copy text till end of line"},
+      { "<BS>",      "^",                               desc = "Move to first non-blank character"},
       { "gb",        ":bnext<cr>",                      desc = "Jump to next buffer"},
       { "gB",        ":bprevious<cr>",                  desc = "Jump to previous buffer"},
       {"<Esc>",      ":lua vim.o.hlsearch = false<CR>", desc = "Disable incremental search highlighting"},

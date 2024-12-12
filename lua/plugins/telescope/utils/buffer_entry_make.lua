@@ -39,11 +39,12 @@ function my_make_entry.gen_from_buffer_like_leaderf(opts)
 
    local make_display = function(entry)
       return displayer {
-         {entry.bufnr, "TelescopeResultsNumber"},
-         {entry.indicator, "TelescopeResultsComment"},
+         entry.bufnr,
+         entry.indicator,
          {entry.devicons, entry.devicons_highlight},
          entry.file_name,
-         {entry.dir_name, "Comment"}
+         entry.dir_name,
+         -- {entry.dir_name, "Comment"}
       }
    end
 

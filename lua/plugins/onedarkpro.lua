@@ -1,25 +1,25 @@
 return {
    "olimorris/onedarkpro.nvim",
-   priority = 1000, -- Ensure it loads first
+   priority = 1000,
    config = function ()
       local helpers = require("onedarkpro.helpers")
       local colors = helpers.get_colors()
       require("onedarkpro").setup({
          colors = {
-            grey =  "require('onedarkpro.helpers').lighten('black', 10)",
+            dark_grey =  "#111111",
          },
          highlights = {
-            PmenuSel                = { fg   = "${grey}", bg = colors.blue },
+            PmenuSel                = { fg   = "${dark_grey}", bg = colors.blue },
             CursorLine              = { bg   = colors.none },
             CursorLineNr            = { bg   = colors.none },
             CursorLineFold          = { bg   = colors.none },
             CursorLineSign          = { bg   = colors.none },
             FloatTitle              = { fg   = colors.red },
             FloatBorder             = { fg   = colors.cyan },
-            Visual                  = { fg   = "${grey}",  bg   = colors.cyan },
-            VisualNOS               = { fg   = "${grey}",  bg   = colors.cyan },
-            Search                  = { fg   = "${grey}",  bg   = colors.green },
-            IncSearch               = { fg   = "${grey}",  bg   = colors.green },
+            Visual                  = { fg   = "${dark_grey}",  bg   = colors.cyan },
+            VisualNOS               = { fg   = "${dark_grey}",  bg   = colors.cyan },
+            Search                  = { fg   = "${dark_grey}",  bg   = colors.green },
+            IncSearch               = { fg   = "${dark_grey}",  bg   = colors.green },
 
             LazyGitBorder           = { fg   = colors.cyan },
             DashboardHeader         = { fg   = colors.red  },
