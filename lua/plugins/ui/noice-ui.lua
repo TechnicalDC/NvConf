@@ -27,8 +27,7 @@ require("noice").setup({
       view = "notify", -- default view for messages
       view_error = "notify", -- view for errors
       view_warn = "notify", -- view for warnings
-      view_history = "messages", -- view for :messages
-      -- view_search = false,
+      view_history = "split", -- view for :messages
       view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
    },
    popupmenu = {
@@ -98,7 +97,7 @@ require("noice").setup({
    },
    lsp = {
       progress = {
-         enabled = false,
+         enabled = true,
          -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
          -- See the section on formatting for more details on how to customize.
          --- @type NoiceFormat|string
@@ -106,7 +105,7 @@ require("noice").setup({
          --- @type NoiceFormat|string
          format_done = "lsp_progress_done",
          throttle = 1000 / 30, -- frequency to update lsp progress message
-         view = "notify",
+         view = "mini",
       },
       override = {
          -- override the default lsp markdown formatter with Noice
