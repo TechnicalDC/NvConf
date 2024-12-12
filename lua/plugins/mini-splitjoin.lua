@@ -2,7 +2,7 @@ return {
    'echasnovski/mini.splitjoin',
    version = false,
    keys = {
-      {"<leader>ts", "<cmd>lua MiniSplitjoin.toggle()<cr>", desc = "Find files"},
+      {"<leader>ts", "<cmd>lua MiniSplitjoin.toggle()<cr>", desc = "Toggle split/join"},
    },
    config = function ()
       require('mini.splitjoin').setup({
