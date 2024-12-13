@@ -245,7 +245,7 @@ local function_fmt = fmta(
 			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
 		end),
 		return_type = c(2,get_options(data_types)),
-		args = i(3, ""),
+		args = i(3, "<++>"),
 		var_name = i(4, "<++>"),
 		data_type = rep(2),
 		code = i(5, "/* Add Logic */"),
@@ -262,4 +262,36 @@ local function_snippet = s(
 table.insert(snippets, function_snippet)
 -- }}}
 
+-- QUERY SNIPPET {{{
+local query_fmt = fmta(
+   [[
+   create query <query_name>.
+   <query_buffers>:set-buffers(<buffers>).
+   <query_prepare>:query-prepare("<query_logic>").
+   <query_open>:query-open().
+
+   do while <query_next>:get-next():
+   end. /*do while <query_next1>:get-next():*/
+   <query_close>:query-close().
+   ]],
+   {
+		query_name = d(1, function(_, snip)
+			return sn(1, i(1,snip.env.TM_SELECTED_TEXT[1] or {"<++>"}))
+		end),
+      query_buffers =  rep(1),
+      buffers = i(3,"<++>"),
+      query_prepare =  rep(1),
+      query_logic = i(5,"<++>"),
+      query_open =  rep(1),
+      query_next =  rep(1),
+      query_next1 =  rep(1),
+      query_close =  rep(1),
+   }
+)
+local query_snippet = s(
+	{trig = "build-query", regTrig = false, hidden = false},
+	query_fmt
+)
+table.insert(snippets, query_snippet)
+-- }}}
 return snippets, autosnippets
