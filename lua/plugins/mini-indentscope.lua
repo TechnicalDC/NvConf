@@ -4,6 +4,7 @@ return {
    config = function ()
       local autocmd = vim.api.nvim_create_autocmd
       local exclude_filetype = {
+         "undotree",
          "dashboard",
          "help"
       }

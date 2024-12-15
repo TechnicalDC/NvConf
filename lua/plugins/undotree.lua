@@ -1,10 +1,10 @@
 return {
    'mbbill/undotree',
+   keys = {
+      {"<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Toggle undo tree"},
+   },
    config = function ()
-      vim.keymap.set('n', '<leader>u', "<cmd>UndotreeToggle<cr>", {desc = "Toggle undo tree"})
-
       vim.g.undotree_WindowLayout = 2
-
       vim.g.undotree_TreeNodeShape = ''
       vim.g.undotree_TreeVertShape = '│'
       vim.g.undotree_TreeSplitShape = '─╯'
