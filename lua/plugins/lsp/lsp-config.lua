@@ -145,10 +145,10 @@ nvim_lsp.lua_ls.setup({
 
 local rounded_border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│'}
 local signs = {
-   Error = " ",
-   Warn = " ",
-   Hint = "󰌵 ",
-   Info = " "
+   Error = "󰅙 ",
+   Warn = "󰀨 ",
+   Hint = "󰠠 ",
+   Info = "󰋼 "
 }
 
 for type, icon in pairs(signs) do
