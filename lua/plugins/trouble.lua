@@ -107,11 +107,11 @@ return {
       include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions"  }, -- for the given modes, include the declaration of the current symbol in the results
       signs = {
          -- icons / text used for a diagnostic
-         error = "󰅙 ",
-         warning = "󰀨 ",
-         hint = "󰠠 ",
-         information = "󰋼 ",
-         other = "󰋼 ",
+         error = " ",
+         warning = " ",
+         hint = "",
+         information = " ",
+         other = " ",
       },
       use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
    },

@@ -8,7 +8,12 @@ require("barbecue").setup({
    show_modified = true,
    context_follow_icon_color = true,
    include_buftypes = { "" },
-   exclude_filetypes = { "netrw", "toggleterm" },
+   exclude_filetypes = {
+      "netrw",
+      "ministarter",
+      "toggleterm",
+      "terminal"
+   },
    modifiers = {
       ---Filename modifiers applied to dirname.
       ---
