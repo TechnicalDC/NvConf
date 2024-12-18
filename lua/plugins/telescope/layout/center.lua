@@ -5,12 +5,13 @@ M.border = {
 	preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰'},
 }
 M.layout_config = {
-	preview_cutoff = 20,
-	height = 0.4,
-	anchor = "N",
-	mirror = true,
-	prompt_position = "top",
-	width = 0.5,
+   preview_cutoff = 10,
+   height = 0.6,
+   anchor = "S",
+   anchor_padding = 0,
+   mirror = false,
+   prompt_position = "top",
+   width = { padding = 0 }, -- padding to 0 to cover full width
 }
 
 return M
