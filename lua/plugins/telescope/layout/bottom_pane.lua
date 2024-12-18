@@ -6,7 +6,7 @@ M.border = {
 }
 M.layout_config = {
 	preview_cutoff = 20,
-	height = 0.6,
+	height = 0.7,
 	anchor = "N",
 	mirror = false,
 	prompt_position = "top",

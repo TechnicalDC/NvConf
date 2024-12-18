@@ -26,15 +26,15 @@ return {
 
       require('telescope').setup{
          defaults = {
-            layout_strategy = "center",  -- Other layouts: vertical, horizontal, center
-            layout_config = center.layout_config,
+            layout_strategy = "bottom_pane",  -- Other layouts: vertical, horizontal, center
+            layout_config = bottom_pane.layout_config,
             sorting_strategy = "ascending",
             prompt_prefix = "   ",
             entry_prefix = "   ",
             multi_icon = "  ",
             selection_caret = "  ",
             border = true,
-            borderchars = center.border,
+            borderchars = bottom_pane.border,
             results_title = "",
             prompt_title = " prompt ",
             file_ignore_patterns = {
@@ -47,6 +47,7 @@ return {
                "**\\*.docx",
             },
             preview = true,
+            dynamic_preview_title = true,
 
             mappings = {
                n = {
