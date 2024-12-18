@@ -6,7 +6,7 @@ return {
          -- Cursor path
          cursor = {
             -- Whether to enable this animation
-            enable = true,
+            enable = false,
 
             -- Timing of animation (how steps will progress in time)
             -- timing = --<function: implements linear total 250ms animation duration>,
