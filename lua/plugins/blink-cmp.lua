@@ -24,20 +24,28 @@ return {
       },
       sources = {
          completion = {
-            enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'abl' },
+            enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
          },
-         providers = {
-            abl = {
-               name = 'ABL', -- IMPORTANT: use the same name as you would for nvim-cmp
-               module = 'cmp-abl',
-               -- this table is passed directly to the proxied completion source
-               -- as the `option` field in nvim-cmp's source config
-               --
-               -- this is NOT the same as the opts in a plugin's lazy.nvim spec
-               opts = {
-               },
-            }
-         },
+         -- providers = {
+         --    abl = {
+         --       name = 'ABL', -- IMPORTANT: use the same name as you would for nvim-cmp
+         --       module = 'cmp-abl',
+         --       -- this table is passed directly to the proxied completion source
+         --       -- as the `option` field in nvim-cmp's source config
+         --       --
+         --       -- this is NOT the same as the opts in a plugin's lazy.nvim spec
+         --       opts = {
+         --          keyword_length = 3,
+         --          keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\%(\w\|á\|Á\|é\|É\|í\|Í\|ó\|Ó\|ú\|Ú\)*\%(-\%(\w\|á\|Á\|é\|É\|í\|Í\|ó\|Ó\|ú\|Ú\)*\)*\)]],
+         --          get_bufnrs = function()
+         --             return { vim.api.nvim_get_current_buf() }
+         --          end,
+         --          indexing_batch_size = 1000,
+         --          indexing_interval = 100,
+         --          max_indexed_line_length = 1024 * 40,
+         --       },
+         --    }
+         -- },
          default = { 'lsp', 'path', 'snippets', 'buffer' },
          cmdline = function()
             local type = vim.fn.getcmdtype()
@@ -46,7 +54,7 @@ return {
             return {}
          end,
          per_filetype = {
-            progress = { 'abl', 'snippets', 'buffer' },
+            progress = { 'snippets', 'buffer' },
          },
       },
       signature = {
