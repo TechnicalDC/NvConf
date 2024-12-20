@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -32,9 +33,11 @@ end
 
 nvim_lsp.jsonls.setup {
    on_attach = on_attach,
+   capabilities = capabilities,
 }
 nvim_lsp.gopls.setup {
    on_attach = on_attach,
+   capabilities = capabilities,
 }
 
 -- nvim_lsp.pyright.setup {
@@ -52,6 +55,7 @@ nvim_lsp.gopls.setup {
 
 nvim_lsp.openedge_ls.setup {
    on_attach = on_attach,
+   capabilities = capabilities,
    oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
    -- dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
    debug = true, -- Set to true for debug logging
@@ -60,6 +64,7 @@ nvim_lsp.openedge_ls.setup {
 
 nvim_lsp.tsserver.setup({
    on_attach = on_attach,
+   capabilities = capabilities,
    disable_formatting = true,
    settings = {
       javascript = {
@@ -88,6 +93,7 @@ nvim_lsp.tsserver.setup({
 })
 
 nvim_lsp.texlab.setup({
+   capabilities = capabilities,
    settings ={
       texlab = {
          auxDirectory = ".",
@@ -117,6 +123,7 @@ nvim_lsp.texlab.setup({
 
 nvim_lsp.lua_ls.setup({
    on_attach = on_attach,
+   capabilities = capabilities,
    settings = {
       Lua = {
          runtime = { version = "LuaJIT" },

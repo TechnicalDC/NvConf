@@ -29,13 +29,13 @@ return {
                ["core.looking-glass"] = {},
                -- ["core.tempus"] = {},
                -- ["core.ui.calendar"] = {},
-               ["core.integrations.nvim-cmp"] = {},
-               ["core.completion"] = {
-                  config = {
-                     engine = "nvim-cmp",
-                     name	 = "(neorg)"
-                  }
-               },
+               -- ["core.integrations.nvim-cmp"] = {},
+               -- ["core.completion"] = {
+               --    config = {
+               --       engine = "nvim-cmp",
+               --       name	 = "(neorg)"
+               --    }
+               -- },
                ["core.dirman"] = { -- Manages Neorg workspaces
                   config = {
                      workspaces = {

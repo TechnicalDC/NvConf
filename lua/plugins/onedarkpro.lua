@@ -10,6 +10,7 @@ return {
          },
          highlights = {
             PmenuSel                = { fg   = "${dark_grey}", bg = colors.blue },
+            PmenuThumb              = { bg   = colors.cyan },
             CursorLine              = { bg   = colors.none },
             CursorLineNr            = { bg   = colors.none },
             CursorLineFold          = { bg   = colors.none },
