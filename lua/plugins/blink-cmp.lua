@@ -87,10 +87,15 @@ return {
             }
          },
          documentation = {
+            auto_show = true,
             window = {
                scrollbar = false,
                border = "rounded",
                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
+               direction_priority = {
+                  menu_north = { 'e', 'w', 'n', 's' },
+                  menu_south = { 'e', 'w', 's', 'n' },
+               },
             }
          },
          -- Displays a preview of the selected item on the current line

@@ -199,6 +199,11 @@ require("noice").setup({
          },
          border = {
             style = "rounded",
+            text = {
+               top_align = "center",
+               -- bottom = "I am bottom title",
+               -- bottom_align = "left",
+            }
          },
          filter_options = {},
          win_options = {
