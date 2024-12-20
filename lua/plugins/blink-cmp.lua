@@ -28,18 +28,13 @@ return {
          },
          -- providers = {
          --    abl = {
-         --       name = 'abl', -- IMPORTANT: use the same name as you would for nvim-cmp
-         --       module = 'blink.compat.source',
-         --
-         --       -- all blink.cmp source config options work as normal:
-         --       score_offset = -3,
-         --
+         --       name = 'ABL', -- IMPORTANT: use the same name as you would for nvim-cmp
+         --       module = 'cmp-abl',
          --       -- this table is passed directly to the proxied completion source
          --       -- as the `option` field in nvim-cmp's source config
          --       --
          --       -- this is NOT the same as the opts in a plugin's lazy.nvim spec
          --       opts = {
-         --          -- this is an option from cmp-digraphs
          --       },
          --    }
          -- },
