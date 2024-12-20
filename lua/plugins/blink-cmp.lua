@@ -24,7 +24,7 @@ return {
       },
       sources = {
          completion = {
-            enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
+            enabled_providers = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer' },
          },
          -- providers = {
          --    abl = {
@@ -74,6 +74,9 @@ return {
                padding = 1,
                columns = {{ 'label', 'label_description', gap = 1 }, { 'kind_icon', 'kind' }, { 'source_name' } },
                components = {
+                  label = {
+                     width = { min = 15 }
+                  },
                   source_name = {
                      width = { max = 30 },
                      -- source_name or source_id are supported
