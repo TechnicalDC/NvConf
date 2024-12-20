@@ -3,7 +3,7 @@ return {
    dependencies = {
       'saghen/blink.compat',
       'LMON4D3/LuaSnip',
-      -- 'TechnicalDC/cmp-abl',
+      'TechnicalDC/cmp-abl',
    },
    version = 'v0.*',
    opts = {
@@ -24,20 +24,20 @@ return {
       },
       sources = {
          completion = {
-            enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
+            enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'abl' },
          },
-         -- providers = {
-         --    abl = {
-         --       name = 'ABL', -- IMPORTANT: use the same name as you would for nvim-cmp
-         --       module = 'cmp-abl',
-         --       -- this table is passed directly to the proxied completion source
-         --       -- as the `option` field in nvim-cmp's source config
-         --       --
-         --       -- this is NOT the same as the opts in a plugin's lazy.nvim spec
-         --       opts = {
-         --       },
-         --    }
-         -- },
+         providers = {
+            abl = {
+               name = 'ABL', -- IMPORTANT: use the same name as you would for nvim-cmp
+               module = 'cmp-abl',
+               -- this table is passed directly to the proxied completion source
+               -- as the `option` field in nvim-cmp's source config
+               --
+               -- this is NOT the same as the opts in a plugin's lazy.nvim spec
+               opts = {
+               },
+            }
+         },
          default = { 'lsp', 'path', 'snippets', 'buffer' },
          cmdline = function()
             local type = vim.fn.getcmdtype()
@@ -45,9 +45,9 @@ return {
             if type == ':' then return { 'cmdline' } end
             return {}
          end,
-         -- per_filetype = {
-         --    progress = { 'abl', 'snippets', 'buffer' },
-         -- },
+         per_filetype = {
+            progress = { 'abl', 'snippets', 'buffer' },
+         },
       },
       signature = {
          enabled = true,
