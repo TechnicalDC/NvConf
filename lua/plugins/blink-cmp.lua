@@ -23,9 +23,9 @@ return {
          jump = function(direction) require('luasnip').jump(direction) end,
       },
       sources = {
-         completion = {
-            enabled_providers = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer' },
-         },
+         -- completion = {
+         --    enabled_providers = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer' },
+         -- },
          -- providers = {
          --    abl = {
          --       name = 'ABL', -- IMPORTANT: use the same name as you would for nvim-cmp
@@ -46,7 +46,7 @@ return {
          --       },
          --    }
          -- },
-         default = { 'lsp', 'path', 'snippets', 'buffer' },
+         default = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer' },
          cmdline = function()
             local type = vim.fn.getcmdtype()
             if type == '/' or type == '?' then return { 'buffer' } end
