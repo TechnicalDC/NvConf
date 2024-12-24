@@ -48,8 +48,8 @@ return  	{
             { name = 'edit new buffer', action = 'enew', section = 'Builtin actions' },
             { name = 'load session', action = 'lua MiniSessions.select()', section = 'Builtin actions' },
             { name = 'quit neovim', action = 'qall', section = 'Builtin actions' },
-            { name = 'find files', action = 'Telescope find_files', section = 'Section' },
-            { name = 'recent files', action = 'Telescope oldfiles', section = 'Section' },
+            { name = 'find files', action = 'lua require("telescope.builtin").find_files({preview_title = ""})', section = 'Section' },
+            { name = 'recent files', action = 'lua require("telescope.builtin").oldfiles({preview_title = ""})', section = 'Section' },
             { name = 'browse files', action = 'lua require("mini.files").open(vim.uv.cwd(), true)', section = 'Section' },
          },
 
@@ -79,8 +79,8 @@ return  	{
             vim.opt_local.statuscolumn = ""
             map("n", "j", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", opts)
             map("n", "k", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", opts)
-            map("n", "<C-p>", "<Cmd>Telescope find_files<CR>", opts)
-            map("n", "<C-n>", "<Cmd>Telescope file_browser<CR>", opts)
+            -- map("n", "<C-p>", "<Cmd>Telescope find_files<CR>", opts)
+            -- map("n", "<C-n>", "<Cmd>Telescope file_browser<CR>", opts)
          end})
    end
 }
