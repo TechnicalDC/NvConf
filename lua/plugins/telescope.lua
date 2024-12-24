@@ -65,6 +65,7 @@ return {
 
             mappings = {
                n = {
+                  ["?"] = "which_key",
                   ["p"] = toggle_preview,
                   ["d"] = actions.delete_buffer,
                   ["q"] = actions.close
