@@ -77,7 +77,7 @@ return {
             return {}
          end,
          per_filetype = {
-            progress = { 'luasnip', 'buffer', 'lsp', 'abl' },
+            progress = { 'snippets', 'buffer', 'lsp', 'abl' },
          },
       },
       signature = {
