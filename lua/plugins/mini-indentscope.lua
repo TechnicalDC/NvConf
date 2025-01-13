@@ -6,6 +6,7 @@ return {
       local exclude_filetype = {
          "undotree",
          "dashboard",
+         "norg",
          "trouble",
          "help"
       }
