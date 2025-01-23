@@ -9,7 +9,7 @@ return {
    opts = {
       keymap = { preset = 'default' },
       appearance = {
-         use_nvim_cmp_as_default = true,
+         use_nvim_cmp_as_default = false,
          nerd_font_variant = 'normal',
          kind_icons = {
             Class         = "",
@@ -42,20 +42,7 @@ return {
       snippets = {
          preset = "luasnip"
       },
-      -- snippets = {
-      --    expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-      --    active = function(filter)
-      --       if filter and filter.direction then
-      --          return require('luasnip').jumpable(filter.direction)
-      --       end
-      --       return require('luasnip').in_snippet()
-      --    end,
-      --    jump = function(direction) require('luasnip').jump(direction) end,
-      -- },
       sources = {
-         -- completion = {
-         --    enabled_providers = { 'lsp', 'path', 'luasnip', 'snippets', 'buffer' },
-         -- },
          providers = {
             abl = {
                name = 'abl', -- IMPORTANT: use the same name as you would for nvim-cmp
@@ -80,7 +67,7 @@ return {
             return {}
          end,
          per_filetype = {
-            progress = { 'snippets', 'buffer', 'lsp', 'abl' },
+            progress = { 'snippets', 'buffer', 'abl' },
          },
       },
       signature = {
