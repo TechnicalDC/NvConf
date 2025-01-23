@@ -68,6 +68,7 @@ set.helpheight   = 15
 -- }}}
 
 vim.filetype.add({
+   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
    extension = {
       tex = "tex",
       md = "markdown",
