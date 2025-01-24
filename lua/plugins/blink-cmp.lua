@@ -9,7 +9,6 @@ return {
    opts = {
       keymap = { preset = 'default' },
       appearance = {
-         use_nvim_cmp_as_default = false,
          nerd_font_variant = 'normal',
          kind_icons = {
             Class         = "",
@@ -40,7 +39,13 @@ return {
          },
       },
       snippets = {
-         preset = "luasnip"
+         preset = "luasnip",
+         -- Function to use when expanding LSP provided snippets
+         expand = function(snippet) vim.snippet.expand(snippet) end,
+         -- Function to use when checking if a snippet is active
+         active = function(filter) return vim.snippet.active(filter) end,
+         -- Function to use when jumping between tab stops in a snippet, where direction can be negative or positive
+         jump = function(direction) vim.snippet.jump(direction) end,
       },
       sources = {
          providers = {
@@ -68,6 +73,7 @@ return {
          end,
          per_filetype = {
             progress = { 'snippets', 'buffer', 'abl' },
+            -- markdown = { 'snippets', 'dictionary', 'buffer', 'path' }
          },
       },
       signature = {
