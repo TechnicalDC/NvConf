@@ -21,10 +21,14 @@ return {
                ["core.concealer"] = {
                   config = {
                      folds = true,
-                     icon_present = "diamond",
+                     icon_preset = "varied",
                      icons = {
                         todo = {
                            undone = { icon = " " },
+                           pending = { icon = " " },
+                           urgent = { icon = "!" },
+                           uncertain = { icon = "!" },
+                           on_hold = { icon = "-" },
                            cancelled = { icon = "x" },
                         }
                      },
@@ -33,7 +37,7 @@ return {
                ["core.summary"] = {},
                ["core.export"] = {},
                ["core.looking-glass"] = {},
-               -- ["core.tempus"] = {},
+               ["core.tempus"] = {},
                ["core.ui.calendar"] = {},
                -- ["core.integrations.nvim-cmp"] = {},
                -- ["core.completion"] = {
@@ -55,7 +59,7 @@ return {
                   config = {
                      default_keybinds = true,
                      neorg_leader = ";",
-                  -- hook = function(keybinds)
+                     -- hook = function(keybinds)
                      -- Unmaps any Neorg key from the `norg` mode
                      -- keybinds.unmap("norg", "n", "gtd")
 
