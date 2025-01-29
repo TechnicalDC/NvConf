@@ -22,13 +22,19 @@ return {
                   config = {
                      folds = true,
                      icon_present = "diamond",
+                     icons = {
+                        todo = {
+                           undone = { icon = " " },
+                           cancelled = { icon = "x" },
+                        }
+                     },
                   }
                }, -- Adds pretty icons to your documents
                ["core.summary"] = {},
                ["core.export"] = {},
                ["core.looking-glass"] = {},
                -- ["core.tempus"] = {},
-               -- ["core.ui.calendar"] = {},
+               ["core.ui.calendar"] = {},
                -- ["core.integrations.nvim-cmp"] = {},
                -- ["core.completion"] = {
                --    config = {
@@ -42,7 +48,7 @@ return {
                         work  = "~/work/Neorg",
                         personal = "~/personal/Neorg"
                      },
-                     default_workspace = "personal",
+                     default_workspace = default_workspace,
                   },
                },
                ["core.keybinds"] = {
