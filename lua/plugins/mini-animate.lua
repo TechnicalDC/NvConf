@@ -2,6 +2,7 @@ return {
    'echasnovski/mini.animate',
    version = false,
    config = function ()
+      local animate = require('mini.animate')
       require('mini.animate').setup({
          -- Cursor path
          cursor = {
@@ -51,7 +52,7 @@ return {
             -- winconfig = --<function: implements static window for 25 steps>,
 
             -- 'winblend' (window transparency) generator for floating window
-            -- winblend = --<function: implements equal linear steps from 80 to 100>,
+            winblend = animate.gen_winblend.linear({ from = 60, to = 80 }),
          },
 
          -- Window close
@@ -66,7 +67,7 @@ return {
             -- winconfig = --<function: implements static window for 25 steps>,
 
             -- 'winblend' (window transparency) generator for floating window
-            -- winblend = --<function: implements equal linear steps from 80 to 100>,
+            winblend = animate.gen_winblend.linear({ from = 60, to = 80 }),
          }
       }
       )
