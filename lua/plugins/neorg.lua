@@ -9,6 +9,7 @@ return {
    {
       "nvim-neorg/neorg",
       dependencies = {
+         "benlubas/neorg-interim-ls",
          "nvim-lua/plenary.nvim",
       },
       event = "VimEnter",
