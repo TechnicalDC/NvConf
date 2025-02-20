@@ -1,1 +1,1 @@
-vim.cmd.colorscheme("onedark_dark")
+vim.cmd.colorscheme("onedark_vivid")

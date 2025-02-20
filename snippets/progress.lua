@@ -146,9 +146,8 @@ table.insert(snippets, msg_snippet)
 -- FIND SNIPPET {{{
 local find_fmt = fmta(
 	[[
-		find <no> <table_name> where
-			<table_field> <condition>
-      <lock> no-error.
+		find <no> <table_name> <lock>
+         where <table_field> <condition> no-error.
 		if available <table_name1> then do:
 		end. /* if available <table_name2> then do: */
 	]],
@@ -179,7 +178,7 @@ local find_snippet = s(
 	{trig = "find", regTrig = false, hidden = false},
 	find_fmt
 )
-table.insert(snippets, find_snippet)
+table.insert(autosnippets, find_snippet)
 -- }}}
 
 -- FOR SNIPPET {{{
@@ -220,7 +219,7 @@ local for_snippet = s(
 	{trig = "for", regTrig = false, hidden = false},
 	for_fmt
 )
-table.insert(snippets, for_snippet)
+table.insert(autosnippets, for_snippet)
 -- }}}
 
 -- METHOD SNIPPET {{{
@@ -255,11 +254,11 @@ local function_fmt = fmta(
 	}
 )
 local function_snippet = s(
-	{trig = "function", regTrig = false, hidden = false},
+	{trig = "func", regTrig = false, hidden = false},
 	-- "function",
 	function_fmt
 )
-table.insert(snippets, function_snippet)
+table.insert(autosnippets, function_snippet)
 -- }}}
 
 -- QUERY SNIPPET {{{

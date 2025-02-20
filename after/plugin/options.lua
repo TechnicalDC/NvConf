@@ -45,7 +45,7 @@ set.fillchars:append({
    verthoriz = " ",
    eob = " ",
 })
--- set.listchars	  = "tab:  ,eol:󰌑"
+set.listchars	  = "tab:  "
 set.list          = true
 set.diffopt       = "filler,vertical,iwhiteall,iblank"
 set.mouse         = "a"
