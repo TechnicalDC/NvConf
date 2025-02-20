@@ -1,10 +1,3 @@
-local default_workspace = ""
-if vim.fn.has("win32") == 1 then
-   default_workspace = "work"
-else
-   default_workspace = "personal"
-end
-
 return {
    {
       "nvim-neorg/neorg",
@@ -16,6 +9,16 @@ return {
       version = "v7.0.0", -- This is the important part!
       lazy = false,
       config = function()
+         local default_workspace = "~/Neorg/"
+
+         local ok, wk = pcall(require, 'which-key')
+         wk.add({
+            {
+               mode = "n",
+               { "<leader>n", "<cmd>Telescope find_files cwd=" .. default_workspace .. "<cr>",  desc = "Open neorg notes"},
+            }
+         })
+
          require("neorg").setup {
             load = {
                ["core.defaults"] = {}, -- Loads default behaviour
@@ -50,10 +53,9 @@ return {
                ["core.dirman"] = { -- Manages Neorg workspaces
                   config = {
                      workspaces = {
-                        work  = "~/work/Neorg",
-                        personal = "~/personal/Neorg"
+                        default  = default_workspace,
                      },
-                     default_workspace = default_workspace,
+                     default_workspace = "default",
                   },
                },
                ["core.keybinds"] = {
