@@ -72,18 +72,18 @@ return {
          }
       },
       sources = {
-         -- providers = {
-         --    abl = {
-         --       name = 'cmp-abl', -- IMPORTANT: use the same name as you would for nvim-cmp
-         --       module = 'blink.compat.source',
-         --       opts = {
-         --          max_item_count = 15
-         --       },
-         --    }
-         -- },
+         providers = {
+            abl = {
+               name = 'abl', -- IMPORTANT: use the same name as you would for nvim-cmp
+               module = 'blink.compat.source',
+               opts = {
+                  max_item_count = 15
+               },
+            }
+         },
          default = { 'lsp', 'path', 'snippets', 'buffer' },
          per_filetype = {
-            progress = { 'snippets', 'buffer' },
+            progress = { 'snippets', 'abl', 'buffer' },
             -- markdown = { 'snippets', 'dictionary', 'buffer', 'path' }
          },
       },
