@@ -79,11 +79,11 @@ return {
                opts = {
                   max_item_count = 15
                },
-            }
+            },
          },
          default = { 'lsp', 'path', 'snippets', 'buffer' },
          per_filetype = {
-            progress = { 'snippets', 'abl', 'buffer' },
+            progress = { 'snippets', 'buffer' },
             -- markdown = { 'snippets', 'dictionary', 'buffer', 'path' }
          },
       },
