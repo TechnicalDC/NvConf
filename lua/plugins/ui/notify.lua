@@ -11,8 +11,9 @@ require("notify").setup({
 		WARN = " "
 	},
 	level = 2,
-	minimum_width = 30,
-	maximum_width = 30,
+	minimum_width = 40,
+	max_width = 40,
 	stages = "slide",
+   render = "wrapped-default",
 	timeout = 2000
 })

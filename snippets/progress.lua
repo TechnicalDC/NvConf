@@ -178,7 +178,7 @@ local find_snippet = s(
 	{trig = "find", regTrig = false, hidden = false},
 	find_fmt
 )
-table.insert(autosnippets, find_snippet)
+table.insert(snippets, find_snippet)
 -- }}}
 
 -- FOR SNIPPET {{{
@@ -219,7 +219,7 @@ local for_snippet = s(
 	{trig = "for", regTrig = false, hidden = false},
 	for_fmt
 )
-table.insert(autosnippets, for_snippet)
+table.insert(snippets, for_snippet)
 -- }}}
 
 -- METHOD SNIPPET {{{
@@ -258,7 +258,7 @@ local function_snippet = s(
 	-- "function",
 	function_fmt
 )
-table.insert(autosnippets, function_snippet)
+table.insert(snippets, function_snippet)
 -- }}}
 
 -- QUERY SNIPPET {{{
