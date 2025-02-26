@@ -1,9 +1,8 @@
 return {
    'saghen/blink.cmp',
    dependencies = {
-      'saghen/blink.compat',
       'LMON4D3/LuaSnip',
-      'TechnicalDC/cmp-abl',
+      'TechnicalDC/blink-cmp-progress'
    },
    version = 'v0.*',
    opts = {
@@ -73,17 +72,15 @@ return {
       },
       sources = {
          providers = {
-            abl = {
-               name = 'abl', -- IMPORTANT: use the same name as you would for nvim-cmp
-               module = 'blink.compat.source',
-               opts = {
-                  max_item_count = 15
-               },
-            },
+            progress = {
+               name = "Progress",
+               module = "blink-cmp-progress",
+               opts = { insert = true }
+            }
          },
          default = { 'lsp', 'path', 'snippets', 'buffer' },
          per_filetype = {
-            progress = { 'snippets', 'buffer' },
+            progress = { 'snippets', 'buffer', 'progress' },
             -- markdown = { 'snippets', 'dictionary', 'buffer', 'path' }
          },
       },
@@ -130,7 +127,7 @@ return {
          },
          -- Displays a preview of the selected item on the current line
          ghost_text = {
-            enabled = false,
+            enabled = true,
          },
       }
    },
