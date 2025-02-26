@@ -45,12 +45,41 @@ return  	{
          evaluate_single = true,
 
          items = {
-            { name = 'edit new buffer', action = 'enew', section = 'Builtin actions' },
-            { name = 'load session', action = 'lua MiniSessions.select()', section = 'Builtin actions' },
-            { name = 'quit neovim', action = 'qall', section = 'Builtin actions' },
-            { name = 'find files', action = 'lua require("telescope.builtin").find_files({preview_title = ""})', section = 'Section' },
-            { name = 'recent files', action = 'lua require("telescope.builtin").oldfiles({preview_title = ""})', section = 'Section' },
-            { name = 'browse files', action = 'lua require("mini.files").open(vim.uv.cwd(), true)', section = 'Section' },
+            {
+               name = 'edit new buffer',
+               action = 'enew',
+               section = 'Builtin actions'
+            },
+            {
+               name = 'load session',
+               action = 'lua MiniSessions.select()',
+               section = 'Builtin actions'
+            },
+            {
+               name = 'quit neovim',
+               action = 'qall',
+               section = 'Builtin actions'
+            },
+            {
+               name = 'open notes',
+               action = 'lua require("telescope.builtin").find_files({cwd = "~/Neorg/", prompt_title = "Open Notes", preview_title = ""})',
+               section = 'Section'
+            },
+            {
+               name = 'find files',
+               action = 'lua require("telescope.builtin").find_files({preview_title = ""})',
+               section = 'Section'
+            },
+            {
+               name = 'recent files',
+               action = 'lua require("telescope.builtin").oldfiles({preview_title = ""})',
+               section = 'Section'
+            },
+            {
+               name = 'browse files',
+               action = 'lua require("mini.files").open(vim.uv.cwd(), true)',
+               section = 'Section'
+            },
          },
 
          header = header_art,

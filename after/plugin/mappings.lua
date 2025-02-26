@@ -50,19 +50,6 @@ map("i", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
 map("s", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
 map("s", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
 
-
--- TMUX {{{
--- map("n", "<C-h>", ":lua require('tmux').move_left()<CR>", opts)
--- map("n", "<C-j>", ":lua require('tmux').move_bottom()<CR>", opts)
--- map("n", "<C-k>", ":lua require('tmux').move_top()<CR>", opts)
--- map("n", "<C-l>", ":lua require('tmux').move_right()<CR>", opts)
---
--- map("n", "<A-l>", ":lua require('tmux').resize_right()<CR>", opts)
--- map("n", "<A-h>", ":lua require('tmux').resize_left()<CR>", opts)
--- map("n", "<A-k>", ":lua require('tmux').resize_top()<CR>", opts)
--- map("n", "<A-j>", ":lua require('tmux').resize_bottom()<CR>", opts)
--- -- }}}
-
 -- SMART SPLITS {{{{
 vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
 vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
