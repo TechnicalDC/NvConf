@@ -76,6 +76,12 @@ return {
                name = "Progress",
                module = "blink-cmp-progress",
                opts = { insert = true }
+               opts = {
+                  insert = true,
+                  -- custom_items = {
+                  --    { label = "mfdeclre.i", kind = vim.lsp.protocol.CompletionItemKind.Keyword, insertText = "mfdeclre.i", textEdit = { newText = "{mfdeclre.i}" }},
+                  -- }
+               }
             }
          },
          default = { 'lsp', 'path', 'snippets', 'buffer' },
@@ -128,6 +134,7 @@ return {
          -- Displays a preview of the selected item on the current line
          ghost_text = {
             enabled = true,
+            enabled = false,
          },
       }
    },
