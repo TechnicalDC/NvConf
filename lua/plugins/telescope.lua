@@ -31,6 +31,7 @@ return {
    config = function ()
       local center = require("plugins.telescope.layout.center")
       local flex = require("plugins.telescope.layout.flex")
+      local vertical = require("plugins.telescope.layout.vertical")
       local bottom_pane = require("plugins.telescope.layout.bottom_pane")
 
       local toggle_preview = require("telescope.actions.layout").toggle_preview
@@ -40,15 +41,15 @@ return {
 
       require('telescope').setup{
          defaults = {
-            layout_strategy = "bottom_pane",  -- Other layouts: vertical, horizontal, center
-            layout_config = bottom_pane.layout_config,
+            layout_strategy = "center",  -- Other layouts: vertical, horizontal, center
+            layout_config = center.layout_config,
             sorting_strategy = "ascending",
             prompt_prefix = "   ",
             entry_prefix = "   ",
             multi_icon = "  ",
             selection_caret = "  ",
             border = true,
-            borderchars = bottom_pane.border,
+            borderchars = center.border,
             results_title = "",
             prompt_title = " prompt ",
             file_ignore_patterns = {

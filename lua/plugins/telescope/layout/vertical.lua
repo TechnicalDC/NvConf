@@ -1,13 +1,13 @@
 local M = {}
 M.border = {
-	prompt = {"─", "│", " ", "│", '╭', '╮', "│", "│"},
-	results = {"─", "│", "─", "│", "├", "┤", "╯", "╰"},
-	preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰'},
+   preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+   prompt = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+   results = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
 }
 M.layout_config = {
    preview_cutoff = 10,
    height = 0.6,
-   anchor = "S",
+   -- anchor = "S",
    anchor_padding = 0,
    mirror = false,
    prompt_position = "top",
