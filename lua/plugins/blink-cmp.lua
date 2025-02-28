@@ -75,7 +75,6 @@ return {
             progress = {
                name = "Progress",
                module = "blink-cmp-progress",
-               opts = { insert = true }
                opts = {
                   insert = true,
                   -- custom_items = {
