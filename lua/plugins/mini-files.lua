@@ -107,7 +107,7 @@ return {
 
             -- Customize window-local settings
             local config = vim.api.nvim_win_get_config(win_id)
-            config.border, config.title_pos = 'rounded', 'left'
+            config.border, config.title_pos = 'single', 'left'
             vim.api.nvim_win_set_config(win_id, config)
          end,
       })
