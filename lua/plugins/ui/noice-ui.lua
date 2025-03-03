@@ -198,7 +198,7 @@ require("noice").setup({
             height = "auto",
          },
          border = {
-            style = "rounded",
+            style = "single",
             text = {
                top_align = "center",
                -- bottom = "I am bottom title",
@@ -235,7 +235,7 @@ require("noice").setup({
             height = 10,
          },
          border = {
-            style = "rounded",
+            style = "single",
             padding = { 0, 1 },
          },
          win_options = {
