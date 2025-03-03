@@ -49,7 +49,7 @@ return {
             multi_icon = "  ",
             selection_caret = "  ",
             border = true,
-            borderchars = center.border,
+            borderchars = center.single,
             results_title = "",
             prompt_title = " prompt ",
             file_ignore_patterns = {
