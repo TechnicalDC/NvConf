@@ -2,7 +2,10 @@ return {
    'saghen/blink.cmp',
    dependencies = {
       'LMON4D3/LuaSnip',
-      'TechnicalDC/blink-cmp-progress'
+      'TechnicalDC/blink-cmp-progress',
+      -- {
+      --    dir = "/home/dilip/Gits/blink-cmp-progress/"
+      -- }
    },
    version = 'v0.*',
    opts = {
