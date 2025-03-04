@@ -21,3 +21,15 @@ autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+autocmd('User', {
+   pattern = 'WinNew',
+   callback = function(args)
+      local win_id = args.data.win_id
+
+      -- Customize window-local settings
+      local config = vim.api.nvim_win_get_config(win_id)
+      config.border = 'single'
+      vim.api.nvim_win_set_config(win_id, config)
+   end,
+})
