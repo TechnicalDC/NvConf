@@ -80,9 +80,9 @@ return {
                module = "blink-cmp-progress",
                opts = {
                   insert = true,
-                  -- custom_items = {
-                  --    { label = "mfdeclre.i", kind = vim.lsp.protocol.CompletionItemKind.Keyword, insertText = "mfdeclre.i", textEdit = { newText = "{mfdeclre.i}" }},
-                  -- }
+                  custom_items = {
+                     { label = "{mfdeclre.i}", kind = vim.lsp.protocol.CompletionItemKind.Keyword}
+                  }
                }
             }
          },
