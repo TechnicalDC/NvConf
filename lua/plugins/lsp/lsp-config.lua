@@ -169,7 +169,7 @@ vim.diagnostic.config({
    },
    -- virtual_text = false,
    float = {
-      border = "rounded",
+      border = "single",
       max_width = 50,
       max_height = 10,
       wrap = true,
