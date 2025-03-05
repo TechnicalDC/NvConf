@@ -7,7 +7,7 @@ require("dressing").setup({
       title_pos = "left",
       insert_only = true,
       start_in_insert = true,
-      border = "rounded",
+      border = "single",
       -- 'editor' and 'win' will default to being centered
       relative = "cursor",
       anchor = "NW",
@@ -57,19 +57,20 @@ require("dressing").setup({
       telescope = {
          previewer = false,
          layout_config = {
-            width = 0.999,
+            width = 0.4,
             height = 0.4,
          }
       },
 
       -- Used to override format_item. See :help dressing-format
-      format_item_override = {
-         codeaction = function(action_tuple)
-            local title = action_tuple[2].title:gsub("\r\n", "\\r\\n")
-            local client = vim.lsp.get_client_by_id(action_tuple[1])
-            return string.format("%s\t[%s]", title:gsub("\n", "\\n"), client.name)
-         end,
-      },
+      -- format_item_override = {
+      --    codeaction = function(action_tuple)
+      --       local title = action_tuple[2].title:gsub("\r\n", "\\r\\n")
+      --       local client = vim.lsp.get_client_by_id(action_tuple[1])
+      --       print(client)
+      --       return string.format("%s\t[%s]", title:gsub("\n", "\\n"), client.name)
+      --    end,
+      -- },
 
       -- see :help dressing_get_config
       get_config = nil,
