@@ -22,6 +22,9 @@ return {
          require("snacks").picker.buffers()
       end, desc = "Find buffers"  },
 
+      -- { "<leader>e", function ()
+      --    require("snacks").explorer.open()
+      -- end, desc = "Open file explorer"  },
       {
          "<leader>lg", function ()
             require("snacks").lazygit.open()
@@ -37,7 +40,14 @@ return {
       dashboard    = { enabled = true },
       explorer     = { enabled = true },
       indent       = { enabled = true },
-      input        = { enabled = true },
+      input        = {
+         enabled = true,
+         win = {
+            style = {
+               border = "single"
+            }
+         }
+      },
       lazygit      = {
          enabled = true,
          win = { style = "float" }
@@ -65,18 +75,16 @@ return {
       notifier     = {
          enabled = true,
          style =  {
-            notfication = {
-               border = "single",
-               zindex = 100,
-               ft = "markdown",
-               wo = {
-                  winblend = 5,
-                  wrap = false,
-                  conceallevel = 2,
-                  colorcolumn = "",
-               },
-               bo = { filetype = "snacks_notif" },
-            }
+            border = "single",
+            zindex = 100,
+            ft = "markdown",
+            wo = {
+               winblend = 5,
+               wrap = false,
+               conceallevel = 2,
+               colorcolumn = "",
+            },
+            bo = { filetype = "snacks_notif" },
          }
       },
       quickfile    = { enabled = true },
@@ -96,10 +104,11 @@ return {
                border = "single",
                title_pos = "center",
                footer_pos = "center",
-            }         }
-         },
-         scroll       = { enabled = true },
-         statuscolumn = { enabled = true },
-         words        = { enabled = true },
+            }
+         }
       },
-   }
+      scroll       = { enabled = true },
+      statuscolumn = { enabled = true },
+      words        = { enabled = true },
+   },
+}
