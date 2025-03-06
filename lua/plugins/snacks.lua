@@ -63,11 +63,27 @@ return {
             },
          }
       },
-      notifier     = { enabled = true },
+      notifier     = {
+         enabled = true,
+         style =  {
+            notfication = {
+               border = "single",
+               zindex = 100,
+               ft = "markdown",
+               wo = {
+                  winblend = 5,
+                  wrap = false,
+                  conceallevel = 2,
+                  colorcolumn = "",
+               },
+               bo = { filetype = "snacks_notif" },
+            }
+         }
+      },
       quickfile    = { enabled = true },
       scope        = { enabled = true },
       scroll       = { enabled = true },
       statuscolumn = { enabled = true },
       words        = { enabled = true },
    },
-}
+   }
