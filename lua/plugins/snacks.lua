@@ -27,7 +27,9 @@ return {
             require("snacks").lazygit.open()
          end,
          desc = "LazyGit"
-      }
+      },
+      { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
+      { "<leader>S",  function() require("snacks").scratch.select() end, desc = "Select Scratch Buffer" },
    },
    ---@type snacks.Config
    opts = {
@@ -79,8 +81,25 @@ return {
       },
       quickfile    = { enabled = true },
       scope        = { enabled = true },
-      scroll       = { enabled = true },
-      statuscolumn = { enabled = true },
-      words        = { enabled = true },
-   },
+      scratch      = {
+         enabled = true,
+         win = {
+            style = {
+               width = 100,
+               height = 20,
+               bo = { buftype = "", buflisted = false, bufhidden = "hide", swapfile = false },
+               minimal = false,
+               noautocmd = false,
+               -- position = "right",
+               zindex = 20,
+               wo = { winhighlight = "NormalFloat:Normal" },
+               border = "single",
+               title_pos = "center",
+               footer_pos = "center",
+            }         }
+         },
+         scroll       = { enabled = true },
+         statuscolumn = { enabled = true },
+         words        = { enabled = true },
+      },
    }
