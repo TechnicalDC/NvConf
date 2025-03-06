@@ -1,6 +1,7 @@
 ---@diagnostic disable: unused-local
 return {
    'nvim-telescope/telescope.nvim',
+   enabled = false,
    lazy = false,
    dependencies = {
       'nvim-lua/plenary.nvim',
