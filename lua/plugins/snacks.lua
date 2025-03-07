@@ -55,6 +55,48 @@ return {
       picker       = {
          enabled = true,
          prompt = "   ",
+         layout = {
+            preset = "default",
+            cycle = true
+         },
+         layouts = {
+            default = {
+               layout = {
+                  box = "horizontal",
+                  width = 0.8,
+                  min_width = 120,
+                  height = 0.8,
+                  {
+                     box = "vertical",
+                     border = "rounded",
+                     title = "{title} {live} {flags}",
+                     { win = "input", height = 1, border = "bottom" },
+                     { win = "list", border = "none" },
+                  },
+                  { win = "preview", title = "{preview}", border = "rounded", width = 0.5 },
+               },
+            },
+            dropdown = {
+               layout = {
+                  backdrop = false,
+                  row = 1,
+                  width = 0.4,
+                  min_width = 80,
+                  height = 0.8,
+                  border = "none",
+                  box = "vertical",
+                  { win = "preview", title = "{preview}", height = 0.4, border = "rounded" },
+                  {
+                     box = "vertical",
+                     border = "rounded",
+                     title = "{title} {live} {flags}",
+                     title_pos = "center",
+                     { win = "input", height = 1, border = "bottom" },
+                     { win = "list", border = "none" },
+                  },
+               },
+            }
+         }
       },
       notifier     = {
          enabled = true,
