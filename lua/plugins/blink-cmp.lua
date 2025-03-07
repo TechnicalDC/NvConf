@@ -3,9 +3,6 @@ return {
    dependencies = {
       'LMON4D3/LuaSnip',
       'TechnicalDC/blink-cmp-progress',
-      -- {
-      --    dir = "/home/dilip/Gits/blink-cmp-progress/"
-      -- }
    },
    version = 'v0.*',
    opts = {
@@ -96,13 +93,13 @@ return {
          enabled = true,
          window = {
             scrollbar = false,
-            border = "single",
+            border = "rounded",
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
          }
       },
       completion = {
          menu = {
-            border = "single",
+            border = "rounded",
             scrollbar = false,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
             draw = {
@@ -125,7 +122,7 @@ return {
             auto_show = true,
             window = {
                scrollbar = false,
-               border = "single",
+               border = "rounded",
                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
                direction_priority = {
                   menu_north = { 'e', 'w', 'n', 's' },
