@@ -15,12 +15,15 @@ return {
       { "<leader>fS",function ()
          require("snacks").picker.lsp_workspace_symbols()
       end, desc = "Find workspace symbols" },
-      { "<leader>fo", function ()
-         require("snacks").picker.recent()
-      end, desc = "Find recent files" },
+      -- { "<leader>fr", function ()
+      --    require("snacks").picker.recent()
+      -- end, desc = "Find recent files" },
       { "<leader>fb", function ()
          require("snacks").picker.buffers()
       end, desc = "Find buffers"  },
+      { "<leader>fi", function ()
+         require("snacks").picker.icons()
+      end, desc = "Find icons"  },
 
       { "<leader>e", function ()
          require("snacks").explorer.open()
@@ -37,6 +40,7 @@ return {
    ---@type snacks.Config
    opts = {
       bigfile      = { enabled = true },
+      bufdelete    = { enabled = true },
       dashboard    = { enabled = true },
       explorer     = { enabled = true },
       indent       = { enabled = true },
@@ -135,6 +139,8 @@ return {
       },
       scroll       = { enabled = true },
       statuscolumn = { enabled = true },
+      -- terminal     = { enabled = true },
+      -- toggle       = { enabled = true },
       words        = { enabled = true },
    },
 }
