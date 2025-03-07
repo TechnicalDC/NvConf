@@ -21,7 +21,16 @@ return {
                   }
                   require("snacks").picker.files(opts)
                end,  desc = "Open neorg notes"},
-            }
+            },
+            -- {
+            --    mode = "n",
+            --    { "<leader>h", function ()
+            --       local opts = {
+            --          cwd = "~/Handy/"
+            --       }
+            --       require("snacks").picker.files(opts)
+            --    end,  desc = "Open neorg notes"},
+            -- }
          })
 
          require("neorg").setup {
