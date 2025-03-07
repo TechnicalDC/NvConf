@@ -15,9 +15,9 @@ return {
       { "<leader>fS",function ()
          require("snacks").picker.lsp_workspace_symbols()
       end, desc = "Find workspace symbols" },
-      -- { "<leader>fr", function ()
-      --    require("snacks").picker.recent()
-      -- end, desc = "Find recent files" },
+      { "<leader>fr", function ()
+         require("snacks").picker.recent()
+      end, desc = "Find recent files" },
       { "<leader>fb", function ()
          require("snacks").picker.buffers()
       end, desc = "Find buffers"  },
