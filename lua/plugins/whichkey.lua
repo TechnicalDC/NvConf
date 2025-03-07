@@ -67,7 +67,7 @@ return {
             -- height = { min = 4, max = 25 },
             -- col = 0,
             -- row = math.huge,
-            border = "single",
+            border = "rounded",
             padding = { 2, 3 }, -- extra window padding [top/bottom, right/left]
             title = true,
             title_pos = "center",

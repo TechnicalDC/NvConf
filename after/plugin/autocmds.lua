@@ -29,7 +29,7 @@ autocmd('User', {
 
       -- Customize window-local settings
       local config = vim.api.nvim_win_get_config(win_id)
-      config.border = 'single'
+      config.border = 'rounded'
       vim.api.nvim_win_set_config(win_id, config)
    end,
 })

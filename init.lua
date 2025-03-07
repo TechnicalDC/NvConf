@@ -31,7 +31,7 @@ require('lazy').setup("plugins", {
       size = { width = 0.8, height = 0.8 },
       wrap = true, -- wrap the lines in the ui
       -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-      border = "single",
+      border = "rounded",
       -- title = " Lazy ", ---@type string only works when border is not "none"
       -- title_pos = "center", ---@type "center" | "left" | "right"
       -- Show pills on top of the Lazy window

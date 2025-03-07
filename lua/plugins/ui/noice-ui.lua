@@ -10,7 +10,7 @@ require("noice").setup({
          -- opts: any options passed to the view
          -- icon_hl_group: optional hl_group for the icon
          -- title: set to anything or empty string to hide
-         cmdline = { pattern = "^:", icon = "", lang = "vim", title = " Command " },
+         cmdline = { pattern = "^:", icon = "󰘳 ", lang = "vim", title = " Command " },
          search_down = { kind = "search", pattern = "^/", icon = "  ", lang = "regex", title = " Search Down " },
          search_up = { kind = "search", pattern = "^%?", icon = "  ", lang = "regex" , title = " Search Up " },
          filter = { pattern = "^:%s*!", icon = "  ", lang = "bash" , title = " Filter " },
@@ -198,7 +198,7 @@ require("noice").setup({
             height = "auto",
          },
          border = {
-            style = "single",
+            style = "rounded",
             text = {
                top_align = "center",
                -- bottom = "I am bottom title",
@@ -235,7 +235,7 @@ require("noice").setup({
             height = 10,
          },
          border = {
-            style = "single",
+            style = "rounded",
             padding = { 0, 1 },
          },
          win_options = {

@@ -22,9 +22,9 @@ return {
          require("snacks").picker.buffers()
       end, desc = "Find buffers"  },
 
-      -- { "<leader>e", function ()
-      --    require("snacks").explorer.open()
-      -- end, desc = "Open file explorer"  },
+      { "<leader>e", function ()
+         require("snacks").explorer.open()
+      end, desc = "Open file explorer"  },
       {
          "<leader>lg", function ()
             require("snacks").lazygit.open()
@@ -44,7 +44,7 @@ return {
          enabled = true,
          win = {
             style = {
-               border = "single"
+               border = "rounded"
             }
          }
       },
@@ -55,27 +55,11 @@ return {
       picker       = {
          enabled = true,
          prompt = "   ",
-         layout = {
-            layout = {
-               box = "horizontal",
-               width = 0.8,
-               min_width = 120,
-               height = 0.8,
-               {
-                  box = "vertical",
-                  border = "single",
-                  title = "{title} {live} {flags}",
-                  { win = "input", height = 1, border = "bottom" },
-                  { win = "list", border = "none" },
-               },
-               { win = "preview", title = "{preview}", border = "single", width = 0.5 },
-            },
-         }
       },
       notifier     = {
          enabled = true,
          style =  {
-            border = "single",
+            border = "rounded",
             zindex = 100,
             ft = "markdown",
             wo = {
@@ -101,7 +85,7 @@ return {
                -- position = "right",
                zindex = 20,
                wo = { winhighlight = "NormalFloat:Normal" },
-               border = "single",
+               border = "rounded",
                title_pos = "center",
                footer_pos = "center",
             }

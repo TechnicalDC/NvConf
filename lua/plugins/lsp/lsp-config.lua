@@ -169,7 +169,7 @@ vim.diagnostic.config({
    },
    -- virtual_text = false,
    float = {
-      border = "single",
+      border = "rounded",
       max_width = 50,
       max_height = 10,
       wrap = true,
@@ -181,7 +181,7 @@ vim.diagnostic.config({
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
    vim.lsp.handlers.hover, {
       -- Use a sharp border with `FloatBorder` highlights
-      border = "single",
+      border = "rounded",
       -- add the title in hover float window
       title = "hover"
    }
