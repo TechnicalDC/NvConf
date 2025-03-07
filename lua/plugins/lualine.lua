@@ -216,7 +216,7 @@ return {
             createExtention("minifiles",{mode},{branch}),
             createExtention("ministarter",{mode},{branch}),
             createExtention("lazygit"),
-            createExtention("TelescopePrompt",{mode},{branch}),
+            createExtention("snacks_picker_input",{mode},{branch}),
          }
       }
    end

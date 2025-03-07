@@ -15,7 +15,12 @@ return {
          wk.add({
             {
                mode = "n",
-               { "<leader>n", "<cmd>Telescope find_files cwd=" .. default_workspace .. "<cr>",  desc = "Open neorg notes"},
+               { "<leader>n", function ()
+                  local opts = {
+                     cwd = default_workspace
+                  }
+                  require("snacks").picker.files(opts)
+               end,  desc = "Open neorg notes"},
             }
          })
 
