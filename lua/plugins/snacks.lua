@@ -24,16 +24,22 @@ return {
       { "<leader>fi", function ()
          require("snacks").picker.icons()
       end, desc = "Find icons"  },
+      { "<leader>fc", function ()
+         require("snacks").picker.cliphist()
+      end, desc = "Find cliphist"  },
+      { "<leader>fz", function ()
+         require("snacks").picker.zoxide()
+      end, desc = "Find zoxide"  },
 
-      { "<leader>e", function ()
+      { "<leader>oe", function ()
          require("snacks").explorer.open()
       end, desc = "Open file explorer"  },
-      {
-         "<leader>lg", function ()
+      { "<leader>ou", function ()
+         require("snacks").picker.undo()
+      end, desc = "Open undo tree"  },
+      { "<leader>lg", function ()
             require("snacks").lazygit.open()
-         end,
-         desc = "LazyGit"
-      },
+      end, desc = "LazyGit" },
       { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
       { "<leader>S",  function() require("snacks").scratch.select() end, desc = "Select Scratch Buffer" },
    },
@@ -100,6 +106,24 @@ return {
                   },
                },
             }
+         },
+         -- TODO: Adding preset
+         sources = {
+            icons = { layout = { preset = "select" } },
+            cliphist = { layout = { preset = "select" } },
+            colorschemes = { layout = { preset = "select" } },
+            command_history = { layout = { preset = "select" } },
+            command = { layout = { preset = "select" } },
+            keymaps = { layout = { preset = "select" } },
+            notifications = { layout = { preset = "select" } },
+            pick = { layout = { preset = "select" } },
+            picker_actions = { layout = { preset = "select" } },
+            picker_format = { layout = { preset = "select" } },
+            pickers = { layout = { preset = "select" } },
+            registers = { layout = { preset = "select" } },
+            search_history = { layout = { preset = "select" } },
+            spelling = { layout = { preset = "select" } },
+            undo = { layout = { preset = "sidebar" } },
          }
       },
       notifier     = {
