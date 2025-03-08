@@ -60,7 +60,20 @@ return {
       },
       lazygit      = {
          enabled = true,
-         win = { style = "float" }
+         configure = true,
+         win = { style = "float" },
+         theme = {
+            [241]                      = { fg = "Special" },
+            activeBorderColor          = { fg = "FloatTitle", bold = true },
+            cherryPickedCommitBgColor  = { fg = "Identifier" },
+            cherryPickedCommitFgColor  = { fg = "Function" },
+            defaultFgColor             = { fg = "Normal" },
+            inactiveBorderColor        = { fg = "FloatBorder" },
+            optionsTextColor           = { fg = "Function" },
+            searchingActiveBorderColor = { fg = "MatchParen", bold = true },
+            selectedLineBgColor        = { bg = "Visual" }, -- set to `default` to have no background colour
+            unstagedChangesColor       = { fg = "DiagnosticError" },
+         },
       },
       picker       = {
          enabled = true,
