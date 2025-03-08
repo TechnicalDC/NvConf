@@ -5,7 +5,7 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 </div>
 <br>
 
-![home](https://github.com/TechnicalDC/NvConf/blob/main/images/dashboard.png)
+![home](https://github.com/TechnicalDC/NvConf/blob/main/images/snacks_dashboard.png)
 
 ## Features
 
@@ -39,18 +39,17 @@ git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 whichkey
 ![whichkey](https://github.com/TechnicalDC/NvConf/blob/main/images/whichkey.png)
 
-Trouble
-![trouble](https://github.com/TechnicalDC/NvConf/blob/main/images/trouble.png)
+Snacks Scratch
+![snacks_scratch](https://github.com/TechnicalDC/NvConf/blob/main/images/snacks_scratch.png)
 
-Yazi
-![yazi](https://github.com/TechnicalDC/NvConf/blob/main/images/yazi.png)
+Blink.Cmp
+![blink](https://github.com/TechnicalDC/NvConf/blob/main/images/blink.png)
 
-Splits
-![splits](https://github.com/TechnicalDC/NvConf/blob/main/images/splits.png)
+Snacks Explorer
+![snacks_explorer](https://github.com/TechnicalDC/NvConf/blob/main/images/snacks_explorer.png)
 
-Telescope
-![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
+Snacks Picker
+![snacks_picker](https://github.com/TechnicalDC/NvConf/blob/main/images/snacks_picker.png)
 
 LazyGit
 ![lazygit](https://github.com/TechnicalDC/NvConf/blob/main/images/lazygit.png)
-
