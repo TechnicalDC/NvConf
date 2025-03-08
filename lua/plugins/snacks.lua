@@ -3,7 +3,7 @@ local chafa_dashboard = {
    {
       section = "terminal",
       cmd = "chafa ~/.config/nvim/res/chafa.jpeg --format symbols --symbols vhalf --size 60x15 --stretch; sleep .1",
-      height = 15,
+      height = vim.o.columns >= 120 and 15 or 10,
       padding = 1,
    },
    {
@@ -17,11 +17,8 @@ local default_dashboard = {
    { section = "keys", gap = 1 },
    { section = "startup" },
 }
-if vim.fn.executable("chafa") then
-   dashboard = chafa_dashboard
-else
-   dashboard = default_dashboard
-end
+
+dashboard = vim.fn.executable("chafa") and chafa_dashboard or default_dashboard
 
 return {
    "folke/snacks.nvim",
@@ -107,7 +104,9 @@ return {
          enabled = true,
          prompt = "   ",
          layout = {
-            preset = "default",
+            preset = function()
+               return vim.o.columns >= 120 and "default" or "dropdown"
+            end,
             cycle = true
          },
          layouts = {
