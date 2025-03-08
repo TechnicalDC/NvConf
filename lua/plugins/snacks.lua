@@ -1,3 +1,28 @@
+local dashboard
+local chafa_dashboard = {
+   {
+      section = "terminal",
+      cmd = "chafa ~/.config/nvim/res/chafa.jpeg --format symbols --symbols vhalf --size 60x15 --stretch; sleep .1",
+      height = 15,
+      padding = 1,
+   },
+   {
+      pane = 2,
+      { section = "keys", gap = 1, padding = 1 },
+      { section = "startup" },
+   },
+}
+local default_dashboard = {
+   { section = "header" },
+   { section = "keys", gap = 1 },
+   { section = "startup" },
+}
+if vim.fn.executable("chafa") then
+   dashboard = chafa_dashboard
+else
+   dashboard = default_dashboard
+end
+
 return {
    "folke/snacks.nvim",
    priority = 1000,
@@ -47,7 +72,10 @@ return {
    opts = {
       bigfile      = { enabled = true },
       bufdelete    = { enabled = true },
-      dashboard    = { enabled = true },
+      dashboard    = {
+         enabled = true,
+         sections = dashboard,
+      },
       explorer     = { enabled = true },
       indent       = { enabled = true },
       input        = {
