@@ -65,13 +65,13 @@ return {
          theme = {
             [241]                      = { fg = "Special" },
             activeBorderColor          = { fg = "FloatTitle", bold = true },
-            cherryPickedCommitBgColor  = { fg = "Identifier" },
+            inactiveBorderColor        = { fg = "FloatBorder" },
+            cherryPickedCommitBgColor  = { fg = "Character" },
             cherryPickedCommitFgColor  = { fg = "Function" },
             defaultFgColor             = { fg = "Normal" },
-            inactiveBorderColor        = { fg = "FloatBorder" },
-            optionsTextColor           = { fg = "Function" },
+            optionsTextColor           = { fg = "Special" },
             searchingActiveBorderColor = { fg = "MatchParen", bold = true },
-            selectedLineBgColor        = { bg = "Visual" }, -- set to `default` to have no background colour
+            selectedLineBgColor        = { bg = "PmenuThumb" }, -- set to `default` to have no background colour
             unstagedChangesColor       = { fg = "DiagnosticError" },
          },
       },
