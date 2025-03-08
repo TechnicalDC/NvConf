@@ -9,16 +9,16 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 
 ## Features
 
-* Dashboard via [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
-* Autocompletion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+* Dashboard via [snacks.dashboard](https://github.com/folke/snacks.nvim/blob/main/docs/dashboard.md)
+* Autocompletion via [blink.cmp](https://github.com/saghen/blink.cmp)
 * Integrated with tmux via [smart-splits.nvim ](https://github.com/mrjones2014/smart-splits.nvim)
 * LSP Support using [mason.nvim](https://github.com/williamboman/mason.nvim)
 * Custom statusline via [lualine](https://github.com/nvim-lualine/lualine.nvim)
-* Fuzzy finder via [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+* Fuzzy finder via [snacks.picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md)
 * UI enhancements via [noice](https://github.com/folke/noice.nvim)
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-* Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [lazygit](https://github.com/kdheepak/lazygit.nvim)
+* Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [snacks.lazygit](https://github.com/folke/snacks.nvim/blob/main/docs/lazygit.md)
 * Notetaking with [neorg](https://github.com/nvim-neorg/neorg)
 
 ## Colorschemes
