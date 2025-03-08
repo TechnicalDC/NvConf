@@ -20,6 +20,99 @@ local default_dashboard = {
 
 dashboard = vim.fn.executable("chafa") and chafa_dashboard or default_dashboard
 
+local icons = {
+   files = {
+      enabled = true, -- show file icons
+      dir = "󰉋 ",
+      dir_open = "󰝰 ",
+      file = "󰈔 "
+   },
+   keymaps = {
+      nowait = "󰓅 "
+   },
+   tree = {
+      vertical = "│ ",
+      middle   = "├╴",
+      last     = "└╴",
+   },
+   undo = {
+      saved   = " ",
+   },
+   ui = {
+      live        = "󰐰 ",
+      hidden      = " ",
+      ignored     = "i",
+      follow      = "f",
+      selected    = " 󰱒 ",
+      unselected  = " 󰄱 ",
+      -- selected = " ",
+   },
+   git = {
+      enabled   = true, -- show git icons
+      commit    = "󰜘 ", -- used by git log
+      staged    = "●", -- staged changes. always overrides the type icons
+      added     = "",
+      deleted   = "",
+      ignored   = " ",
+      modified  = "○",
+      renamed   = "",
+      unmerged  = " ",
+      untracked = "?",
+   },
+   diagnostics = {
+      Error = " ",
+      Warn  = " ",
+      Hint  = " ",
+      Info  = " ",
+   },
+   lsp = {
+      unavailable = "",
+      enabled = " ",
+      disabled = " ",
+      attached = "󰖩 "
+   },
+   kinds = {
+      Array         = " ",
+      Boolean       = "󰨙 ",
+      Class         = " ",
+      Color         = " ",
+      Control       = " ",
+      Collapsed     = " ",
+      Constant      = "󰏿 ",
+      Constructor   = " ",
+      Copilot       = " ",
+      Enum          = " ",
+      EnumMember    = " ",
+      Event         = " ",
+      Field         = " ",
+      File          = " ",
+      Folder        = " ",
+      Function      = "󰊕 ",
+      Interface     = " ",
+      Key           = " ",
+      Keyword       = " ",
+      Method        = "󰊕 ",
+      Module        = " ",
+      Namespace     = "󰦮 ",
+      Null          = " ",
+      Number        = "󰎠 ",
+      Object        = " ",
+      Operator      = " ",
+      Package       = " ",
+      Property      = " ",
+      Reference     = " ",
+      Snippet       = "󱄽 ",
+      String        = " ",
+      Struct        = "󰆼 ",
+      Text          = " ",
+      TypeParameter = " ",
+      Unit          = " ",
+      Unknown        = " ",
+      Value         = " ",
+      Variable      = "󰀫 ",
+   },
+}
+
 return {
    "folke/snacks.nvim",
    priority = 1000,
@@ -103,6 +196,7 @@ return {
       picker       = {
          enabled = true,
          prompt = "   ",
+         icons = icons,
          layout = {
             preset = function()
                return vim.o.columns >= 120 and "default" or "dropdown"
