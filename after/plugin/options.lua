@@ -70,6 +70,7 @@ set.helpheight   = 15
 vim.filetype.add({
    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
    extension = {
+      rasi = "css",
       tex = "tex",
       md = "markdown",
       i = "progress",
