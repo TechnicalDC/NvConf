@@ -18,7 +18,7 @@ local default_dashboard = {
    { section = "startup" },
 }
 
-dashboard = vim.fn.executable("chafa") and chafa_dashboard or default_dashboard
+dashboard = vim.fn.executable("chafa") == 1 and chafa_dashboard or default_dashboard
 
 local icons = {
    files = {
