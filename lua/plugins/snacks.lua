@@ -262,17 +262,21 @@ return {
       },
       notifier     = {
          enabled = true,
-         style =  {
-            border = "rounded",
-            zindex = 100,
-            ft = "markdown",
-            wo = {
-               winblend = 5,
-               wrap = false,
-               conceallevel = 2,
-               colorcolumn = "",
-            },
-            bo = { filetype = "snacks_notif" },
+         style = "compact",
+         styles =  {
+            notification = {
+               border = "rounded",
+               zindex = 100,
+               title_pos = "left",
+               ft = "markdown",
+               wo = {
+                  winblend = 5,
+                  wrap = false,
+                  conceallevel = 2,
+                  colorcolumn = "",
+               },
+               bo = { filetype = "snacks_notif" },
+            }
          }
       },
       quickfile    = { enabled = true },
@@ -297,8 +301,7 @@ return {
       },
       scroll       = { enabled = true },
       statuscolumn = { enabled = true },
-      -- terminal     = { enabled = true },
-      -- toggle       = { enabled = true },
+      terminal     = { enabled = true },
       words        = { enabled = true },
    },
 }
