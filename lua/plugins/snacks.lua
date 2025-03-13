@@ -310,6 +310,7 @@ return {
       scroll       = { enabled = true },
       statuscolumn = { enabled = true },
       terminal     = { enabled = true },
+      win          = { enabled = true },
       words        = { enabled = true },
    },
 }
