@@ -310,7 +310,20 @@ return {
       scroll       = { enabled = true },
       statuscolumn = { enabled = true },
       terminal     = { enabled = true },
-      win          = { enabled = true },
+      win          = {
+         enabled = true,
+         show = true,
+         fixbuf = true,
+         relative = "editor",
+         position = "float",
+         wo = {
+            winhighlight = "Normal:SnacksNormal,NormalNC:SnacksNormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
+         },
+         bo = {},
+         keys = {
+            q = "close",
+         },
+      },
       words        = { enabled = true },
    },
 }
