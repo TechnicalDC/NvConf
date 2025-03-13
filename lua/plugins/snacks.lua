@@ -45,7 +45,6 @@ local icons = {
       follow      = "f",
       selected    = " 󰱒 ",
       unselected  = " 󰄱 ",
-      -- selected = " ",
    },
    git = {
       enabled   = true, -- show git icons
@@ -168,7 +167,15 @@ return {
       },
       explorer     = { enabled = true },
       image        = { enabled = true },
-      indent       = { enabled = true },
+      indent       = {
+         enabled = true,
+         -- char = "",
+         char = "│",
+         filter = function(buf)
+            return vim.bo[buf].filetype == "lua" or vim.bo[buf].filetype == "progress"
+            -- return vim.g.snacks_indent ~= false and vim.b[buf].snacks_indent ~= false and vim.bo[buf].buftype == ""
+         end,
+      },
       input        = {
          enabled = true,
          win = {
