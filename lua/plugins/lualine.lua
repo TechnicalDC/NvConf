@@ -212,7 +212,7 @@ return {
             'trouble',
             'lazy',
             'quickfix',
-            createExtention("help"),
+            createExtention("help",{mode},{filetype}),
             createExtention("minifiles",{mode},{branch}),
             createExtention("ministarter",{mode},{branch}),
             createExtention("lazygit"),

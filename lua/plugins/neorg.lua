@@ -15,22 +15,22 @@ return {
          wk.add({
             {
                mode = "n",
-               { "<leader>n", function ()
+               { "<leader>on", function ()
                   local opts = {
                      cwd = default_workspace
                   }
                   require("snacks").picker.files(opts)
                end,  desc = "Open neorg notes"},
             },
-            -- {
-            --    mode = "n",
-            --    { "<leader>h", function ()
-            --       local opts = {
-            --          cwd = "~/Handy/"
-            --       }
-            --       require("snacks").picker.files(opts)
-            --    end,  desc = "Open neorg notes"},
-            -- }
+            {
+               mode = "n",
+               { "<leader>oh", function ()
+                  local opts = {
+                     cwd = "~/Handy/"
+                  }
+                  require("snacks").picker.files(opts)
+               end,  desc = "Open neorg notes"},
+            }
          })
 
          require("neorg").setup {
