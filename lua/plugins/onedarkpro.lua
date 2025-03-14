@@ -12,7 +12,7 @@ return {
             PmenuSel                = { fg   = "${dark_grey}", bg = colors.blue },
             PmenuThumb              = { bg   = colors.cyan },
             CursorLine              = { bg   = colors.none },
-            CursorLineNr            = { bg   = colors.none },
+            CursorLineNr            = { fg   = colors.cyan,  bg   = colors.cysn },
             CursorLineFold          = { bg   = colors.none },
             CursorLineSign          = { bg   = colors.none },
             FloatTitle              = { fg   = colors.red },
