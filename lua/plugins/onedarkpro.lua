@@ -30,7 +30,7 @@ return {
             MiniFilesTitle          = { fg   = colors.red },
             MiniFilesTitleFocused   = { fg   = colors.red },
             MiniFilesDirectory      = { fg   = colors.blue },
-            MiniIndentscopeSymbol   = { fg   = colors.blue },
+            SnacksIndent            = { fg   = colors.line_number },
 
             TelescopeBorder         = { fg   = colors.cyan },
             TelescopePromptTitle    = { fg   = colors.red },
