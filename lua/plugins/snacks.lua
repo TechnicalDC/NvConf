@@ -133,7 +133,8 @@ return {
          require("snacks").picker.recent()
       end, desc = "Find recent files" },
       { "<leader>fb", function ()
-         require("snacks").picker.buffers()
+         local opts = { focus = "list" }
+         require("snacks").picker.buffers(opts)
       end, desc = "Find buffers"  },
       { "<leader>fi", function ()
          require("snacks").picker.icons()
@@ -146,16 +147,21 @@ return {
       end, desc = "Find zoxide"  },
 
       { "<leader>oe", function ()
-         require("snacks").explorer.open()
+         local opts = { focus = "list" }
+         require("snacks").explorer.open(opts)
       end, desc = "Open file explorer"  },
       { "<leader>ou", function ()
-         require("snacks").picker.undo()
+         local opts = { focus = "list" }
+         require("snacks").picker.undo(opts)
       end, desc = "Open undo tree"  },
       { "<leader>lg", function ()
             require("snacks").lazygit.open()
       end, desc = "LazyGit" },
       { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
-      { "<leader>S",  function() require("snacks").scratch.select() end, desc = "Select Scratch Buffer" },
+      { "<leader>S", function()
+         local opts = { focus = "list" }
+         require("snacks").scratch.select(opts)
+      end, desc = "Select Scratch Buffer" },
    },
    ---@type snacks.Config
    opts = {
