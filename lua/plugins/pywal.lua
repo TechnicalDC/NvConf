@@ -1,3 +1,3 @@
 return {
-   'AlphaTechnolog/pywal.nvim'
+   'parz3val/pywal-complete.nvim'
 }
