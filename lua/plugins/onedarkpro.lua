@@ -1,5 +1,5 @@
 return {
-   "olimorris/onedarkpro.nvim",
+   "TechnicalDC/onedarkpro.nvim",
    priority = 1000,
    config = function ()
       local helpers = require("onedarkpro.helpers")
@@ -31,6 +31,7 @@ return {
             MiniFilesTitleFocused   = { fg   = colors.red },
             MiniFilesDirectory      = { fg   = colors.blue },
             SnacksIndent            = { fg   = colors.line_number },
+            SnacksPickerFile        = { fg   = colors.blue },
 
             TelescopeBorder         = { fg   = colors.cyan },
             TelescopePromptTitle    = { fg   = colors.red },
