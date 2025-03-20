@@ -134,6 +134,9 @@ end
 local block = function ()
    return '█'
 end
+local space = function ()
+   return ' '
+end
 
 local createExtention = function(filetype_name,b,x)
    local b_section = b or {}
@@ -198,7 +201,7 @@ return {
             },
             lualine_y = {},
             lualine_z = {
-               { block, padding = 0 }
+               { space, padding = 0 }
             }
          },
          inactive_sections = {
