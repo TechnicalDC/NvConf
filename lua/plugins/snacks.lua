@@ -2,7 +2,7 @@ local dashboard
 local chafa_dashboard = {
    {
       section = "terminal",
-      cmd = "chafa ~/.config/nvim/res/chafa.jpeg --format symbols --symbols vhalf --size 60x15 --stretch; sleep .1",
+      cmd = "chafa ~/.config/nvim/res/coffee.jpg --format symbols --symbols vhalf --size 60x15 --stretch; sleep .1",
       height = vim.o.columns >= 120 and 15 or 10,
       padding = 1,
    },
@@ -133,7 +133,7 @@ return {
          require("snacks").picker.recent()
       end, desc = "Find recent files" },
       { "<leader>fb", function ()
-         local opts = { focus = "list" }
+         local opts = { focus = "input" }
          require("snacks").picker.buffers(opts)
       end, desc = "Find buffers"  },
       { "<leader>fi", function ()
@@ -147,11 +147,11 @@ return {
       end, desc = "Find zoxide"  },
 
       { "<leader>oe", function ()
-         local opts = { focus = "list" }
+         local opts = { focus = "input" }
          require("snacks").explorer.open(opts)
       end, desc = "Open file explorer"  },
       { "<leader>ou", function ()
-         local opts = { focus = "list" }
+         local opts = { focus = "input" }
          require("snacks").picker.undo(opts)
       end, desc = "Open undo tree"  },
       { "<leader>lg", function ()
@@ -159,7 +159,7 @@ return {
       end, desc = "LazyGit" },
       { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
       { "<leader>S", function()
-         local opts = { focus = "list" }
+         local opts = { focus = "input" }
          require("snacks").scratch.select(opts)
       end, desc = "Select Scratch Buffer" },
    },
