@@ -4,7 +4,8 @@ return {
    lazy = false,
    priority = 1000,
    config = function ()
-      -- values shown are defaults and will be used if not provided
+      local colors = require("gruvbox-material.colors").get(vim.o.background, "medium")
+
       require('gruvbox-material').setup({
          italics = true,             -- enable italics in general
          contrast = "medium",        -- set contrast, can be any of "hard", "medium", "soft"
@@ -12,17 +13,25 @@ return {
             italics = true,           -- enable italic comments
          },
          background = {
-            transparent = false,      -- set the background to transparent
+            transparent = true,      -- set the background to transparent
          },
          float = {
             force_background = true, -- force background on floats even when background.transparent is set
-            background_color = nil,   -- set color for float backgrounds. If nil, uses the default color set
+            background_color = colors.bg0,
             -- by the color scheme
          },
          signs = {
             highlight = true,         -- whether to highlight signs
          },
-         customize = nil,            -- customize the theme in any way you desire, see below what this
+         customize = function (hl, opts)
+            if hl == "FloatBorder" then
+               print(vim.inspect(opts))
+               opts.link = nil
+               opts.fg = colors.aqua
+            end
+
+            return opts
+         end,            -- customize the theme in any way you desire, see below what this
          -- configuration accepts
       })
    end

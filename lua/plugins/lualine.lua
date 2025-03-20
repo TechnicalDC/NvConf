@@ -1,3 +1,4 @@
+local theme = require("gruvbox-material.lualine").theme("medium")
 local default_icon = '█ '
 local mode_map = {
    -- ['NORMAL']     = '󰘳 ',
@@ -158,7 +159,8 @@ return {
       require('lualine').setup {
          options = {
             icons_enabled = true,
-            theme = "my-onedark-pro",
+            theme = theme,
+            -- theme = "my-onedark-pro",
             component_separators = { left = '', right = ''},
             section_separators = { left = '', right = ''},
             -- section_separators = { left = '', right = ''},
@@ -173,11 +175,10 @@ return {
          },
          sections = {
             lualine_a = {
-               { block, padding = 0 }
-            },
-            lualine_b = {
                mode
+               -- { block, padding = 0 }
             },
+            lualine_b = { },
             lualine_c = {
                diff,
                diagnostics
