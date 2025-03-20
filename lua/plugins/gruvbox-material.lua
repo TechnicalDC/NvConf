@@ -21,13 +21,18 @@ return {
             -- by the color scheme
          },
          signs = {
-            highlight = true,         -- whether to highlight signs
+            highlight = false,         -- whether to highlight signs
          },
          customize = function (hl, opts)
             if hl == "FloatBorder" then
-               print(vim.inspect(opts))
                opts.link = nil
+               print(vim.inspect(opts))
                opts.fg = colors.aqua
+            end
+
+            if hl == "FloatTitle" then
+               opts.link = nil
+               opts.bg = colors.red
             end
 
             return opts

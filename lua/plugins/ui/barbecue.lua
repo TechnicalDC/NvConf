@@ -1,7 +1,7 @@
 require("barbecue").setup({
    theme = "auto",
-   attach_navic = true,
-   show_navic = true,
+   attach_navic = false,
+   show_navic = false,
    create_autocmd = true,
    show_dirname = true,
    show_basename = true,
