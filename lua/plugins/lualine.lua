@@ -144,12 +144,12 @@ local createExtention = function(filetype_name,b,x)
    return {
       sections = {
          lualine_a = {
-            { block, padding = 0 }
+            { space, padding = 0 }
          },
          lualine_b = b_section,
          lualine_x = x_section,
          lualine_z = {
-            { block, padding = 0 }
+            { space, padding = 0 }
          }
       },
       filetypes = {filetype_name}
@@ -159,6 +159,11 @@ end
 return {
    'nvim-lualine/lualine.nvim',
    config = function ()
+      -- NOTE: You can customize the lualine theme
+      local g_colors = require("gruvbox-material.colors")
+      local colors = g_colors.get(vim.o.background, "medium")
+      theme.normal["c"] = { bg = colors.bg_statusline1 }
+
       require('lualine').setup {
          options = {
             icons_enabled = true,
