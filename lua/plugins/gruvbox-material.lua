@@ -23,20 +23,7 @@ return {
          signs = {
             highlight = false,         -- whether to highlight signs
          },
-         customize = function (hl, opts)
-            if hl == "FloatBorder" then
-               opts.link = nil
-               print(vim.inspect(opts))
-               opts.fg = colors.aqua
-            end
-
-            if hl == "FloatTitle" then
-               opts.link = nil
-               opts.bg = colors.red
-            end
-
-            return opts
-         end,            -- customize the theme in any way you desire, see below what this
+         customize = nil,            -- customize the theme in any way you desire, see below what this
          -- configuration accepts
       })
    end
