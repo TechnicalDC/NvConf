@@ -163,6 +163,10 @@ return {
       local g_colors = require("gruvbox-material.colors")
       local colors = g_colors.get(vim.o.background, "medium")
       theme.normal["c"] = { bg = colors.bg_statusline1 }
+      theme.insert["c"] = { bg = colors.bg_statusline1 }
+      theme.command["c"] = { bg = colors.bg_statusline1 }
+      theme.visual["c"] = { bg = colors.bg_statusline1 }
+      theme.replace["c"] = { bg = colors.bg_statusline1 }
 
       require('lualine').setup {
          options = {
