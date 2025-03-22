@@ -175,8 +175,9 @@ return {
             -- theme = "my-onedark-pro",
             component_separators = { left = '', right = ''},
             section_separators = { left = '', right = ''},
-            -- section_separators = { left = '', right = ''},
-            disabled_filetypes = { },
+            disabled_filetypes = {
+               "snacks_dashboard"
+            },
             always_divide_middle = true,
             globalstatus = true,
             refresh = {                  -- sets how often lualine should refresh it's contents (in ms)
