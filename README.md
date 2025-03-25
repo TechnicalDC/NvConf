@@ -23,7 +23,8 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 
 ## Colorschemes
 
-* onedark-pro
+* Onedark Pro
+* Gruvbox Material
 
 ## Installation
 ```bash

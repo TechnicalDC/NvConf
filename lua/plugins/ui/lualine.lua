@@ -223,7 +223,7 @@ require('lualine').setup({
       createExtention("help",{mode},{filetype}),
       createExtention("minifiles",{mode},{branch}),
       createExtention("ministarter",{mode},{branch}),
-      createExtention("lazygit"),
+      createExtention("snacks_terminal",{filetype}),
       createExtention("snacks_picker_input",{mode},{branch}),
    }
 })
