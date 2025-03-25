@@ -1,4 +1,6 @@
 local theme = require("gruvbox-material.lualine").theme("medium")
+local g_colors = require("gruvbox-material.colors")
+local colors = g_colors.get(vim.o.background, "medium")
 local default_icon = '█ '
 local mode_map = {
    -- ['NORMAL']     = '󰘳 ',
@@ -154,82 +156,74 @@ local createExtention = function(filetype_name,l,r)
    }
 end
 
-return {
-   'nvim-lualine/lualine.nvim',
-   config = function ()
-      -- NOTE: You can customize the lualine theme
-      local g_colors = require("gruvbox-material.colors")
-      local colors = g_colors.get(vim.o.background, "medium")
-      theme.normal["c"] = { bg = colors.bg_statusline1 }
-      theme.insert["c"] = { bg = colors.bg_statusline1 }
-      theme.command["c"] = { bg = colors.bg_statusline1 }
-      theme.visual["c"] = { bg = colors.bg_statusline1 }
-      theme.replace["c"] = { bg = colors.bg_statusline1 }
+theme.normal["c"] = { bg = colors.bg_statusline1 }
+theme.insert["c"] = { bg = colors.bg_statusline1 }
+theme.command["c"] = { bg = colors.bg_statusline1 }
+theme.visual["c"] = { bg = colors.bg_statusline1 }
+theme.replace["c"] = { bg = colors.bg_statusline1 }
 
-      require('lualine').setup {
-         options = {
-            icons_enabled = true,
-            theme = theme,
-            -- theme = "my-onedark-pro",
-            component_separators = { left = '', right = ''},
-            section_separators = { left = '', right = ''},
-            disabled_filetypes = {
-               "snacks_dashboard"
-            },
-            always_divide_middle = true,
-            globalstatus = true,
-            refresh = {                  -- sets how often lualine should refresh it's contents (in ms)
-               statusline = 1000,         -- The refresh option sets minimum time that lualine tries
-               tabline = 1000,            -- to maintain between refresh. It's not guarantied if situation
-               winbar = 1000              -- arises that lualine needs to refresh itself before this time
-            }
-         },
-         sections = {
-            lualine_a = {
-               mode
-               -- { block, padding = 0 }
-            },
-            lualine_b = { },
-            lualine_c = {
-               diff,
-               diagnostics
-            },
-            lualine_x = {
-               {
-                  require("noice").api.status.mode.get,
-                  cond = require("noice").api.status.mode.has,
-                  color = {link = "lualine_b_diff_added_insert"},
-               },
-               'selectioncount',
-               buf_count,
-               colored_filetype,
-               branch,
-               clients_lsp,
-               'progress',
-            },
-            lualine_y = {},
-            lualine_z = {
-               { space, padding = 0 }
-            }
-         },
-         inactive_sections = {
-            lualine_a = {},
-            lualine_b = {},
-            lualine_c = {filename},
-            lualine_x = {'location'},
-            lualine_y = {},
-            lualine_z = {}
-         },
-         extensions = {
-            'trouble',
-            'lazy',
-            'quickfix',
-            createExtention("help",{mode},{filetype}),
-            createExtention("minifiles",{mode},{branch}),
-            createExtention("ministarter",{mode},{branch}),
-            createExtention("lazygit"),
-            createExtention("snacks_picker_input",{mode},{branch}),
-         }
+require('lualine').setup({
+   options = {
+      icons_enabled = true,
+      theme = theme,
+      -- theme = "my-onedark-pro",
+      component_separators = { left = '', right = ''},
+      section_separators = { left = '', right = ''},
+      disabled_filetypes = {
+         "snacks_dashboard"
+      },
+      always_divide_middle = true,
+      globalstatus = true,
+      refresh = {                  -- sets how often lualine should refresh it's contents (in ms)
+         statusline = 1000,         -- The refresh option sets minimum time that lualine tries
+         tabline = 1000,            -- to maintain between refresh. It's not guarantied if situation
+         winbar = 1000              -- arises that lualine needs to refresh itself before this time
       }
-   end
-}
+   },
+   sections = {
+      lualine_a = {
+         mode
+         -- { block, padding = 0 }
+      },
+      lualine_b = { },
+      lualine_c = {
+         diff,
+         diagnostics
+      },
+      lualine_x = {
+         {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = {link = "lualine_b_diff_added_insert"},
+         },
+         'selectioncount',
+         buf_count,
+         colored_filetype,
+         branch,
+         clients_lsp,
+         'progress',
+      },
+      lualine_y = {},
+      lualine_z = {
+         { space, padding = 0 }
+      }
+   },
+   inactive_sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {filename},
+      lualine_x = {'location'},
+      lualine_y = {},
+      lualine_z = {}
+   },
+   extensions = {
+      'trouble',
+      'lazy',
+      'quickfix',
+      createExtention("help",{mode},{filetype}),
+      createExtention("minifiles",{mode},{branch}),
+      createExtention("ministarter",{mode},{branch}),
+      createExtention("lazygit"),
+      createExtention("snacks_picker_input",{mode},{branch}),
+   }
+})
