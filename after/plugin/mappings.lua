@@ -36,6 +36,15 @@ wk.add({
       mode = "v",
       { "<", "<gv", desc = "Indent inwards"},
       { ">", ">gv", desc = "Indent outwards"},
+      {"<leader>d", "\"_d", desc = "Delete Ultra Pro Max"},
+   },
+   {
+      mode = "i",
+      { "<C-c>", "<Esc>", desc = "Escape the matrix" }
+   },
+   {
+      mode = "x",
+      {"<leader>p", [["_dP]], desc = "Paste Ultra Pro Max"}
    }
 })
 

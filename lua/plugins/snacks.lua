@@ -157,6 +157,7 @@ return {
       { "<leader>lg", function ()
             require("snacks").lazygit.open()
       end, desc = "LazyGit" },
+      { "<leader>bd",  function() require("snacks").bufdelete.delete() end, desc = "Delete current buffer" },
       { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
       { "<leader>S", function()
          local opts = { focus = "input" }
