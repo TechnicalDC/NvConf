@@ -27,7 +27,8 @@ wk.add({
       { "<leader>cn", "<cmd>cnext<cr>",  desc = "Go to next item in quickfix list"},
       { "<leader>cp", "<cmd>cprev<cr>",  desc = "Go to previous item in quickfix list"},
 
-      { "<A-=>", "<C-w>=", desc = "Equal the split size" },
+      { "<A-=>",      "<C-w>=",            desc = "Equal the split size" },
+      { "<A-m>",      "<C-w>|",            desc = "Maximize the split width" },
       { "<leader>dt", "<cmd>diffthis<CR>", desc = "Toggle diff for current buffer" },
       { "<leader>th", "<C-w>t<C-w>K",      desc = "Turn vertical splits to horizontal" },
       { "<leader>tv", "<C-w>t<C-w>H",      desc = "Turn horizontal splits to vertical" },
