@@ -16,7 +16,14 @@ require('incline').setup {
       local modified = vim.bo[props.buf].modified
       return {
          ft_icon and { ' ', ft_icon, ' ', guibg = colors.green, guifg = colors.bg0 } or '',
-         { ' ', filename, ' ', gui = modified and 'bold,italic' or 'bold', guibg = colors.bg1 },
+         {
+            ' ',
+            filename,
+            ' ',
+            gui = modified and 'bold,italic' or 'bold',
+            guibg = modified and colors.yellow or colors.bg1,
+            guifg = modified and colors.bg0 or colors.fg0
+         },
       }
    end,
 }
