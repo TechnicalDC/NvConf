@@ -138,16 +138,14 @@ local space = function ()
    return ' '
 end
 
-local createExtention = function(filetype_name,b,x)
-   local b_section = b or {}
-   local x_section = x or {}
+local createExtention = function(filetype_name,l,r)
+   local left_section = l or {}
+   local right_section = r or {}
    return {
       sections = {
-         lualine_a = {
-            { space, padding = 0 }
-         },
-         lualine_b = b_section,
-         lualine_x = x_section,
+         lualine_a = left_section,
+         lualine_b = {},
+         lualine_x = right_section,
          lualine_z = {
             { space, padding = 0 }
          }
