@@ -32,8 +32,7 @@ local icons = {
    },
    tree = {
       vertical = "│ ",
-      middle   = "│ ",
-      -- middle   = "├╴",
+      middle   = "├╴",
       last     = "╰╴",
       -- last     = "└╴",
    },

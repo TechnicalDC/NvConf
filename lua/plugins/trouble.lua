@@ -48,8 +48,7 @@ return {
          kinds = kind_icons,
          indent = {
             top           = "│ ",
-            middle        = "│ ",
-            -- middle        = "├╴",
+            middle        = "├╴",
             last     = "╰╴",
             -- last     = "└╴",
             fold_open     = " ",
