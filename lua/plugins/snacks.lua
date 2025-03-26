@@ -283,22 +283,15 @@ return {
       },
       notifier     = {
          enabled = true,
-         style = "compact",
-         styles =  {
-            notification = {
-               border = "rounded",
-               zindex = 100,
-               title_pos = "left",
-               ft = "markdown",
-               wo = {
-                  winblend = 5,
-                  wrap = false,
-                  conceallevel = 2,
-                  colorcolumn = "",
-               },
-               bo = { filetype = "snacks_notif" },
-            }
-         }
+         style = "compact"
+         -- style = function(buf, notif, ctx)
+         --    local title = vim.trim(notif.icon .. " " .. (notif.title or ""))
+         --    if title ~= "" then
+         --       ctx.opts.title = { { " " .. title .. " ", ctx.hl.title } }
+         --       ctx.opts.title_pos = "center"
+         --    end
+         --    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(notif.msg, "\n"))
+         -- end,
       },
       quickfile    = { enabled = true },
       scope        = { enabled = true },
