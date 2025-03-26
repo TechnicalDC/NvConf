@@ -32,8 +32,10 @@ local icons = {
    },
    tree = {
       vertical = "│ ",
-      middle   = "├╴",
-      last     = "└╴",
+      middle   = "│ ",
+      -- middle   = "├╴",
+      last     = "╰╴",
+      -- last     = "└╴",
    },
    undo = {
       saved   = " ",
@@ -53,7 +55,7 @@ local icons = {
       added     = "",
       deleted   = "",
       ignored   = " ",
-      modified  = "○",
+      modified  = "",
       renamed   = "",
       unmerged  = " ",
       untracked = "?",

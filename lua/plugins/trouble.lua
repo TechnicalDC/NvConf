@@ -30,6 +30,7 @@ local kind_icons = {
 return {
    "folke/trouble.nvim",
    dependencies = { "kyazdani42/nvim-web-devicons" },
+   cmd = "Trouble",
    keys = {
       {
          "<leader>td",
@@ -47,8 +48,10 @@ return {
          kinds = kind_icons,
          indent = {
             top           = "│ ",
-            middle        = "├╴",
-            last          = "└╴",
+            middle        = "│ ",
+            -- middle        = "├╴",
+            last     = "╰╴",
+            -- last     = "└╴",
             fold_open     = " ",
             fold_closed   = " ",
             ws            = "  ",
