@@ -147,8 +147,7 @@ return {
       end, desc = "Find zoxide"  },
 
       { "<leader>oe", function ()
-         local opts = { focus = "input" }
-         require("snacks").explorer.open(opts)
+         require("snacks").explorer.open()
       end, desc = "Open file explorer"  },
       { "<leader>ou", function ()
          local opts = { focus = "input" }
