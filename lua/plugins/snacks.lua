@@ -158,6 +158,7 @@ return {
             require("snacks").lazygit.open()
       end, desc = "LazyGit" },
       { "<leader>bd",  function() require("snacks").bufdelete.delete() end, desc = "Delete current buffer" },
+      { "<leader>tt",  function() require("snacks").terminal.toggle() end, desc = "Toggle terminal" },
       { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
       { "<leader>S", function()
          local opts = { focus = "input" }
@@ -201,7 +202,9 @@ return {
       lazygit      = {
          enabled = true,
          configure = true,
-         win = { style = "float" },
+         win = {
+            style = "float",
+         },
          theme = {
             [241]                      = { fg = "Special" },
             activeBorderColor          = { fg = "FloatTitle", bold = true },
@@ -327,6 +330,7 @@ return {
          enabled = true,
          show = true,
          fixbuf = true,
+         title_pos = "center",
          relative = "editor",
          position = "float",
          wo = {
