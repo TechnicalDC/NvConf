@@ -316,7 +316,13 @@ return {
       },
       scroll       = { enabled = true },
       statuscolumn = { enabled = true },
-      terminal     = { enabled = true },
+      terminal     = {
+         enabled = true,
+         win = {
+            style = "terminal",
+            border = "rounded"
+         }
+      },
       win          = {
          enabled = true,
          show = true,
