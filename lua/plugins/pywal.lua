@@ -1,3 +1,4 @@
 return {
-   'parz3val/pywal-complete.nvim'
+   'parz3val/pywal-complete.nvim',
+   enabled = false,
 }
