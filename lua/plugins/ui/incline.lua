@@ -15,6 +15,11 @@ require('incline').setup {
       local ft_icon, ft_color = devicons.get_icon_color(filename)
       local modified = vim.bo[props.buf].modified
       local modified_icon = ""
+
+      if ft_icon == nil then
+         ft_icon = ""
+      end
+
       return {
          ft_icon and {
             ' ',

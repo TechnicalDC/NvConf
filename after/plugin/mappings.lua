@@ -3,6 +3,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 -- local extra_opts = { noremap = true, silent = true, expr = true }
 
+local ls = require("luasnip")
 local ok, wk = pcall(require, 'which-key')
 if not ok then
    return nil
@@ -41,7 +42,18 @@ wk.add({
    },
    {
       mode = "i",
-      { "<C-c>", "<Esc>", desc = "Escape the matrix" }
+      { "<C-c>", "<Esc>", desc = "Escape the matrix" },
+      { "<C-j>", function() ls.jump(1) end, desc = "Jump to next node" },
+      { "<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
+      { "<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
+      { "<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
+   },
+   {
+      mode = "s",
+      { "<C-j>", function() ls.jump(1) end, desc = "Jump to next node" },
+      { "<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
+      { "<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
+      { "<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
    },
    {
       mode = "x",
@@ -49,32 +61,21 @@ wk.add({
    }
 })
 
--- luasnip mapping
-map("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-map("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-map("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-map("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-
-map("i", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
-map("i", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
-map("s", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
-map("s", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
-
 -- SMART SPLITS {{{{
-vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
-vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
-vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
-vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
+map('n', '<A-h>', require('smart-splits').resize_left)
+map('n', '<A-j>', require('smart-splits').resize_down)
+map('n', '<A-k>', require('smart-splits').resize_up)
+map('n', '<A-l>', require('smart-splits').resize_right)
 -- moving between splits
-vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
-vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
-vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
-vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+map('n', '<C-h>', require('smart-splits').move_cursor_left)
+map('n', '<C-j>', require('smart-splits').move_cursor_down)
+map('n', '<C-k>', require('smart-splits').move_cursor_up)
+map('n', '<C-l>', require('smart-splits').move_cursor_right)
 -- swapping buffers between windows
--- vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
--- vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
--- vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
--- vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
+-- map('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
+-- map('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
+-- map('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
+-- map('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
 -- }}}}
 
 -- Moving text

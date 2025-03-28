@@ -20,7 +20,7 @@ return {
          ext_opts = {
             [types.choiceNode] = {
                active = {
-                  virt_text = { { "● ", "GruvboxOrange" } },
+                  virt_text = { { "󰍡 Choice Node ", "OrangeSign" } },
                },
             },
          },
