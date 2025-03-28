@@ -43,32 +43,23 @@ wk.add({
    {
       mode = "i",
       { "<C-c>", "<Esc>", desc = "Escape the matrix" },
-      -- {
-      --    "<C-j>", function()
-      --       print("Jump to next node")
-      --       ls.jump(1)
-      --    end, desc = "Jump to next node" },
-      -- {"<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
-      -- {"<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
-      -- {"<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
+      { "<C-j>", function() ls.jump(1) end, desc = "Jump to next node" },
+      { "<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
+      { "<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
+      { "<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
+   },
+   {
+      mode = "s",
+      { "<C-j>", function() ls.jump(1) end, desc = "Jump to next node" },
+      { "<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
+      { "<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
+      { "<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
    },
    {
       mode = "x",
       {"<leader>p", [["_dP]], desc = "Paste Ultra Pro Max"}
    }
 })
-
--- luasnip mapping
--- map("i", "<C-j>", function() ls.jump(1)           end, opts)
--- map("i", "<C-k>", function() ls.jump(-1)          end, opts)
-map("s", "<C-j>", function()
-            print("Jump to next node")
-   ls.jump(1)           end, opts)
-map("s", "<C-k>", function() ls.jump(-1)          end, opts)
--- map("i", "<C-n>", function() ls.change_choice(1)  end, opts)
--- map("i", "<C-p>", function() ls.change_choice(-1) end, opts)
-map("s", "<C-n>", function() ls.change_choice(1)  end, opts)
-map("s", "<C-p>", function() ls.change_choice(-1) end, opts)
 
 -- SMART SPLITS {{{{
 map('n', '<A-h>', require('smart-splits').resize_left)
@@ -81,10 +72,10 @@ map('n', '<C-j>', require('smart-splits').move_cursor_down)
 map('n', '<C-k>', require('smart-splits').move_cursor_up)
 map('n', '<C-l>', require('smart-splits').move_cursor_right)
 -- swapping buffers between windows
--- vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
--- vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
--- vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
--- vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
+-- map('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
+-- map('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
+-- map('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
+-- map('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
 -- }}}}
 
 -- Moving text
