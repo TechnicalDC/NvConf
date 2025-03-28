@@ -43,6 +43,7 @@ local find = function(arg)
 end
 -- }}}
 
+-- IMPORT SNIPPET {{{
 local import_var = function(args, _)
    local text = args[1][1] or ""
    local split = vim.split(text, ".", { plain = true })
@@ -66,5 +67,50 @@ local import = fmta(
    })
 local import_snippet = s("imp", import)
 table.insert(autosnippets, import_snippet)
+-- }}}
+
+-- CONFIRMATION DIALOG {{{
+local confirm_fmt = fmta(
+   [[
+   private showConfirmationDialog() {
+
+      var title = "<dialog_title>";
+      var messageText = "<message>";
+
+      // Disable form fields after edit cancel
+      var closeClickFunction = () =>> {
+         <closeClickFunction>
+      }
+
+      var confirmClickFunction = () =>> {
+         <confirmClickFunction>
+      }
+
+
+      // Prompt for edit confirmation
+      this.launchQModalDialogV2({
+         messageType: qModalDialogType.Question,
+         title: title,
+         messageText: messageText,
+         confirmButtonText: "mfg-YES", // defaults to mfg-OK
+         closeButtonText: "mfg-NO", // defaults to mfg-CANCEL
+         showConfirmButton: true,
+         showCloseButton: true,
+         confirmClickFunction: confirmClickFunction,
+         closeClickFunction: closeClickFunction
+      });
+
+   }
+   ]],
+   {
+      dialog_title         = i(1,"Dialog Title"),
+      message              = i(2,"Are you sure ?"),
+      closeClickFunction   = i(3,"//do action on close ( cancel )"),
+      confirmClickFunction = i(4,"//do action on confirm"),
+   }
+)
+local confirm_snippet = s("Showing a confirmation dialog", confirm_fmt)
+table.insert(snippets, confirm_snippet)
+-- }}}
 
 return snippets,autosnippets

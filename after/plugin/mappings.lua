@@ -3,6 +3,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 -- local extra_opts = { noremap = true, silent = true, expr = true }
 
+local ls = require("luasnip")
 local ok, wk = pcall(require, 'which-key')
 if not ok then
    return nil
@@ -41,7 +42,11 @@ wk.add({
    },
    {
       mode = "i",
-      { "<C-c>", "<Esc>", desc = "Escape the matrix" }
+      { "<C-c>", "<Esc>", desc = "Escape the matrix" },
+      {"<C-j>", function() ls.jump(1) end, desc = "Jump to next node"},
+      {"<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
+      {"<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
+      {"<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
    },
    {
       mode = "x",
@@ -50,15 +55,14 @@ wk.add({
 })
 
 -- luasnip mapping
-map("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-map("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-map("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
-map("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
-
-map("i", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
-map("i", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
-map("s", "<c-n>", "<cmd>lua require'luasnip'.change_choice(1)<cr>", opts)
-map("s", "<c-p>", "<cmd>lua require'luasnip'.change_choice(-1)<cr>", opts)
+-- map("i", "<C-j>", function() ls.jump(1)           end, opts)
+-- map("i", "<C-k>", function() ls.jump(-1)          end, opts)
+map("s", "<C-j>", function() ls.jump(1)           end, opts)
+map("s", "<C-k>", function() ls.jump(-1)          end, opts)
+-- map("i", "<C-n>", function() ls.change_choice(1)  end, opts)
+-- map("i", "<C-p>", function() ls.change_choice(-1) end, opts)
+map("s", "<C-n>", function() ls.change_choice(1)  end, opts)
+map("s", "<C-p>", function() ls.change_choice(-1) end, opts)
 
 -- SMART SPLITS {{{{
 vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)

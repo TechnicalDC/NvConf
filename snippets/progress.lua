@@ -45,6 +45,11 @@ local access_type = {
    "private",
    "protected"
 }
+local input_types = {
+   "input",
+   "output",
+   "input-output",
+}
 
 -- Returns table containing insert node with provided options
 local get_options = function(arg)
@@ -70,33 +75,6 @@ local find = function(arg)
 	end
 	return found
 end
--- }}}
-
--- PATCH SNIPPET {{{
-local patch_fmt = fmta(
-	[[
-	/* Last modified on: <new_date> Last modified by: Dilip Chauhan ECO: <marker> */
-	]],
-	{
-		new_date = f(function(_,snip) return {os.date('%d-%m-%y')} end, {}),
-		marker = i(1, "<++>")
-	}
-)
-local patch_snippet = s("patch", patch_fmt)
-table.insert(autosnippets, patch_snippet)
--- }}}
-
--- PATCH MARKER SNIPPET {{{
-local patch_mark_fmt = fmta(
-	[[
-	/* ALT<marker> */
-	]],
-	{
-		marker = f(function(_,snip) return {os.date('%d%m%Y')} end, {}),
-	}
-)
-local patch_mark_snippet = s("ALT", patch_mark_fmt)
-table.insert(autosnippets, patch_mark_snippet)
 -- }}}
 
 -- DEFINITION SNIPPET {{{
@@ -309,4 +287,5 @@ local test_snippet = s(
 )
 table.insert(autosnippets, test_snippet)
 -- }}}
+
 return snippets, autosnippets
