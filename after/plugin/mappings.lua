@@ -43,10 +43,14 @@ wk.add({
    {
       mode = "i",
       { "<C-c>", "<Esc>", desc = "Escape the matrix" },
-      {"<C-j>", function() ls.jump(1) end, desc = "Jump to next node"},
-      {"<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
-      {"<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
-      {"<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
+      -- {
+      --    "<C-j>", function()
+      --       print("Jump to next node")
+      --       ls.jump(1)
+      --    end, desc = "Jump to next node" },
+      -- {"<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
+      -- {"<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
+      -- {"<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
    },
    {
       mode = "x",
@@ -57,7 +61,9 @@ wk.add({
 -- luasnip mapping
 -- map("i", "<C-j>", function() ls.jump(1)           end, opts)
 -- map("i", "<C-k>", function() ls.jump(-1)          end, opts)
-map("s", "<C-j>", function() ls.jump(1)           end, opts)
+map("s", "<C-j>", function()
+            print("Jump to next node")
+   ls.jump(1)           end, opts)
 map("s", "<C-k>", function() ls.jump(-1)          end, opts)
 -- map("i", "<C-n>", function() ls.change_choice(1)  end, opts)
 -- map("i", "<C-p>", function() ls.change_choice(-1) end, opts)
@@ -65,15 +71,15 @@ map("s", "<C-n>", function() ls.change_choice(1)  end, opts)
 map("s", "<C-p>", function() ls.change_choice(-1) end, opts)
 
 -- SMART SPLITS {{{{
-vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
-vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
-vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
-vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
+map('n', '<A-h>', require('smart-splits').resize_left)
+map('n', '<A-j>', require('smart-splits').resize_down)
+map('n', '<A-k>', require('smart-splits').resize_up)
+map('n', '<A-l>', require('smart-splits').resize_right)
 -- moving between splits
-vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
-vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
-vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
-vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+map('n', '<C-h>', require('smart-splits').move_cursor_left)
+map('n', '<C-j>', require('smart-splits').move_cursor_down)
+map('n', '<C-k>', require('smart-splits').move_cursor_up)
+map('n', '<C-l>', require('smart-splits').move_cursor_right)
 -- swapping buffers between windows
 -- vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
 -- vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
