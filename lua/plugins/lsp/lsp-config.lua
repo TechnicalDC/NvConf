@@ -57,14 +57,14 @@ nvim_lsp.rust_analyzer.setup {
 --    }
 -- }
 
-nvim_lsp.openedge_ls.setup {
-   on_attach = on_attach,
-   capabilities = capabilities,
-   oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
-   -- dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
-   debug = true, -- Set to true for debug logging
-   trace = false -- Set to true for trace logging (REALLY verbose)
-}
+-- nvim_lsp.openedge_ls.setup {
+--    on_attach = on_attach,
+--    capabilities = capabilities,
+--    oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
+--    -- dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
+--    debug = true, -- Set to true for debug logging
+--    trace = false -- Set to true for trace logging (REALLY verbose)
+-- }
 
 nvim_lsp.tsserver.setup({
    on_attach = on_attach,
