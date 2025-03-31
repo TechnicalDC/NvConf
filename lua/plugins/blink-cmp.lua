@@ -86,7 +86,7 @@ return {
          default = { 'lsp', 'path', 'snippets', 'buffer' },
          per_filetype = {
             progress = { 'snippets', 'buffer', 'progress' },
-            markdown = { 'snippets', 'dictionary', 'buffer', 'path' },
+            markdown = { 'snippets', 'buffer', 'path' },
             norg     = { 'dictionary', 'buffer', 'path' },
          },
       },
