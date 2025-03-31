@@ -10,7 +10,6 @@ local on_attach = function(client, bufnr)
    if ok then
       wk.add({
          mode = "n",
-         -- {"<leader>e",  vim.diagnostic.open_float,           desc = "Open floating window"},
          {"<leader>ca", vim.lsp.buf.code_action,             desc = "Open code Actions" },
          {"<leader>rn", vim.lsp.buf.rename,                  desc = "Rename" },
          {"<leader>D",  vim.lsp.buf.type_definition,         desc = "Go to type definition"},
@@ -43,28 +42,6 @@ nvim_lsp.rust_analyzer.setup {
    on_attach = on_attach,
    capabilities = capabilities,
 }
-
--- nvim_lsp.pyright.setup {
---    on_attach = on_attach,
---    settings = {
---       python = {
---          analysis = {
---             autoSearchPaths = true,
---             diagnosticMode = "workspace",
---             useLibraryCodeForTypes = true
---          }
---       }
---    }
--- }
-
--- nvim_lsp.openedge_ls.setup {
---    on_attach = on_attach,
---    capabilities = capabilities,
---    oe_jar_path = '/home/dilip/.local/share/nvim/mason/packages/openedge-language-server/abl-lsp.jar',
---    -- dlc = '12.2:C:\\Progress\\OpenEdge\\bin', -- Version number and OpenEdge root directory (colon separator)
---    debug = true, -- Set to true for debug logging
---    trace = false -- Set to true for trace logging (REALLY verbose)
--- }
 
 nvim_lsp.tsserver.setup({
    on_attach = on_attach,
