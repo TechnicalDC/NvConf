@@ -8,19 +8,7 @@ return {
       'kyazdani42/nvim-web-devicons',
    },
    config = function ()
-      -- MASON {{{
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-         ensure_installed = {
-            "lua_ls",
-            -- "pyright",
-            "ts_ls",
-            -- "jdtls",
-         }
-      })
-      -- }}}
-
-      -- require("plugins.lsp.none-ls")
+      require("plugins.lsp.mason")
       require("plugins.lsp.lsp-config")
    end
 }
