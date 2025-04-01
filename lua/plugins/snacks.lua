@@ -187,7 +187,9 @@ return {
             -- char = "│",
          },
          filter = function(buf)
-            return vim.bo[buf].filetype == "lua" or vim.bo[buf].filetype == "progress"
+            return vim.bo[buf].filetype == "lua"
+                or vim.bo[buf].filetype == "progress"
+                or vim.bo[buf].filetype == "rust"
             -- return vim.g.snacks_indent ~= false and vim.b[buf].snacks_indent ~= false and vim.bo[buf].buftype == ""
          end,
       },
