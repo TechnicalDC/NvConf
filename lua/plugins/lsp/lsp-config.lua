@@ -147,7 +147,9 @@ end
 vim.diagnostic.config({
    virtual_text = {
       prefix = '',
+      -- current_line = true,
    },
+   -- virtual_lines = true,
    -- virtual_text = false,
    float = {
       border = "rounded",
