@@ -124,6 +124,9 @@ return {
       { "<leader>fh", function ()
          require("snacks").picker.help()
       end, desc = "Find help files" },
+      { "<leader>fk", function ()
+         require("snacks").picker.keymaps()
+      end, desc = "Find keymaps" },
       { "<leader>fs", function ()
          require("snacks").picker.lsp_symbols()
       end,  desc = "Find symbols"  },
