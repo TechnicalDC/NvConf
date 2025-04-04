@@ -147,10 +147,19 @@ end
 vim.diagnostic.config({
    virtual_text = {
       prefix = '',
+      format = function(diagnostic)
+         if diagnostic.severity == vim.diagnostic.severity.ERROR then
+            return string.format("ERROR: %s", diagnostic.message)
+         end
+         return diagnostic.message
+      end
       -- current_line = true,
    },
-   -- virtual_lines = true,
+   -- virtual_lines = {
+   --    current_line =  false,
+   -- },
    -- virtual_text = false,
+   -- float = false,
    float = {
       border = "rounded",
       max_width = 50,
