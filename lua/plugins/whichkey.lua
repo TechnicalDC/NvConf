@@ -63,7 +63,7 @@ return {
          win = {
             -- don't allow the popup to overlap with the cursor
             no_overlap = false,
-            width = 0.999,
+            -- width = 0.999,
             -- height = { min = 4, max = 25 },
             -- col = 0,
             -- row = math.huge,
@@ -159,7 +159,7 @@ return {
                   ScrollWheelUp = "󱕑 ",
                   NL = "󰌑 ",
                   BS = "󰁮",
-                  Space = "󱁐 ",
+                  Space = "󱁐",
                   Tab = "󰌒 ",
                   F1 = "󱊫",
                   F2 = "󱊬",
