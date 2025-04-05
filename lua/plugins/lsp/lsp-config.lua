@@ -145,6 +145,8 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({
+   underline = true,
+   severity_sort = true,
    virtual_text = {
       prefix = '',
       format = function(diagnostic)
@@ -161,6 +163,9 @@ vim.diagnostic.config({
    -- virtual_text = false,
    -- float = false,
    float = {
+      scope = "cursor",
+      severity_sort = true,
+      -- header = "diagnostics",
       border = "rounded",
       max_width = 50,
       max_height = 10,
