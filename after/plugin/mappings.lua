@@ -21,37 +21,37 @@ wk.add({
       {"<Esc>",      ":lua vim.o.hlsearch = false<CR>", desc = "Disable incremental search highlighting"},
 
       -- Quickfix
-      { "<leader>co", "<cmd>copen<cr>",  desc = "Open quickfix list"},
-      { "<leader>cc", "<cmd>cclose<cr>", desc = "Close quickfix list"},
-      { "<leader>cf", "<cmd>cfirst<cr>", desc = "Go to first item in quickfix list"},
-      { "<leader>cl", "<cmd>clast<cr>",  desc = "Go to last item in quickfix list"},
-      { "<leader>cn", "<cmd>cnext<cr>",  desc = "Go to next item in quickfix list"},
-      { "<leader>cp", "<cmd>cprev<cr>",  desc = "Go to previous item in quickfix list"},
+      { "<leader>qo", "<cmd>copen<cr>",  desc = "Open quickfix list"},
+      { "<leader>qc", "<cmd>cclose<cr>", desc = "Close quickfix list"},
+      { "<leader>qf", "<cmd>cfirst<cr>", desc = "Go to first item in quickfix list"},
+      { "<leader>ql", "<cmd>clast<cr>",  desc = "Go to last item in quickfix list"},
+      { "<leader>qn", "<cmd>cnext<cr>",  desc = "Go to next item in quickfix list"},
+      { "<leader>qp", "<cmd>cprev<cr>",  desc = "Go to previous item in quickfix list"},
 
-      { "<A-=>",      "<C-w>=",            desc = "Equal the split size" },
+      { "<A-=>",      "<C-w>=",            desc = "Reset the split size" },
       { "<A-m>",      "<C-w>|",            desc = "Maximize the split width" },
       { "<leader>dt", "<cmd>diffthis<CR>", desc = "Toggle diff for current buffer" },
-      { "<leader>th", "<C-w>t<C-w>K",      desc = "Turn vertical splits to horizontal" },
-      { "<leader>tv", "<C-w>t<C-w>H",      desc = "Turn horizontal splits to vertical" },
+      { "<leader>th", "<C-w>t<C-w>K",      desc = "Toggle vertical splits to horizontal" },
+      { "<leader>tv", "<C-w>t<C-w>H",      desc = "Toggle horizontal splits to vertical" },
    },
    {
       mode = "v",
-      { "<", "<gv", desc = "Indent inwards"},
-      { ">", ">gv", desc = "Indent outwards"},
-      {"<leader>d", "\"_d", desc = "Delete Ultra Pro Max"},
+      { "<",        "<gv",  desc = "Indent inwards"},
+      { ">",        ">gv",  desc = "Indent outwards"},
+      {"<leader>d", "\"_d", desc = "Delete ultra pro max"},
    },
    {
       mode = "i",
-      { "<C-c>", "<Esc>", desc = "Escape the matrix" },
-      { "<C-j>", function() ls.jump(1) end, desc = "Jump to next node" },
-      { "<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
+      { "<C-c>", "<Esc>",                             desc = "Escape the matrix" },
+      { "<C-j>", function() ls.jump(1) end,           desc = "Jump to next node" },
+      { "<C-k>", function() ls.jump(-1) end,          desc = "Jump to previous node"},
       { "<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
       { "<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
    },
    {
       mode = "s",
-      { "<C-j>", function() ls.jump(1) end, desc = "Jump to next node" },
-      { "<C-k>", function() ls.jump(-1) end, desc = "Jump to previous node"},
+      { "<C-j>", function() ls.jump(1) end,           desc = "Jump to next node" },
+      { "<C-k>", function() ls.jump(-1) end,          desc = "Jump to previous node"},
       { "<C-n>", function() ls.change_choice(1)  end, desc = "Select next choice" },
       { "<C-p>", function() ls.change_choice(-1) end, desc = "Select previous choice" },
    },
@@ -62,15 +62,15 @@ wk.add({
 })
 
 -- SMART SPLITS {{{{
-map('n', '<A-h>', require('smart-splits').resize_left)
-map('n', '<A-j>', require('smart-splits').resize_down)
-map('n', '<A-k>', require('smart-splits').resize_up)
-map('n', '<A-l>', require('smart-splits').resize_right)
+map('n', '<A-h>', require('smart-splits').resize_left,  { desc = "Adjust size to left" })
+map('n', '<A-j>', require('smart-splits').resize_down,  { desc = "Adjust size to left" })
+map('n', '<A-k>', require('smart-splits').resize_up,    { desc = "Adjust size to left" })
+map('n', '<A-l>', require('smart-splits').resize_right, { desc = "Adjust size to left" })
 -- moving between splits
-map('n', '<C-h>', require('smart-splits').move_cursor_left)
-map('n', '<C-j>', require('smart-splits').move_cursor_down)
-map('n', '<C-k>', require('smart-splits').move_cursor_up)
-map('n', '<C-l>', require('smart-splits').move_cursor_right)
+map('n', '<C-h>', require('smart-splits').move_cursor_left,  { desc = "Switch to left split" })
+map('n', '<C-j>', require('smart-splits').move_cursor_down,  { desc = "Switch to below split" })
+map('n', '<C-k>', require('smart-splits').move_cursor_up,    { desc = "Switch to above split" })
+map('n', '<C-l>', require('smart-splits').move_cursor_right, { desc = "Switch to right split" })
 -- swapping buffers between windows
 -- map('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
 -- map('n', '<leader><leader>j', require('smart-splits').swap_buf_down)

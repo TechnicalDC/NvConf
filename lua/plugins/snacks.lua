@@ -157,7 +157,7 @@ return {
          local opts = { focus = "input" }
          require("snacks").picker.undo(opts)
       end, desc = "Open undo tree"  },
-      { "<leader>lg", function ()
+      { "<leader>ol", function ()
             require("snacks").lazygit.open()
       end, desc = "LazyGit" },
       { "<leader>bd",  function() require("snacks").bufdelete.delete() end, desc = "Delete current buffer" },

@@ -10,7 +10,7 @@ return {
 
       local conf = {
          ---@type false | "classic" | "modern" | "helix"
-         preset = "modern",
+         preset = "helix",
          -- Delay before showing the popup. Can be a number or a function that returns a number.
          ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
          delay = function(ctx)
@@ -24,7 +24,23 @@ return {
          end,
          --- You can add any mappings here, or use `require('which-key').add()` later
          ---@type wk.Spec
-         spec = {},
+         spec = {
+            mode = { 'n', 'x' },
+            { '<leader>',  group = 'Leader' },
+            { '<leader>q', group = 'Quickfix' },
+            { '<leader>t', group = 'Toggle' },
+            { '<leader>b', group = 'Buffer' },
+            { '<leader>f', group = 'Find' },
+            { '<leader>g', group = 'Goto' },
+            { '<leader>w', group = 'Workspace' },
+            { '<leader>o', group = 'Open' },
+            { '<leader>d', group = 'Diff' },
+            { 'g',         group = 'Goto' },
+            { 's',         group = 'Surround' },
+            { 'z',         group = 'Fold' },
+            { '[',         group = 'Prev' },
+            { ']',         group = 'Next' },
+         },
          -- show a warning when issues were detected with your mappings
          notify = true,
          -- Which-key automatically sets up triggers for your mappings.
@@ -64,9 +80,7 @@ return {
             -- don't allow the popup to overlap with the cursor
             no_overlap = false,
             -- width = 0.999,
-            -- height = { min = 4, max = 25 },
-            -- col = 0,
-            -- row = math.huge,
+            height = { min = 4, max = 25 },
             border = "rounded",
             padding = { 2, 3 }, -- extra window padding [top/bottom, right/left]
             title = true,
@@ -98,92 +112,92 @@ return {
          --- * case: lower-case first
          sort = { "local", "order", "group", "alphanum", "mod" },
          ---@type number|fun(node: wk.Node):boolean?
-         expand = 0, -- expand groups when <= n mappings
-         -- expand = function(node)
-            --   return not node.desc -- expand all nodes without a description
-            -- end,
-            -- Functions/Lua Patterns for formatting the labels
-            ---@type table<string, ({[1]:string, [2]:string}|fun(str:string):string)[]>
-            replace = {
-               key = {
-                  function(key)
-                     return require("which-key.view").format(key)
-                  end,
-                  -- { "<Space>", "SPC" },
-               },
-               desc = {
-                  { "<Plug>%(?(.*)%)?", "%1" },
-                  { "^%+", "" },
-                  { "<[cC]md>", "" },
-                  { "<[cC][rR]>", "" },
-                  { "<[sS]ilent>", "" },
-                  { "^lua%s+", "" },
-                  { "^call%s+", "" },
-                  { "^:%s*", "" },
-               },
+         -- expand = 0, -- expand groups when <= n mappings
+         expand = function(node)
+            -- return not node -- expand all nodes without a description
+         end,
+         -- Functions/Lua Patterns for formatting the labels
+         ---@type table<string, ({[1]:string, [2]:string}|fun(str:string):string)[]>
+         replace = {
+            key = {
+               function(key)
+                  return require("which-key.view").format(key)
+               end,
+               -- { "<Space>", "SPC" },
             },
-            icons = {
-               breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-               separator = " ➜ ", -- symbol used between a key and it's label
-               group = "+", -- symbol prepended to a group
-               ellipsis = "…",
-               -- set to false to disable all mapping icons,
-               -- both those explicitely added in a mapping
-               -- and those from rules
-               mappings = false,
-               --- See `lua/which-key/icons.lua` for more details
-               --- Set to `false` to disable keymap icons from rules
-               ---@type wk.IconRule[]|false
-               rules = {
-                  { pattern = "folder" , icon = " ", color = "blue" },
-                  { pattern = "doc" , icon = " ", color = "blue" },
-                  { pattern = "next" , icon = " ", color = "green" },
-                  { pattern = "prev" , icon = " ", color = "green" },
-               },
-               -- use the highlights from mini.icons
-               -- When `false`, it will use `WhichKeyIcon` instead
-               colors = true,
-               -- used by key format
-               keys = {
-                  Up = " ",
-                  Down = " ",
-                  Left = " ",
-                  Right = " ",
-                  C = "󰘴 ",
-                  M = "󰘵 ",
-                  D = "󰘳 ",
-                  S = "󰘶 ",
-                  CR = "󰌑 ",
-                  Esc = "󱊷 ",
-                  ScrollWheelDown = "󱕐 ",
-                  ScrollWheelUp = "󱕑 ",
-                  NL = "󰌑 ",
-                  BS = "󰁮",
-                  Space = "󱁐",
-                  Tab = "󰌒 ",
-                  F1 = "󱊫",
-                  F2 = "󱊬",
-                  F3 = "󱊭",
-                  F4 = "󱊮",
-                  F5 = "󱊯",
-                  F6 = "󱊰",
-                  F7 = "󱊱",
-                  F8 = "󱊲",
-                  F9 = "󱊳",
-                  F10 = "󱊴",
-                  F11 = "󱊵",
-                  F12 = "󱊶",
-               },
+            desc = {
+               { "<Plug>%(?(.*)%)?", "%1" },
+               { "^%+", "" },
+               { "<[cC]md>", "" },
+               { "<[cC][rR]>", "" },
+               { "<[sS]ilent>", "" },
+               { "^lua%s+", "" },
+               { "^call%s+", "" },
+               { "^:%s*", "" },
             },
-            show_help = true, -- show a help message in the command line for using WhichKey
-            show_keys = true, -- show the currently pressed key and its label as a message in the command line
-            -- disable WhichKey for certain buf types and file types.
-            disable = {
-               ft = {},
-               bt = {},
+         },
+         icons = {
+            breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+            separator = " ➜ ", -- symbol used between a key and it's label
+            group = "+", -- symbol prepended to a group
+            ellipsis = "…",
+            -- set to false to disable all mapping icons,
+            -- both those explicitely added in a mapping
+            -- and those from rules
+            mappings = false,
+            --- See `lua/which-key/icons.lua` for more details
+            --- Set to `false` to disable keymap icons from rules
+            ---@type wk.IconRule[]|false
+            rules = {
+               { pattern = "folder" , icon = " ", color = "blue" },
+               { pattern = "doc" , icon = " ", color = "blue" },
+               { pattern = "next" , icon = " ", color = "green" },
+               { pattern = "prev" , icon = " ", color = "green" },
             },
-            debug = false, -- enable wk.log in the current directory
-         }
-         require("which-key").setup(conf)
-      end,
-   }
+            -- use the highlights from mini.icons
+            -- When `false`, it will use `WhichKeyIcon` instead
+            colors = true,
+            -- used by key format
+            keys = {
+               Up = " ",
+               Down = " ",
+               Left = " ",
+               Right = " ",
+               C = "󰘴 ",
+               M = "󰘵 ",
+               D = "󰘳 ",
+               S = "󰘶 ",
+               CR = "󰌑 ",
+               Esc = "󱊷 ",
+               ScrollWheelDown = "󱕐 ",
+               ScrollWheelUp = "󱕑 ",
+               NL = "󰌑 ",
+               BS = "󰁮",
+               Space = "󱁐",
+               Tab = "󰌒 ",
+               F1 = "󱊫",
+               F2 = "󱊬",
+               F3 = "󱊭",
+               F4 = "󱊮",
+               F5 = "󱊯",
+               F6 = "󱊰",
+               F7 = "󱊱",
+               F8 = "󱊲",
+               F9 = "󱊳",
+               F10 = "󱊴",
+               F11 = "󱊵",
+               F12 = "󱊶",
+            },
+         },
+         show_help = true, -- show a help message in the command line for using WhichKey
+         show_keys = true, -- show the currently pressed key and its label as a message in the command line
+         -- disable WhichKey for certain buf types and file types.
+         disable = {
+            ft = {},
+            bt = {},
+         },
+         debug = false, -- enable wk.log in the current directory
+      }
+      require("which-key").setup(conf)
+   end,
+}
