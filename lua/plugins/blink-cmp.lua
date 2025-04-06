@@ -87,7 +87,7 @@ return {
          per_filetype = {
             progress = { 'snippets', 'buffer', 'progress' },
             markdown = { 'snippets', 'buffer', 'path' },
-            norg     = { 'dictionary', 'buffer', 'path' },
+            norg     = { 'buffer', 'path' },
          },
       },
       signature = {
