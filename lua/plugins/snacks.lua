@@ -137,7 +137,7 @@ return {
          require("snacks").picker.recent()
       end, desc = "Find recent files" },
       { "<leader>fb", function ()
-         local opts = { focus = "input" }
+         local opts = { on_show = function() vim.cmd.stopinsert() end }
          require("snacks").picker.buffers(opts)
       end, desc = "Find buffers"  },
       { "<leader>fi", function ()
@@ -154,7 +154,7 @@ return {
          require("snacks").explorer.open()
       end, desc = "Open file explorer"  },
       { "<leader>ou", function ()
-         local opts = { focus = "input" }
+         local opts = { on_show = function() vim.cmd.stopinsert() end }
          require("snacks").picker.undo(opts)
       end, desc = "Open undo tree"  },
       { "<leader>ol", function ()
@@ -164,7 +164,7 @@ return {
       { "<leader>tt",  function() require("snacks").terminal.toggle() end, desc = "Toggle terminal" },
       { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
       { "<leader>S", function()
-         local opts = { focus = "input" }
+         local opts = { on_show = function() vim.cmd.stopinsert() end }
          require("snacks").scratch.select(opts)
       end, desc = "Select Scratch Buffer" },
    },
@@ -176,7 +176,10 @@ return {
          enabled = true,
          sections = dashboard,
       },
-      explorer     = { enabled = true },
+      explorer     = {
+         enabled = true,
+         replace_netrw = true,
+      },
       image        = { enabled = true },
       indent       = {
          enabled = true,
@@ -193,7 +196,6 @@ return {
             return vim.bo[buf].filetype == "lua"
                 or vim.bo[buf].filetype == "progress"
                 or vim.bo[buf].filetype == "rust"
-            -- return vim.g.snacks_indent ~= false and vim.b[buf].snacks_indent ~= false and vim.bo[buf].buftype == ""
          end,
       },
       input        = {
@@ -269,6 +271,27 @@ return {
                      { win = "list", border = "none" },
                   },
                },
+            },
+            sidebar = {
+               preview = "main",
+               layout = {
+                  backdrop = false,
+                  width = 40,
+                  min_width = 40,
+                  height = 0,
+                  position = "left",
+                  border = "none",
+                  box = "vertical",
+                  {
+                     win = "input",
+                     height = 1,
+                     border = "rounded",
+                     title = "{title} {live} {flags}",
+                     title_pos = "center",
+                  },
+                  { win = "list", border = "none" },
+                  { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+               },
             }
          },
          -- TODO: Adding preset
@@ -294,58 +317,58 @@ return {
          enabled = true,
          style = "compact"
          -- style = function(buf, notif, ctx)
-         --    local title = vim.trim(notif.icon .. " " .. (notif.title or ""))
-         --    if title ~= "" then
-         --       ctx.opts.title = { { " " .. title .. " ", ctx.hl.title } }
-         --       ctx.opts.title_pos = "center"
-         --    end
-         --    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(notif.msg, "\n"))
-         -- end,
-      },
-      quickfile    = { enabled = true },
-      scope        = { enabled = true },
-      scratch      = {
-         enabled = true,
-         win = {
-            style = {
-               width = 100,
-               height = 20,
-               bo = { buftype = "", buflisted = false, bufhidden = "hide", swapfile = false },
-               minimal = false,
-               noautocmd = false,
-               -- position = "right",
-               zindex = 20,
-               wo = { winhighlight = "NormalFloat:Normal" },
-               border = "rounded",
-               title_pos = "center",
-               footer_pos = "center",
+            --    local title = vim.trim(notif.icon .. " " .. (notif.title or ""))
+            --    if title ~= "" then
+            --       ctx.opts.title = { { " " .. title .. " ", ctx.hl.title } }
+            --       ctx.opts.title_pos = "center"
+            --    end
+            --    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(notif.msg, "\n"))
+            -- end,
+         },
+         quickfile    = { enabled = true },
+         scope        = { enabled = true },
+         scratch      = {
+            enabled = true,
+            win = {
+               style = {
+                  width = 100,
+                  height = 20,
+                  bo = { buftype = "", buflisted = false, bufhidden = "hide", swapfile = false },
+                  minimal = false,
+                  noautocmd = false,
+                  -- position = "right",
+                  zindex = 20,
+                  wo = { winhighlight = "NormalFloat:Normal" },
+                  border = "rounded",
+                  title_pos = "center",
+                  footer_pos = "center",
+               }
             }
-         }
-      },
-      scroll       = { enabled = true },
-      statuscolumn = { enabled = true },
-      terminal     = {
-         enabled = true,
-         win = {
-            style = "terminal",
-            border = "rounded"
-         }
-      },
-      win          = {
-         enabled = true,
-         show = true,
-         fixbuf = true,
-         title_pos = "center",
-         relative = "editor",
-         position = "float",
-         wo = {
-            winhighlight = "Normal:SnacksNormal,NormalNC:SnacksNormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
          },
-         bo = {},
-         keys = {
-            q = "close",
+         scroll       = { enabled = true },
+         statuscolumn = { enabled = true },
+         terminal     = {
+            enabled = true,
+            win = {
+               style = "terminal",
+               border = "rounded"
+            }
          },
+         win          = {
+            enabled = true,
+            show = true,
+            fixbuf = true,
+            title_pos = "center",
+            relative = "editor",
+            position = "float",
+            wo = {
+               winhighlight = "Normal:SnacksNormal,NormalNC:SnacksNormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
+            },
+            bo = {},
+            keys = {
+               q = "close",
+            },
+         },
+         words        = { enabled = true },
       },
-      words        = { enabled = true },
-   },
-}
+   }
