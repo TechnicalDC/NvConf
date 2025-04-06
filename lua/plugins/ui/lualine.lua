@@ -133,9 +133,14 @@ local buf_count = function ()
    return " " .. tostring(current) .. "/" .. tostring(bufcnt)
 end
 
+local terminal = function ()
+   return "<C-\\><C-n>"
+end
+
 local block = function ()
    return '█'
 end
+
 local space = function ()
    return ' '
 end
@@ -223,7 +228,7 @@ require('lualine').setup({
       createExtention("help",{mode},{filetype}),
       createExtention("minifiles",{mode},{branch}),
       createExtention("ministarter",{mode},{branch}),
-      createExtention("snacks_terminal",{filetype}),
+      createExtention("snacks_terminal",{filetype},{terminal}),
       createExtention("snacks_picker_input",{mode},{branch}),
    }
 })
