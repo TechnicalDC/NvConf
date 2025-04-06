@@ -98,7 +98,6 @@ return {
             },
          },
          layout = {
-            width = { min = 20 }, -- min and max width of the columns
             spacing = 5, -- spacing between columns
          },
          keys = {
@@ -117,10 +116,10 @@ return {
          --- * case: lower-case first
          sort = { "local", "order", "group", "alphanum", "mod" },
          ---@type number|fun(node: wk.Node):boolean?
-         -- expand = 0, -- expand groups when <= n mappings
-         expand = function(node)
-            -- return not node -- expand all nodes without a description
-         end,
+         expand = 0, -- expand groups when <= n mappings
+         -- expand = function(node)
+         --    -- return not node -- expand all nodes without a description
+         -- end,
          -- Functions/Lua Patterns for formatting the labels
          ---@type table<string, ({[1]:string, [2]:string}|fun(str:string):string)[]>
          replace = {
