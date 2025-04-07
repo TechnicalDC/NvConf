@@ -45,6 +45,13 @@ return {
             { "'",         group = 'Marks' },
             { '`',         group = 'Marks' },
             { '<C-w>',     group = 'Windows' },
+
+            -- Neorg
+            { ";i", group = "Insert" },
+            { ";l", group = "List" },
+            { ";m", group = "Mode" },
+            { ";n", group = "Note" },
+            { ";t", group = "Todo" },
          },
          -- show a warning when issues were detected with your mappings
          notify = true,
