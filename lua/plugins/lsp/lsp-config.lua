@@ -141,6 +141,7 @@ local signs = {
 
 for type, icon in pairs(signs) do
    local hl = "DiagnosticSign" .. type
+   -- NOTE: This is deprecated. Use `vim.diagnostics.config()` instead
    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 

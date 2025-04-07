@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-function
 local theme = require("gruvbox-material.lualine").theme("medium")
 local g_colors = require("gruvbox-material.colors")
 local colors = g_colors.get(vim.o.background, "medium")
@@ -100,7 +101,8 @@ local clients_lsp = function ()
    local bufnr = vim.api.nvim_get_current_buf()
 
    ---@diagnostic disable-next-line: deprecated
-   local clients = vim.lsp.buf_get_clients(bufnr)
+   local clients = vim.lsp.get_clients({buffer=bufnr})
+   -- local clients = vim.lsp.buf_get_clients(bufnr)
    if next(clients) == nil then
       return ''
    end
