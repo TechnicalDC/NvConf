@@ -33,7 +33,7 @@ return {
                      title = " neorg.norg ",
                      border = "rounded",
                      width = 0.6,
-                     height = 0.6,
+                     height = 0.8,
                      wo = {
                         spell = false,
                         wrap = false,
