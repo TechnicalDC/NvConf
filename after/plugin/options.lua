@@ -32,7 +32,7 @@ set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
 set.fillchars:append({
-   fold = "─",
+   fold = " ",
    foldopen = "",
    foldclose = "",
    diff = "-",
