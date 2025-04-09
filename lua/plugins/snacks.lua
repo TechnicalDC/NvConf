@@ -180,7 +180,11 @@ return {
          enabled = true,
          replace_netrw = true,
       },
-      image        = { enabled = true },
+      image        = {
+         enabled = true,
+         inline = false,
+         float = true,
+      },
       indent       = {
          enabled = true,
          indent = {
