@@ -10,22 +10,28 @@ local on_attach = function(client, bufnr)
    if ok then
       wk.add({
          mode = "n",
-         {"<leader>oc", vim.lsp.buf.code_action,             desc = "Open code actions" },
-         {"<leader>rn", vim.lsp.buf.rename,                  desc = "Rename" },
-         {"<leader>D",  vim.lsp.buf.type_definition,         desc = "Go to type definition"},
-         {"<leader>F",  vim.lsp.buf.formatting,              desc = "Format code"},
-         {"<leader>wa", vim.lsp.buf.add_workspace_folder,    desc = "Add folder to workspace"},
-         {"<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove folder from workspace"},
+         {"<leader>oc", vim.lsp.buf.code_action,                     desc = "Open code actions" },
+         {"<leader>rn", vim.lsp.buf.rename,                          desc = "Rename" },
+         {"<leader>D",  vim.lsp.buf.type_definition,                 desc = "Go to type definition"},
+         {"<leader>F",  vim.lsp.buf.formatting,                      desc = "Format code"},
+         {"<leader>wa", vim.lsp.buf.add_workspace_folder,            desc = "Add folder to workspace"},
+         {"<leader>wr", vim.lsp.buf.remove_workspace_folder,         desc = "Remove folder from workspace"},
          {"<leader>wl", function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
          end, desc = "List workspace folder"},
-         {"<leader>K",  vim.lsp.buf.hover,          desc = "Hover docs" },
-         {"<leader>gd", vim.lsp.buf.definition,     desc = "Go to definition"},
-         {"<leader>gD", vim.lsp.buf.declaration,    desc = "Go to declaration"},
-         {"<leader>gi", vim.lsp.buf.implementation, desc = "Go to implementation"},
-         {"<leader>gr", vim.lsp.buf.references,     desc = "Go to references"},
-         {"[d",         vim.diagnostic.goto_prev,   desc = "Go to previous diagnostics" },
-         {"]d",         vim.diagnostic.goto_next,   desc = "Go to next diagnostics" },
+         {"<leader>K",  vim.lsp.buf.hover,                           desc = "Hover docs" },
+         {"<leader>gd", vim.lsp.buf.definition,                      desc = "Go to definition"},
+         {"<leader>gD", vim.lsp.buf.declaration,                     desc = "Go to declaration"},
+         {"<leader>gi", vim.lsp.buf.implementation,                  desc = "Go to implementation"},
+         {"<leader>gr", vim.lsp.buf.references,                      desc = "Go to references"},
+         -- {"[d",      vim.diagnostic.goto_prev,                    desc = "Go to previous diagnostics" },
+         -- {"]d",      vim.diagnostic.goto_next,                    desc = "Go to next diagnostics" },
+         {"[d", function()
+            vim.diagnostic.jump({ count = -1, float = true })
+         end, desc = "Go to previous diagnostics" },
+         {"]d", function()
+            vim.diagnostic.jump({ count = 1,  float = true })
+         end, desc = "Go to next diagnostics" },
       })
    end
 end
