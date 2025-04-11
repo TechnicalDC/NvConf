@@ -1,6 +1,6 @@
 if vim.g.neovide then
    vim.o.guifont = "JetBrainsMono NF:h13"
-   vim.opt.linespace = 0
+   vim.opt.linespace = 1.2
    vim.g.neovide_scale_factor = 1.0
    vim.g.neovide_padding_top = 20
    vim.g.neovide_padding_bottom = 20
