@@ -160,8 +160,8 @@ return {
       { "<leader>ol", function ()
             require("snacks").lazygit.open()
       end, desc = "LazyGit" },
-      { "<leader>bd",  function() require("snacks").bufdelete.delete() end, desc = "Delete current buffer" },
-      { "<leader>tt",  function() require("snacks").terminal.toggle() end, desc = "Toggle terminal" },
+      { "<leader>bd", function() require("snacks").bufdelete.delete() end, desc = "Delete current buffer" },
+      { "<leader>tt", function() require("snacks").terminal.toggle() end, desc = "Toggle terminal" },
       { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
       { "<leader>S", function()
          local opts = { on_show = function() vim.cmd.stopinsert() end }
