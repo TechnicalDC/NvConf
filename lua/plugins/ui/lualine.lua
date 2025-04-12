@@ -37,7 +37,7 @@ local tabs = {
 
 local diagnostics = {
    'diagnostics',
-   symbols = {error = ' ', warn = ' ', info = ' ', hint = '󰌵 '},
+   symbols = { error = ' ', warn = ' ', info = ' ', hint = '󰌵 ' },
    colored = true,           -- Displays diagnostics status in color if set to true.
    update_in_insert = false, -- Update diagnostics in insert mode.
    always_visible = false,   -- Show diagnostics even if there are none.
@@ -76,7 +76,7 @@ local filename = {
 
 local colored_filetype = {
    'filetype',
-   colored = false,
+   colored = true,
    icon_only = false,
    icon = { align = 'left' }, -- Display filetype icon on the right hand side
 }
@@ -163,11 +163,18 @@ local createExtention = function(filetype_name,l,r)
    }
 end
 
-theme.normal["c"] = { bg = colors.bg_statusline1 }
-theme.insert["c"] = { bg = colors.bg_statusline1 }
-theme.command["c"] = { bg = colors.bg_statusline1 }
-theme.visual["c"] = { bg = colors.bg_statusline1 }
-theme.replace["c"] = { bg = colors.bg_statusline1 }
+
+-- theme.normal["a"]  = { bold = true }
+-- theme.insert["a"]  = { bold = true }
+-- theme.command["a"] = { bold = true }
+-- theme.visual["a"]  = { bold = true }
+-- theme.replace["a"] = { bold = true }
+--
+-- theme.normal["c"] = { bg = colors.bg_statusline1 }
+-- theme.insert["c"] = { bg = colors.bg_statusline1 }
+-- theme.command["c"] = { bg = colors.bg_statusline1 }
+-- theme.visual["c"] = { bg = colors.bg_statusline1 }
+-- theme.replace["c"] = { bg = colors.bg_statusline1 }
 
 require('lualine').setup({
    options = {
@@ -205,7 +212,7 @@ require('lualine').setup({
          },
          'selectioncount',
          buf_count,
-         colored_filetype,
+         filetype,
          branch,
          clients_lsp,
          'progress',
