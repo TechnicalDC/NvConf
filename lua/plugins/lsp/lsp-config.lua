@@ -185,32 +185,30 @@ end
 vim.diagnostic.config({
    underline = true,
    severity_sort = true,
-   -- virtual_text = {
-   --    prefix = '',
-   --    format = function(diagnostic)
-   --       if diagnostic.severity == vim.diagnostic.severity.ERROR then
-   --          return string.format("ERROR: %s", diagnostic.message)
-   --       end
-   --       return diagnostic.message
-   --    end
-   --    -- current_line = true,
-   -- },
-   virtual_lines = {
-      current_line = true,
+   virtual_text = {
+      prefix = '',
+      format = function(diagnostic)
+         if diagnostic.severity == vim.diagnostic.severity.ERROR then
+            return string.format("ERROR: %s", diagnostic.message)
+         end
+         return diagnostic.message
+      end
+      -- current_line = true,
    },
-   virtual_text = false,
-   float = false,
-   -- float = {
-   --    scope = "cursor",
-   --    severity_sort = true,
-   --    -- header = "diagnostics",
-   --    border = "rounded",
-   --    max_width = 70,
-   --    max_height = 10,
-   --    wrap = true,
-   --    focusable = false,
-   --    focus = false
-   -- }
+   -- virtual_lines = {
+   --    current_line = true,
+   -- },
+   -- virtual_text = false,
+   float = {
+      scope = "cursor",
+      severity_sort = true,
+      border = "rounded",
+      max_width = 70,
+      max_height = 10,
+      wrap = true,
+      focusable = false,
+      focus = false
+   }
 })
 
 -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
