@@ -33,10 +33,10 @@ local on_attach = function(client, bufnr)
          {"<leader>gi", vim.lsp.buf.implementation,                  desc = "Go to implementation"},
          {"<leader>gr", vim.lsp.buf.references,                      desc = "Go to references"},
          {"[d", function()
-            vim.diagnostic.jump({ count = -1, float = true })
+            vim.diagnostic.jump({ count = -1 })
          end, desc = "Go to previous diagnostics" },
          {"]d", function()
-            vim.diagnostic.jump({ count = 1,  float = true })
+            vim.diagnostic.jump({ count = 1 })
          end, desc = "Go to next diagnostics" },
       })
    end
