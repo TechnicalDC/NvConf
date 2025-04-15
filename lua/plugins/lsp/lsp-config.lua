@@ -3,6 +3,11 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local oe_jar_path = vim.fn.stdpath("data") .. "/mason/packages/openedge-language-server/abl-lsp.jar"
+local hoverOpts = {
+   border = "rounded",
+   title = "hover",
+   title_pos = "center"
+}
 
 ---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
@@ -20,7 +25,9 @@ local on_attach = function(client, bufnr)
          {"<leader>wl", function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
          end, desc = "List workspace folder"},
-         {"<leader>K",  vim.lsp.buf.hover,                           desc = "Hover docs" },
+         {"<leader>K",  function ()
+            vim.lsp.buf.hover(hoverOpts)
+         end, desc = "Hover docs" },
          {"<leader>gd", vim.lsp.buf.definition,                      desc = "Go to definition"},
          {"<leader>gD", vim.lsp.buf.declaration,                     desc = "Go to declaration"},
          {"<leader>gi", vim.lsp.buf.implementation,                  desc = "Go to implementation"},
@@ -206,12 +213,12 @@ vim.diagnostic.config({
    -- }
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-   vim.lsp.handlers.hover, {
-      -- Use a sharp border with `FloatBorder` highlights
-      border = "rounded",
-      -- add the title in hover float window
-      title = "hover"
-   }
-)
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+--    vim.lsp.handlers.hover, {
+--       -- Use a sharp border with `FloatBorder` highlights
+--       border = "rounded",
+--       -- add the title in hover float window
+--       title = "hover"
+--    }
+-- )
 
