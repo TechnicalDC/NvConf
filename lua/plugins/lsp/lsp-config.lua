@@ -25,8 +25,6 @@ local on_attach = function(client, bufnr)
          {"<leader>gD", vim.lsp.buf.declaration,                     desc = "Go to declaration"},
          {"<leader>gi", vim.lsp.buf.implementation,                  desc = "Go to implementation"},
          {"<leader>gr", vim.lsp.buf.references,                      desc = "Go to references"},
-         -- {"[d",      vim.diagnostic.goto_prev,                    desc = "Go to previous diagnostics" },
-         -- {"]d",      vim.diagnostic.goto_next,                    desc = "Go to next diagnostics" },
          {"[d", function()
             vim.diagnostic.jump({ count = -1, float = true })
          end, desc = "Go to previous diagnostics" },
@@ -180,32 +178,32 @@ end
 vim.diagnostic.config({
    underline = true,
    severity_sort = true,
-   virtual_text = {
-      prefix = '',
-      format = function(diagnostic)
-         if diagnostic.severity == vim.diagnostic.severity.ERROR then
-            return string.format("ERROR: %s", diagnostic.message)
-         end
-         return diagnostic.message
-      end
-      -- current_line = true,
-   },
-   -- virtual_lines = {
-   --    current_line =  false,
+   -- virtual_text = {
+   --    prefix = '',
+   --    format = function(diagnostic)
+   --       if diagnostic.severity == vim.diagnostic.severity.ERROR then
+   --          return string.format("ERROR: %s", diagnostic.message)
+   --       end
+   --       return diagnostic.message
+   --    end
+   --    -- current_line = true,
    -- },
-   -- virtual_text = false,
-   -- float = false,
-   float = {
-      scope = "cursor",
-      severity_sort = true,
-      -- header = "diagnostics",
-      border = "rounded",
-      max_width = 50,
-      max_height = 10,
-      wrap = true,
-      focusable = false,
-      focus = false
-   }
+   virtual_lines = {
+      current_line = true,
+   },
+   virtual_text = false,
+   float = false,
+   -- float = {
+   --    scope = "cursor",
+   --    severity_sort = true,
+   --    -- header = "diagnostics",
+   --    border = "rounded",
+   --    max_width = 70,
+   --    max_height = 10,
+   --    wrap = true,
+   --    focusable = false,
+   --    focus = false
+   -- }
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
