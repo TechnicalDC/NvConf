@@ -319,60 +319,61 @@ return {
       },
       notifier     = {
          enabled = true,
+         top_down = false,
          style = "compact"
          -- style = function(buf, notif, ctx)
-            --    local title = vim.trim(notif.icon .. " " .. (notif.title or ""))
-            --    if title ~= "" then
-            --       ctx.opts.title = { { " " .. title .. " ", ctx.hl.title } }
-            --       ctx.opts.title_pos = "center"
-            --    end
-            --    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(notif.msg, "\n"))
-            -- end,
-         },
-         quickfile    = { enabled = true },
-         scope        = { enabled = true },
-         scratch      = {
-            enabled = true,
-            win = {
-               style = {
-                  width = 100,
-                  height = 20,
-                  bo = { buftype = "", buflisted = false, bufhidden = "hide", swapfile = false },
-                  minimal = false,
-                  noautocmd = false,
-                  -- position = "right",
-                  zindex = 20,
-                  wo = { winhighlight = "NormalFloat:Normal" },
-                  border = "rounded",
-                  title_pos = "center",
-                  footer_pos = "center",
-               }
-            }
-         },
-         scroll       = { enabled = true },
-         statuscolumn = { enabled = true },
-         terminal     = {
-            enabled = true,
-            win = {
-               style = "terminal",
-               border = "rounded"
-            }
-         },
-         win          = {
-            enabled = true,
-            show = true,
-            fixbuf = true,
-            title_pos = "center",
-            relative = "editor",
-            position = "float",
-            wo = {
-               winhighlight = "Normal:SnacksNormal,NormalNC:SnacksNormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
-            },
-            bo = {},
-            keys = {
-               q = "close",
-            },
-         },
-         words        = { enabled = true },
+         --    local title = vim.trim(notif.icon .. " " .. (notif.title or ""))
+         --    if title ~= "" then
+         --       ctx.opts.title = { { " " .. title .. " ", ctx.hl.title } }
+         --       ctx.opts.title_pos = "center"
+         --    end
+         --    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(notif.msg, "\n"))
+         -- end,
       },
-   }
+      quickfile    = { enabled = true },
+      scope        = { enabled = true },
+      scratch      = {
+         enabled = true,
+         win = {
+            style = {
+               width = 100,
+               height = 20,
+               bo = { buftype = "", buflisted = false, bufhidden = "hide", swapfile = false },
+               minimal = false,
+               noautocmd = false,
+               -- position = "right",
+               zindex = 20,
+               wo = { winhighlight = "NormalFloat:Normal" },
+               border = "rounded",
+               title_pos = "center",
+               footer_pos = "center",
+            }
+         }
+      },
+      scroll       = { enabled = true },
+      statuscolumn = { enabled = true },
+      terminal     = {
+         enabled = true,
+         win = {
+            style = "terminal",
+            border = "rounded"
+         }
+      },
+      win          = {
+         enabled = true,
+         show = true,
+         fixbuf = true,
+         title_pos = "center",
+         relative = "editor",
+         position = "float",
+         wo = {
+            winhighlight = "Normal:SnacksNormal,NormalNC:SnacksNormalNC,WinBar:SnacksWinBar,WinBarNC:SnacksWinBarNC",
+         },
+         bo = {},
+         keys = {
+            q = "close",
+         },
+      },
+      words        = { enabled = true },
+   },
+}
