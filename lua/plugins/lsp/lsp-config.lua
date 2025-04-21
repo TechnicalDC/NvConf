@@ -33,10 +33,10 @@ local on_attach = function(client, bufnr)
          {"<leader>gi", vim.lsp.buf.implementation,                  desc = "Go to implementation"},
          {"<leader>gr", vim.lsp.buf.references,                      desc = "Go to references"},
          {"[d", function()
-            vim.diagnostic.jump({ count = -1 })
+            vim.diagnostic.jump({ count = -1, float = true })
          end, desc = "Go to previous diagnostics" },
          {"]d", function()
-            vim.diagnostic.jump({ count = 1 })
+            vim.diagnostic.jump({ count = 1, float = true })
          end, desc = "Go to next diagnostics" },
       })
    end
@@ -186,7 +186,18 @@ vim.diagnostic.config({
    underline = true,
    severity_sort = true,
    virtual_text = {
-      prefix = '',
+      prefix = function (diagnostic)
+         if diagnostic.severity == vim.diagnostic.severity.ERROR then
+            return " "
+         elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+            return " "
+         elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+            return "󰌵 "
+         elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+            return " "
+         end
+         return ""
+      end,
       format = function(diagnostic)
          if diagnostic.severity == vim.diagnostic.severity.ERROR then
             return string.format("ERROR: %s", diagnostic.message)
