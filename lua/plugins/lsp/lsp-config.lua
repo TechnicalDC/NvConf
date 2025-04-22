@@ -2,7 +2,6 @@ local nvim_lsp = require('lspconfig')
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
-local oe_jar_path = vim.fn.stdpath("data") .. "/mason/packages/openedge-language-server/abl-lsp.jar"
 local hoverOpts = {
    border = "rounded",
    title = "hover",
@@ -146,32 +145,6 @@ nvim_lsp.lua_ls.setup({
       }
    }
 })
-nvim_lsp.openedge_ls.setup {
-  oe_jar_path = vim.fn.stdpath("data") .. "/mason/packages/openedge-language-server/abl-lsp.jar",
-  debug = false, -- Set to true for debug logging
-  trace = false, -- Set to true for trace logging (REALLY verbose)
-  init_options = {
-    abl = {
-      configuration = {
-        runtimes = {
-          { name = '12.8', path = '/mnt/c/Progress/OpenEdge/bin/' }
-        },
-        maxThreads = 1
-      },
-      completion = {
-        upperCase = false
-      },
-      buildMode = 1 -- Build all
-    }
-  }
-}
-
-nvim_lsp.util.on_setup = nvim_lsp.util.add_hook_before(nvim_lsp.util.on_setup, function(config)
-   if config.name == "openedge_ls" then
-      config.cmd = {"java","-jar", oe_jar_path}
-      print(config.cmd)
-   end
-end)
 
 local signs = {
    Error = "",
