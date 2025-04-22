@@ -38,6 +38,10 @@ local on_attach = function(client, bufnr)
          {"]d", function()
             vim.diagnostic.jump({ count = 1, float = true })
          end, desc = "Go to next diagnostics" },
+         {"<leader>tl", function ()
+            local new_config = not vim.diagnostic.config().virtual_lines
+            vim.diagnostic.config({ virtual_lines = new_config })
+         end, desc = "Toggle diagnostic virtual_lines" }
       })
    end
 end
@@ -198,18 +202,17 @@ vim.diagnostic.config({
          end
          return ""
       end,
-      format = function(diagnostic)
-         if diagnostic.severity == vim.diagnostic.severity.ERROR then
-            return string.format("ERROR: %s", diagnostic.message)
-         end
-         return diagnostic.message
-      end
+      -- format = function(diagnostic)
+      --    if diagnostic.severity == vim.diagnostic.severity.ERROR then
+      --       return string.format("ERROR: %s", diagnostic.message)
+      --    end
+      --    return diagnostic.message
+      -- end
       -- current_line = true,
    },
    -- virtual_lines = {
    --    current_line = true,
    -- },
-   -- virtual_text = false,
    float = {
       scope = "cursor",
       severity_sort = true,
