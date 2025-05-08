@@ -150,16 +150,10 @@ return {
          require("snacks").picker.zoxide()
       end, desc = "Find zoxide"  },
 
-      -- { "<leader>oe", function ()
-      --    require("snacks").explorer.open()
-      -- end, desc = "Open file explorer"  },
       { "<leader>ou", function ()
          local opts = { on_show = function() vim.cmd.stopinsert() end }
          require("snacks").picker.undo(opts)
       end, desc = "Open undo tree"  },
-      { "<leader>ol", function ()
-            require("snacks").lazygit.open()
-      end, desc = "LazyGit" },
       { "<leader>bd", function() require("snacks").bufdelete.delete() end, desc = "Delete current buffer" },
       { "<leader>tt", function() require("snacks").terminal.toggle() end, desc = "Toggle terminal" },
       { "<leader>.",  function() require("snacks").scratch() end, desc = "Toggle Scratch Buffer" },
@@ -176,10 +170,7 @@ return {
          enabled = true,
          sections = dashboard,
       },
-      explorer     = {
-         enabled = false,
-         replace_netrw = true,
-      },
+      explorer     = { enabled = false, },
       image        = {
          enabled = true,
          inline = false,
@@ -211,29 +202,7 @@ return {
             }
          }
       },
-      lazygit      = {
-         enabled = true,
-         configure = true,
-         win = {
-            style = "float",
-            backdrop = {
-               bg = "#000000", -- backdrop background color
-               blend = 100, -- backdrop transparency (0-100)
-            },
-         },
-         theme = {
-            [241]                      = { fg = "Special" },
-            activeBorderColor          = { fg = "FloatTitle", bold = true },
-            inactiveBorderColor        = { fg = "FloatBorder" },
-            cherryPickedCommitBgColor  = { fg = "Character" },
-            cherryPickedCommitFgColor  = { fg = "Function" },
-            defaultFgColor             = { fg = "Normal" },
-            optionsTextColor           = { fg = "Special" },
-            searchingActiveBorderColor = { fg = "MatchParen", bold = true },
-            selectedLineBgColor        = { bg = "PmenuThumb" }, -- set to `default` to have no background colour
-            unstagedChangesColor       = { fg = "DiagnosticError" },
-         },
-      },
+      lazygit      = { enabled = false },
       picker       = {
          enabled = true,
          prompt = "   ",
