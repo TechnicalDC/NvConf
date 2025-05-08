@@ -216,6 +216,10 @@ return {
          configure = true,
          win = {
             style = "float",
+            backdrop = {
+               bg = "#000000", -- backdrop background color
+               blend = 100, -- backdrop transparency (0-100)
+            },
          },
          theme = {
             [241]                      = { fg = "Special" },
@@ -373,6 +377,10 @@ return {
          bo = {},
          keys = {
             q = "close",
+         },
+         backdrop = {
+            bg = "#000000", -- backdrop background color
+            blend = 100, -- backdrop transparency (0-100)
          },
       },
       words        = { enabled = true },
