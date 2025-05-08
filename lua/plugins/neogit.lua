@@ -5,6 +5,15 @@ return {
       "sindrets/diffview.nvim",        -- optional - Diff integration
       "folke/snacks.nvim",             -- optional
    },
+   keys = {
+      {
+         "<leader>og",
+         function()
+            require('neogit').open()
+         end,
+         desc = "Open neogit",
+      },
+   },
    config = function ()
       local neogit = require("neogit")
 
@@ -30,7 +39,7 @@ return {
          -- "ascii"   is the graph the git CLI generates
          -- "unicode" is the graph like https://github.com/rbong/vim-flog
          -- "kitty"   is the graph like https://github.com/isakbm/gitgraph.nvim - use https://github.com/rbong/flog-symbols if you don't use Kitty
-         graph_style = "unicode",
+         graph_style = "ascii",
          -- Show relative date by default. When set, use `strftime` to display dates
          commit_date_format = nil,
          log_date_format = nil,
@@ -73,7 +82,7 @@ return {
          -- Default for new branch name prompts
          initial_branch_name = "",
          -- Change the default way of opening neogit
-         kind = "tab",
+         kind = "split",
          -- Floating window style
          floating = {
             relative = "editor",
