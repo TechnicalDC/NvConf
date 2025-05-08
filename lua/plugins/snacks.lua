@@ -150,9 +150,9 @@ return {
          require("snacks").picker.zoxide()
       end, desc = "Find zoxide"  },
 
-      { "<leader>oe", function ()
-         require("snacks").explorer.open()
-      end, desc = "Open file explorer"  },
+      -- { "<leader>oe", function ()
+      --    require("snacks").explorer.open()
+      -- end, desc = "Open file explorer"  },
       { "<leader>ou", function ()
          local opts = { on_show = function() vim.cmd.stopinsert() end }
          require("snacks").picker.undo(opts)

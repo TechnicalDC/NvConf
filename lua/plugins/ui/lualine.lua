@@ -163,19 +163,6 @@ local createExtention = function(filetype_name,l,r)
    }
 end
 
-
--- theme.normal["a"]  = { bold = true }
--- theme.insert["a"]  = { bold = true }
--- theme.command["a"] = { bold = true }
--- theme.visual["a"]  = { bold = true }
--- theme.replace["a"] = { bold = true }
---
--- theme.normal["c"] = { bg = colors.bg_statusline1 }
--- theme.insert["c"] = { bg = colors.bg_statusline1 }
--- theme.command["c"] = { bg = colors.bg_statusline1 }
--- theme.visual["c"] = { bg = colors.bg_statusline1 }
--- theme.replace["c"] = { bg = colors.bg_statusline1 }
-
 require('lualine').setup({
    options = {
       icons_enabled = true,
@@ -202,7 +189,8 @@ require('lualine').setup({
       lualine_b = { },
       lualine_c = {
          diff,
-         diagnostics
+         diagnostics,
+         filename
       },
       lualine_x = {
          {
