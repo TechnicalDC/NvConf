@@ -100,7 +100,7 @@ return {
          -- Automatically show console if a command takes more than console_timeout milliseconds
          auto_show_console = true,
          -- Automatically close the console if the process exits with a 0 (success) status
-         auto_close_console = true,
+         auto_close_console = false,
          notification_icon = "󰊢",
          status = {
             show_head_commit_hash = true,
