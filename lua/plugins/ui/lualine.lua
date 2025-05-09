@@ -111,7 +111,7 @@ local clients_lsp = function ()
    for _, client in pairs(clients) do
       table.insert(c, client.name)
    end
-   return "%#LualineIconRed#  %#lualine_b_normal#" .. table.concat(c, '|')
+   return "%#Yellow#  %#lualine_b_normal#" .. table.concat(c, '|')
 end
 
 local buf_count = function ()
@@ -132,8 +132,7 @@ local buf_count = function ()
       end
    end
 
-   vim.api.nvim_set_hl(0, 'LualineIconRed', { fg = '#ff5555' })
-   return "%#LualineIconRed# %#lualine_b_normal#" .. tostring(current) .. "/" .. tostring(bufcnt)
+   return "%#Red# %#lualine_b_normal#" .. tostring(current) .. "/" .. tostring(bufcnt)
 end
 
 local terminal = function ()
