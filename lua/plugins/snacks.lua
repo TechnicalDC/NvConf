@@ -2,7 +2,7 @@ local dashboard
 local chafa_dashboard = {
    {
       section = "terminal",
-      cmd = "chafa ~/.config/nvim/res/coffee.jpg --format symbols --symbols vhalf --size 60x15 --stretch; sleep .1",
+      cmd = "bash -c 'chafa ~/.config/nvim/res/coffee.jpg --format symbols --symbols vhalf --size 60x15 --stretch; sleep .1'",
       height = vim.o.columns >= 120 and 15 or 10,
       padding = 1,
    },
