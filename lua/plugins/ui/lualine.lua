@@ -22,7 +22,7 @@ local mode_map = {
 
 local branch = {
    'branch',
-   icon = '',
+   icon = '%#Purple#%#lualine_b_normal#',
 }
 
 local tabs = {
