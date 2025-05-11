@@ -27,7 +27,7 @@ return {
                   }
                   require("snacks").picker.files(opts)
                end,  desc = "Open neorg notes"},
-               { "<leader>oh", function ()
+               { "<leader>oH", function ()
                   snacks.win({
                      file = vim.api.nvim_get_runtime_file("doc/neorg.norg", false)[1],
                      title = " neorg.norg ",
@@ -48,7 +48,7 @@ return {
 
          require("neorg").setup {
             load = {
-               ["core.defaults"] = {}, -- Loads default behaviour
+               ["core.defaults"] = {},
                ["core.concealer"] = {
                   config = {
                      folds = true,
@@ -64,15 +64,13 @@ return {
                         }
                      },
                   }
-               }, -- Adds pretty icons to your documents
+               },
                ["core.summary"] = {},
                ["core.export"] = {},
                ["core.looking-glass"] = {},
                ["core.tempus"] = {},
                ["core.ui.calendar"] = {},
-               -- ["core.integrations.nvim-cmp"] = {},
-               -- ["core.completion"] = {},
-               ["core.dirman"] = { -- Manages Neorg workspaces
+               ["core.dirman"] = {
                   config = {
                      workspaces = {
                         default  = default_workspace,
