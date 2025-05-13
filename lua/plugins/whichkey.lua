@@ -92,7 +92,7 @@ return {
             -- don't allow the popup to overlap with the cursor
             no_overlap = false,
             -- width = 0.999,
-            height = { min = 4, max = 25 },
+            height = { min = 4, max = 20 },
             border = "rounded",
             padding = { 2, 3 }, -- extra window padding [top/bottom, right/left]
             title = true,
