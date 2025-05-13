@@ -36,6 +36,7 @@ return {
             { '<leader>o', group = 'Open' },
             { '<leader>d', group = 'Diff' },
             { '<leader>r', group = 'Rename' },
+            { '<leader>x', group = 'Execute' },
             { 'g',         group = 'Goto' },
             { 's',         group = 'Surround' },
             { 'z',         group = 'Fold' },

@@ -12,14 +12,16 @@ end
 wk.add({
    {
       mode = "n",
-      { "<leader>Y", "maggVGy`a",                       desc = "Copy entire content"},
-      { "<leader>s", ":setlocal spell!<CR>",            desc = "Toggle spell checker"},
-      { "Y",         "y$",                              desc = "Copy text till end of line"},
-      { "<BS>",      "^",                               desc = "Move to first non-blank character"},
-      { "gb",        ":bnext<cr>",                      desc = "Jump to next buffer"},
-      { "gB",        ":bprevious<cr>",                  desc = "Jump to previous buffer"},
-      {"<Esc>",      ":lua vim.o.hlsearch = false<CR>", desc = "Disable incremental search highlighting"},
-      {"x",          [["_x]],                           desc = "Delete character"},
+      { "<leader>Y",  "maggVGy`a",                                  desc = "Copy entire content"},
+      { "<leader>s",  ":setlocal spell!<CR>",                       desc = "Toggle spell checker"},
+      { "Y",          "y$",                                         desc = "Copy text till end of line"},
+      { "<BS>",       "^",                                          desc = "Move to first non-blank character"},
+      { "gb",         ":bnext<cr>",                                 desc = "Jump to next buffer"},
+      { "gB",         ":bprevious<cr>",                             desc = "Jump to previous buffer"},
+      { "<Esc>",      ":lua vim.o.hlsearch = false<CR>",            desc = "Disable incremental search highlighting"},
+      { "x",          [["_x]],                                      desc = "Delete character"},
+      { "<leader>rr", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], desc = "Replace word under the cursor globally" },
+      { "<leader>xx", "<cmd>!chmod +x %<CR>",                       desc = "Make file executable" },
 
       -- Quickfix
       { "<leader>qo", "<cmd>copen<cr>",  desc = "Open quickfix list"},
