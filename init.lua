@@ -25,6 +25,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup("plugins", {
+   checker = {
+      enabled = true,
+      notify = false
+   },
+   change_detection = { notify = false },
    install = { colorscheme = { "catppuccin" } },
    ui = {
       -- a number <1 is a percentage., >1 is a fixed size

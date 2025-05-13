@@ -117,7 +117,7 @@ return {
             local config = vim.api.nvim_win_get_config(args.data.win_id)
 
             -- Ensure fixed height
-            config.height = 20
+            -- config.height = 20
 
             -- Ensure title padding
             if config.title[#config.title][1] ~= ' ' then

@@ -19,6 +19,7 @@ wk.add({
       { "gb",        ":bnext<cr>",                      desc = "Jump to next buffer"},
       { "gB",        ":bprevious<cr>",                  desc = "Jump to previous buffer"},
       {"<Esc>",      ":lua vim.o.hlsearch = false<CR>", desc = "Disable incremental search highlighting"},
+      {"x",          [["_x]],                           desc = "Delete character"},
 
       -- Quickfix
       { "<leader>qo", "<cmd>copen<cr>",  desc = "Open quickfix list"},
@@ -77,8 +78,3 @@ map('n', '<C-l>', require('smart-splits').move_cursor_right, { desc = "Switch to
 -- map('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
 -- map('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
 -- }}}}
-
--- Moving text
-map("i", "<A-S-j>", "<Esc>:m .+1<CR>==i", opts)
-map("i", "<A-S-k>", "<Esc>:m .-2<CR>==i", opts)
-
