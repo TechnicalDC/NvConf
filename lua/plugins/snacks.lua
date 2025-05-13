@@ -172,7 +172,7 @@ return {
       },
       explorer     = { enabled = false, },
       image        = {
-         enabled = true,
+         enabled = false,
          inline = false,
          float = true,
       },
