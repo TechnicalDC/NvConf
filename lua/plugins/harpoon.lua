@@ -13,17 +13,24 @@ return {
       -- REQUIRED
       harpoon:setup()
 
-      -- REQUIRED
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list(), opts) end)
+      local ok, wk = pcall(require, 'which-key')
+      if not ok then
+         return nil
+      end
 
-      vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
-      vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
-      vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
-      vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
-
-      -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
-      vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+      wk.add({
+         {
+            mode = "n",
+            -- REQUIRED
+            { "<leader>ha", function() harpoon:list():add() end, desc = "Add current buffer to harpoon list" },
+            { "<leader>ho", function() harpoon.ui:toggle_quick_menu(harpoon:list(), opts) end, desc = "Open harpoon menu" },
+            { "<leader>1",  function() harpoon:list():select(1) end, desc = "Switch to 1st harpoon item" },
+            { "<leader>2",  function() harpoon:list():select(2) end, desc = "Switch to 2nd harpoon item" },
+            { "<leader>3",  function() harpoon:list():select(3) end, desc = "Switch to 3rd harpoon item" },
+            { "<leader>4",  function() harpoon:list():select(4) end, desc = "Switch to 4th harpoon item" },
+            { "<leader>hp", function() harpoon:list():prev() end, desc = "Next harpoon item" },
+            { "<leader>hn", function() harpoon:list():next() end, desc = "Previous harpoon item" },
+         }
+      })
    end
 }

@@ -32,6 +32,7 @@ return {
             { '<leader>b', group = 'Buffer' },
             { '<leader>f', group = 'Find' },
             { '<leader>g', group = 'Goto' },
+            { '<leader>h', group = 'Harpoon' },
             { '<leader>w', group = 'Workspace' },
             { '<leader>o', group = 'Open' },
             { '<leader>d', group = 'Diff' },
