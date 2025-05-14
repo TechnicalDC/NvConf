@@ -27,6 +27,7 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 * [Gruvbox Material](https://github.com/TechnicalDC/gruvbox-material.nvim)
 
 ## Installation
+
 ```bash
 # Linux
 git clone https://github.com/TechnicalDC/NvConf ~/.config/nvim

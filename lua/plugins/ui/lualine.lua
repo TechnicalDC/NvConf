@@ -111,7 +111,7 @@ local clients_lsp = function ()
    for _, client in pairs(clients) do
       table.insert(c, client.name)
    end
-   return "%#Yellow#  %#lualine_b_normal#" .. table.concat(c, '|')
+   return "%#Yellow#  %#lualine_b_normal#" .. table.concat(c, ' ')
 end
 
 local buf_count = function ()
