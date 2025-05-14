@@ -223,6 +223,7 @@ require('lualine').setup({
       'lazy',
       'quickfix',
       createExtention("help",{mode},{filetype}),
+      createExtention("harpoon",{mode},{filetype}),
       createExtention("minifiles",{mode},{branch}),
       createExtention("ministarter",{mode},{branch}),
       createExtention("snacks_terminal",{filetype},{terminal}),
