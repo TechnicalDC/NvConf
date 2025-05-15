@@ -17,12 +17,12 @@ return {
             sign = false,
             position = "inline",
             backgrounds = {
-               'RenderMarkdownH1Bg',
-               'RenderMarkdownH2Bg',
-               'RenderMarkdownH3Bg',
-               'RenderMarkdownH4Bg',
-               'RenderMarkdownH5Bg',
-               'RenderMarkdownH6Bg',
+               'Headline1Bg',
+               'Headline2Bg',
+               'Headline3Bg',
+               'Headline4Bg',
+               'Headline5Bg',
+               'Headline6Bg',
             },
             foregrounds = {
                'RenderMarkdownH1',

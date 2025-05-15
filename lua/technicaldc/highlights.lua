@@ -1,0 +1,17 @@
+local colors = require("gruvbox-material.colors").get(vim.o.background, "medium")
+local util = require("technicaldc.util")
+
+local bg1 = util.darken(colors.red, 0.5)
+local bg2 = util.darken(colors.orange, 0.5)
+local bg3 = util.darken(colors.yellow, 0.5)
+local bg4 = util.darken(colors.green, 0.5)
+local bg5 = util.darken(colors.blue, 0.5)
+local bg6 = util.darken(colors.purple, 0.5)
+
+vim.cmd(string.format([[highlight Headline1Bg guifg=%s guibg=%s]], colors.red, bg1))
+vim.cmd(string.format([[highlight Headline2Bg guifg=%s guibg=%s]], colors.orange, bg2))
+vim.cmd(string.format([[highlight Headline3Bg guifg=%s guibg=%s]], colors.yellow, bg3))
+vim.cmd(string.format([[highlight Headline4Bg guifg=%s guibg=%s]], colors.green, bg4))
+vim.cmd(string.format([[highlight Headline5Bg guifg=%s guibg=%s]], colors.blue, bg5))
+vim.cmd(string.format([[highlight Headline6Bg guifg=%s guibg=%s]], colors.purple, bg6))
+
