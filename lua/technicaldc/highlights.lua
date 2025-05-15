@@ -15,3 +15,9 @@ vim.cmd(string.format([[highlight Headline4Bg guifg=%s guibg=%s]], colors.green,
 vim.cmd(string.format([[highlight Headline5Bg guifg=%s guibg=%s]], colors.blue, bg5))
 vim.cmd(string.format([[highlight Headline6Bg guifg=%s guibg=%s]], colors.purple, bg6))
 
+vim.cmd(string.format([[highlight @markup.heading.1.markdown guifg=%s guibg=%s]], colors.red, bg1))
+vim.cmd(string.format([[highlight @markup.heading.2.markdown guifg=%s guibg=%s]], colors.orange, bg2))
+vim.cmd(string.format([[highlight @markup.heading.3.markdown guifg=%s guibg=%s]], colors.yellow, bg3))
+vim.cmd(string.format([[highlight @markup.heading.4.markdown guifg=%s guibg=%s]], colors.green, bg4))
+vim.cmd(string.format([[highlight @markup.heading.5.markdown guifg=%s guibg=%s]], colors.blue, bg5))
+vim.cmd(string.format([[highlight @markup.heading.6.markdown guifg=%s guibg=%s]], colors.purple, bg6))

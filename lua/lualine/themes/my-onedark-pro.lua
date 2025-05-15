@@ -6,7 +6,7 @@ local myOnedarkPro = {}
 myOnedarkPro.normal = {
     a = {
        bg = config.options.lualine_transparency and colors.none or colors.green,
-       fg = colors.blue
+       fg = colors.blue,
     },
     b = {
        bg = config.options.lualine_transparency and colors.none or colors.fg_gutter,

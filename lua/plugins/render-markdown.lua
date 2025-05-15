@@ -16,6 +16,7 @@ return {
             border = false,
             sign = false,
             position = "inline",
+            -- icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
             backgrounds = {
                'Headline1Bg',
                'Headline2Bg',
@@ -33,11 +34,31 @@ return {
                'RenderMarkdownH6',
             },
          },
-         code = { sign = false },
-         quote = { icon = '▎' },
+         code = {
+            sign = false,
+            style = 'full',
+            border = 'thick',
+         },
+         quote = { icon = '┃' },
+         bullet = { enabled = true, },
+         dash = { enabled = true },
          completions = {
             blink = { enabled = true },
             lsp = { enabled = true }
+         },
+         pipe_table = {
+            preset = 'round',
+            cell = 'trimmed',
+            filler = 'RenderMarkdownTableRow',
+         },
+         checkbox = {
+            custom = {
+               important = {
+                  raw = '[!]',
+                  rendered = '󰓎 ',
+                  highlight = 'DiagnosticWarn',
+               },
+            },
          },
       })
    end
