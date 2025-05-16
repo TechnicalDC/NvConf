@@ -1,6 +1,7 @@
 return {
    'echasnovski/mini.pairs',
    version = '*',
+   event = { "BufRead", "BufNewFile" },
    config = function ()
       require('mini.pairs').setup({
          -- In which modes mappings from this `config` should be created

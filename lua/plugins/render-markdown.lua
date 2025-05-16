@@ -4,6 +4,7 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons'
    },
+   ft = "markdown",
    config = function ()
       local render = require('render-markdown')
 
