@@ -4,8 +4,6 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons'
    },
-   init = function ()
-   end,
    config = function ()
       local render = require('render-markdown')
 
@@ -16,7 +14,7 @@ return {
             border = false,
             sign = false,
             position = "inline",
-            -- icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+            icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
             backgrounds = {
                'Headline1Bg',
                'Headline2Bg',

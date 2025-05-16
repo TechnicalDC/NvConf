@@ -19,7 +19,6 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 * Enhanced syntax highlighting via [nvim-treesitter](https://github.com/tree-sitter/tree-sitter)
 * Snippet support via [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 * Git integration with [gitsigns](https://github.com/lewis6991/gitsigns.nvim) and [snacks.lazygit](https://github.com/folke/snacks.nvim/blob/main/docs/lazygit.md)
-* Notetaking with [neorg](https://github.com/nvim-neorg/neorg)
 
 ## Colorschemes
 
