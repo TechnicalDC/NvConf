@@ -298,15 +298,7 @@ return {
       notifier     = {
          enabled = true,
          top_down = false,
-         style = "compact"
-         -- style = function(buf, notif, ctx)
-         --    local title = vim.trim(notif.icon .. " " .. (notif.title or ""))
-         --    if title ~= "" then
-         --       ctx.opts.title = { { " " .. title .. " ", ctx.hl.title } }
-         --       ctx.opts.title_pos = "center"
-         --    end
-         --    vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(notif.msg, "\n"))
-         -- end,
+         style = "minimal"
       },
       quickfile    = { enabled = true },
       scope        = { enabled = true },
