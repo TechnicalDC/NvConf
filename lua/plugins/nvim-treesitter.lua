@@ -3,10 +3,22 @@ return {
    build = ':TSUpdate',
    config = function ()
       require'nvim-treesitter.configs'.setup {
-         ensure_installed = {},
+         ensure_installed = {
+            "bash",
+            "css",
+            "diff",
+            "json",
+            "latex",
+            "lua",
+            "markdown",
+            "markdown_inline",
+            "rust",
+            "typescript",
+            "xml",
+         },
          sync_install = false,
          auto_install = false,
-         ignore_install = { "latex", "javascript" },
+         ignore_install = { "javascript" },
 
          highlight = {
             -- `false` will disable the whole extension
