@@ -194,6 +194,7 @@ return {
             return vim.bo[buf].filetype == "lua"
                 or vim.bo[buf].filetype == "progress"
                 or vim.bo[buf].filetype == "fish"
+                or vim.bo[buf].filetype == "python"
                 or vim.bo[buf].filetype == "rust"
                 or vim.bo[buf].filetype == "go"
          end,
