@@ -45,14 +45,92 @@ local on_attach = function(client, bufnr)
    end
 end
 
-nvim_lsp.jsonls.setup {
+vim.lsp.config("*", {
    on_attach = on_attach,
-   capabilities = capabilities,
-}
-nvim_lsp.gopls.setup {
-   on_attach = on_attach,
-   capabilities = capabilities,
-}
+   capabilities = capabilities
+})
+
+vim.lsp.config("marksman",{
+   cmd = { "marksman", "server" },
+   filetypes = { "markdown", "markdown.mdx" },
+   root_markers = { ".marksman.toml", ".git" }
+})
+
+vim.lsp.config("jsonls",{
+   cmd = { "vscode-json-language-server", "--stdio" },
+   filetypes = { "json", "jsonc" },
+   init_options = {
+      provideFormatter = true
+   },
+   root_markers = { ".git" }
+})
+
+vim.lsp.config("bashls",{
+   cmd = { "bash-language-server", "start" },
+   filetypes = { "bash", "sh" },
+   settings = {
+      bashIde = {
+         globPattern = "*@(.sh|.inc|.bash|.command)"
+      }
+   }
+})
+
+vim.lsp.config("gopls",{
+   cmd = { "gopls" },
+   filetypes = { "go", "gomod", "gowork", "gotmpl" },
+})
+
+vim.lsp.config('lua_ls', {
+   cmd = { "lua-language-server" },
+   filetypes = { "lua" },
+   on_init = function(client)
+      if client.workspace_folders then
+         local path = client.workspace_folders[1].name
+         if
+            path ~= vim.fn.stdpath('config')
+            and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+            then
+               return
+            end
+         end
+
+         client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+            runtime = {
+               -- Tell the language server which version of Lua you're using (most
+               -- likely LuaJIT in the case of Neovim)
+               version = 'LuaJIT',
+               -- Tell the language server how to find Lua modules same way as Neovim
+               -- (see `:h lua-module-load`)
+               path = {
+                  'lua/?.lua',
+                  'lua/?/init.lua',
+               },
+            },
+            -- Make the server aware of Neovim runtime files
+            workspace = {
+               checkThirdParty = false,
+               library = {
+                  vim.env.VIMRUNTIME
+                  -- Depending on the usage, you might want to add additional paths
+                  -- here.
+                  -- '${3rd}/luv/library'
+                  -- '${3rd}/busted/library'
+               }
+               -- Or pull in all of 'runtimepath'.
+               -- NOTE: this is a lot slower and will cause issues when working on
+               -- your own configuration.
+               -- See https://github.com/neovim/nvim-lspconfig/issues/3189
+               -- library = {
+                  --   vim.api.nvim_get_runtime_file('', true),
+                  -- }
+               }
+            })
+         end,
+         settings = {
+            Lua = {}
+         }
+})
+
 nvim_lsp.rust_analyzer.setup {
    on_attach = on_attach,
    capabilities = capabilities,
@@ -117,35 +195,6 @@ nvim_lsp.texlab.setup({
    }
 })
 
-nvim_lsp.lua_ls.setup({
-   on_attach = on_attach,
-   capabilities = capabilities,
-   settings = {
-      Lua = {
-         runtime = { version = "LuaJIT" },
-         diagnostics = {
-            globals = { "vim" }
-         },
-         workspace = {
-            checkThirdParty = false,
-            library = {
-               vim.env.VIMRUNTIME
-            },
-         },
-         completion = {
-            enable = true,
-            -- When the input looks like a file name, automatically require the file.
-            autoRequire = true,
-            callSnippet = "Replace",
-            keywordSnippet = "Replace",
-            -- When a snippet is being suggested, this setting will set the amount of lines
-            -- around the snippet to preview to help you better understand its usage.
-            displayContext = 10,
-         },
-      }
-   }
-})
-
 local signs = {
    Error = "",
    Warn = "",
@@ -197,13 +246,3 @@ vim.diagnostic.config({
       focus = false
    }
 })
-
--- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
---    vim.lsp.handlers.hover, {
---       -- Use a sharp border with `FloatBorder` highlights
---       border = "rounded",
---       -- add the title in hover float window
---       title = "hover"
---    }
--- )
-
