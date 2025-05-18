@@ -1,7 +1,4 @@
-local nvim_lsp = require('lspconfig')
 local capabilities = require('blink.cmp').get_lsp_capabilities()
-local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
 local hoverOpts = {
    border = "rounded",
    title = "hover",
@@ -131,43 +128,20 @@ vim.lsp.config('lua_ls', {
          }
 })
 
-nvim_lsp.rust_analyzer.setup {
-   on_attach = on_attach,
-   capabilities = capabilities,
-}
-
-nvim_lsp.tsserver.setup({
-   on_attach = on_attach,
-   capabilities = capabilities,
-   disable_formatting = true,
-   settings = {
-      javascript = {
-         inlayHints = {
-            includeInlayEnumMemberValueHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = true,
-         },
-      },
-      typescript = {
-         inlayHints = {
-            includeInlayEnumMemberValueHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = true,
-         },
-      },
-   },
+vim.lsp.config('rust_analyzer', {
+   cmd = { "rust-analyzer" },
+   filetypes = { "rust" },
 })
 
-nvim_lsp.texlab.setup({
-   capabilities = capabilities,
+vim.lsp.config("ts_ls", {
+   cmd = { "typescript-language-server", "--stdio" },
+   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+   root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" }
+})
+
+vim.lsp.config("texlab",{
+   cmd = { "texlab" },
+   filetypes = { "tex", "plaintex", "bib" },
    settings ={
       texlab = {
          auxDirectory = ".",
