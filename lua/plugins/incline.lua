@@ -1,6 +1,6 @@
 return {
    'b0o/incline.nvim',
-   event = { "BufRead", "BufNewFile" },
+   event = { "BufReadPre", "BufNewFile" },
    config = function ()
       local helpers = require 'incline.helpers'
       local colors = require("gruvbox-material.colors").get(vim.o.background, "medium")

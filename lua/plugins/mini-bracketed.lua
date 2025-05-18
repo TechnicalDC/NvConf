@@ -1,7 +1,7 @@
 return {
    'echasnovski/mini.bracketed',
    version = false,
-   event = { "BufRead", "BufNewFile" },
+   event = { "BufReadPre", "BufNewFile" },
    config = function ()
       require('mini.bracketed').setup({
          -- First-level elements are tables describing behavior of a target:
