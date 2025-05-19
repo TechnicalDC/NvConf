@@ -4,11 +4,11 @@ return {
    lazy = false,
    priority = 1000,
    config = function ()
-      local colors = require("gruvbox-material.colors").get(vim.o.background, "medium")
+      local colors = require("gruvbox-material.colors").get(vim.o.background, "hard")
 
       require('gruvbox-material').setup({
          italics = true,
-         contrast = "medium",
+         contrast = "hard",
          comments = {
             italics = true,
          },

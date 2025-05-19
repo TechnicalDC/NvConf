@@ -1,5 +1,5 @@
 ---@diagnostic disable: unused-function
-local theme = require("gruvbox-material.lualine").theme("medium")
+local theme = require("gruvbox-material.lualine").theme("hard")
 local g_colors = require("gruvbox-material.colors")
 local colors = g_colors.get(vim.o.background, "medium")
 local default_icon = '█ '

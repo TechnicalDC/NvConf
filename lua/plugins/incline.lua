@@ -3,7 +3,7 @@ return {
    event = { "BufReadPre", "BufNewFile" },
    config = function ()
       local helpers = require 'incline.helpers'
-      local colors = require("gruvbox-material.colors").get(vim.o.background, "medium")
+      local colors = require("gruvbox-material.colors").get(vim.o.background, "hard")
       local devicons = require 'nvim-web-devicons'
 
       require('incline').setup {
