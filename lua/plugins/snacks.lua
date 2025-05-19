@@ -152,6 +152,9 @@ return {
       { "<leader>fz", function ()
          require("snacks").picker.zoxide()
       end, desc = "Find zoxide"  },
+      { "<leader>fw", function ()
+         require("snacks").picker.grep_word()
+      end, desc = "Grep word under the cursor"},
 
       { "<leader>ou", function ()
          local opts = { on_show = function() vim.cmd.stopinsert() end }
@@ -194,6 +197,7 @@ return {
             return vim.bo[buf].filetype == "lua"
                 or vim.bo[buf].filetype == "progress"
                 or vim.bo[buf].filetype == "fish"
+                or vim.bo[buf].filetype == "python"
                 or vim.bo[buf].filetype == "rust"
                 or vim.bo[buf].filetype == "go"
          end,
@@ -276,7 +280,6 @@ return {
                },
             }
          },
-         -- TODO: Adding preset
          sources = {
             icons = { layout = { preset = "select" } },
             cliphist = { layout = { preset = "select" } },

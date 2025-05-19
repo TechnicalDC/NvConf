@@ -9,6 +9,6 @@ return {
    },
    config = function ()
       require("plugins.lsp.mason")
-      require("plugins.lsp.lsp-config")
+      require("plugins.lsp.config")
    end
 }

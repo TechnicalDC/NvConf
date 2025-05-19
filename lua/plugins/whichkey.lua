@@ -16,14 +16,12 @@ return {
          delay = function(ctx)
             return ctx.plugin and 0 or 200
          end,
-         ---@param mapping wk.Mapping
-         filter = function(mapping)
-            -- example to exclude mappings without a description
-            -- return mapping.desc and mapping.desc ~= ""
-            return true
-         end,
+         -- filter = function(mapping)
+         --    -- example to exclude mappings without a description
+         --    -- return mapping.desc and mapping.desc ~= ""
+         --    return true
+         -- end,
          --- You can add any mappings here, or use `require('which-key').add()` later
-         ---@type wk.Spec
          spec = {
             mode = { 'n', 'x' },
             { '<leader>',  group = 'Leader' },
@@ -60,7 +58,6 @@ return {
          -- Which-key automatically sets up triggers for your mappings.
          -- But you can disable this and setup the triggers manually.
          -- Check the docs for more info.
-         ---@type wk.Spec
          triggers = {
             { "<auto>", mode = "nxsot" },
          },
@@ -89,7 +86,6 @@ return {
                g = true, -- bindings for prefixed with g
             },
          },
-         ---@type wk.Win.opts
          win = {
             -- don't allow the popup to overlap with the cursor
             no_overlap = false,
@@ -113,7 +109,6 @@ return {
             scroll_down = "<c-d>", -- binding to scroll down inside the popup
             scroll_up = "<c-u>", -- binding to scroll up inside the popup
          },
-         ---@type (string|wk.Sorter)[]
          --- Mappings are sorted using configured sorters and natural sort of the keys
          --- Available sorters:
          --- * local: buffer-local mappings first
@@ -124,7 +119,6 @@ return {
          --- * manual: the order the mappings were added
          --- * case: lower-case first
          sort = { "local", "order", "group", "alphanum", "mod" },
-         ---@type number|fun(node: wk.Node):boolean?
          expand = 0, -- expand groups when <= n mappings
          -- expand = function(node)
          --    -- return not node -- expand all nodes without a description
@@ -151,7 +145,7 @@ return {
          },
          icons = {
             breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-            separator = " ➜ ", -- symbol used between a key and it's label
+            separator = "  ", -- symbol used between a key and it's label
             group = "+", -- symbol prepended to a group
             ellipsis = "…",
             -- set to false to disable all mapping icons,
@@ -160,7 +154,6 @@ return {
             mappings = false,
             --- See `lua/which-key/icons.lua` for more details
             --- Set to `false` to disable keymap icons from rules
-            ---@type wk.IconRule[]|false
             rules = {
                { pattern = "folder" , icon = " ", color = "blue" },
                { pattern = "doc" , icon = " ", color = "blue" },
