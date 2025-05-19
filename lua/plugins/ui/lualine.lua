@@ -3,7 +3,7 @@ local theme = require("gruvbox-material.lualine").theme("medium")
 local g_colors = require("gruvbox-material.colors")
 local colors = g_colors.get(vim.o.background, "medium")
 local default_icon = '█ '
-local mode_map = {
+local mode_icon = {
    -- ['NORMAL']     = '󰘳 ',
    -- ['O-PENDING']  = ' ',
    -- ['INSERT']     = ' ',
@@ -18,6 +18,22 @@ local mode_map = {
    -- ['SELECT']     = ' ',
    -- ['CONFIRM']    = ' ',
    -- ['MORE']       = '󰍻 ',
+}
+local mode_abbr = {
+   ['NORMAL']     = 'NOR',
+   ['O-PENDING']  = 'O-P',
+   ['INSERT']     = 'INS',
+   ['VISUAL']     = 'VIS',
+   ['V-BLOCK']    = 'VIS',
+   ['V-LINE']     = 'VIS',
+   ['V-REPLACE']  = 'REP',
+   ['REPLACE']    = 'REP',
+   ['COMMAND']    = 'CMD',
+   ['SHELL']      = 'SH',
+   ['TERMINAL']   = 'TERM',
+   ['SELECT']     = 'SEL',
+   ['CONFIRM']    = 'CFM',
+   ['MORE']       = 'MR',
 }
 
 local branch = {
@@ -37,19 +53,24 @@ local tabs = {
 
 local diagnostics = {
    'diagnostics',
-   symbols = { error = ' ', warn = ' ', info = ' ', hint = '󰌵 ' },
+   symbols = {
+      error = '  ',
+      warn = '  ',
+      info = '  ',
+      hint = '󰌵 '
+   },
    colored = true,           -- Displays diagnostics status in color if set to true.
    update_in_insert = false, -- Update diagnostics in insert mode.
-   always_visible = false,   -- Show diagnostics even if there are none.
+   always_visible = true,   -- Show diagnostics even if there are none.
 }
 
 local diff = {
    'diff',
    colored = true, -- Displays a colored diff status if set to true
    symbols = {
-      added = ' ',
-      modified = ' ',
-      removed = ' '
+      added = '  ',
+      modified = '  ',
+      removed = '  '
    }, -- Changes the symbols used by the diff.
    source = nil, -- A function that works as a data source for diff.
 }
@@ -91,8 +112,9 @@ local filetype = {
 local mode = {
    'mode',
    fmt = function(s)
-      local icon = mode_map[s] or default_icon
-      return s
+      -- local icon = mode_icon[s] or default_icon
+      local name = mode_abbr[s] or s
+      return name
    end
 }
 
