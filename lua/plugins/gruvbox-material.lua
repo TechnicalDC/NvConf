@@ -1,6 +1,7 @@
 return {
    'TechnicalDC/gruvbox-material.nvim',
    name = 'gruvbox-material',
+   enabled = false,
    lazy = false,
    priority = 1000,
    config = function ()
@@ -17,7 +18,7 @@ return {
          },
          float = {
             force_background = true,
-            background_color = colors.bg0,
+            background_color = colors.bg1,
          },
          signs = {
             highlight = false,

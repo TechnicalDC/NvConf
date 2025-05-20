@@ -69,4 +69,4 @@ require('lazy').setup("plugins", {
    }
 })
 
-require("technicaldc.highlights")
+-- require("technicaldc.highlights")

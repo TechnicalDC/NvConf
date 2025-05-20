@@ -1,4 +1,4 @@
-local colors = require("gruvbox-material.colors").get(vim.o.background, "medium")
+local colors = require("gruvbox-material.colors").get(vim.o.background, "hard")
 local util = require("technicaldc.util")
 
 local bg1 = util.darken(colors.red, 0.5)
@@ -21,3 +21,10 @@ vim.cmd(string.format([[highlight @markup.heading.3.markdown guifg=%s guibg=%s]]
 vim.cmd(string.format([[highlight @markup.heading.4.markdown guifg=%s guibg=%s]], colors.green, bg4))
 vim.cmd(string.format([[highlight @markup.heading.5.markdown guifg=%s guibg=%s]], colors.blue, bg5))
 vim.cmd(string.format([[highlight @markup.heading.6.markdown guifg=%s guibg=%s]], colors.purple, bg6))
+
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = colors.bg2, bg = colors.bg2 })
+vim.api.nvim_set_hl(0, "NormalFloat", { fg = colors.bg2, bg = colors.bg2 })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "FloatBorder"})
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "FloatBorder"})
+vim.api.nvim_set_hl(0,"TelescopeSelection" , { link = "PmenuSel" })
+

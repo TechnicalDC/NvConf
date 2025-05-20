@@ -1,2 +1,1 @@
-vim.cmd.colorscheme("gruvbox-material")
--- vim.cmd.colorscheme("onedark_vivid")
+vim.cmd.colorscheme("minihues")

@@ -1,7 +1,4 @@
 ---@diagnostic disable: unused-function
-local theme = require("gruvbox-material.lualine").theme("hard")
-local g_colors = require("gruvbox-material.colors")
-local colors = g_colors.get(vim.o.background, "medium")
 local default_icon = '█ '
 local mode_icon = {
    -- ['NORMAL']     = '󰘳 ',
@@ -38,7 +35,8 @@ local mode_abbr = {
 
 local branch = {
    'branch',
-   icon = '%#Purple#%#lualine_b_normal#',
+   icon = ' ',
+   -- icon = '%#Purple#%#lualine_b_normal#',
 }
 
 local tabs = {
@@ -88,8 +86,10 @@ local filename = {
    shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
    -- for other components. (terrible name, any suggestions?)
    symbols = {
-      modified = '%#Yellow# ',      -- Text to show when the file is modified.
-      readonly = '%#Red# ',      -- Text to show when the file is non-modifiable or readonly.
+      modified = ' ',      -- Text to show when the file is modified.
+      readonly = ' ',      -- Text to show when the file is non-modifiable or readonly.
+      -- modified = '%#Yellow# ',      -- Text to show when the file is modified.
+      -- readonly = '%#Red# ',      -- Text to show when the file is non-modifiable or readonly.
       unnamed = ' [No Name]', -- Text to show for unnamed buffers.
       newfile = ' [New File]',     -- Text to show for newly created file before first write
    }
@@ -133,7 +133,8 @@ local clients_lsp = function ()
    for _, client in pairs(clients) do
       table.insert(c, client.name)
    end
-   return "%#Yellow#  %#lualine_b_normal#" .. table.concat(c, ' ')
+   return "  " .. table.concat(c, ' ')
+   -- return "%#Yellow#  %#lualine_b_normal#" .. table.concat(c, ' ')
 end
 
 local buf_count = function ()
@@ -154,7 +155,8 @@ local buf_count = function ()
       end
    end
 
-   return "%#Red# %#lualine_b_normal#" .. tostring(current) .. "/" .. tostring(bufcnt)
+   return " " .. tostring(current) .. "/" .. tostring(bufcnt)
+   -- return "%#Red# %#lualine_b_normal#" .. tostring(current) .. "/" .. tostring(bufcnt)
 end
 
 local terminal = function ()
@@ -186,7 +188,8 @@ end
 require('lualine').setup({
    options = {
       icons_enabled = true,
-      theme = theme,
+      theme = "minihues",
+      -- theme = theme,
       -- theme = "my-onedark-pro",
       component_separators = { left = '', right = ''},
       section_separators = { left = '', right = ''},
@@ -219,7 +222,7 @@ require('lualine').setup({
          },
          'selectioncount',
          buf_count,
-         colored_filetype,
+         filetype,
          branch,
          clients_lsp,
          'location',
