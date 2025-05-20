@@ -177,9 +177,7 @@ local createExtention = function(filetype_name,l,r)
          lualine_a = left_section,
          lualine_b = {},
          lualine_x = right_section,
-         lualine_z = {
-            { space, padding = 0 }
-         }
+         lualine_z = {}
       },
       filetypes = {filetype_name}
    }
@@ -224,12 +222,10 @@ require('lualine').setup({
          colored_filetype,
          branch,
          clients_lsp,
-         'progress',
+         'location',
       },
       lualine_y = {},
-      lualine_z = {
-         { space, padding = 0 }
-      }
+      lualine_z = {}
    },
    inactive_sections = {
       lualine_a = {},
