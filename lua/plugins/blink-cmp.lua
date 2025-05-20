@@ -125,8 +125,8 @@ return {
             auto_show = true,
             window = {
                scrollbar = false,
-               border = "none",
-               -- border = "rounded",
+               -- border = "none",
+               border = "rounded",
                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
                direction_priority = {
                   menu_north = { 'e', 'w', 'n', 's' },

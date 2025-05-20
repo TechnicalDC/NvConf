@@ -1,5 +1,5 @@
 require('mini.hues').setup({
-   background = '#282828',
+   background = '#1d2021',
    foreground = '#c0c8cc',
    accent = 'bg',
    saturation = 'medium',
