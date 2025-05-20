@@ -59,7 +59,7 @@ local diagnostics = {
    },
    colored = true,           -- Displays diagnostics status in color if set to true.
    update_in_insert = false, -- Update diagnostics in insert mode.
-   always_visible = true,   -- Show diagnostics even if there are none.
+   always_visible = false,   -- Show diagnostics even if there are none.
 }
 
 local diff = {
@@ -188,9 +188,8 @@ end
 require('lualine').setup({
    options = {
       icons_enabled = true,
-      theme = "minihues",
-      -- theme = theme,
-      -- theme = "my-onedark-pro",
+      theme = "auto",
+      -- theme = "minihues",
       component_separators = { left = '', right = ''},
       section_separators = { left = '', right = ''},
       disabled_filetypes = {
