@@ -2,7 +2,10 @@ return {
    'stevearc/oil.nvim',
    opts = {},
    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-   lazy = false,
+   keys = {
+      { "<leader>oo", "<CMD>Oil<CR>", desc = "Open oil" },
+      { "<leader>of", "<CMD>Oil --float<CR>", desc = "Open oil in floating window" },
+   },
    config = function ()
       require("oil").setup({
          -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
@@ -66,8 +69,8 @@ return {
          keymaps = {
             ["g?"] = { "actions.show_help", mode = "n" },
             ["<CR>"] = "actions.select",
-            ["<C-s>"] = { "actions.select", opts = { vertical = true } },
-            ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
+            ["<C-v>"] = { "actions.select", opts = { vertical = true } },
+            ["<C-x>"] = { "actions.select", opts = { horizontal = true } },
             ["<C-t>"] = { "actions.select", opts = { tab = true } },
             ["<C-p>"] = "actions.preview",
             ["<C-c>"] = { "actions.close", mode = "n" },
@@ -131,8 +134,8 @@ return {
             -- Padding around the floating window
             padding = 2,
             -- max_width and max_height can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
-            max_width = 0,
-            max_height = 0,
+            max_width = 0.8,
+            max_height = 0.5,
             border = "rounded",
             win_options = {
                winblend = 0,
