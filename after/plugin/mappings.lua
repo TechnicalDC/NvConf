@@ -1,7 +1,5 @@
 ---@diagnostic disable: undefined-global
 local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
--- local extra_opts = { noremap = true, silent = true, expr = true }
 
 local ls = require("luasnip")
 local ok, wk = pcall(require, 'which-key')

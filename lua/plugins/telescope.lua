@@ -3,6 +3,7 @@ return {
    'nvim-telescope/telescope.nvim',
    dependencies = {
       'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim'
    },
    keys = {
       { "<leader>ff", function ()
@@ -87,9 +88,16 @@ return {
                -- entry_maker = entry_maker.gen_from_buffer_like_leaderf(),
             },
          },
-         extensions = {},
+         extensions = {
+            ["ui-select"] = {
+               require("telescope.themes").get_dropdown {
+                  layout_strategy = "vertical"
+               }
+            }
+         },
       }
 
       require("telescope").load_extension("noice")
+      require("telescope").load_extension("ui-select")
    end
 }

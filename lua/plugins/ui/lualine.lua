@@ -204,10 +204,7 @@ require('lualine').setup({
       }
    },
    sections = {
-      lualine_a = {
-         mode
-         -- { block, padding = 0 }
-      },
+      lualine_a = { mode },
       lualine_b = { },
       lualine_c = {
          diff,
@@ -221,10 +218,8 @@ require('lualine').setup({
             color = {link = "lualine_b_diff_added_insert"},
          },
          'selectioncount',
-         buf_count,
          filetype,
          branch,
-         clients_lsp,
          'location',
       },
       lualine_y = {},
@@ -242,11 +237,10 @@ require('lualine').setup({
       'trouble',
       'lazy',
       'quickfix',
-      createExtention("help",{mode},{filetype}),
-      createExtention("harpoon",{mode},{filetype}),
-      createExtention("minifiles",{mode},{branch}),
-      createExtention("ministarter",{mode},{branch}),
-      createExtention("snacks_terminal",{filetype},{terminal}),
-      createExtention("snacks_picker_input",{mode},{branch}),
+      createExtention("help",{mode},{}),
+      createExtention("harpoon",{mode},{}),
+      createExtention("minifiles",{mode},{}),
+      createExtention("ministarter",{mode},{}),
+      createExtention("TelescopePrompt",{mode},{}),
    }
 })

@@ -7,7 +7,6 @@ local hoverOpts = {
 
 ---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
-   local bufopts = { noremap=true, silent=true, buffer=bufnr }
    local ok, wk = pcall(require, 'which-key')
    if ok then
       wk.add({
@@ -206,9 +205,9 @@ vim.diagnostic.config({
       -- end
       -- current_line = true,
    },
-   -- virtual_lines = {
-   --    current_line = true,
-   -- },
+   virtual_lines = {
+      current_line = true,
+   },
    float = {
       scope = "cursor",
       severity_sort = true,
