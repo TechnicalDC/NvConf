@@ -38,11 +38,11 @@ set.fillchars:append({
    diff = "-",
    eob = " ",
 })
-set.listchars	  = "tab:>-"
+set.listchars	  = "tab:> "
 set.list          = true
 set.diffopt       = "filler,vertical,iwhiteall,iblank"
 set.mouse         = "a"
-set.expandtab     = true
+set.expandtab     = false
 set.tabstop       = 3
 set.shiftwidth    = 3
 set.softtabstop   = 3
