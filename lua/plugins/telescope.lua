@@ -91,7 +91,10 @@ return {
          extensions = {
             ["ui-select"] = {
                require("telescope.themes").get_dropdown {
-                  layout_strategy = "vertical"
+                  layout_strategy = "vertical",
+                  layout_config = {
+                     height = 0.5
+                  }
                }
             }
          },
