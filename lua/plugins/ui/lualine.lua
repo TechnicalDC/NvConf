@@ -212,6 +212,7 @@ require('lualine').setup({
       lualine_c = {
          diff,
          diagnostics,
+         filename
       },
       lualine_x = {
          {

@@ -6,25 +6,31 @@ return {
    },
    keys = {
       { "<leader>ff", function ()
-         require("telescope.builtin").find_files({preview_title = ""})
+         require("telescope.builtin").find_files()
       end, desc = "Find files"    },
       { "<leader>fh", function ()
-         require("telescope.builtin").help_tags({preview_title = ""})
+         require("telescope.builtin").help_tags()
       end, desc = "Find help files" },
+      { "<leader>fH", function ()
+         require("telescope.builtin").highlights()
+      end, desc = "Find highlights" },
       { "<leader>fs", function ()
-         require("telescope.builtin").lsp_document_symbols({preview_title = ""})
+         require("telescope.builtin").lsp_document_symbols()
       end,  desc = "Find symbols"  },
       { "<leader>fS",function ()
-         require("telescope.builtin").lsp_workspace_symbols({preview_title = ""})
+         require("telescope.builtin").lsp_workspace_symbols()
       end, desc = "Find workspace symbols" },
       { "<leader>fo", function ()
-         require("telescope.builtin").oldfiles({preview_title = ""})
+         require("telescope.builtin").oldfiles()
       end, desc = "Find recent files" },
       { "<leader>fb", function ()
-         require("telescope.builtin").buffers({preview_title = ""})
+         require("telescope.builtin").buffers()
       end, desc = "Find buffers"  },
       { "<leader>fw", function ()
-         require("telescope.builtin").live_grep({preview_title = ""})
+         require("telescope.builtin").grep_string()
+      end, desc = "Find word under the cursor" },
+      { "<leader>fW", function ()
+         require("telescope.builtin").live_grep()
       end, desc = "Find word" },
    },
    config = function ()
@@ -37,7 +43,7 @@ return {
          defaults = {
             layout_strategy = "flex",  -- Other layouts: vertical, horizontal, center
             layout_config = {
-               prompt_position = "top"
+               prompt_position = "top",
             },
             sorting_strategy = "ascending",
             prompt_prefix = "   ",
