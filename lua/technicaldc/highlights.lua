@@ -10,10 +10,10 @@ hl(0, "FloatBorder", { fg = palette.bg_edge, bg = palette.bg_edge })
 hl(0, "FloatTitle", { fg = palette.fg, bg = palette.bg_mid2 })
 
 -- MINI-STARTER
-hl(0, "MiniStarterHeader", { fg = palette.fg_mid})
+hl(0, "MiniStarterHeader", { fg = palette.fg_edge})
 hl(0, "MiniStarterItem", { fg = palette.fg_mid2})
 hl(0, "MiniStarterSection", { fg = palette.fg_edge})
-hl(0, "MiniStarterItemPrefix", { fg = palette.fg})
+hl(0, "MiniStarterItemPrefix", { fg = palette.fg_mid})
 
 -- TELESCOPE
 hl(0, "TelescopeBorder"       , { fg = palette.bg_edge2 , bg = palette.bg_edge2 })

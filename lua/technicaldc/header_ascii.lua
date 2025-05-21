@@ -4,6 +4,10 @@ headers.mini = [[
 Neovim :: T E C H N I C A L D C
 ]]
 
+headers.mini_footer = [[
+Copyright   2025 - TheTechnicalDC
+]]
+
 headers. eldritch_logo = [[
 ⠀⠀⠀⠀⠀⠀⠀⣠⡤⠶⡄⠀⠀⠀⠀⠀⠀⠀⢠⠶⣦⣀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢀⣴⣿⡟⠀⠈⣀⣾⣝⣯⣿⣛⣷⣦⡀⠀⠈⢿⣿⣦⡀⠀⠀⠀⠀

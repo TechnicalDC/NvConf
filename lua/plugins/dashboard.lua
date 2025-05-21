@@ -19,7 +19,7 @@ return {
 
 		require('mini.starter').setup( {
 			autoopen = true,
-			-- Whether to evaluate action of single active item
+
 			evaluate_single = true,
 			items = {
 				{
@@ -50,13 +50,10 @@ return {
 			},
 
 			header = headers.mini,
-			footer = 'Copyright @2025, TheTechnicalDC',
+			footer = headers.mini_footer,
 
-			-- Array  of functions to be applied consecutively to initial content.
-			-- Each function should take and return content for 'Starter' buffer (see
-			-- |mini.starter| and |MiniStarter.content| for more details).
 			content_hooks = {
-				starter.gen_hook.adding_bullet(),
+				-- starter.gen_hook.adding_bullet(),
 				function(content)
 					-- Coords
 					local header_width = content_type_width(content, "header")
