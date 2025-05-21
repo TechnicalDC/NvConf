@@ -37,7 +37,6 @@ return {
    config = function ()
       local toggle_preview = require("telescope.actions.layout").toggle_preview
       local actions = require("telescope.actions")
-      local trouble = require("trouble.sources.telescope")
       -- local entry_maker = require("plugins.telescope.utils.buffer_entry_make")
 
       require('telescope').setup{
@@ -76,7 +75,6 @@ return {
                i = {
                   ["<C-/>"] = "which_key",
                   ["<C-p>"] = toggle_preview,
-                  ["<c-b>"] = trouble.open_with_trouble
                }
             }
          },
