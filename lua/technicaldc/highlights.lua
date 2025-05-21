@@ -3,10 +3,25 @@ local palette = require("mini.hues").make_palette()
 
 -- print(vim.inspect(palette))
 
+-- BUILT-IN
 hl(0, "Pmenu", { bg = palette.bg_edge })
+-- hl(0, "PmenuSel", { bg = palette.bg_edge })
 hl(0, "FloatBorder", { fg = palette.bg_edge, bg = palette.bg_edge })
 hl(0, "FloatTitle", { fg = palette.fg, bg = palette.bg_mid2 })
 
+-- TELESCOPE
+hl(0, "TelescopeBorder"       , { fg = palette.bg_edge2 , bg = palette.bg_edge2 })
+hl(0, "TelescopePromptBorder" , { link = "FloatBorder" })
+hl(0, "TelescopePromptNormal" , { link = "NormalFloat" })
+hl(0, "TelescopePromptPrefix" , { fg = palette.fg })
+hl(0, "TelescopeNormal"       , { bg = palette.bg_edge2 })
+hl(0, "TelescopePreviewTitle" , { link = "FloatTitle" })
+hl(0, "TelescopePromptTitle"  , { link = "FloatTitle" })
+hl(0, "TelescopeResultsTitle" , { link = "FloatTitle" })
+-- hi(0, "TelescopeSelection"    , { guifg = nil, guibg = darkerstatusline, gui = nil, guisp = nil })
+-- hi(0, "TelescopePreviewLine"  , { guifg = nil, guibg = M.colors.base01, gui = 'none', guisp = nil })
+
+-- NOICE
 hl(0, "NoiceCmdline",                       { link = "NormalFloat" })
 hl(0, "NoiceCmdlineIcon",                   { fg = palette.fg })
 hl(0, "NoiceCmdlineIconCalculator",         { link = "NoiceCmdlineIcon" })
