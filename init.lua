@@ -68,3 +68,5 @@ require('lazy').setup("plugins", {
       }
    }
 })
+
+require("technicaldc.highlights")

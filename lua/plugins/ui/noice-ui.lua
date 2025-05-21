@@ -206,7 +206,7 @@ require("noice").setup({
          },
          filter_options = {},
          win_options = {
-            winhighlight = { Normal = "TelescopePromptNormal", FloatBorder = "DiagnosticInfo" },
+            winhighlight = { Normal = "NormalFloat", FloatBorder = "FloatBorder" },
          },
       },
       split = {
