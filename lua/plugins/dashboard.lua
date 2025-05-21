@@ -73,8 +73,6 @@ return  	{
             vim.opt_local.statuscolumn = ""
             map("n", "j", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", opts)
             map("n", "k", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", opts)
-            -- map("n", "<C-p>", "<Cmd>Telescope find_files<CR>", opts)
-            -- map("n", "<C-n>", "<Cmd>Telescope file_browser<CR>", opts)
          end})
    end
 }
