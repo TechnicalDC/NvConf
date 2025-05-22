@@ -25,27 +25,27 @@ return {
 				{
 					name = 'open notes',
 					action = 'lua require("telescope.builtin").find_files({cwd = "~/Notes/", prompt_title = "Open Notes"})',
-					section = 'Section'
+					section = 'telescope'
 				},
 				{
 					name = 'find files',
 					action = 'lua require("telescope.builtin").find_files()',
-					section = 'Section'
+					section = 'telescope'
 				},
 				{
 					name = 'recent files',
 					action = 'lua require("telescope.builtin").oldfiles()',
-					section = 'Section'
+					section = 'telescope'
 				},
 				{
 					name = 'edit new buffer',
 					action = 'enew',
-					section = 'Builtin actions'
+					section = 'builtin'
 				},
 				{
 					name = 'quit neovim',
 					action = 'qall',
-					section = 'Builtin actions'
+					section = 'builtin'
 				},
 			},
 
