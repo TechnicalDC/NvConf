@@ -8,7 +8,7 @@ function M.pywal()
 		"special": {
 			"background": "${bg}",
 			"foreground": "${fg}",
-			"cursor": "${fg}",
+			"cursor": "${fg}"
 		},
 		"colors": {
 			"color0": "${bg}",
