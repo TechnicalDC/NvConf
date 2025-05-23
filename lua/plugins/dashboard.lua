@@ -112,6 +112,7 @@ return {
 		autocmd("User",{
 			pattern = "MiniStarterOpened",
 			callback = function(args)
+				vim.b.miniindentscope_disable = true
 				vim.opt_local.statuscolumn = ""
 				map("n", "j", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", opts)
 				map("n", "k", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", opts)

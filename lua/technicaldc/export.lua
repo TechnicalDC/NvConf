@@ -3,38 +3,42 @@ local palette = require("mini.hues").make_palette()
 local M = {}
 
 function M.wezterm()
-	local wal = [[{
-		"wallpaper": "",
-		"special": {
-			"background": "${bg}",
-			"foreground": "${fg}",
-			"cursor": "${fg}"
-		},
-		"colors": {
-			"color0": "${bg}",
-			"color1":  "${red}",
-			"color2":  "${green}",
-			"color3":  "${orange}",
-			"color4":  "${blue}",
-			"color5":  "${purple}",
-			"color6":  "${cyan}",
-			"color7":  "${fg}",
-			"color8":  "${bg_edge2}",
-			"color9":  "${bg_edge}",
-			"color10":  "${bg_mid}",
-			"color11":  "${bg_mid2}",
-			"color12":  "${fg_mid2}",
-			"color13":  "${fg_mid}",
-			"color14":  "${fg_edge}",
-			"color15": "${fg_edge2}"
-		}
-	}
-	]]
+	local wal = [[
+	return {
+		accent    = "${accent}",
+		accent_bg = "${accent_bg}",
+		azure     = "${azure}",
+		azure_bg  = "${azure_bg}",
+		bg        = "${bg}",
+		bg_edge   = "${bg_edge}",
+		bg_edge2  = "${bg_edge2}",
+		bg_mid    = "${bg_mid}",
+		bg_mid2   = "${bg_mid2}",
+		blue      = "${blue}",
+		blue_bg   = "${blue_bg}",
+		cyan      = "${cyan}",
+		cyan_bg   = "${cyan_bg}",
+		fg        = "${fg}",
+		fg_edge   = "${fg_edge}",
+		fg_edge2  = "${fg_edge2}",
+		fg_mid    = "${fg_mid}",
+		fg_mid2   = "${fg_mid2}",
+		green     = "${green}",
+		green_bg  = "${green_bg}",
+		orange    = "${orange}",
+		orange_bg = "${orange_bg}",
+		purple    = "${purple}",
+		purple_bg = "${purple_bg}",
+		red       = "${red}",
+		red_bg    = "${red_bg}",
+		yellow    = "${yellow}",
+		yellow_bg = "${yellow_bg}"
+	}]]
 	return util.replace_vars(wal,palette)
 end
 
 function M.generate(output_path)
-	local result = M.pywal()
+	local result = M.wezterm()
 
 	local file = io.open(output_path, "w")
 	if file then
