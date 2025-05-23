@@ -1,6 +1,5 @@
 return {
    'stevearc/oil.nvim',
-	enabled = false,
    dependencies = { "nvim-tree/nvim-web-devicons" },
    keys = {
       { "<leader>oo", "<CMD>Oil --float<CR>", desc = "Open oil in floating window" },

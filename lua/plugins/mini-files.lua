@@ -1,5 +1,6 @@
 return {
    'echasnovski/mini.files',
+	-- enabled = false,
    version = '*',
    keys = {
       {
@@ -23,7 +24,6 @@ return {
 
       local my_prefix = function(fs_entry)
          if fs_entry.fs_type == 'directory' then
-            -- NOTE: it is usually a good idea to use icon followed by space
             return ' ', 'MiniFilesDirectory'
          end
          return miniFiles.default_prefix(fs_entry)
@@ -68,11 +68,11 @@ return {
          content = { prefix = my_prefix },
          windows = {
             -- Maximum number of windows to show side by side
-            max_number = 1,
+            max_number = 3,
             -- Whether to show preview of file/directory under cursor
             preview = true,
             -- Width of focused window
-            width_focus = 80,
+            width_focus = 40,
             -- Width of non-focused window
             width_nofocus = 20,
             -- Width of preview window
@@ -121,9 +121,9 @@ return {
 				vim.wo[args.data.win_id].relativenumber = true
 
             -- Ensure fixed height
-            config.height = 15
-				config.col = math.floor(( vim.o.columns - config.width ) / 2)
-				config.row = math.floor(( vim.o.lines - config.height ) / 2)
+				-- config.height = 15
+				-- config.col = math.floor(( vim.o.columns - config.width ) / 2)
+				-- config.row = math.floor(( vim.o.lines - config.height ) / 2)
 
             -- Ensure title padding
             if config.title[#config.title][1] ~= ' ' then
