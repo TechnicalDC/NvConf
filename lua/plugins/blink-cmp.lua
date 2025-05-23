@@ -103,7 +103,7 @@ return {
          menu = {
             border = "none",
             -- border = "rounded",
-            scrollbar = false,
+            scrollbar = true,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
             draw = {
                padding = 1,
@@ -124,7 +124,7 @@ return {
          documentation = {
             auto_show = true,
             window = {
-               scrollbar = false,
+               scrollbar = true,
                -- border = "none",
                border = "rounded",
                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',

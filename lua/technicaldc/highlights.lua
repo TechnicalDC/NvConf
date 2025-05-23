@@ -5,6 +5,7 @@ local palette = require("mini.hues").make_palette()
 
 -- BUILT-IN
 hl(0, "Pmenu", { bg = palette.bg_edge })
+hl(0, "WinSeparator", { fg = palette.bg_mid })
 hl(0, "PmenuSel", { fg = palette.bg_edge,  bg = palette.fg_edge })
 hl(0, "FloatBorder", { fg = palette.bg_edge, bg = palette.bg_edge })
 hl(0, "FloatTitle", { fg = palette.fg, bg = palette.bg_mid2 })
