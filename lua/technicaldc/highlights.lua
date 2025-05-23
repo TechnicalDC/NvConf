@@ -16,6 +16,7 @@ hl(0, "MiniStarterSection", { fg = palette.fg_edge})
 hl(0, "MiniStarterItemPrefix", { fg = palette.fg_mid})
 
 -- MINI-FILES
+hl(0, "MiniFilesTitle", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "MiniFilesTitleFocused", { link = "FloatTitle" })
 hl(0, "MiniFilesBorderModified", { link = "FloatBorder" })
 
