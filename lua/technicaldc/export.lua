@@ -2,7 +2,7 @@ local util = require("technicaldc.util")
 local palette = require("mini.hues").make_palette()
 local M = {}
 
-function M.pywal()
+function M.wezterm()
 	local wal = [[{
 		"wallpaper": "",
 		"special": {
