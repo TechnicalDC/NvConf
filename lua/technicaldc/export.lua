@@ -8,6 +8,7 @@ local extras_fun = {}
 
 extras.fish = "mini.fish"
 extras.wezterm = "wezterm-colors.lua"
+extras.rofi = "mini.rasi"
 extras.tmux = "tmux-status.conf"
 
 function extras_fun.fish()
@@ -55,6 +56,16 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
+	]],palette)
+end
+
+function extras_fun.rofi()
+	return util.replace_vars([[
+* {
+   foreground    : ${fg};
+   background    : ${bg};
+   selected      : ${bg_mid};
+}
 	]],palette)
 end
 
