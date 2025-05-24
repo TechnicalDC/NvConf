@@ -8,6 +8,7 @@ local extras_fun = {}
 
 extras.fish = "mini.fish"
 extras.wezterm = "wezterm-colors.lua"
+extras.tmux = "tmux-status.conf"
 
 function extras_fun.fish()
 	return util.replace_vars([[
@@ -54,6 +55,25 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
+	]],palette)
+end
+
+function extras_fun.tmux()
+	return util.replace_vars([[
+# panes
+set -g pane-border-style 'fg=${bg_mid}'
+set -g pane-active-border-style 'fg=${fg_edge}'
+set-option -g status-style 'fg=${fg},bg=${bg_mid}'
+set-option -g status-left "#[fg=${fg},bg=${bg_mid2}] #S #[default]"
+set-option -g status-right "#(whoami)::#H "
+set-window-option -g window-status-separator ""
+set-window-option -g window-status-style fg=${fg}
+set-window-option -g window-status-style bg=${bg_mid}
+set-window-option -g window-status-current-style "fg=${fg},bg=${bg_mid2}"
+setw -g window-status-current-format ' #I.#W '
+setw -g window-status-format ' #I.#W '
+# messages
+set -g message-style 'fg=${bg_mid} bg=${orange}'
 	]],palette)
 end
 
