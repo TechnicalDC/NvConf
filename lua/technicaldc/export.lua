@@ -8,10 +8,46 @@ local extras_fun = {}
 
 extras.fish = "mini.fish"
 extras.wezterm = "wezterm-colors.lua"
+extras.qutebrowser = "colors.py"
 extras.rofi = "mini.rasi"
 extras.tmux = "tmux-status.conf"
 extras.waybar = "mini.css"
 extras.zathura = "mini-zathura"
+
+function extras_fun.qutebrowser()
+	return util.replace_vars([[
+mini = {
+	"accent"    : "${accent}",
+	"accent_bg" : "${accent_bg}",
+	"azure"     : "${azure}",
+	"azure_bg"  : "${azure_bg}",
+	"bg"        : "${bg}",
+	"bg_edge"   : "${bg_edge}",
+	"bg_edge2"  : "${bg_edge2}",
+	"bg_mid"    : "${bg_mid}",
+	"bg_mid2"   : "${bg_mid2}",
+	"blue"      : "${blue}",
+	"blue_bg"   : "${blue_bg}",
+	"cyan"      : "${cyan}",
+	"cyan_bg"   : "${cyan_bg}",
+	"fg"        : "${fg}",
+	"fg_edge"   : "${fg_edge}",
+	"fg_edge2"  : "${fg_edge2}",
+	"fg_mid"    : "${fg_mid}",
+	"fg_mid2"   : "${fg_mid2}",
+	"green"     : "${green}",
+	"green_bg"  : "${green_bg}",
+	"orange"    : "${orange}",
+	"orange_bg" : "${orange_bg}",
+	"purple"    : "${purple}",
+	"purple_bg" : "${purple_bg}",
+	"red"       : "${red}",
+	"red_bg"    : "${red_bg}",
+	"yellow"    : "${yellow}",
+	"yellow_bg" : "${yellow_bg}"
+}
+	]],palette)
+end
 
 function extras_fun.waybar()
 	return util.replace_vars([[
