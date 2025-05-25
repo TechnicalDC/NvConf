@@ -1,14 +1,14 @@
 # Colors
 set -l foreground "#c0c8cc"
-set -l selection  "#363a3b"
-set -l comment    "#858c90"
-set -l red        "#e0bdbb"
-set -l orange     "#d9c2ac"
-set -l yellow     "#c7caac"
-set -l green      "#b2cfbc"
-set -l blue       "#c6c2df"
-set -l purple     "#d8bdd0"
-set -l cyan       "#a9cfd2"
+set -l selection  "#2a4047"
+set -l comment    "#868e91"
+set -l red        "#e1b8d4"
+set -l orange     "#ebb8b5"
+set -l yellow     "#e1c09d"
+set -l green      "#c6cb9f"
+set -l blue       "#a8cbec"
+set -l purple     "#c7c0eb"
+set -l cyan       "#a7d3b8"
 
 # Syntax highlighting
 set -g fish_color_normal $foreground

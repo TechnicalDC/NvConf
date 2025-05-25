@@ -10,6 +10,41 @@ extras.fish = "mini.fish"
 extras.wezterm = "wezterm-colors.lua"
 extras.rofi = "mini.rasi"
 extras.tmux = "tmux-status.conf"
+extras.waybar = "mini.css"
+extras.zathura = "mini-zathura"
+
+function extras_fun.waybar()
+	return util.replace_vars([[
+@define-color accent     ${accent};
+@define-color accent_bg  ${accent_bg};
+@define-color azure      ${azure};
+@define-color azure_bg   ${azure_bg};
+@define-color bg         ${bg};
+@define-color bg_edge    ${bg_edge};
+@define-color bg_edge2   ${bg_edge2};
+@define-color bg_mid     ${bg_mid};
+@define-color bg_mid2    ${bg_mid2};
+@define-color blue       ${blue};
+@define-color blue_bg    ${blue_bg};
+@define-color cyan       ${cyan};
+@define-color cyan_bg    ${cyan_bg};
+@define-color fg         ${fg};
+@define-color fg_edge    ${fg_edge};
+@define-color fg_edge2   ${fg_edge2};
+@define-color fg_mid     ${fg_mid};
+@define-color fg_mid2    ${fg_mid2};
+@define-color green      ${green};
+@define-color green_bg   ${green_bg};
+@define-color orange     ${orange};
+@define-color orange_bg  ${orange_bg};
+@define-color purple     ${purple};
+@define-color purple_bg  ${purple_bg};
+@define-color red        ${red};
+@define-color red_bg     ${red_bg};
+@define-color yellow     ${yellow};
+@define-color yellow_bg  ${yellow_bg};
+	]],palette)
+end
 
 function extras_fun.fish()
 	return util.replace_vars([[
@@ -119,8 +154,41 @@ return {
 	red_bg    = "${red_bg}",
 	yellow    = "${yellow}",
 	yellow_bg = "${yellow_bg}"
-}]]
-	,palette)
+}]] ,palette)
+end
+
+function extras_fun.zathura()
+	return util.replace_vars([[
+set default-fg              "${fg}"
+set default-bg              "${bg}"
+set completion-bg           "${bg}"
+set completion-fg           "${fg}"
+set completion-highlight-bg "${bg_mid2}"
+set completion-highlight-fg "${fg}"
+set completion-group-fg     "${fg_mid}"
+set completion-group-bg     "${bg_mid}"
+set statusbar-fg            "${fg}"
+set statusbar-bg            "${bg}"
+set notification-bg         "${bg_mid2}"
+set notification-fg         "${fg}"
+set notification-error-bg   "${red}"
+set notification-error-fg   "${bg}"
+set notification-warning-bg "${orange}"
+set notification-warning-fg "${bg}"
+set inputbar-fg             "${fg}"
+set inputbar-bg             "${bg}"
+set recolor-lightcolor      "${bg}"
+set recolor-darkcolor       "${fg}"
+set index-fg                "${fg}"
+set index-bg                "${bg}"
+set index-active-fg         "${fg}"
+set index-active-bg         "${bg}"
+set render-loading-bg       "${bg}"
+set render-loading-fg       "${fg}"
+set highlight-color         "${bg_mid2}"
+set highlight-fg            "${bg}"
+set highlight-active-color  "${fg_mid}"
+	]],palette)
 end
 
 function M.generate()
