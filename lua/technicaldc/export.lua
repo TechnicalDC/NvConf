@@ -5,8 +5,10 @@ local extras = {}
 local extras_fun = {}
 
 -- print(vim.inspect(palette))
+-- print(string.gsub("hello-world 123", "-", ""))
 
 extras.fish = "mini.fish"
+extras.hypr = "mini.conf"
 extras.wezterm = "wezterm-colors.lua"
 extras.qutebrowser = "colors.py"
 extras.rofi = "mini.rasi"
@@ -140,6 +142,35 @@ function extras_fun.rofi()
 	]],palette)
 end
 
+function extras_fun.hypr()
+	return util.replace_vars([[
+$fg           = rgb(${fg})
+$bg           = rgb(${bg})
+$bg_mid       = rgb(${bg_mid})
+$bg_mid2      = rgb(${bg_mid2})
+$fg_mid       = rgb(${fg_mid})
+$fg_mid2      = rgb(${fg_mid2})
+$red          = rgb(${red})
+$green        = rgb(${green})
+$orange       = rgb(${orange})
+$blue         = rgb(${blue})
+$purple       = rgb(${purple})
+$cyan         = rgb(${cyan})
+$fgAlpha      = ${fg}
+$bgAlpha      = ${bg}
+$bg_midAlpha  = ${bg_mid}
+$bg_mid2Alpha = ${bg_mid2}
+$fg_midAlpha  = ${fg_mid}
+$fg_mid2Alpha = ${fg_mid2}
+$redAlpha     = ${red}
+$greenAlpha   = ${green}
+$orangeAlpha  = ${orange}
+$blueAlpha    = ${blue}
+$purpleAlpha  = ${purple}
+$cyanAlpha    = ${cyan}
+	]],palette)
+end
+
 function extras_fun.tmux()
 	return util.replace_vars([[
 # panes
@@ -234,6 +265,10 @@ function M.generate()
 
 	for key, val in pairs(extras) do
 		result = extras_fun[key]()
+
+		if key == "hypr" then
+			result = string.gsub(result, "#", "")
+		end
 
 		file = io.open(path .. "/extras/" .. val, "w")
 		if file then
