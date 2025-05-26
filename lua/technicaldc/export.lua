@@ -3,9 +3,7 @@ local palette = require("mini.hues").make_palette()
 local M = {}
 local extras = {}
 local extras_fun = {}
-
 -- print(vim.inspect(palette))
--- print(string.gsub("hello-world 123", "-", ""))
 
 extras.fish = "mini.fish"
 extras.hypr = "mini.conf"
@@ -138,6 +136,7 @@ function extras_fun.rofi()
    foreground    : ${fg};
    background    : ${bg};
    selected      : ${bg_mid};
+	promptbg     : ${bg_mid2};
 }
 	]],palette)
 end
