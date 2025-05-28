@@ -3,16 +3,51 @@ local palette = require("mini.hues").make_palette()
 local M = {}
 local extras = {}
 local extras_fun = {}
+
 -- print(vim.inspect(palette))
 
+extras.alacritty = "mini.toml"
 extras.fish = "mini.fish"
 extras.hypr = "mini.conf"
-extras.wezterm = "wezterm-colors.lua"
 extras.qutebrowser = "colors.py"
 extras.rofi = "mini.rasi"
 extras.tmux = "tmux-status.conf"
 extras.waybar = "mini.css"
+extras.wezterm = "wezterm-colors.lua"
 extras.zathura = "mini-zathura"
+
+function extras_fun.alacritty()
+	return util.replace_vars([[
+# Colors (mini)
+
+# Default colors
+[colors.primary]
+background = '${bg}'
+foreground = '${fg}'
+
+# Normal colors
+[colors.normal]
+black   = '${bg_mid2}'
+red     = '${red}'
+green   = '${green}'
+yellow  = '${yellow}'
+blue    = '${blue}'
+magenta = '${purple}'
+cyan    = '${cyan}'
+white   = '${fg_edge}'
+
+# Bright colors
+[colors.bright]
+black   = '${bg_mid2}'
+red     = '${red}'
+green   = '${green}'
+yellow  = '${yellow}'
+blue    = '${blue}'
+magenta = '${purple}'
+cyan    = '${cyan}'
+white   = '${fg_edge}'
+	]], palette)
+end
 
 function extras_fun.qutebrowser()
 	return util.replace_vars([[
@@ -136,7 +171,6 @@ function extras_fun.rofi()
    foreground    : ${fg};
    background    : ${bg};
    selected      : ${bg_mid};
-	promptbg     : ${bg_mid2};
 }
 	]],palette)
 end

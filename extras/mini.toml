@@ -1,0 +1,29 @@
+# Colors (mini)
+
+# Default colors
+[colors.primary]
+background = '#11262d'
+foreground = '#c0c8cc'
+
+# Normal colors
+[colors.normal]
+black   = '#445a62'
+red     = '#e1b8d4'
+green   = '#c6cb9f'
+yellow  = '#e1c09d'
+blue    = '#a8cbec'
+magenta = '#c7c0eb'
+cyan    = '#a7d3b8'
+white   = '#d2dade'
+
+# Bright colors
+[colors.bright]
+black   = '#445a62'
+red     = '#e1b8d4'
+green   = '#c6cb9f'
+yellow  = '#e1c09d'
+blue    = '#a8cbec'
+magenta = '#c7c0eb'
+cyan    = '#a7d3b8'
+white   = '#d2dade'
+	

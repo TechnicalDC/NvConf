@@ -2,6 +2,5 @@
    foreground    : #c0c8cc;
    background    : #11262d;
    selected      : #2a4047;
-	promptbg     : #445a62;
 }
 	
