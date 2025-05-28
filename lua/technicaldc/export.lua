@@ -171,6 +171,7 @@ function extras_fun.rofi()
    foreground    : ${fg};
    background    : ${bg};
    selected      : ${bg_mid};
+	promptbg		  : ${bg_mid2};
 }
 	]],palette)
 end
