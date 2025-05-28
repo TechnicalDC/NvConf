@@ -125,6 +125,9 @@ return {
 				-- config.col = math.floor(( vim.o.columns - config.width ) / 2)
 				-- config.row = math.floor(( vim.o.lines - config.height ) / 2)
 
+				-- if string.len(config.title[#config.title]) > 20 then
+				-- end
+
             -- Ensure title padding
             if config.title[#config.title][1] ~= ' ' then
                table.insert(config.title, { ' ', 'NormalFloat' })
