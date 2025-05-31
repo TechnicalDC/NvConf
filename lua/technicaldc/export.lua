@@ -1,12 +1,12 @@
 local util = require("technicaldc.util")
 local palette = require("mini.hues").make_palette()
-local M = {}
 local extras = {}
 local extras_fun = {}
 
 -- print(vim.inspect(palette))
 
 extras.alacritty = "mini.toml"
+extras.css = "index.css"
 extras.fish = "mini.fish"
 extras.hypr = "mini.conf"
 extras.qutebrowser = "colors.py"
@@ -224,6 +224,41 @@ set -g message-style 'fg=${bg_mid} bg=${orange}'
 	]],palette)
 end
 
+function extras_fun.css()
+	return util.replace_vars([[
+:root {
+	--accent    : "${accent}";
+	--accent-bg : "${accent_bg}";
+	--azure     : "${azure}";
+	--azure-bg  : "${azure_bg}";
+	--bg        : "${bg}";
+	--bg-edge   : "${bg_edge}";
+	--bg-edge2  : "${bg_edge2}";
+	--bg-mid    : "${bg_mid}";
+	--bg-mid2   : "${bg_mid2}";
+	--blue      : "${blue}";
+	--blue-bg   : "${blue_bg}";
+	--cyan      : "${cyan}";
+	--cyan-bg   : "${cyan_bg}";
+	--fg        : "${fg}";
+	--fg-edge   : "${fg_edge}";
+	--fg-edge2  : "${fg_edge2}";
+	--fg-mid    : "${fg_mid}";
+	--fg-mid2   : "${fg_mid2}";
+	--green     : "${green}";
+	--green-bg  : "${green_bg}";
+	--orange    : "${orange}";
+	--orange-bg : "${orange_bg}";
+	--purple    : "${purple}";
+	--purple-bg : "${purple_bg}";
+	--red       : "${red}";
+	--red-bg    : "${red_bg}";
+	--yellow    : "${yellow}";
+	--yellow-bg : "${yellow_bg}";
+}]] ,palette)
+end
+
+
 function extras_fun.wezterm()
 	return util.replace_vars([[
 return {
@@ -292,7 +327,7 @@ set highlight-active-color  "${fg_mid}"
 	]],palette)
 end
 
-function M.generate()
+local function generate()
 	local path = vim.fn.stdpath("config")
 	local result
 	local file
@@ -315,4 +350,6 @@ function M.generate()
 	end
 end
 
-return M
+vim.api.nvim_create_user_command("MiniExport", generate, {})
+
+-- return M

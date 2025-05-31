@@ -1,6 +1,13 @@
 ---@diagnostic disable: undefined-global
 local autocmd = vim.api.nvim_create_autocmd
 
+autocmd("Colorscheme", {
+	pattern = "*",
+	callback = function ()
+		require("technicaldc.highlights")
+	end
+})
+
 -- Vertically center documents when in insert mode
 autocmd(
 	{"InsertEnter"},
