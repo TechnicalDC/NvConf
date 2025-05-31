@@ -1,9 +1,9 @@
 ---@diagnostic disable: undefined-global
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd("Colorscheme", {
-	pattern = "*",
+autocmd("ColorScheme", {
 	callback = function ()
+		-- print("Colorscheme")
 		require("technicaldc.highlights")
 	end
 })
