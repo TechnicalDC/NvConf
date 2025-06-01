@@ -227,34 +227,34 @@ end
 function extras_fun.css()
 	return util.replace_vars([[
 :root {
-	--accent    : "${accent}";
-	--accent-bg : "${accent_bg}";
-	--azure     : "${azure}";
-	--azure-bg  : "${azure_bg}";
-	--bg        : "${bg}";
-	--bg-edge   : "${bg_edge}";
-	--bg-edge2  : "${bg_edge2}";
-	--bg-mid    : "${bg_mid}";
-	--bg-mid2   : "${bg_mid2}";
-	--blue      : "${blue}";
-	--blue-bg   : "${blue_bg}";
-	--cyan      : "${cyan}";
-	--cyan-bg   : "${cyan_bg}";
-	--fg        : "${fg}";
-	--fg-edge   : "${fg_edge}";
-	--fg-edge2  : "${fg_edge2}";
-	--fg-mid    : "${fg_mid}";
-	--fg-mid2   : "${fg_mid2}";
-	--green     : "${green}";
-	--green-bg  : "${green_bg}";
-	--orange    : "${orange}";
-	--orange-bg : "${orange_bg}";
-	--purple    : "${purple}";
-	--purple-bg : "${purple_bg}";
-	--red       : "${red}";
-	--red-bg    : "${red_bg}";
-	--yellow    : "${yellow}";
-	--yellow-bg : "${yellow_bg}";
+	--accent    : ${accent};
+	--accent-bg : ${accent_bg};
+	--azure     : ${azure};
+	--azure-bg  : ${azure_bg};
+	--bg        : ${bg};
+	--bg-edge   : ${bg_edge};
+	--bg-edge2  : ${bg_edge2};
+	--bg-mid    : ${bg_mid};
+	--bg-mid2   : ${bg_mid2};
+	--blue      : ${blue};
+	--blue-bg   : ${blue_bg};
+	--cyan      : ${cyan};
+	--cyan-bg   : ${cyan_bg};
+	--fg        : ${fg};
+	--fg-edge   : ${fg_edge};
+	--fg-edge2  : ${fg_edge2};
+	--fg-mid    : ${fg_mid};
+	--fg-mid2   : ${fg_mid2};
+	--green     : ${green};
+	--green-bg  : ${green_bg};
+	--orange    : ${orange};
+	--orange-bg : ${orange_bg};
+	--purple    : ${purple};
+	--purple-bg : ${purple_bg};
+	--red       : ${red};
+	--red-bg    : ${red_bg};
+	--yellow    : ${yellow};
+	--yellow-bg : ${yellow_bg};
 }]] ,palette)
 end
 
@@ -304,15 +304,15 @@ set completion-highlight-fg "${fg}"
 set completion-group-fg     "${fg_mid}"
 set completion-group-bg     "${bg_mid}"
 set statusbar-fg            "${fg}"
-set statusbar-bg            "${bg}"
+set statusbar-bg            "${bg_mid}"
 set notification-bg         "${bg_mid2}"
 set notification-fg         "${fg}"
 set notification-error-bg   "${red}"
 set notification-error-fg   "${bg}"
 set notification-warning-bg "${orange}"
 set notification-warning-fg "${bg}"
-set inputbar-fg             "${fg}"
-set inputbar-bg             "${bg}"
+set inputbar-fg             "${bg}"
+set inputbar-bg             "${green}"
 set recolor-lightcolor      "${bg}"
 set recolor-darkcolor       "${fg}"
 set index-fg                "${fg}"
