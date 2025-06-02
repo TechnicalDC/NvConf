@@ -38,7 +38,7 @@ set.fillchars:append({
    diff = "-",
    eob = " ",
 })
-set.listchars	  = "tab:  "
+-- set.listchars	  = "tab:  "
 set.list          = true
 set.diffopt       = "filler,vertical,iwhiteall,iblank"
 set.mouse         = "a"
@@ -47,6 +47,7 @@ set.tabstop       = 3
 set.shiftwidth    = 3
 set.softtabstop   = 3
 set.breakindent   = true
+set.autoindent		= true
 set.spelllang     = "en_us"
 set.signcolumn    = "auto:1"
 set.conceallevel  = 2
