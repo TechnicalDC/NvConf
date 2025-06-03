@@ -22,12 +22,13 @@ return {
       local miniFiles = require('mini.files')
       local autocmd = vim.api.nvim_create_autocmd
 
-      -- local my_prefix = function(fs_entry)
-      --    if fs_entry.fs_type == 'directory' then
-      --       return ' ', 'MiniFilesDirectory'
-      --    end
-      --    return miniFiles.default_prefix(fs_entry)
-      -- end
+      local my_prefix = function(fs_entry)
+         if fs_entry.fs_type == 'directory' then
+            return ' ', 'MiniFilesDirectory'
+         end
+
+         return miniFiles.default_prefix(fs_entry)
+      end
 
       local show_dotfiles = true
 
@@ -65,7 +66,7 @@ return {
             trim_left   = '<',
             trim_right  = '>',
          },
-         -- content = { prefix = my_prefix },
+         content = { prefix = my_prefix },
          windows = {
             -- Maximum number of windows to show side by side
             max_number = 3,
@@ -119,6 +120,7 @@ return {
 
 				vim.wo[args.data.win_id].number = true
 				vim.wo[args.data.win_id].relativenumber = true
+				vim.wo[args.data.win_id].statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
 
             -- Ensure fixed height
 				-- config.height = 15
