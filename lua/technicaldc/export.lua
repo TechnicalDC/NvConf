@@ -12,6 +12,7 @@ extras.hypr = "mini.conf"
 extras.qutebrowser = "colors.py"
 extras.rofi = "mini.rasi"
 extras.tmux = "tmux-status.conf"
+extras.vimiv = "mini"
 extras.waybar = "mini.css"
 extras.wezterm = "wezterm-colors.lua"
 extras.zathura = "mini-zathura"
@@ -81,6 +82,107 @@ mini = {
 	"yellow"    : "${yellow}",
 	"yellow_bg" : "${yellow_bg}"
 }
+	]],palette)
+end
+
+function extras_fun.vimiv()
+	return util.replace_vars([[
+[STYLE]
+base00 = ${bg}
+base01 = #e0e0e0
+base02 = #d6d6d6
+base03 = #8e908c
+base04 = #969896
+base05 = #4d4d4c
+base06 = #282a2e
+base07 = #1d1f21
+base08 = ${red}
+base09 = ${orange}
+base0a = ${yellow}
+base0b = ${green}
+base0c = ${cyan}
+base0d = ${blue}
+base0e = ${purple}
+base0f = ${azure}
+font = 14pt Iosevka Nerd Font
+image.bg = ${bg}
+image.scrollbar.width = 8px
+image.scrollbar.bg = ${bg}
+image.scrollbar.fg = ${bg_mid}
+image.scrollbar.padding = 2px
+library.font = 14pt Iosevka Nerd Font
+library.fg = ${fg}
+library.padding = 2px
+library.directory.fg = ${blue}
+library.even.bg = ${bg}
+library.odd.bg = ${bg}
+library.selected.bg = ${bg_mid2}
+library.selected.fg = ${fg}
+library.search.highlighted.fg = #e0e0e0
+library.search.highlighted.bg = ${bg_mid2}
+library.scrollbar.width = 8px
+library.scrollbar.bg = ${bg}
+library.scrollbar.fg = ${bg_mid}
+library.scrollbar.padding = 2px
+library.border = 0px solid
+statusbar.font = 14pt Iosevka Nerd Font
+statusbar.bg = ${bg_mid}
+statusbar.fg = ${fg}
+statusbar.error = ${red}
+statusbar.warning = ${orange}
+statusbar.info = ${green}
+statusbar.message_border = 2px solid
+statusbar.padding = 4
+thumbnail.font = 14pt Iosevka Nerd Font
+thumbnail.fg = ${fg}
+thumbnail.bg = ${bg}
+thumbnail.padding = 20
+thumbnail.selected.bg = ${bg_mid2}
+thumbnail.search.highlighted.bg = #969896
+thumbnail.default.bg = ${bg_mid}
+thumbnail.error.bg = ${red}
+thumbnail.frame.fg = #282a2e
+completion.height = 16em
+completion.fg = ${fg}
+completion.even.bg = ${bg_edge}
+completion.odd.bg = ${bg_edge}
+completion.selected.fg = ${fg}
+completion.selected.bg = ${bg_mid2}
+keyhint.padding = 2px
+keyhint.border_radius = 10px
+keyhint.suffix_color = #3e999f
+manipulate.fg = #282a2e
+manipulate.focused.fg = #3e999f
+manipulate.bg = #ffffff
+manipulate.slider.left = #81a2be
+manipulate.slider.handle = #969896
+manipulate.slider.right = #d6d6d6
+manipulate.image.border = 2px solid
+manipulate.image.border.color = #3e999f
+mark.color = #8959a8
+keybindings.bindings.color = #3e999f
+keybindings.highlight.color = #8959a8
+metadata.padding = 2px
+metadata.border_radius = 10px
+image.straighten.color = #eab700
+prompt.font = 14pt Iosevka Nerd Font
+prompt.fg = #282a2e
+prompt.bg = #d6d6d6
+prompt.padding = 2px
+prompt.border_radius = 10px
+prompt.border = 2px solid
+prompt.border.color = #3e999f
+crop.shading = #88000000
+crop.border = 2px solid
+crop.border.color = #88AAAAAA
+crop.grip.color = #88FFFFFF
+crop.grip.border = 2px solid
+crop.grip.border.color = #88AAAAAA
+library.selected.bg.unfocus = #8881a2be
+thumbnail.selected.bg.unfocus = #8881a2be
+metadata.bg = #AAd6d6d6
+
+; vim:ft=dosini
 	]],palette)
 end
 
@@ -297,7 +399,7 @@ function extras_fun.zathura()
 	return util.replace_vars([[
 set default-fg              "${fg}"
 set default-bg              "${bg}"
-set completion-bg           "${bg}"
+set completion-bg           "${bg_edge}"
 set completion-fg           "${fg}"
 set completion-highlight-bg "${bg_mid2}"
 set completion-highlight-fg "${fg}"
