@@ -49,5 +49,5 @@ mini.files
 telescope
 ![telescope](https://github.com/TechnicalDC/NvConf/blob/main/images/telescope.png)
 
-LazyGit
-![lazygit](https://github.com/TechnicalDC/NvConf/blob/main/images/lazygit.png)
+neogit
+![neogit](https://github.com/TechnicalDC/NvConf/blob/main/images/neogit.png)
