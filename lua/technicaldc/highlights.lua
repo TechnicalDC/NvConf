@@ -15,6 +15,8 @@ hl(0, "DiagnosticUnderlineInfo", { undercurl = true })
 hl(0, "DiagnosticUnderlineOk", { undercurl = true })
 hl(0, "DiagnosticUnderlineWarn", { undercurl = true })
 
+hl(0, "BlinkCmpSource", { fg = palette.fg_mid2 })
+
 -- MINI-STARTER
 hl(0, "MiniStarterHeader", { fg = palette.fg_edge})
 hl(0, "MiniStarterItem", { fg = palette.fg_mid2})

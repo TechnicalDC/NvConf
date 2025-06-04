@@ -54,7 +54,7 @@ return {
             -- Search forward and backward
             if type == '/' or type == '?' then return { 'buffer' } end
             -- Commands
-            if type == ':' or type == '@' then return { 'cmdline' } end
+            if type == ':' or type == '@' then return { 'cmdline', 'path' } end
             return {}
          end,
          completion = {
@@ -107,7 +107,7 @@ return {
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
             draw = {
                padding = 1,
-               columns = {{ 'label', 'label_description', gap = 1 }, { 'kind_icon', 'kind' }, { 'source_name' } },
+               columns = { {'kind_icon' },{ 'label', 'label_description', gap = 1 }, { 'kind' }, { 'source_name' } },
                components = {
                   label = {
                      width = { min = 15 }
