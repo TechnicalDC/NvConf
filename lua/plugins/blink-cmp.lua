@@ -94,15 +94,13 @@ return {
          enabled = true,
          window = {
             scrollbar = false,
-            border = "none",
-            -- border = "rounded",
+            border = "rounded",
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
          }
       },
       completion = {
          menu = {
-            border = "none",
-            -- border = "rounded",
+            border = "rounded",
             scrollbar = true,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
             draw = {
@@ -125,7 +123,6 @@ return {
             auto_show = true,
             window = {
                scrollbar = true,
-               -- border = "none",
                border = "rounded",
                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
                direction_priority = {
