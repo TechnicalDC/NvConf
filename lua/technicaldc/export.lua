@@ -8,6 +8,7 @@ local extras_fun = {}
 extras.alacritty = "mini.toml"
 extras.css = "index.css"
 extras.fish = "mini.fish"
+extras.fzf = "mini-fzf.fish"
 extras.hypr = "mini.conf"
 extras.qutebrowser = "colors.py"
 extras.rofi = "mini.rasi"
@@ -264,6 +265,24 @@ set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
+	]],palette)
+end
+
+function  extras_fun.fzf()
+	return util.replace_vars([[
+set --export FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "
+--color=fg:${fg},fg+:${bg_edge},bg:-1,bg+:${fg_edge} \
+--color=hl:${green},hl+:${bg_edge} \
+--color=prompt:${fg} \
+--color=input-border:${bg_edge},input-bg:${bg_edge},query:${fg} \
+--color=list-border:${bg_edge2},list-bg:${bg_edge2}"
+
+set --export _ZO_FZF_OPTS $_ZO_FZF_OPTS "
+--color=fg:${fg},fg+:${bg_edge},bg:-1,bg+:${fg_edge} \
+--color=hl:${green},hl+:${bg_edge} \
+--color=prompt:${fg} \
+--color=input-border:${bg_edge},input-bg:${bg_edge},query:${fg} \
+--color=list-border:${bg_edge2},list-bg:${bg_edge2}"
 	]],palette)
 end
 
