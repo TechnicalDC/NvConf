@@ -6,7 +6,7 @@ return {
 		-- https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.21.0/jdt-language-server-1.21.0-202303161431.tar.gz
 		local jdtls = require('jdtls')
 		-- Change or delete this if you don't depend on nvim-cmp for completions.
-		local cmp_nvim_lsp = require('cmp_nvim_lsp')
+		-- local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 		-- Change jdtls_path to wherever you have your Eclipse Java development tools (JDT) Language Server downloaded to.
 		local jdtls_path = vim.fn.stdpath('data') .. '/mason/packages/jdtls/'
@@ -14,8 +14,8 @@ return {
 		local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
 		-- for completions
-		local client_capabilities = vim.lsp.protocol.make_client_capabilities()
-		local capabilities = cmp_nvim_lsp.default_capabilities(client_capabilities)
+		-- local client_capabilities = vim.lsp.protocol.make_client_capabilities()
+		local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 		local function get_config_dir()
 			-- Unlike some other programming languages (e.g. JavaScript)
@@ -38,7 +38,8 @@ return {
 				-- environment like [Git for Windows](https://gitforwindows.org/) or PowerShell.
 				-- JDTLS currently needs Java 17 to work, but you can replace this line with "java"
 				-- if Java 17 is on your PATH.
-				"C:/Program Files/Java/jdk-20/bin/java",
+				-- "C:/Program Files/Java/jdk-20/bin/java",
+				"java",
 				"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 				"-Dosgi.bundles.defaultStartLevel=4",
 				"-Declipse.product=org.eclipse.jdt.ls.core.product",
