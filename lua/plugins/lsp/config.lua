@@ -52,6 +52,12 @@ vim.lsp.config("marksman",{
    root_markers = { ".marksman.toml", ".git" }
 })
 
+vim.lsp.config("jdtls",{
+   cmd = { "jdtls", "-configuration", "~/.cache/jdtls/config", "-data", "~/.cache/jdtls/workspace" },
+	filetypes = { "java" },
+   root_markers = { ".git", "build.gradle", "build.gradle.kts", "build.xml", "pom.xml", "settings.gradle", "settings.gradle.kts" }
+})
+
 vim.lsp.config("jsonls",{
    cmd = { "vscode-json-language-server", "--stdio" },
    filetypes = { "json", "jsonc" },
