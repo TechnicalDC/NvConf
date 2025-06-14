@@ -93,3 +93,5 @@ hl(0, "NoiceCompletionItemKindText",        { link = "NoiceCompletionItemKindDef
 hl(0, "NoiceCompletionItemKindUnit",        { link = "NoiceCompletionItemKindDefault" })
 hl(0, "NoiceCompletionItemKindValue",       { link = "NoiceCompletionItemKindDefault" })
 hl(0, "NoiceCompletionItemKindVariable",    { link = "NoiceCompletionItemKindDefault" })
+hl(0, "NoiceConfirmBorder"       , { fg = palette.bg_edge2 , bg = palette.bg_edge2 })
+hl(0, "NoiceConfirm"       , { bg = palette.bg_edge2 })
