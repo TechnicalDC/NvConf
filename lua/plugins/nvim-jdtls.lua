@@ -29,6 +29,52 @@ return {
 			end
 		end
 
+		local on_attach = function(client, bufnr)
+
+				-- https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L88-L94
+				local opts = { silent = true, buffer = bufnr }
+				vim.keymap.set('n', "<leader>lo", jdtls.organize_imports, { desc = 'Organize imports', buffer = bufnr })
+				-- Should 'd' be reserved for debug?
+				vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
+				vim.keymap.set('n', "<leader>dn", jdtls.test_nearest_method, opts)
+				vim.keymap.set('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
+				vim.keymap.set('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], { desc = 'Extract method', buffer = bufnr })
+				vim.keymap.set('n', '<leader>rc', jdtls.extract_constant, { desc = 'Extract constant', buffer = bufnr })
+
+			local ok, wk = pcall(require, 'which-key')
+			if ok then
+				wk.add({
+					mode = "n",
+					{"<leader>oc", vim.lsp.buf.code_action,                     desc = "Open code actions" },
+					{"<leader>rn", vim.lsp.buf.rename,                          desc = "Rename" },
+					{"<leader>D",  vim.lsp.buf.type_definition,                 desc = "Go to type definition"},
+					{"<leader>F",  vim.lsp.buf.formatting,                      desc = "Format code"},
+					{"<leader>wa", vim.lsp.buf.add_workspace_folder,            desc = "Add folder to workspace"},
+					{"<leader>wr", vim.lsp.buf.remove_workspace_folder,         desc = "Remove folder from workspace"},
+					{"<leader>wl", function()
+						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+					end, desc = "List workspace folder"},
+					{"<leader>K",  function ()
+						vim.lsp.buf.hover(hoverOpts)
+					end, desc = "Hover docs" },
+					{"<leader>gd", vim.lsp.buf.definition,                      desc = "Go to definition"},
+					{"<leader>gD", vim.lsp.buf.declaration,                     desc = "Go to declaration"},
+					{"<leader>gi", vim.lsp.buf.implementation,                  desc = "Go to implementation"},
+					{"<leader>gr", vim.lsp.buf.references,                      desc = "Go to references"},
+					{"[d", function()
+						vim.diagnostic.jump({ count = -1, float = true })
+					end, desc = "Go to previous diagnostics" },
+					{"]d", function()
+						vim.diagnostic.jump({ count = 1, float = true })
+					end, desc = "Go to next diagnostics" },
+					{"<leader>tl", function ()
+						local new_config = not vim.diagnostic.config().virtual_lines
+						vim.diagnostic.config({ virtual_lines = new_config })
+					end, desc = "Toggle diagnostic virtual_lines" }
+				})
+			end
+		end
+
 		-- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 		local lsp_config = {
 			capabilities = capabilities,
@@ -61,18 +107,7 @@ return {
 				-- https://github.com/eclipse/eclipse.jdt.ls/wiki/Language-Server-Settings-&-Capabilities#extended-client-capabilities
 				extendedClientCapabilities = jdtls.extendedClientCapabilities,
 			},
-			on_attach = function(client, bufnr)
-				-- https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L88-L94
-				local opts = { silent = true, buffer = bufnr }
-				vim.keymap.set('n', "<leader>lo", jdtls.organize_imports, { desc = 'Organize imports', buffer = bufnr })
-				-- Should 'd' be reserved for debug?
-				vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
-				vim.keymap.set('n', "<leader>dn", jdtls.test_nearest_method, opts)
-				vim.keymap.set('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
-				vim.keymap.set('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
-				{ desc = 'Extract method', buffer = bufnr })
-				vim.keymap.set('n', '<leader>rc', jdtls.extract_constant, { desc = 'Extract constant', buffer = bufnr })
-			end
+			on_attach = on_attach
 		}
 
 		jdtls.start_or_attach(lsp_config)

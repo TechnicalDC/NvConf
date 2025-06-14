@@ -6,6 +6,8 @@ return {
       'TechnicalDC/nvim-lspconfig',
       "nvim-treesitter/nvim-treesitter",
       'kyazdani42/nvim-web-devicons',
+		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
    },
    config = function ()
       require("plugins.lsp.mason")
