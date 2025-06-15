@@ -9,6 +9,7 @@ return {
 	config = function ()
 		-- Eclipse Java development tools (JDT) Language Server downloaded from:
 		-- https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.21.0/jdt-language-server-1.21.0-202303161431.tar.gz
+		local map = vim.keymap.set
 		local jdtls = require('jdtls')
 		-- Change or delete this if you don't depend on nvim-cmp for completions.
 		-- local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -40,13 +41,20 @@ return {
 
 			-- https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L88-L94
 			local opts = { silent = true, buffer = bufnr }
-			vim.keymap.set('n', "<leader>lo", jdtls.organize_imports, { desc = 'Organize imports', buffer = bufnr })
+			map('n', "<leader>lo", jdtls.organize_imports, { desc = 'Organize imports', buffer = bufnr })
 			-- Should 'd' be reserved for debug?
-			vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
-			vim.keymap.set('n', "<leader>dn", jdtls.test_nearest_method, opts)
-			vim.keymap.set('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
-			vim.keymap.set('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], { desc = 'Extract method', buffer = bufnr })
-			vim.keymap.set('n', '<leader>rc', jdtls.extract_constant, { desc = 'Extract constant', buffer = bufnr })
+			map('n', "<leader>df", jdtls.test_class, opts)
+			map('n', "<leader>dn", jdtls.test_nearest_method, opts)
+			map('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
+			map('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], { desc = 'Extract method', buffer = bufnr })
+			map('n', '<leader>rc', jdtls.extract_constant, { desc = 'Extract constant', buffer = bufnr })
+
+			-- map("n", "<leader>oc", vim.lsp.buf.code_action,                     { desc = "Open code actions" } )
+			-- map("n", "<leader>rn", vim.lsp.buf.rename,                          { desc = "Rename" } )
+			-- map("n", "<leader>D",  vim.lsp.buf.type_definition,                 { desc = "Go to type definition" } )
+			-- map("n", "<leader>F",  vim.lsp.buf.formatting,                      { desc = "Format code" } )
+			-- map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder,            { desc = "Add folder to workspace" } )
+			-- map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder,         { desc = "Remove folder from workspace" } )
 
 			local ok, wk = pcall(require, 'which-key')
 			if ok then
