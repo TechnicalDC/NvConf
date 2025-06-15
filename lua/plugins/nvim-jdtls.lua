@@ -1,5 +1,10 @@
 return {
 	'mfussenegger/nvim-jdtls',
+	dependencies = {
+		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio"
+	},
 	ft = "java",
 	config = function ()
 		-- Eclipse Java development tools (JDT) Language Server downloaded from:
@@ -31,15 +36,17 @@ return {
 
 		local on_attach = function(client, bufnr)
 
-				-- https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L88-L94
-				local opts = { silent = true, buffer = bufnr }
-				vim.keymap.set('n', "<leader>lo", jdtls.organize_imports, { desc = 'Organize imports', buffer = bufnr })
-				-- Should 'd' be reserved for debug?
-				vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
-				vim.keymap.set('n', "<leader>dn", jdtls.test_nearest_method, opts)
-				vim.keymap.set('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
-				vim.keymap.set('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], { desc = 'Extract method', buffer = bufnr })
-				vim.keymap.set('n', '<leader>rc', jdtls.extract_constant, { desc = 'Extract constant', buffer = bufnr })
+			require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+
+			-- https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L88-L94
+			local opts = { silent = true, buffer = bufnr }
+			vim.keymap.set('n', "<leader>lo", jdtls.organize_imports, { desc = 'Organize imports', buffer = bufnr })
+			-- Should 'd' be reserved for debug?
+			vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
+			vim.keymap.set('n', "<leader>dn", jdtls.test_nearest_method, opts)
+			vim.keymap.set('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
+			vim.keymap.set('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], { desc = 'Extract method', buffer = bufnr })
+			vim.keymap.set('n', '<leader>rc', jdtls.extract_constant, { desc = 'Extract constant', buffer = bufnr })
 
 			local ok, wk = pcall(require, 'which-key')
 			if ok then
@@ -106,6 +113,9 @@ return {
 			init_options = {
 				-- https://github.com/eclipse/eclipse.jdt.ls/wiki/Language-Server-Settings-&-Capabilities#extended-client-capabilities
 				extendedClientCapabilities = jdtls.extendedClientCapabilities,
+				bundles = {
+					vim.fn.glob("/home/dilip/Gits/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar", 1)
+				},
 			},
 			on_attach = on_attach
 		}
