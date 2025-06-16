@@ -89,12 +89,10 @@ return {
          },
          extensions = {
             ["ui-select"] = {
-               require("telescope.themes").get_dropdown {
-                  layout_strategy = "vertical",
-                  layout_config = {
-                     height = 0.5
-                  }
-               }
+					require("telescope.themes").get_dropdown {
+						layout_strategy = "horizontal",  -- Other layouts: vertical, horizontal, center
+						preview = false,
+					}
             }
          },
       }
