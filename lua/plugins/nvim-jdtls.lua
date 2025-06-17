@@ -8,20 +8,14 @@ return {
 	ft = "java",
 	config = function ()
 		local map = vim.keymap.set
-		-- Eclipse Java development tools (JDT) Language Server downloaded from:
-		-- https://www.eclipse.org/downloads/download.php?file=/jdtls/milestones/1.21.0/jdt-language-server-1.21.0-202303161431.tar.gz
-		local map = vim.keymap.set
+
 		local jdtls = require('jdtls')
-		-- Change or delete this if you don't depend on nvim-cmp for completions.
-		-- local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 		-- Change jdtls_path to wherever you have your Eclipse Java development tools (JDT) Language Server downloaded to.
 		local jdtls_path = vim.fn.stdpath('data') .. '/mason/packages/jdtls/'
 		local launcher_jar = vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar')
 		local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
-		-- for completions
-		-- local client_capabilities = vim.lsp.protocol.make_client_capabilities()
 		local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 		local function get_config_dir()
@@ -56,6 +50,16 @@ return {
 			map("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Go to implementation" } )
 			map("n", "<leader>gr", vim.lsp.buf.references,     { desc = "Go to references" } )
 			map("n", "<leader>D",  vim.lsp.buf.type_definition,                 { desc = "Go to type definition" } )
+			map( "n", "<leader>K",
+				function () vim.lsp.buf.hover() end,
+				{ desc = "Hover docs" })
+			map( "n", "[d",
+				function() vim.diagnostic.jump({ count = -1, float = true }) end,
+				{ desc = "Go to previous diagnostics" })
+			map( "n", "]d",
+				function() vim.diagnostic.jump({ count = 1, float = true }) end,
+				{ desc = "Go to next diagnostics" })
+
 
 			local ok, wk = pcall(require, 'which-key')
 			if ok then
@@ -67,19 +71,6 @@ return {
 					{"<leader>wl", function()
 						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 					end, desc = "List workspace folder"},
-					{"<leader>K",  function ()
-						vim.lsp.buf.hover()
-					end, desc = "Hover docs" },
-					{"[d", function()
-						vim.diagnostic.jump({ count = -1, float = true })
-					end, desc = "Go to previous diagnostics" },
-					{"]d", function()
-						vim.diagnostic.jump({ count = 1, float = true })
-					end, desc = "Go to next diagnostics" },
-					{"<leader>tl", function ()
-						local new_config = not vim.diagnostic.config().virtual_lines
-						vim.diagnostic.config({ virtual_lines = new_config })
-					end, desc = "Toggle diagnostic virtual_lines" }
 				})
 			end
 		end
@@ -88,12 +79,6 @@ return {
 		local lsp_config = {
 			capabilities = capabilities,
 			cmd = {
-				-- This sample path was tested on Cygwin, a "unix-like" Windows environment.
-				-- Please contribute to this Wiki if this doesn't work for another Windows
-				-- environment like [Git for Windows](https://gitforwindows.org/) or PowerShell.
-				-- JDTLS currently needs Java 17 to work, but you can replace this line with "java"
-				-- if Java 17 is on your PATH.
-				-- "C:/Program Files/Java/jdk-20/bin/java",
 				"java",
 				"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 				"-Dosgi.bundles.defaultStartLevel=4",

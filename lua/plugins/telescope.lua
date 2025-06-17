@@ -5,6 +5,7 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim'
    },
+   event = { "BufReadPre", "BufNewFile" },
    keys = {
       { "<leader>ff", function ()
          require("telescope.builtin").find_files()
@@ -15,12 +16,6 @@ return {
       { "<leader>fH", function ()
          require("telescope.builtin").highlights()
       end, desc = "Find highlights" },
-      { "<leader>fs", function ()
-         require("telescope.builtin").lsp_document_symbols()
-      end,  desc = "Find symbols"  },
-      { "<leader>fS",function ()
-         require("telescope.builtin").lsp_workspace_symbols()
-      end, desc = "Find workspace symbols" },
       { "<leader>fo", function ()
          require("telescope.builtin").oldfiles()
       end, desc = "Find recent files" },
