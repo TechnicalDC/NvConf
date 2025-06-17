@@ -31,10 +31,9 @@ return {
 		end
 
 		local on_attach = function(client, bufnr)
-
+			require("technicaldc.lsp_keymaps")
 			require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 
-			-- https://github.com/mfussenegger/dotfiles/blob/833d634251ebf3bf7e9899ed06ac710735d392da/vim/.config/nvim/ftplugin/java.lua#L88-L94
 			vim.keymap.set('n', "<leader>lo", jdtls.organize_imports, { desc = 'Organize imports', buffer = bufnr })
 			-- Should 'd' be reserved for debug?
 			map('n', "<leader>df", jdtls.test_class, { silent = true, buffer = bufnr, desc = "Test class" })
@@ -42,37 +41,6 @@ return {
 			map('n', '<leader>rv', jdtls.extract_variable_all, { desc = 'Extract variable', buffer = bufnr })
 			map('v', '<leader>rm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], { desc = 'Extract method', buffer = bufnr })
 			map('n', '<leader>rc', jdtls.extract_constant, { desc = 'Extract constant', buffer = bufnr })
-
-			map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" } )
-			map("n", "<leader>oc", vim.lsp.buf.code_action, { desc = "Open code actions" } )
-			map("n", "<leader>gd", vim.lsp.buf.definition,     { desc = "Go to definition" } )
-			map("n", "<leader>gD", vim.lsp.buf.declaration,    { desc = "Go to declaration" } )
-			map("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Go to implementation" } )
-			map("n", "<leader>gr", vim.lsp.buf.references,     { desc = "Go to references" } )
-			map("n", "<leader>D",  vim.lsp.buf.type_definition,                 { desc = "Go to type definition" } )
-			map( "n", "<leader>K",
-				function () vim.lsp.buf.hover() end,
-				{ desc = "Hover docs" })
-			map( "n", "[d",
-				function() vim.diagnostic.jump({ count = -1, float = true }) end,
-				{ desc = "Go to previous diagnostics" })
-			map( "n", "]d",
-				function() vim.diagnostic.jump({ count = 1, float = true }) end,
-				{ desc = "Go to next diagnostics" })
-
-
-			local ok, wk = pcall(require, 'which-key')
-			if ok then
-				wk.add({
-					mode = "n",
-					{"<leader>F",  vim.lsp.buf.formatting,                      desc = "Format code"},
-					{"<leader>wa", vim.lsp.buf.add_workspace_folder,            desc = "Add folder to workspace"},
-					{"<leader>wr", vim.lsp.buf.remove_workspace_folder,         desc = "Remove folder from workspace"},
-					{"<leader>wl", function()
-						print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-					end, desc = "List workspace folder"},
-				})
-			end
 		end
 
 		-- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
