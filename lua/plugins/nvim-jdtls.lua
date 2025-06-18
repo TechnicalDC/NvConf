@@ -64,7 +64,7 @@ return {
 			settings = {
 				['java.format.settings.url'] = vim.fn.expand("~/formatter.xml")
 			},
-			root_dir = vim.fs.dirname(vim.fs.find({ 'pom.xml', '.git' }, { upward = true })[1]),
+			root_dir = vim.fs.dirname(vim.fs.find({ 'pom.xml', '.git', '.classpath', '.project' }, { upward = true })[1]),
 			init_options = {
 				-- https://github.com/eclipse/eclipse.jdt.ls/wiki/Language-Server-Settings-&-Capabilities#extended-client-capabilities
 				extendedClientCapabilities = jdtls.extendedClientCapabilities,
