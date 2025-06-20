@@ -13,6 +13,7 @@ return {
 
 		-- Change jdtls_path to wherever you have your Eclipse Java development tools (JDT) Language Server downloaded to.
 		local jdtls_path = vim.fn.stdpath('data') .. '/mason/packages/jdtls/'
+		local lombox_path = jdtls_path .. "lombok.jar"
 		local launcher_jar = vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar')
 		local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
@@ -53,6 +54,7 @@ return {
 				"-Declipse.product=org.eclipse.jdt.ls.core.product",
 				"-Dlog.protocol=true",
 				"-Dlog.level=ALL",
+				"-javaagent:" .. lombox_path,
 				"-Xmx1G",
 				"--add-modules=ALL-SYSTEM",
 				"--add-opens", "java.base/java.util=ALL-UNNAMED",
@@ -62,7 +64,19 @@ return {
 				"-data", vim.fn.expand('~/.cache/jdtls-workspace/') .. workspace_dir
 			},
 			settings = {
-				['java.format.settings.url'] = vim.fn.expand("~/formatter.xml")
+				-- ['java.format.settings.url'] = vim.fn.expand("~/formatter.xml")
+				java = {
+					eclipse = {
+						downloadSources = true,
+					},
+					configuration = {
+						updateBuildConfiguration = "interactive",
+					},
+					maven = {
+						downloadSources = true,
+						updateSnapshots = true,
+					},
+				},
 			},
 			root_dir = vim.fs.dirname(vim.fs.find({ 'pom.xml', '.git', '.classpath', '.project' }, { upward = true })[1]),
 			init_options = {
