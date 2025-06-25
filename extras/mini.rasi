@@ -1,7 +1,7 @@
 * {
    foreground    : #c0c8cc;
-   background    : #11262d;
-   selected      : #2a4047;
-	promptbg		  : #445a62;
+   background    : #1d2021;
+   selected      : #363a3b;
+	promptbg		  : #515556;
 }
 	
