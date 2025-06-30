@@ -22,16 +22,16 @@ return {
 
 			evaluate_single = true,
 			items = {
-				-- {
-				-- 	name = 'browse files',
-				-- 	action = 'lua require("mini.files").open(vim.uv.cwd(), true)',
-				-- 	section = 'telescope'
-				-- },
 				{
 					name = 'browse files',
-					action = 'lua require("oil").toggle_float()',
+					action = 'lua require("mini.files").open(vim.uv.cwd(), true)',
 					section = 'telescope'
 				},
+				-- {
+				-- 	name = 'browse files',
+				-- 	action = 'lua require("oil").toggle_float()',
+				-- 	section = 'telescope'
+				-- },
 				{
 					name = 'open notes',
 					action = 'lua require("telescope.builtin").find_files({cwd = "~/Notes/", prompt_title = "Open Notes"})',

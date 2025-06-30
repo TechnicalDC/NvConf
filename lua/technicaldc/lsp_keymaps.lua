@@ -1,4 +1,7 @@
 local map = vim.keymap.set
+local opts = {
+	title = "Hover Title"
+}
 
 map("n", "<leader>rn", vim.lsp.buf.rename,                  { desc = "Rename" } )
 map("n", "<leader>oc", vim.lsp.buf.code_action,             { desc = "Open code actions" } )
@@ -20,7 +23,8 @@ map( "n", "<leader>wl", function()
 end, { desc = "List workspace folder" })
 
 map( "n", "<leader>K", function ()
-	vim.lsp.buf.hover()
+	vim.notify("Custom hover", 3, {})
+	vim.lsp.buf.hover(opts)
 end, { desc = "Hover docs" })
 
 map( "n", "[d", function()
