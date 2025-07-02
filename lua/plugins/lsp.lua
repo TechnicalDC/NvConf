@@ -9,6 +9,7 @@ return {
 		"mfussenegger/nvim-dap",
 		"rcarriga/nvim-dap-ui",
    },
+   event = { "BufReadPre", "BufNewFile" },
    config = function ()
       require("plugins.lsp.mason")
       require("plugins.lsp.config")

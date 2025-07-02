@@ -4,6 +4,7 @@ return {
 		"mfussenegger/nvim-dap",
 		"nvim-neotest/nvim-nio"
 	},
+   event = { "BufReadPre", "BufNewFile" },
 	config = function ()
 		require("dapui").setup({
 			controls = {
