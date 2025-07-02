@@ -1,5 +1,4 @@
 ---@diagnostic disable: unused-function
-local default_icon = '█ '
 local mode_icon = {
    -- ['NORMAL']     = '󰘳 ',
    -- ['O-PENDING']  = ' ',
