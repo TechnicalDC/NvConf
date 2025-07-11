@@ -69,11 +69,11 @@ return {
          content = { prefix = my_prefix },
          windows = {
             -- Maximum number of windows to show side by side
-            max_number = 3,
+            max_number = 1,
             -- Whether to show preview of file/directory under cursor
             preview = true,
             -- Width of focused window
-            width_focus = 50,
+            width_focus = 70,
             -- Width of non-focused window
             width_nofocus = 20,
             -- Width of preview window
@@ -123,9 +123,9 @@ return {
 				vim.wo[args.data.win_id].statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
 
             -- Ensure fixed height
-				-- config.height = 15
-				-- config.col = math.floor(( vim.o.columns - config.width ) / 2)
-				-- config.row = math.floor(( vim.o.lines - config.height ) / 2)
+				config.height = 20
+				config.col = math.floor(( vim.o.columns - config.width ) / 2)
+				config.row = math.floor(( vim.o.lines - config.height ) / 2)
 
 				-- if string.len(config.title[#config.title]) > 20 then
 				-- end
