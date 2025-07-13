@@ -73,7 +73,7 @@ return {
             -- Whether to show preview of file/directory under cursor
             preview = true,
             -- Width of focused window
-            width_focus = 70,
+            width_focus = 120,
             -- Width of non-focused window
             width_nofocus = 20,
             -- Width of preview window
