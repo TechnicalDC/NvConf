@@ -1,5 +1,6 @@
 ---@diagnostic disable: undefined-global
 local set = vim.opt
+local setl = vim.opt_local
 local fn = vim.fn
 
 -- CONFIGURATION {{{
@@ -54,12 +55,14 @@ set.conceallevel  = 2
 set.concealcursor = 'nc'
 set.termguicolors = true
 -- set.quickfixtextfunc = "v:lua.qftf"
--- set.winbar = "%!v:lua.set_winbar()"
 set.scrolloff	   = 10
 set.undofile		= true
 set.shada			= "!,'300,<50,s10,h"
 set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
 set.helpheight   = 15
+
+set.winbar = "%F"
+-- set.winbar = "%!v:lua.set_winbar()"
 -- }}}
 
 vim.filetype.add({
@@ -136,7 +139,7 @@ function _G.set_winbar()
         .. (filetype_icon and "%#" .. filetype_hl .. "#" .. filetype_icon .. " " or "")
         .. ("%#Normal#" .. tail .. readonly .. modified .. "%#Normal#")
 
-    return file_breadcrumb
+    return file_breadcrumb .. "%= Dilip"
 end
 
 -- QUICKFIX FORMAT {{{
