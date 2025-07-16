@@ -61,7 +61,7 @@ set.shada			= "!,'300,<50,s10,h"
 set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
 set.helpheight   = 15
 
-set.winbar = "%F"
+set.winbar = "%F%=%y"
 -- set.winbar = "%!v:lua.set_winbar()"
 -- }}}
 
@@ -136,10 +136,10 @@ function _G.set_winbar()
 
     local file_breadcrumb = (cwd and cwd .. "%#Normal#" .. sep or "")
         .. (head == "." and "" or "%#Normal#" .. head .. sep)
-        .. (filetype_icon and "%#" .. filetype_hl .. "#" .. filetype_icon .. " " or "")
         .. ("%#Normal#" .. tail .. readonly .. modified .. "%#Normal#")
+		  .. "%=" .. (filetype_icon and "%#" .. filetype_hl .. "#" .. filetype_icon .. " %#Normal#" .. vim.bo.filetype or "")
 
-    return file_breadcrumb .. "%= Dilip"
+    return file_breadcrumb
 end
 
 -- QUICKFIX FORMAT {{{
