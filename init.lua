@@ -69,5 +69,5 @@ require('lazy').setup("technicaldc/plugins", {
    }
 })
 
-require("technicaldc.highlights")
-require("technicaldc.export")
+require("technicaldc")
+

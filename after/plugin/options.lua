@@ -2,6 +2,7 @@
 local set = vim.opt
 local setl = vim.opt_local
 local fn = vim.fn
+local config = require("technicaldc.config")
 
 -- CONFIGURATION {{{
 set.guicursor		 = ""
@@ -12,9 +13,9 @@ set.splitbelow     = true
 set.splitright     = true
 set.showmode       = false
 set.showtabline    = 0
-set.laststatus 	 = 3
-set.number         = true
-set.relativenumber = true
+set.laststatus 	 = config.laststatus
+set.number         = config.number
+set.relativenumber = config.relativenumber
 set.wildmenu       = true
 set.wildmode       = "longest:full,list:full"
 set.wildignore     = "*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf,*.gif,*.png,*.jpg,*.mp4,*mp3"
@@ -44,9 +45,9 @@ set.list          = true
 set.diffopt       = "filler,vertical,iwhiteall,iblank"
 set.mouse         = "a"
 set.expandtab     = false
-set.tabstop       = 3
-set.shiftwidth    = 3
-set.softtabstop   = 3
+set.tabstop       = config.indent
+set.shiftwidth    = config.indent
+set.softtabstop   = config.indent
 set.breakindent   = true
 set.autoindent		= true
 set.spelllang     = "en_us"
