@@ -8,6 +8,6 @@ return {
    enabled = true,
    config = function ()
       require("technicaldc.plugins.ui.noice-ui")
-      -- require("plugins.ui.lualine")
+      -- require("technicaldc.plugins.ui.lualine")
    end
 }

@@ -4,6 +4,12 @@ local palette = require("mini.hues").make_palette()
 -- print(vim.inspect(palette))
 
 -- BUILT-IN
+hl(0, "StatusLine", { fg = palette.fg_mid, bg = palette.bg_mid })
+hl(0, "StatusLineNC", { fg = palette.fg_mid, bg = palette.bg_mid })
+hl(0, "StatusLineTerm", { fg = palette.fg_mid, bg = palette.bg_mid })
+hl(0, "StatusLineTermNC", { fg = palette.fg_mid, bg = palette.bg_mid })
+hl(0, "WinBar", { fg = palette.fg_mid, bg = palette.bg})
+hl(0, "WinBarNC", { fg = palette.fg_mid, bg = palette.bg})
 hl(0, "Pmenu", { bg = palette.bg_edge })
 hl(0, "WinSeparator", { fg = palette.bg_mid })
 hl(0, "PmenuSel", { fg = palette.bg_edge,  bg = palette.fg_edge })
