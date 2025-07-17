@@ -7,7 +7,7 @@ return {
    },
    enabled = true,
    config = function ()
-      require("plugins.ui.noice-ui")
+      require("technicaldc.plugins.ui.noice-ui")
       -- require("plugins.ui.lualine")
    end
 }

@@ -11,7 +11,7 @@ return {
    },
    event = { "BufReadPre", "BufNewFile" },
    config = function ()
-      require("plugins.lsp.mason")
-      require("plugins.lsp.config")
+      require("technicaldc.plugins.lsp.mason")
+      require("technicaldc.plugins.lsp.config")
    end
 }
