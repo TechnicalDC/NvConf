@@ -330,6 +330,7 @@ end
 function extras_fun.tmux()
 	return util.replace_vars([[
 # panes
+set -g pane-border-line 'double'
 set -g pane-border-style 'fg=${bg_mid}'
 set -g pane-active-border-style 'fg=${fg_edge}'
 set-option -g status-style 'fg=${fg},bg=${bg_mid}'
