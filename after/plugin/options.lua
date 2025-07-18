@@ -34,11 +34,18 @@ set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
 set.fillchars:append({
-   fold = "─",
-   foldopen = "",
+   fold      = "─",
+   foldopen  = "",
    foldclose = "",
-   diff = "-",
-   eob = " ",
+   diff      = "-",
+   eob       = " ",
+	horiz     = '═',
+	horizup   = '╩',
+	horizdown = '╦',
+	vert      = '║',
+	vertleft  = '╣',
+	vertright = '╠',
+	verthoriz = '╬',
 })
 -- set.listchars	  = "tab:  "
 set.list          = true
