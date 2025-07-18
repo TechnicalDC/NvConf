@@ -59,9 +59,8 @@ set.termguicolors = true
 set.scrolloff	   = 10
 set.undofile		= true
 set.shada			= "!,'300,<50,s10,h"
-set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
 set.helpheight   = 15
-
+set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
 set.winbar = "%F%=%y"
 -- set.winbar = "%!v:lua.set_winbar()"
 -- }}}
