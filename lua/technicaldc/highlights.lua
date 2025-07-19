@@ -3,6 +3,8 @@ local palette = require("mini.hues").make_palette()
 
 -- print(vim.inspect(palette))
 
+hl(0, "StatusLineMode", { bg = palette.bg_mid2, fg = palette.fg_mid })
+
 -- BUILT-IN
 hl(0, "StatusLine", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "StatusLineNC", { fg = palette.fg_mid, bg = palette.bg_mid })

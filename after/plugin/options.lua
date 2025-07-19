@@ -68,8 +68,6 @@ set.undofile		= true
 set.shada			= "!,'300,<50,s10,h"
 set.helpheight   = 15
 set.statuscolumn = "%=%{v:relnum ? v:relnum : v:lnum} %s"
-set.winbar = " %F%=%y "
--- set.winbar = "%!v:lua.set_winbar()"
 -- }}}
 
 vim.filetype.add({
@@ -109,45 +107,6 @@ function _G.custom_fold_text()
    return start_char .. line .. "├─" .. string.rep(fill_char,fill_count) .. "─┤ " .. line_count .. end_char
 end
 -- }}}
-
-function _G.set_winbar()
-    local sep = " > "
-
-    -- if config.lualine.winbar.cwd.enabled then
-        local cwd = vim.fn.getcwd()
-		  local home = os.getenv("HOME")
-        -- if config.lualine.winbar.cwd.home_symbol then
-        --     cwd = home and cwd:gsub(home, config.lualine.winbar.cwd.home_symbol) or cwd
-        -- end
-		  cwd = home and cwd:gsub(home, "~") or cwd
-        cwd = table.concat(vim.fn.split(cwd, "/"), sep)
-
-        -- cwd = ("%#WinbarCwdSeparator#" .. separator.left .. "%#")
-        --     .. (config.lualine.winbar.cwd.highlight .. "# " .. cwd .. " ")
-        --     .. ("%#WinbarCwdSeparator#" .. separator.right)
-		  --
-        -- cwd = (config.lualine.winbar.cwd.highlight .. "# " .. cwd .. " ")
-    -- end
-
-    local head = vim.fn.expand("%:.:h")
-    head = table.concat(vim.fn.split(head, "/"), sep)
-    if head == "" then
-        return ""
-    end
-
-    local tail = vim.fn.expand("%:t")
-    local filetype_icon, filetype_hl = require("nvim-web-devicons").get_icon_by_filetype(vim.bo.filetype)
-
-    local readonly = vim.bo.readonly and "%#Error#  " or ""
-    local modified = vim.bo.modified and "%#WarningMsg#  " or ""
-
-    local file_breadcrumb = (cwd and cwd .. "%#Normal#" .. sep or "")
-        .. (head == "." and "" or "%#Normal#" .. head .. sep)
-        .. ("%#Normal#" .. tail .. readonly .. modified .. "%#Normal#")
-		  .. "%=" .. (filetype_icon and "%#" .. filetype_hl .. "#" .. filetype_icon .. " %#Normal#" .. vim.bo.filetype or "")
-
-    return file_breadcrumb
-end
 
 -- QUICKFIX FORMAT {{{
 function _G.qftf(info)
