@@ -6,5 +6,8 @@ return {
 	apply_custom_highlights = true,
 	winbar = {
 		enabled = true,
+		exclude_filetype = {
+			"ministarter"
+		}
 	}
 }

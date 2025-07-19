@@ -33,8 +33,24 @@ local function getFiletype()
 	return (filetype_icon and "%#" .. filetype_hl .. "#" .. filetype_icon .. " %#Normal#" .. vim.bo.filetype or "") .. " "
 end
 
+local function getDiagnostics()
+	local error_count, warning_count, info_count, hint_count
+	local diagnostics = vim.diagnostic.get(0)
+	local count = { 0, 0, 0, 0 }
+	for _, diagnostic in ipairs(diagnostics) do
+		if vim.startswith(vim.diagnostic.get_namespace(diagnostic.namespace).name, 'vim.lsp') then
+			count[diagnostic.severity] = count[diagnostic.severity] + 1
+		end
+	end
+	error_count = count[vim.diagnostic.severity.ERROR]
+	warning_count = count[vim.diagnostic.severity.WARN]
+	info_count = count[vim.diagnostic.severity.INFO]
+	hint_count = count[vim.diagnostic.severity.HINT]
+	return error_count, warning_count, info_count, hint_count
+end
+
 local excludes = function()
-	if vim.tbl_contains(opts.exclude_filetype, vim.bo.filetype) then
+	if vim.tbl_contains(opts.winbar.exclude_filetype, vim.bo.filetype) then
 		vim.opt_local.winbar = nil
 		return true
 	end
@@ -42,15 +58,42 @@ local excludes = function()
 end
 
 local show_winbar = function()
+	if excludes() then
+		return
+	end
 
-    local value = getFilename()
-	 value = value .. "%="
-	 value = value .. getFiletype()
+	local error_count, warning_count, info_count, hint_count = getDiagnostics()
+	local sign
 
-    local status_ok, _ = pcall(vim.api.nvim_set_option_value, 'winbar', value, { scope = 'local' })
-    if not status_ok then
-        return
-    end
+	local value = getFilename()
+	value = value .. "%="
+
+	if error_count > 0 then
+		sign = vim.fn.sign_getdefined("DiagnosticSignError")[1]
+		value = value .. "%#" .. sign.texthl .. "#" .. sign.text .. error_count .. "%#Winbar# "
+	end
+
+	if warning_count > 0 then
+		sign = vim.fn.sign_getdefined("DiagnosticSignWarn")[1]
+		value = value .. "%#" .. sign.texthl .. "#" .. sign.text .. warning_count .. "%#Winbar# "
+	end
+
+	if info_count > 0 then
+		sign = vim.fn.sign_getdefined("DiagnosticSignInfo")[1]
+		value = value .. "%#" .. sign.texthl .. "#" .. sign.text .. info_count .. "%#Winbar# "
+	end
+
+	if hint_count > 0 then
+		sign = vim.fn.sign_getdefined("DiagnosticSignHint")[1]
+		value = value .. "%#" .. sign.texthl .. "#" .. sign.text .. hint_count .. "%#Winbar# "
+	end
+
+	value = value .. getFiletype()
+
+	local status_ok, _ = pcall(vim.api.nvim_set_option_value, 'winbar', value, { scope = 'local' })
+	if not status_ok then
+		return
+	end
 end
 
 if opts.winbar.enabled == true then
