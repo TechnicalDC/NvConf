@@ -18,8 +18,8 @@ local function getFilename()
 
 	local tail = vim.fn.expand("%:t")
 
-	local readonly = vim.bo.readonly and "%#Error#  " or ""
-	local modified = vim.bo.modified and "%#WarningMsg#  " or ""
+	local readonly = vim.bo.readonly and "%#DiagnosticSignError#  " or ""
+	local modified = vim.bo.modified and "%#DiagnosticSignWarn#  " or ""
 
 	local file_breadcrumb = " " .. (cwd and cwd .. "%#Normal#" .. sep or "")
 	.. (head == "." and "" or "%#Normal#" .. head .. sep)
@@ -57,7 +57,7 @@ local excludes = function()
 	return false
 end
 
-local show_winbar = function()
+_G.show_winbar = function()
 	if excludes() then
 		return
 	end
@@ -97,10 +97,16 @@ local show_winbar = function()
 end
 
 if opts.winbar.enabled == true then
-	vim.api.nvim_create_autocmd({ 'DirChanged', 'CursorMoved', 'BufFilePost', 'InsertEnter', 'BufWritePost' }, {
-		callback = function()
-			show_winbar()
-		end
-	})
 	show_winbar()
+	vim.o.winbar = "%!v:lua.show_winbar()";
+
+	-- local timer = vim.uv.new_timer()
+	-- timer:start(1000, 0, vim.schedule_wrap(function()
+	-- 	show_winbar()
+	-- end))
+	-- vim.api.nvim_create_autocmd({ 'VimLeavePre', 'CursorMoved', 'BufFilePost', 'InsertEnter', 'BufWritePost' }, {
+	-- 	callback = function()
+	-- 		show_winbar()
+	-- 	end
+	-- })
 end
