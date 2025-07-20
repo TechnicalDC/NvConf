@@ -97,16 +97,11 @@ _G.show_winbar = function()
 end
 
 if opts.winbar.enabled == true then
-	show_winbar()
 	vim.o.winbar = "%!v:lua.show_winbar()";
 
-	-- local timer = vim.uv.new_timer()
-	-- timer:start(1000, 0, vim.schedule_wrap(function()
-	-- 	show_winbar()
-	-- end))
-	-- vim.api.nvim_create_autocmd({ 'VimLeavePre', 'CursorMoved', 'BufFilePost', 'InsertEnter', 'BufWritePost' }, {
-	-- 	callback = function()
-	-- 		show_winbar()
-	-- 	end
-	-- })
+	vim.api.nvim_create_autocmd({ "DiagnosticChanged", "BufModifiedSet" }, {
+		callback = function()
+			show_winbar()
+		end
+	})
 end
