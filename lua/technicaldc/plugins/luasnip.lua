@@ -7,10 +7,10 @@ return {
 
       if vim.fn.has("win32") == 1 then
          -- For windows
-         require("luasnip.loaders.from_lua").load({ paths = "~/Appdata/Local/nvim/snippets/" })
+         require("luasnip.loaders.from_lua").load({ paths = "~/Appdata/Local/nvim/lua/technicaldc/snippets/" })
       else
          -- For linux
-         require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+         require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/technicaldc/snippets/" })
       end
 
       ls.config.set_config({
