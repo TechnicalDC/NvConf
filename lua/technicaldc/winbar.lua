@@ -2,7 +2,7 @@
 local opts = require("technicaldc.config")
 
 local function getFilename()
-	local sep = " > "
+	local sep = " %#LineNr#>%#Normal# "
 
 	local cwd = vim.fn.getcwd()
 	local home = os.getenv("HOME")
@@ -21,8 +21,8 @@ local function getFilename()
 	local readonly = vim.bo.readonly and "%#DiagnosticSignError#  " or ""
 	local modified = vim.bo.modified and "%#DiagnosticSignWarn#  " or ""
 
-	local file_breadcrumb = " " .. (cwd and cwd .. "%#Normal#" .. sep or "")
-	.. (head == "." and "" or "%#Normal#" .. head .. sep)
+	local file_breadcrumb = " %#Normal#" .. (cwd and cwd .. sep or "")
+	.. (head == "." and "" or head .. sep)
 	.. ("%#Normal#" .. tail .. readonly .. modified .. "%#Normal#")
 
 	return file_breadcrumb
@@ -65,7 +65,7 @@ _G.show_winbar = function()
 	local error_count, warning_count, info_count, hint_count = getDiagnostics()
 	local sign
 
-	local value = getFilename()
+	local value = "[%n] " .. getFilename()
 	value = value .. "%="
 
 	if error_count > 0 then
