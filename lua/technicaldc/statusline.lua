@@ -31,7 +31,7 @@ local get_current_mode = function()
 	end
 end
 
- function _G.setup_statusline()
+function _G.setup_statusline()
 	 return table.concat {
 		 get_current_mode(), -- get current mode
 		 -- git_branch(), -- branch name

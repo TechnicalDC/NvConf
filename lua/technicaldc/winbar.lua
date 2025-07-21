@@ -99,7 +99,7 @@ end
 if opts.winbar.enabled == true then
 	vim.o.winbar = "%!v:lua.show_winbar()";
 
-	vim.api.nvim_create_autocmd({ "DiagnosticChanged", "BufModifiedSet" }, {
+	vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
 		callback = function()
 			show_winbar()
 		end

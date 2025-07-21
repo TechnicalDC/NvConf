@@ -6,7 +6,11 @@ local palette = require("mini.hues").make_palette()
 hl(0, "StatusLineMode", { bg = palette.bg_mid2, fg = palette.fg_mid })
 
 -- BUILT-IN
-hl(0, "StatusLine", { fg = palette.fg_mid, bg = palette.bg_mid })
+-- hl(0, "CursorLine", { bg = palette.bg_mid })
+-- hl(0, "CursorLineNr", { bg = palette.bg_mid })
+-- hl(0, "CursorLineFold", { bg = palette.bg_mid })
+-- hl(0, "CursorLineSign", { bg = palette.bg_mid })
+hl(0, "StatusLine", { bg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "StatusLineNC", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "StatusLineTerm", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "StatusLineTermNC", { fg = palette.fg_mid, bg = palette.bg_mid })
