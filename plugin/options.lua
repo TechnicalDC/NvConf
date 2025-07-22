@@ -47,11 +47,18 @@ set.fillchars:append({
 	vertright = '╠',
 	verthoriz = '╬',
 })
--- set.listchars	  = "tab:  "
+
+set.listchars:append("eol:󰌑")
+set.listchars:append("tab:  ")
+set.listchars:append("lead:·")
+set.listchars:append("leadmultispace:·")
+set.listchars:append("extends:")
+set.listchars:append("precedes:")
+
 set.list          = true
 set.diffopt       = "filler,vertical,iwhiteall,iblank"
 set.mouse         = "a"
-set.expandtab     = false
+set.expandtab     = true
 set.tabstop       = config.indent
 set.shiftwidth    = config.indent
 set.softtabstop   = config.indent
