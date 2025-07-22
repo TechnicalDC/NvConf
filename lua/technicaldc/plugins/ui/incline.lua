@@ -53,18 +53,18 @@ require('incline').setup {
 			-- {get_diagnostic_label()},
 			ft_icon and {
 				' ',
-				modified and modified_icon or ' ',
+				modified and modified_icon or ft_icon .. ' ',
 				' ',
-				guibg = modified and colors.yellow or colors.bg_mid2,
-				guifg = colors.bg
+				guibg = modified and colors.red or colors.bg_mid2,
+				guifg = modified and colors.bg or colors.fg
 			} or '',
 			{
 				' ',
-				ft_icon .. ' ' .. filename,
+				filename,
 				' ',
 				gui = modified and 'italic' or '',
-				guibg = colors.bg_mid,
-				guifg = colors.fg
+				guibg = modified and colors.yellow or colors.bg_mid,
+				guifg = modified and colors.bg  or colors.fg
 			},
 		}
 	end,
