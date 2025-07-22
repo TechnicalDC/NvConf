@@ -10,7 +10,7 @@ return {
 
       render.setup({
          render_modes = true,
-         anti_conceal = { enabled = false },
+         anti_conceal = { enabled = true },
          heading = {
             border = false,
             sign = false,

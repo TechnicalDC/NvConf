@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global
---      							__
+--      							  __
 -- .-----.-----.-----.--.--.|__|.--------.
 -- |     |  -__|  _  |  |  ||  ||        |
 -- |__|__|_____|_____|\___/ |__||__|__|__|
@@ -70,4 +70,3 @@ require('lazy').setup("technicaldc/plugins", {
 })
 
 require("technicaldc")
-

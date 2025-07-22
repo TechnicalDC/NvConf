@@ -20,7 +20,7 @@ require('incline').setup {
 		local search_icon = ""
 
 		if ft_icon == nil then
-			ft_icon = ""
+			ft_icon = ""
 		end
 
 		local function get_diagnostic_label()
