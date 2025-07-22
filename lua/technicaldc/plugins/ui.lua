@@ -8,6 +8,5 @@ return {
    enabled = true,
    config = function ()
       require("technicaldc.plugins.ui.noice-ui")
-      require("technicaldc.plugins.ui.incline")
    end
 }
