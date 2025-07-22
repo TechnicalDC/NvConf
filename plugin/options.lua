@@ -74,7 +74,7 @@ set.scrolloff	   = 10
 set.undofile		= true
 set.shada			= "!,'300,<50,s10,h"
 set.helpheight   = 15
-set.statuscolumn = " %=%{v:relnum ? v:relnum : v:lnum} %s "
+set.statuscolumn = " %=%{v:relnum ? v:relnum : v:lnum} %s"
 -- }}}
 
 vim.filetype.add({

@@ -223,16 +223,16 @@ end
 function extras_fun.fish()
 	return util.replace_vars([[
 # Colors
-set -l foreground "${fg}"
-set -l selection  "${bg_mid}"
-set -l comment    "${fg_mid2}"
-set -l red        "${red}"
-set -l orange     "${orange}"
-set -l yellow     "${yellow}"
-set -l green      "${green}"
-set -l blue       "${blue}"
-set -l purple     "${purple}"
-set -l cyan       "${cyan}"
+set -g foreground "${fg}"
+set -g selection  "${bg_mid}"
+set -g comment    "${fg_mid2}"
+set -g red        "${red}"
+set -g orange     "${orange}"
+set -g yellow     "${yellow}"
+set -g green      "${green}"
+set -g blue       "${blue}"
+set -g purple     "${purple}"
+set -g cyan       "${cyan}"
 
 # Syntax highlighting
 set -g fish_color_normal $foreground
