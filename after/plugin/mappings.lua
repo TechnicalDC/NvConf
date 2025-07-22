@@ -19,6 +19,7 @@ wk.add({
       { "<Esc>",      ":lua vim.o.hlsearch = false<CR>",            desc = "Disable incremental search highlighting"},
       { "x",          [["_x]],                                      desc = "Delete character"},
       { "<leader>rr", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], desc = "Replace word under the cursor globally" },
+      { "<leader>rw", [[:%s/\s\+$//e<CR>]],                         desc = "Remove whitespaces" },
       { "<leader>xx", "<cmd>!chmod +x %<CR>",                       desc = "Make file executable" },
 
       -- Quickfix
