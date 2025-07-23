@@ -53,6 +53,11 @@ return {
 					section = 'builtin'
 				},
 				{
+					name = 'update plugins',
+					action = 'Lazy update',
+					section = 'builtin'
+				},
+				{
 					name = 'quit neovim',
 					action = 'qall',
 					section = 'builtin'
