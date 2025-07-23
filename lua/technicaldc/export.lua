@@ -236,7 +236,7 @@ set -g cyan       "${cyan}"
 
 # Syntax highlighting
 set -g fish_color_normal $foreground
-set -g fish_color_command $cyan
+set -g fish_color_command $foreground
 set -g fish_color_keyword $purple
 set -g fish_color_quote $yellow
 set -g fish_color_redirection $foreground
@@ -292,7 +292,8 @@ function extras_fun.rofi()
 * {
    foreground    : ${fg};
    background    : ${bg};
-   selected      : ${bg_mid};
+   selected-bg   : ${fg_edge};
+   selected-fg   : ${bg};
 	promptbg		  : ${bg_mid2};
 }
 	]],palette)
@@ -335,11 +336,11 @@ set -g pane-border-style 'fg=${bg_mid}'
 set -g pane-active-border-style 'fg=${fg_edge}'
 set-option -g status-style 'fg=${fg},bg=${bg_mid}'
 set-option -g status-left "#[fg=${fg},bg=${bg_mid2}] #S #[default]"
-set-option -g status-right "#(whoami)::#H "
+set-option -g status-right "#[fg=${fg},bg=${bg_mid2}] #(whoami)::#H "
 set-window-option -g window-status-separator ""
 set-window-option -g window-status-style fg=${fg}
 set-window-option -g window-status-style bg=${bg_mid}
-set-window-option -g window-status-current-style "fg=${fg},bg=${bg_mid2}"
+set-window-option -g window-status-current-style "fg=${bg},bg=${fg_edge}"
 setw -g window-status-current-format ' #I.#W '
 setw -g window-status-format ' #I.#W '
 # messages
@@ -422,8 +423,8 @@ set default-fg              "${fg}"
 set default-bg              "${bg}"
 set completion-bg           "${bg_edge}"
 set completion-fg           "${fg}"
-set completion-highlight-bg "${bg_mid2}"
-set completion-highlight-fg "${fg}"
+set completion-highlight-bg "${fg_edge}"
+set completion-highlight-fg "${bg}"
 set completion-group-fg     "${fg_mid}"
 set completion-group-bg     "${bg_mid}"
 set statusbar-fg            "${fg}"
