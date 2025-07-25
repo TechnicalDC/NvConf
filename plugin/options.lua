@@ -52,8 +52,8 @@ set.listchars:append("eol:󰌑")
 set.listchars:append("tab:  ")
 set.listchars:append("lead:·")
 set.listchars:append("leadmultispace:·")
-set.listchars:append("extends:")
-set.listchars:append("precedes:")
+set.listchars:append("extends:>")
+set.listchars:append("precedes:<")
 
 set.list          = true
 set.diffopt       = "filler,vertical,iwhiteall,iblank"
