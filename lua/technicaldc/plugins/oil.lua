@@ -1,24 +1,28 @@
 -- Declare a global function to retrieve the current directory
 function _G.get_oil_winbar()
+   local sep = "%#Comment#/%#Normal#"
    local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
    local dir = require("oil").get_current_dir(bufnr)
    if dir then
-      return vim.fn.fnamemodify(dir, ":~")
+      dir = vim.fn.fnamemodify(dir, ":~")
    else
       -- If there is no current directory (e.g. over ssh), just show the buffer name
-      return vim.api.nvim_buf_get_name(0)
+      dir = vim.api.nvim_buf_get_name(0)
    end
+   dir = table.concat(vim.fn.split(dir, "/"), sep)
+   return dir
 end
 
 return {
-   'stevearc/oil.nvim',
+   "refractalize/oil-git-status.nvim",
    dependencies = {
+      'stevearc/oil.nvim',
       "nvim-tree/nvim-web-devicons"
-   }, -- use if you prefer nvim-web-devicons
-   keys = {
-      { "<leader>of", "<CMD>Oil<CR>", desc = "Open parent directory", },
    },
    config = function ()
+
+      vim.keymap.set( "n", "<leader>of", "<CMD>Oil<CR>", { desc = "Open parent directory" }  )
+
       require("oil").setup({
          default_file_explorer = true,
          -- Id is automatically added at the beginning, and name at the end
@@ -37,7 +41,7 @@ return {
          -- Window-local options to use for oil buffers
          win_options = {
             wrap = false,
-            signcolumn = "no",
+            signcolumn = "yes:2",
             cursorcolumn = false,
             foldcolumn = "0",
             spell = false,
@@ -217,5 +221,36 @@ return {
             border = "rounded",
          },
       })
+
+      require('oil-git-status').setup({
+         show_ignored = true, -- show files that match gitignore with !!
+         symbols = { -- customize the symbols that appear in the git status columns
+            index = {
+               ["!"] = "",
+               ["?"] = "",
+               ["A"] = "",
+               ["C"] = "",
+               ["D"] = "󰧧",
+               ["M"] = "",
+               ["R"] = "",
+               ["T"] = "",
+               ["U"] = "󰩌",
+               [" "] = " ",
+            },
+            working_tree = {
+               ["!"] = "",
+               ["?"] = "",
+               ["A"] = "",
+               ["C"] = "",
+               ["D"] = "󰧧",
+               ["M"] = "",
+               ["R"] = "",
+               ["T"] = "",
+               ["U"] = "󰩌",
+               [" "] = " ",
+            },
+         },
+      })
+
    end
 }
