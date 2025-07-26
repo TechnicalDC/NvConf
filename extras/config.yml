@@ -1,0 +1,44 @@
+gui:
+  border: single
+  showIcons: false
+  theme:
+    activeBorderColor:
+      - '#d2dade'
+      - bold
+    inactiveBorderColor:
+      - '#c0c8cc'
+    optionsTextColor:
+      - '#b2cfbc'
+    selectedLineBgColor:
+      - '#d2dade'
+    selectedLineFgColor:
+      - '#1d2021'
+    cherryPickedCommitBgColor:
+      - '#2b1826'
+    cherryPickedCommitFgColor:
+      - '#d8bdd0'
+    unstagedChangesColor:
+      - '#c7caac'
+    defaultFgColor:
+      - '#c0c8cc'
+    searchingActiveBorderColor:
+      - '#d9c2ac'
+
+  authorColors:
+    '*': '#e0bdbb'
+
+  spinner:
+    frames:
+     - '⠋'
+     - '⠙'
+     - '⠹'
+     - '⠸'
+     - '⠼'
+     - '⠴'
+     - '⠦'
+     - '⠧'
+     - '⠇'
+     - '⠏'
+git:
+  parseEmoji: true
+	

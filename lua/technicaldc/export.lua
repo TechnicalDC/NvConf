@@ -17,6 +17,55 @@ extras.vimiv = "mini"
 extras.waybar = "mini.css"
 extras.wezterm = "wezterm-colors.lua"
 extras.zathura = "mini-zathura"
+extras.lazygit = "config.yml"
+
+function extras_fun.lazygit()
+	return util.replace_vars([[
+gui:
+  border: single
+  showIcons: false
+  theme:
+    activeBorderColor:
+      - '${fg_edge}'
+      - bold
+    inactiveBorderColor:
+      - '${fg}'
+    optionsTextColor:
+      - '${green}'
+    selectedLineBgColor:
+      - '${fg_edge}'
+    selectedLineFgColor:
+      - '${bg}'
+    cherryPickedCommitBgColor:
+      - '${purple_bg}'
+    cherryPickedCommitFgColor:
+      - '${purple}'
+    unstagedChangesColor:
+      - '${yellow}'
+    defaultFgColor:
+      - '${fg}'
+    searchingActiveBorderColor:
+      - '${orange}'
+
+  authorColors:
+    '*': '${red}'
+
+  spinner:
+    frames:
+     - '⠋'
+     - '⠙'
+     - '⠹'
+     - '⠸'
+     - '⠼'
+     - '⠴'
+     - '⠦'
+     - '⠧'
+     - '⠇'
+     - '⠏'
+git:
+  parseEmoji: true
+]],palette)
+end
 
 function extras_fun.alacritty()
 	return util.replace_vars([[
