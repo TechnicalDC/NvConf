@@ -3,10 +3,17 @@ local palette = require("mini.hues").make_palette()
 
 -- print(vim.inspect(palette))
 
-hl(0, "StatusLineMode", { bg = palette.bg_mid2, fg = palette.fg_mid })
+hl(0, "StatusLineModeNormal",   { bg = palette.blue,    fg = palette.bg_mid })
+hl(0, "StatusLineModeVisual",   { bg = palette.yellow,  fg = palette.bg_mid })
+hl(0, "StatusLineModeInsert",   { bg = palette.green,   fg = palette.bg_mid })
+hl(0, "StatusLineModeReplace",  { bg = palette.orange,  fg = palette.bg_mid })
+hl(0, "StatusLineModeCommand",  { bg = palette.red,     fg = palette.bg_mid })
+hl(0, "StatusLineModeTerminal", { bg = palette.azure,   fg = palette.bg_mid })
+hl(0, "StatusLineModeConfirm",  { bg = palette.cyan,    fg = palette.bg_mid })
+hl(0, "StatusLineMode",         { bg = palette.bg_mid2, fg = palette.fg_mid })
 
 -- BUILT-IN
-hl(0, "StatusLine", { bg = palette.fg_mid, bg = palette.bg_mid })
+hl(0, "StatusLine", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "StatusLineNC", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "StatusLineTerm", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "StatusLineTermNC", { fg = palette.fg_mid, bg = palette.bg_mid })

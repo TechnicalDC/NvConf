@@ -1,34 +1,36 @@
 local modes = {
-    ['n'] = {'NORMAL', 'N'},
-    ['no'] = {'N·OPERATOR', 'N·P'},
-    ['v'] = {'VISUAL', 'V'},
-    ['V'] = {'V·LINE', 'V·L'},
-    [''] = {'V·BLOCK', 'V·B'},
-    [''] = {'V·BLOCK', 'V·B'},
-    ['s'] = {'SELECT', 'S'},
-    ['S'] = {'S·LINE', 'S·L'},
-    [''] = {'S·BLOCK', 'S·B'},
-    ['i'] = {'INSERT', 'I'},
-    ['ic'] = {'INSERT', 'I'},
-    ['R'] = {'REPLACE', 'R'},
-    ['Rv'] = {'V·REPLACE', 'V·R'},
-    ['c'] = {'COMMAND', 'C'},
-    ['cv'] = {'VIM·EX', 'V·E'},
-    ['ce'] = {'EX', 'E'},
-    ['r'] = {'PROMPT', 'P'},
-    ['rm'] = {'MORE', 'M'},
-    ['r?'] = {'CONFIRM', 'C'},
-    ['!'] = {'SHELL', 'S'},
-    ['t'] = {'TERMINAL', 'T'}
+    ['n']  = {'NORMAL',     'N',   'StatusLineModeNormal'},
+    ['no'] = {'N·OPERATOR', 'N·P', 'StatuslineMode'},
+    ['v']  = {'VISUAL',     'V',   'StatusLineModeVisual'},
+    ['V']  = {'V·LINE',     'V·L', 'StatusLineModeVisual'},
+    ['']   = {'V·BLOCK',    'V·B', 'StatuslineModeVisual'},
+    [''] = {'V·BLOCK',    'V·B', 'StatuslineModeVisual'},
+    ['s']  = {'SELECT',     'S',   'StatuslineModeVisual'},
+    ['S']  = {'S·LINE',     'S·L', 'StatuslineModeVisual'},
+    [''] = {'S·BLOCK',    'S·B', 'StatuslineModeVisual'},
+    ['i']  = {'INSERT',     'I',   'StatusLineModeInsert'},
+    ['ic'] = {'INSERT',     'I',   'StatuslineModeInsert'},
+    ['R']  = {'REPLACE',    'R',   'StatusLineModeReplace'},
+    ['Rv'] = {'V·REPLACE',  'V·R', 'StatuslineModeReplace'},
+    ['c']  = {'COMMAND',    'C',   'StatusLineModeCommand'},
+    ['cv'] = {'VIM·EX',     'V·E', 'StatuslineModeCommand'},
+    ['ce'] = {'EX',         'E',   'StatuslineModeCommand'},
+    ['r']  = {'PROMPT',     'P',   'StatusLineModeConfirm'},
+    ['rm'] = {'MORE',       'M',   'StatuslineModeConfirm'},
+    ['r?'] = {'CONFIRM',    'C',   'StatuslineModeConfirm'},
+    ['!']  = {'SHELL',      'S',   'StatusLineModeTerminal'},
+    ['t']  = {'TERMINAL',   'T',   'StatuslineModeTerminal'}
 }
 
 local get_current_mode = function()
 	local current_mode = vim.api.nvim_get_mode().mode
+   local mode = ""
 	if vim.o.columns <= 80 then
-		return "%#StatusLineMode#" .. string.format(' %s ', modes[current_mode][2]) .. "%#StatusLine#"
+		mode = string.format(' %s ', modes[current_mode][2])
 	else
-		return "%#StatusLineMode#" .. string.format(' %s ', modes[current_mode][1]) .. "%#StatusLine#"
+		mode = string.format(' %s ', modes[current_mode][1])
 	end
+   return "%#" .. modes[current_mode][3] .. "#" .. mode .. "%#StatusLine#"
 end
 
 function _G.setup_statusline()
