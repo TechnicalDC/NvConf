@@ -10,12 +10,6 @@ vim.lsp.config("*", {
 	capabilities = capabilities
 })
 
-vim.lsp.config("marksman",{
-	cmd = { "marksman", "server" },
-	filetypes = { "markdown", "markdown.mdx" },
-	root_markers = { ".marksman.toml", ".git" }
-})
-
 vim.lsp.config("jdtls",{
 	cmd = { "jdtls", "-configuration", "~/.cache/jdtls/config", "-data", "~/.cache/jdtls/workspace" },
 	filetypes = { "java" },
