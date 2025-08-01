@@ -36,12 +36,14 @@ end
 function _G.setup_statusline()
 	 return table.concat {
 		 get_current_mode(), -- get current mode
-		 -- git_branch(), -- branch name
-		 " %h ",
+       " %F",
+       " %m",
 		 " %<", -- spacing
 		 "%=", -- right align
-		 "%#StatusLineMode# %-3.(%l/%L ", -- current / total lines
-	 }
- end
+       -- git_branch(), -- branch name
+		 " %h ",
+       "%#StatusLineMode# %-3.(%l/%L ", -- current / total lines
+    }
+end
 
- vim.opt.statusline = "%!v:lua.setup_statusline()"
+vim.opt.statusline = "%!v:lua.setup_statusline()"
