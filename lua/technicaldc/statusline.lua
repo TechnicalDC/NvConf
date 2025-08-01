@@ -33,17 +33,46 @@ local get_current_mode = function()
    return "%#" .. modes[current_mode][3] .. "#" .. mode .. "%#StatusLine#"
 end
 
+local get_filename = function ()
+   local sep = "%#StatusLineFilenameSep#/%#StatusLineFileName#"
+
+   local cwd = vim.fn.getcwd()
+   local home = os.getenv("HOME")
+
+   cwd = home and cwd:gsub(home, "~") or cwd
+   cwd = table.concat(vim.fn.split(cwd, "/"), sep)
+
+   local head = vim.fn.expand("%:.:h")
+   head = table.concat(vim.fn.split(head, "/"), sep)
+   if head == "" then
+      return ""
+   end
+
+   local tail = vim.fn.expand("%:t")
+
+   local filename = " %#StatusLineFilename#"
+
+	if vim.o.columns > 80 then
+      filename = filename .. (cwd and cwd .. sep or "")
+	end
+
+   filename = filename .. (head == "." and "" or head .. sep) .. ("%#StatusLine#" .. tail .. "%#StatusLine#")
+
+   return filename
+end
+
 function _G.setup_statusline()
-	 return table.concat {
-		 get_current_mode(), -- get current mode
-       " %F",
-       " %m",
-		 " %<", -- spacing
-		 "%=", -- right align
-       -- git_branch(), -- branch name
-		 " %h ",
-       "%#StatusLineMode# %-3.(%l/%L ", -- current / total lines
-    }
+   return table.concat {
+      get_current_mode(), -- get current mode
+      get_filename(),
+      " %m",
+      " %<", -- spacing
+      "%=", -- right align
+      " %{get(b:,'gitsigns_status','')}",
+      " %h ",
+      " %q ",
+      "%#StatusLineMode# %-3.(%l/%L ", -- current / total lines
+   }
 end
 
 vim.opt.statusline = "%!v:lua.setup_statusline()"

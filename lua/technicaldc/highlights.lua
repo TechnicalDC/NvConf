@@ -3,6 +3,10 @@ local palette = require("mini.hues").make_palette()
 
 -- print(vim.inspect(palette))
 
+hl(0, "StatusLine",             { fg = palette.fg_mid,  bg = palette.bg_mid })
+hl(0, "StatusLineNC",           { fg = palette.fg_mid,  bg = palette.bg_mid })
+hl(0, "StatusLineTerm",         { fg = palette.fg_mid,  bg = palette.bg_mid })
+hl(0, "StatusLineTermNC",       { fg = palette.fg_mid,  bg = palette.bg_mid })
 hl(0, "StatusLineModeNormal",   { bg = palette.blue,    fg = palette.bg_mid })
 hl(0, "StatusLineModeVisual",   { bg = palette.yellow,  fg = palette.bg_mid })
 hl(0, "StatusLineModeInsert",   { bg = palette.green,   fg = palette.bg_mid })
@@ -11,12 +15,10 @@ hl(0, "StatusLineModeCommand",  { bg = palette.red,     fg = palette.bg_mid })
 hl(0, "StatusLineModeTerminal", { bg = palette.azure,   fg = palette.bg_mid })
 hl(0, "StatusLineModeConfirm",  { bg = palette.cyan,    fg = palette.bg_mid })
 hl(0, "StatusLineMode",         { bg = palette.bg_mid2, fg = palette.fg_mid })
+hl(0, "StatusLineFilename",     { bg = palette.bg_mid,  fg = palette.fg_mid })
+hl(0, "StatusLineFilenameSep",  { bg = palette.bg_mid,  fg = palette.fg_mid2 })
 
 -- BUILT-IN
-hl(0, "StatusLine", { fg = palette.fg_mid, bg = palette.bg_mid })
-hl(0, "StatusLineNC", { fg = palette.fg_mid, bg = palette.bg_mid })
-hl(0, "StatusLineTerm", { fg = palette.fg_mid, bg = palette.bg_mid })
-hl(0, "StatusLineTermNC", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "WinBar", { fg = palette.fg_mid, bg = palette.bg})
 hl(0, "WinBarNC", { fg = palette.fg_mid, bg = palette.bg})
 hl(0, "Pmenu", { bg = palette.bg_edge })
@@ -115,3 +117,4 @@ hl(0, "NoiceCompletionItemKindValue",       { link = "NoiceCompletionItemKindDef
 hl(0, "NoiceCompletionItemKindVariable",    { link = "NoiceCompletionItemKindDefault" })
 hl(0, "NoiceConfirmBorder"       , { fg = palette.bg_edge2 , bg = palette.bg_edge2 })
 hl(0, "NoiceConfirm"       , { bg = palette.bg_edge2 })
+
