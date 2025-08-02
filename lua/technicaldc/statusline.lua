@@ -69,7 +69,7 @@ function _G.setup_statusline()
       " %<", -- spacing
       "%=", -- right align
       " %{get(b:,'gitsigns_status','')}",
-      " %h ",
+      " %h",
       " %q ",
       "%#StatusLineMode# %-3.(%l/%L ", -- current / total lines
    }
