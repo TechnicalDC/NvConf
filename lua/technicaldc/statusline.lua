@@ -1,3 +1,4 @@
+local config = require("technicaldc.config")
 local modes = {
     ['n']  = {'NORMAL',     'N',   'StatusLineModeNormal'},
     ['no'] = {'N·OPERATOR', 'N·P', 'StatuslineMode'},
@@ -22,6 +23,13 @@ local modes = {
     ['t']  = {'TERMINAL',   'T',   'StatuslineModeTerminal'}
 }
 
+local excludes = function()
+	if vim.tbl_contains(config.statusline.exclude_filetype, vim.bo.filetype) then
+		return true
+	end
+	return false
+end
+
 local get_current_mode = function()
 	local current_mode = vim.api.nvim_get_mode().mode
    local mode = ""
@@ -34,6 +42,10 @@ local get_current_mode = function()
 end
 
 local get_filename = function ()
+   if excludes() then
+      return ""
+   end
+
    local sep = "%#StatusLineFilenameSep#/%#StatusLineFileName#"
 
    local cwd = vim.fn.getcwd()
@@ -61,17 +73,31 @@ local get_filename = function ()
    return filename
 end
 
+local is_modified = function ()
+   if excludes() then
+      return ""
+   end
+   return " %m"
+end
+
+local get_location = function ()
+   if excludes() then
+      return ""
+   end
+   return "%#StatusLineMode# %-3.(%l/%L "
+end
+
 function _G.setup_statusline()
    return table.concat {
       get_current_mode(), -- get current mode
       get_filename(),
-      " %m",
+      is_modified(),
       " %<", -- spacing
       "%=", -- right align
       " %{get(b:,'gitsigns_status','')}",
       " %h",
       " %q ",
-      "%#StatusLineMode# %-3.(%l/%L ", -- current / total lines
+      get_location(),
    }
 end
 
