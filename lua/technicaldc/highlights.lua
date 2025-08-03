@@ -21,6 +21,7 @@ hl(0, "StatusLineFilenameSep",  { bg = palette.bg_mid,  fg = palette.fg_mid2 })
 -- BUILT-IN
 hl(0, "WinBar", { fg = palette.fg_mid, bg = palette.bg})
 hl(0, "WinBarNC", { fg = palette.fg_mid, bg = palette.bg})
+hl(0, "Msg",                      { link = "StatusLine" })
 hl(0, "Pmenu", { bg = palette.bg_edge })
 -- hl(0, "LineNr", { bg = palette.bg_edge })
 -- hl(0, "CursorLineNr", { bg = palette.bg_edge })

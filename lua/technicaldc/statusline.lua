@@ -87,14 +87,19 @@ local get_location = function ()
    return "%#StatusLineMode# %-3.(%l/%L "
 end
 
+local get_branch = function ()
+   return vim.cmd("!git branch --show-current")
+end
+
 function _G.setup_statusline()
    return table.concat {
-      get_current_mode(), -- get current mode
+      get_current_mode(),
       get_filename(),
       is_modified(),
-      " %<", -- spacing
-      "%=", -- right align
+      " %<",
+      "%=",
       " %{get(b:,'gitsigns_status','')}",
+      -- get_branch(),
       " %h",
       " %q ",
       get_location(),
