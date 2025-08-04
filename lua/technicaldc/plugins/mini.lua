@@ -4,6 +4,9 @@ return {
    config = function ()
 
 		require('mini.align').setup()
+		require('mini.git').setup()
+		-- require('mini.pick').setup()
+		-- require('mini.notify').setup()
 
       require('mini.bracketed').setup({
          -- First-level elements are tables describing behavior of a target:
