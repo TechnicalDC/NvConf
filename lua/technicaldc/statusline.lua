@@ -32,12 +32,12 @@ end
 
 local get_current_mode = function()
 	local current_mode = vim.api.nvim_get_mode().mode
-   local mode = ""
-	if vim.o.columns <= 80 then
-		mode = string.format(' %s ', modes[current_mode][2])
-	else
-		mode = string.format(' %s ', modes[current_mode][1])
-	end
+   local mode = string.format(' %s ', modes[current_mode][2])
+	-- if vim.o.columns <= 80 then
+	-- 	mode = string.format(' %s ', modes[current_mode][2])
+	-- else
+	-- 	mode = string.format(' %s ', modes[current_mode][1])
+	-- end
    return "%#" .. modes[current_mode][3] .. "#" .. mode .. "%#StatusLine#"
 end
 
@@ -64,7 +64,7 @@ local get_filename = function ()
 
    local filename = " %#StatusLineFilename#"
 
-	if vim.o.columns > 80 then
+	if config.statusline.show_cwd then
       filename = filename .. (cwd and cwd .. sep or "")
 	end
 
@@ -98,10 +98,9 @@ function _G.setup_statusline()
       is_modified(),
       " %<",
       "%=",
-      " %{get(b:,'gitsigns_status','')}",
+      "%h ",
       -- get_branch(),
-      " %h",
-      " %q ",
+      "%{get(b:,'gitsigns_status','')} ",
       get_location(),
    }
 end

@@ -5,6 +5,7 @@ return {
 	indent = 3,
 	apply_custom_highlights = true,
    statusline = {
+      show_cwd = true,
       exclude_filetype = {
          "ministarter"
       }
