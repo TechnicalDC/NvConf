@@ -41,6 +41,12 @@ local get_current_mode = function()
    return "%#" .. modes[current_mode][3] .. "#" .. mode .. "%#StatusLine#"
 end
 
+local get_block = function()
+	local current_mode = vim.api.nvim_get_mode().mode
+   local mode = string.format(' %s ', modes[current_mode][2])
+   return "%#" .. modes[current_mode][3] .. "#" .. " " .. "%#StatusLine#"
+end
+
 local get_filename = function ()
    if excludes() then
       return ""
@@ -102,6 +108,7 @@ function _G.setup_statusline()
       -- get_branch(),
       "%{get(b:,'gitsigns_status','')} ",
       get_location(),
+      get_block(),
    }
 end
 
