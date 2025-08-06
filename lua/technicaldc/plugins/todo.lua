@@ -6,13 +6,12 @@ return {
       require("todo-comments").setup({
          signs = true, -- show icons in the signs column
          sign_priority = 8, -- sign priority
-         -- keywords recognized as todo comments
          keywords = {
             FIX = {
-               icon = " ", -- icon used for the sign, and in search results
-               color = "error", -- can be a hex color, or a named color (see below)
-               alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-               -- signs = false, -- configure signs for some keywords individually
+               icon = " ",
+               color = "error",
+               alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "DEFECT" },
+               -- signs = false,
             },
             TODO = { icon = " ", color = "info" },
             HACK = { icon = " ", color = "warning" },
@@ -42,45 +41,35 @@ return {
             max_line_len = 400, -- ignore lines longer than this
             exclude = {}, -- list of file types to exclude highlighting
          },
-         -- list of named colors where we try to extract the guifg from the
-         -- list of highlight groups or use the hex color if hl not found as a fallback
-         -- colors = {
-            -- 	error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-            -- 	warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
-            -- 	info = { "DiagnosticInfo", "#2563EB" },
-            -- 	hint = { "DiagnosticHint", "#10B981" },
-            -- 	default = { "Identifier", "#7C3AED" },
-            -- 	test = { "Identifier", "#FF00FF" }
-            -- },
-            search = {
-               command = "rg",
-               args = {
-                  "--color=never",
-                  "--no-heading",
-                  "--with-filename",
-                  "--line-number",
-                  "--column",
-               },
-               -- regex that will be used to match keywords.
-               -- don't replace the (KEYWORDS) placeholder
-               pattern = [[\b(KEYWORDS):]], -- ripgrep regex
-               -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+         search = {
+            command = "rg",
+            args = {
+               "--color=never",
+               "--no-heading",
+               "--with-filename",
+               "--line-number",
+               "--column",
             },
-         })
+            -- regex that will be used to match keywords.
+            -- don't replace the (KEYWORDS) placeholder
+            pattern = [[\b(KEYWORDS):]], -- ripgrep regex
+            -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+         },
+      })
 
-         -- KEYBINDING
-         local ok, wk = pcall(require, 'which-key')
-         if ok then
-            wk.add({
-               mode = "n",
-               {"]t", function()
-                  require("todo-comments").jump_next()
-               end, desc = "Next todo comment" },
-               {"[t", function()
-                  require("todo-comments").jump_prev()
-               end, desc = "Previous todo comment" },
-            })
-         end
+      -- KEYBINDING
+      local ok, wk = pcall(require, 'which-key')
+      if ok then
+         wk.add({
+            mode = "n",
+            {"]t", function()
+               require("todo-comments").jump_next()
+            end, desc = "Next todo comment" },
+            {"[t", function()
+               require("todo-comments").jump_prev()
+            end, desc = "Previous todo comment" },
+         })
       end
-   }
+   end
+}
 
