@@ -52,7 +52,7 @@ local get_filename = function ()
       return ""
    end
 
-   local sep = "%#StatusLineFilenameSep#/%#StatusLineFileName#"
+   local sep = config.transparent and "/" or "%#StatusLineFilenameSep#/%#StatusLineFileName#"
 
    local cwd = vim.fn.getcwd()
    local home = os.getenv("HOME")
@@ -68,7 +68,7 @@ local get_filename = function ()
 
    local tail = vim.fn.expand("%:t")
 
-   local filename = " %#StatusLineFilename#"
+   local filename = config.transparent and " " or " %#StatusLineFilename#"
 
 	if config.statusline.show_cwd then
       filename = filename .. (cwd and cwd .. sep or "")
@@ -90,7 +90,7 @@ local get_location = function ()
    if excludes() then
       return ""
    end
-   return "%#StatusLineMode# %-3.(%l/%L "
+   return config.transparent and " %-3.(%l/%L " or "%#StatusLineMode# %-3.(%l/%L "
 end
 
 local get_branch = function ()

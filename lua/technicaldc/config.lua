@@ -4,8 +4,9 @@ return {
 	laststatus = 3,
 	indent = 3,
 	apply_custom_highlights = true,
+   transparent = false,
    statusline = {
-      show_cwd = true,
+      show_cwd = false,
       exclude_filetype = {
          "ministarter"
       }

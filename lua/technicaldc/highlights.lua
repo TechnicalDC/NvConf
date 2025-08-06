@@ -1,12 +1,22 @@
 local hl = vim.api.nvim_set_hl
 local palette = require("mini.hues").make_palette()
+local config = require("technicaldc.config")
+local is_transparent = config.transparent
+
+local set_transparency = function (highlight, fg, bg)
+   if is_transparent then
+   else
+      hl(0, highlight, { fg = fg, bg = bg })
+   end
+end
 
 -- print(vim.inspect(palette))
 
-hl(0, "StatusLine",             { fg = palette.fg_mid,  bg = palette.bg_mid })
-hl(0, "StatusLineNC",           { fg = palette.fg_mid,  bg = palette.bg_mid })
-hl(0, "StatusLineTerm",         { fg = palette.fg_mid,  bg = palette.bg_mid })
-hl(0, "StatusLineTermNC",       { fg = palette.fg_mid,  bg = palette.bg_mid })
+set_transparency("StatusLine",       palette.fg_mid, palette.bg_mid )
+set_transparency("StatusLineNC",     palette.fg_mid, palette.bg_mid )
+set_transparency("StatusLineTerm",   palette.fg_mid, palette.bg_mid )
+set_transparency("StatusLineTermNC", palette.fg_mid, palette.bg_mid )
+
 hl(0, "StatusLineModeNormal",   { bg = palette.blue,    fg = palette.bg_mid })
 hl(0, "StatusLineModeVisual",   { bg = palette.yellow,  fg = palette.bg_mid })
 hl(0, "StatusLineModeInsert",   { bg = palette.green,   fg = palette.bg_mid })
@@ -53,7 +63,7 @@ hl(0, "MiniFilesTitle", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "MiniFilesTitleFocused", { link = "FloatTitle" })
 hl(0, "MiniFilesBorderModified", { link = "FloatBorder" })
 
-hl(0, "MiniNotifyBorder", { link = "FloatBorder" })
+hl(0, "MiniNotifyBorder", { fg = palette.bg_edge, bg = palette.bg_edge })
 
 -- TELESCOPE
 hl(0, "TelescopeBorder"       , { fg = palette.bg_edge2 , bg = palette.bg_edge2 })
