@@ -31,7 +31,6 @@ hl(0, "StatusLineFilenameSep",  { bg = palette.bg_mid,  fg = palette.fg_mid2 })
 -- BUILT-IN
 hl(0, "WinBar", { fg = palette.fg_mid, bg = palette.bg})
 hl(0, "WinBarNC", { fg = palette.fg_mid, bg = palette.bg})
-hl(0, "Msg",                      { link = "StatusLine" })
 hl(0, "Pmenu", { bg = palette.bg_edge })
 -- hl(0, "LineNr", { bg = palette.bg_edge })
 -- hl(0, "CursorLineNr", { bg = palette.bg_edge })
@@ -42,6 +41,8 @@ hl(0, "WinSeparator",             { fg = palette.bg_mid })
 hl(0, "PmenuSel",                 { fg = palette.bg_edge, bg = palette.fg_edge })
 hl(0, "FloatBorder",              { fg = palette.bg_edge, bg = palette.bg_edge })
 hl(0, "FloatTitle",               { fg = palette.fg,      bg = palette.bg_mid2 })
+-- hl(0, "MsgArea",                  { link = "NormalFloat" })
+
 hl(0, "DiagnosticUnderlineError", { undercurl = true })
 hl(0, "DiagnosticUnderlineHint",  { undercurl = true })
 hl(0, "DiagnosticUnderlineInfo",  { undercurl = true })
@@ -50,7 +51,6 @@ hl(0, "DiagnosticUnderlineWarn",  { undercurl = true })
 
 -- BLINK-CMP
 hl(0, "BlinkCmpSource", { fg = palette.bg_mid })
-
 
 -- MINI-STARTER
 hl(0, "MiniStarterHeader", { fg = palette.fg_edge})

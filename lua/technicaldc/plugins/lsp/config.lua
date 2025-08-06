@@ -81,8 +81,8 @@ vim.lsp.config('lua_ls', {
 					-- your own configuration.
 					-- See https://github.com/neovim/nvim-lspconfig/issues/3189
 					-- library = {
-						--   vim.api.nvim_get_runtime_file('', true),
-						-- }
+               --   vim.api.nvim_get_runtime_file('', true),
+               -- }
 					}
 				})
 			end,

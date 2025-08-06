@@ -3,21 +3,34 @@ return {
    version = '*',
    config = function ()
 
-      -- local win_config = function()
-      --    local has_statusline = vim.o.laststatus > 0
-      --    local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
-      --    return { anchor = 'SE', col = vim.o.columns, row = vim.o.lines - pad }
-      -- end
+      local opts = {
+         ERROR = { duration = 5000, hl_group = 'DiagnosticError'  },
+         WARN  = { duration = 5000, hl_group = 'DiagnosticWarn'   },
+         INFO  = { duration = 5000, hl_group = 'DiagnosticInfo'   },
+         DEBUG = { duration = 0,    hl_group = 'DiagnosticHint'   },
+         TRACE = { duration = 0,    hl_group = 'DiagnosticOk'     },
+         OFF   = { duration = 0,    hl_group = 'MiniNotifyNormal' },
+      }
+      local win_config = function()
+         local has_statusline = vim.o.laststatus > 0
+         local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
+         return {
+            title_pos = "center",
+            anchor = 'SE',
+            col = vim.o.columns,
+            row = vim.o.lines - pad
+         }
+      end
 
-		require('mini.align').setup()
-		require('mini.git').setup()
-		-- require('mini.pick').setup()
-		-- require('mini.notify').setup({
-		--        window = {
-		--           config = win_config
-		--        }
-		--     })
-      -- vim.notify = require('mini.notify').make_notify()
+      require('mini.align').setup()
+      require('mini.git').setup()
+      require('mini.pick').setup()
+      require('mini.notify').setup({
+         window = {
+            config = win_config
+         }
+      })
+      vim.notify = require('mini.notify').make_notify(opts)
 
       require('mini.bracketed').setup({
          -- First-level elements are tables describing behavior of a target:
@@ -46,26 +59,26 @@ return {
          yank       = { suffix = 'y', options = {} },
       })
 
-		require('mini.move').setup({
-			-- Module mappings. Use `''` (empty string) to disable one.
-			mappings = {
-				-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
-				left = '',
-				right = '',
-				down = 'J',
-				up = 'K',
-				-- Move current line in Normal mode
-				line_left = '',
-				line_right = '',
-				line_down = '<M-S-j>',
-				line_up = '<M-S-k>',
-			},
-			-- Options which control moving behavior
-			options = {
-				-- Automatically reindent selection during linewise vertical move
-				reindent_linewise = true,
-			},
-		})
+      require('mini.move').setup({
+         -- Module mappings. Use `''` (empty string) to disable one.
+         mappings = {
+            -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+            left = '',
+            right = '',
+            down = 'J',
+            up = 'K',
+            -- Move current line in Normal mode
+            line_left = '',
+            line_right = '',
+            line_down = '<M-S-j>',
+            line_up = '<M-S-k>',
+         },
+         -- Options which control moving behavior
+         options = {
+            -- Automatically reindent selection during linewise vertical move
+            reindent_linewise = true,
+         },
+      })
 
       require('mini.operators').setup({
          -- Each entry configures one operator.
@@ -143,7 +156,7 @@ return {
          -- Module mappings. Use `''` (empty string) to disable one.
          -- Created for both Normal and Visual modes.
          mappings = {
-            toggle = '',
+            toggle = '<leader>ts',
             split = '',
             join = '',
          },
