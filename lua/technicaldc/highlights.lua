@@ -41,6 +41,7 @@ hl(0, "DiagnosticUnderlineWarn",  { undercurl = true })
 -- BLINK-CMP
 hl(0, "BlinkCmpSource", { fg = palette.bg_mid })
 
+
 -- MINI-STARTER
 hl(0, "MiniStarterHeader", { fg = palette.fg_edge})
 hl(0, "MiniStarterItem", { fg = palette.fg_mid2})
@@ -51,6 +52,8 @@ hl(0, "MiniStarterItemPrefix", { fg = palette.fg_mid})
 hl(0, "MiniFilesTitle", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "MiniFilesTitleFocused", { link = "FloatTitle" })
 hl(0, "MiniFilesBorderModified", { link = "FloatBorder" })
+
+hl(0, "MiniNotifyBorder", { link = "FloatBorder" })
 
 -- TELESCOPE
 hl(0, "TelescopeBorder"       , { fg = palette.bg_edge2 , bg = palette.bg_edge2 })
