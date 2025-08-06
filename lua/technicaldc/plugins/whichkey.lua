@@ -91,7 +91,7 @@ return {
             no_overlap = false,
             -- width = 0.999,
             height = { min = 4, max = 20 },
-            border = "double",
+            border = vim.o.winborder,
             padding = { 2, 3 }, -- extra window padding [top/bottom, right/left]
             title = true,
             title_pos = "center",
