@@ -27,6 +27,8 @@ return {
       require('mini.pick').setup()
       require('mini.notify').setup({
          window = {
+            winblend = 0,
+            max_width_share = 0.333,
             config = win_config
          }
       })
