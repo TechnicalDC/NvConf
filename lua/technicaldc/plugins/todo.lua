@@ -68,6 +68,7 @@ return {
             {"[t", function()
                require("todo-comments").jump_prev()
             end, desc = "Previous todo comment" },
+            {"<leader>ot", "<CMD>TodoQuickFix<CR>", desc = "Open todo comment (Quickfix)" },
          })
       end
    end
