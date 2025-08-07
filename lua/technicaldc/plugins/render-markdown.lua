@@ -15,14 +15,14 @@ return {
             border = false,
             sign = false,
             position = "inline",
-				icons = {
-					'█ ',
-					'██ ',
-					'███ ',
-					'████ ',
-					'█████ ',
-					'██████ '
-				},
+            icons = {
+               '█ ',
+               '██ ',
+               '███ ',
+               '████ ',
+               '█████ ',
+               '██████ '
+            },
             backgrounds = {
                'Headline1Bg',
                'Headline2Bg',

@@ -7,7 +7,7 @@ map("n", "<leader>gD", vim.lsp.buf.declaration,             { desc = "Go to decl
 map("n", "<leader>gi", vim.lsp.buf.implementation,          { desc = "Go to implementation" } )
 map("n", "<leader>gr", vim.lsp.buf.references,              { desc = "Go to references" } )
 map("n", "<leader>gt", vim.lsp.buf.type_definition,         { desc = "Go to type definition" } )
-map("n", "<leader>F",  vim.lsp.buf.formatting,              { desc = "Format code" } )
+map("n", "<leader>F",  vim.lsp.buf.format,                  { desc = "Format code" } )
 map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder,    { desc = "Add folder to workspace" } )
 map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove folder from workspace" } )
 
