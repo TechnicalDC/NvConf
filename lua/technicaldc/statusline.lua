@@ -104,9 +104,8 @@ function _G.setup_statusline()
       is_modified(),
       " %<",
       "%=",
-      "%h ",
-      -- get_branch(),
       "%{get(b:,'gitsigns_status','')} ",
+      "%{get(b:,'gitsigns_head','')} ",
       get_location(),
       get_block(),
    }
