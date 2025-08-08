@@ -3,7 +3,16 @@ return {
    version = '*',
    config = function ()
 
-      local opts = {
+      -- IMPORTS {{{
+		local starter = require('mini.starter')
+		local autocmd = vim.api.nvim_create_autocmd
+		local map     = vim.keymap.set
+		local headers = require("technicaldc.header_ascii")
+      -- }}}
+
+      -- OPTS {{{
+      local opts    = { buffer = true }
+      local notify_opts = {
          ERROR = { duration = 5000, hl_group = 'DiagnosticError'  },
          WARN  = { duration = 5000, hl_group = 'DiagnosticWarn'   },
          INFO  = { duration = 5000, hl_group = 'DiagnosticInfo'   },
@@ -11,6 +20,18 @@ return {
          TRACE = { duration = 0,    hl_group = 'DiagnosticOk'     },
          OFF   = { duration = 0,    hl_group = 'MiniNotifyNormal' },
       }
+      -- }}}
+
+      -- FUNCTIONS {{{
+		local content_type_width = function(content, section_type)
+			local coords = starter.content_coords(content, section_type)
+			local width = math.max(unpack(vim.tbl_map(function(c)
+				local line = content[c.line][c.unit].string
+				return vim.fn.strdisplaywidth(line)
+			end, coords)))
+			return width
+		end
+
       local win_config = function()
          local has_statusline = vim.o.laststatus > 0
          local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
@@ -21,6 +42,7 @@ return {
             row = vim.o.lines - pad
          }
       end
+      -- }}}
 
       require('mini.align').setup()
       require('mini.git').setup()
@@ -32,7 +54,7 @@ return {
             config = win_config
          }
       })
-      vim.notify = require('mini.notify').make_notify(opts)
+      vim.notify = require('mini.notify').make_notify(notify_opts)
 
       require('mini.bracketed').setup({
          -- First-level elements are tables describing behavior of a target:
@@ -208,5 +230,102 @@ return {
          -- Whether to disable showing non-error feedback
          silent = false,
       })
+
+		require('mini.starter').setup( {
+			autoopen = true,
+			evaluate_single = true,
+			items = {
+				{
+					name = 'browse files',
+					action = 'lua require("oil").open()',
+					section = 'telescope'
+				},
+				{
+					name = 'open notes',
+					action = 'lua require("telescope.builtin").find_files({cwd = "~/Notes/", prompt_title = "Open Notes"})',
+					section = 'telescope'
+				},
+				{
+					name = 'find files',
+					action = 'lua require("telescope.builtin").find_files()',
+					section = 'telescope'
+				},
+				{
+					name = 'recent files',
+					action = 'lua require("telescope.builtin").oldfiles()',
+					section = 'telescope'
+				},
+				{
+					name = 'edit new buffer',
+					action = 'enew',
+					section = 'builtin'
+				},
+				{
+					name = 'update plugins',
+					action = 'Lazy update',
+					section = 'builtin'
+				},
+				{
+					name = 'quit neovim',
+					action = 'qall',
+					section = 'builtin'
+				},
+			},
+
+			header = headers.mini,
+			footer = headers.mini_footer,
+			content_hooks = {
+				-- starter.gen_hook.adding_bullet(),
+				function(content)
+					-- Coords
+					local header_width = content_type_width(content, "header")
+					local section_width = content_type_width(content, "section")
+					local item_width = content_type_width(content, "item")
+	 				local footer_width = content_type_width(content, "footer")
+					local max_width = math.max(header_width, section_width, item_width, footer_width)
+
+					for _, line in ipairs(content) do
+						if not (#line == 0 or (#line == 1 and line[1].string == "")) then
+							local line_str = ""
+							local line_types = {}
+							for _, unit in ipairs(line) do
+								line_str = line_str .. unit.string
+								table.insert(line_types, unit.type)
+							end
+							local line_width = 0
+							for _, type in ipairs(line_types) do
+								if type == "item" or type == "section" then
+									line_width = math.max(item_width, section_width)
+								elseif type == "header" then
+									line_width = header_width
+								elseif type == "footer" then
+									line_width = footer_width
+								end
+							end
+							local left_pad = string.rep(" ", (max_width - line_width) * 0.5)
+
+							table.insert(line, 1, { string = left_pad, type = "empty" })
+						end
+					end
+					return content
+				end,
+				starter.gen_hook.aligning('center', 'center'),
+			},
+			-- Characters to update query. Each character will have special buffer
+			-- mapping overriding your global ones. Be careful to not add `:` as it
+			-- allows you to go into command mode.
+			query_updaters = [[abcdefghilmoqrstuvwxyz0123456789_-,.ABCDEFGHIJKLMOQRSTUVWXYZ]],
+			-- Whether to disable showing non-error feedback
+			silent = false,
+		})
+
+		autocmd("User",{
+			pattern = "MiniStarterOpened",
+			callback = function(args)
+				vim.b.miniindentscope_disable = true
+				vim.opt_local.statuscolumn = ""
+				map("n", "j", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", opts)
+				map("n", "k", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", opts)
+			end})
    end
 }
