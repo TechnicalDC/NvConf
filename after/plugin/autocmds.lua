@@ -23,15 +23,19 @@ autocmd('TextYankPost', {
   end,
 })
 
--- Make all floating window border rounded
-autocmd('User', {
-   pattern = 'WinNew',
-   callback = function(args)
-      local win_id = args.data.win_id
+-- Auto resize the split on window resize
+autocmd("VimResized", {
+   callback = function ()
+      vim.cmd("tabdo wincmd =")
+   end
+})
 
-      -- Customize window-local settings
-      local config = vim.api.nvim_win_get_config(win_id)
-      config.border = 'rounded'
-      vim.api.nvim_win_set_config(win_id, config)
-   end,
+-- Create directories when saving files
+autocmd("BufWritePre", {
+   callback = function ()
+      local dir = vim.fn.expand('<afile>:p:h')
+      if vim.fn.isdirectory(dir) == 0 then
+         vim.fn.mkdir(dir, 'p')
+      end
+   end
 })

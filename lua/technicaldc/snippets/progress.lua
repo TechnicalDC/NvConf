@@ -271,21 +271,21 @@ local query_snippet = s(
 )
 table.insert(snippets, query_snippet)
 
-local test_fmt = fmta(
-   [[
-   Captured Text: <test>
-   ]],
-   {
-      test = d(1, function(_, snip)
-			return sn(1, i(1, snip.captures[1]))
-		end),
-   }
-)
-local test_snippet = s(
-	{trig = "test(.)", regTrig = true, hidden = false},
-   test_fmt
-)
-table.insert(autosnippets, test_snippet)
+-- local test_fmt = fmta(
+--    [[
+--    Captured Text: <test>
+--    ]],
+--    {
+--       test = d(1, function(_, snip)
+-- 			return sn(1, i(1, snip.captures[1]))
+-- 		end),
+--    }
+-- )
+-- local test_snippet = s(
+-- 	{trig = "test(.)", regTrig = true, hidden = false},
+--    test_fmt
+-- )
+-- table.insert(autosnippets, test_snippet)
 -- }}}
 
 return snippets, autosnippets
