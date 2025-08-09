@@ -90,11 +90,7 @@ local get_location = function ()
    if excludes() then
       return ""
    end
-   return config.transparent and " %-3.(%l/%L " or "%#StatusLineMode# %-3.(%l/%L "
-end
-
-local get_branch = function ()
-   return vim.cmd("!git branch --show-current")
+   return " %-3.(%l/%L "
 end
 
 function _G.setup_statusline()
