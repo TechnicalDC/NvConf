@@ -4,7 +4,7 @@ return {
 	laststatus = 3,
 	indent = 3,
 	apply_custom_highlights = true,
-   transparent = false,
+   transparent = true,
    statusline = {
       show_cwd = false,
       exclude_filetype = {

@@ -3,19 +3,29 @@ local palette = require("mini.hues").make_palette()
 local config = require("technicaldc.config")
 local is_transparent = config.transparent
 
-local set_transparency = function (highlight, fg, bg)
-   if is_transparent then
-   else
-      hl(0, highlight, { fg = fg, bg = bg })
-   end
-end
-
 -- print(vim.inspect(palette))
 
-set_transparency("StatusLine",       palette.fg_mid, palette.bg_mid )
-set_transparency("StatusLineNC",     palette.fg_mid, palette.bg_mid )
-set_transparency("StatusLineTerm",   palette.fg_mid, palette.bg_mid )
-set_transparency("StatusLineTermNC", palette.fg_mid, palette.bg_mid )
+if is_transparent then
+   hl(0, "Normal",                { fg = palette.fg, bg = "None" })
+   hl(0, "NormalNC",              { fg = palette.fg_mid, bg = "None" })
+   hl(0, "StatusLine",            { fg = palette.fg_mid, bg = "None" })
+   hl(0, "StatusLineNC",          { fg = palette.fg_mid, bg = "None" })
+   hl(0, "StatusLineTerm",        { fg = palette.fg_mid, bg = "None" })
+   hl(0, "StatusLineTermNC",      { fg = palette.fg_mid, bg = "None" })
+   hl(0, "StatusLineFilename",    { bg = palette.bg_mid, fg = "None" })
+   hl(0, "StatusLineFilenameSep", { bg = palette.bg_mid, fg = "None" })
+   hl(0, "WinBar",                { fg = palette.fg_mid, bg = "None" })
+   hl(0, "WinBarNC",              { fg = palette.fg_mid, bg = "None" })
+else
+   hl(0, "StatusLine",            { fg = palette.fg_mid, bg = palette.bg_mid  })
+   hl(0, "StatusLineNC",          { fg = palette.fg_mid, bg = palette.bg_mid  })
+   hl(0, "StatusLineTerm",        { fg = palette.fg_mid, bg = palette.bg_mid  })
+   hl(0, "StatusLineTermNC",      { fg = palette.fg_mid, bg = palette.bg_mid  })
+   hl(0, "StatusLineFilename",    { bg = palette.bg_mid, fg = palette.fg_mid  })
+   hl(0, "StatusLineFilenameSep", { bg = palette.bg_mid, fg = palette.fg_mid2 })
+   hl(0, "WinBar",                { fg = palette.fg_mid, bg = palette.bg      })
+   hl(0, "WinBarNC",              { fg = palette.fg_mid, bg = palette.bg      })
+end
 
 hl(0, "StatusLineModeNormal",   { bg = palette.blue,    fg = palette.bg_mid })
 hl(0, "StatusLineModeVisual",   { bg = palette.yellow,  fg = palette.bg_mid })
@@ -25,24 +35,14 @@ hl(0, "StatusLineModeCommand",  { bg = palette.red,     fg = palette.bg_mid })
 hl(0, "StatusLineModeTerminal", { bg = palette.azure,   fg = palette.bg_mid })
 hl(0, "StatusLineModeConfirm",  { bg = palette.cyan,    fg = palette.bg_mid })
 hl(0, "StatusLineMode",         { bg = palette.bg_mid2, fg = palette.fg_mid })
-hl(0, "StatusLineFilename",     { bg = palette.bg_mid,  fg = palette.fg_mid })
-hl(0, "StatusLineFilenameSep",  { bg = palette.bg_mid,  fg = palette.fg_mid2 })
 
 -- BUILT-IN
-hl(0, "WinBar", { fg = palette.fg_mid, bg = palette.bg})
-hl(0, "WinBarNC", { fg = palette.fg_mid, bg = palette.bg})
+hl(0, "Msg", { link = "StatusLine" })
 hl(0, "Pmenu", { bg = palette.bg_edge })
--- hl(0, "LineNr", { bg = palette.bg_edge })
--- hl(0, "CursorLineNr", { bg = palette.bg_edge })
--- hl(0, "CursorLineSign", { bg = palette.bg_edge })
--- hl(0, "CursorLineFold", { bg = palette.bg_edge })
--- hl(0, "SignColumn", { bg = palette.bg_edge })
 hl(0, "WinSeparator",             { fg = palette.bg_mid })
 hl(0, "PmenuSel",                 { fg = palette.bg_edge, bg = palette.fg_edge })
 hl(0, "FloatBorder",              { fg = palette.bg_edge, bg = palette.bg_edge })
 hl(0, "FloatTitle",               { fg = palette.fg,      bg = palette.bg_mid2 })
--- hl(0, "MsgArea",                  { link = "NormalFloat" })
-
 hl(0, "DiagnosticUnderlineError", { undercurl = true })
 hl(0, "DiagnosticUnderlineHint",  { undercurl = true })
 hl(0, "DiagnosticUnderlineInfo",  { undercurl = true })
