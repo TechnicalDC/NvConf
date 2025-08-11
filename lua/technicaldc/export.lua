@@ -1,5 +1,6 @@
 local util = require("technicaldc.util")
 local palette = require("mini.hues").make_palette()
+local config = require("technicaldc.config")
 local extras = {}
 local extras_fun = {}
 
@@ -378,12 +379,14 @@ $cyanAlpha    = ${cyan}
 end
 
 function extras_fun.tmux()
+   local statusline = config.transparent and "\nset-option -g status-style 'fg=${fg},bg=${bg}'\n"
+                      or "\nset-option -g status-style 'fg=${fg},bg=${bg_mid}'\n"
 	return util.replace_vars([[
 # panes
 set -g pane-border-line 'double'
 set -g pane-border-style 'fg=${bg_mid}'
-set -g pane-active-border-style 'fg=${fg_edge}'
-set-option -g status-style 'fg=${fg},bg=${bg_mid}'
+set -g pane-active-border-style 'fg=${fg_edge}' ]]
+.. statusline .. [[
 set-option -g status-left "#[fg=${fg},bg=${bg_mid2}] #S #[default]"
 set-option -g status-right "#[fg=${fg},bg=${bg_mid2}] #(whoami)::#H "
 set-window-option -g window-status-separator ""
