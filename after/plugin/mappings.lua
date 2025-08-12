@@ -14,8 +14,6 @@ wk.add({
       { "<leader>s",  ":setlocal spell!<CR>",                       desc = "Toggle spell checker"},
       { "Y",          "y$",                                         desc = "Copy text till end of line"},
       { "<BS>",       "^",                                          desc = "Move to first non-blank character"},
-      { "gb",         ":bnext<cr>",                                 desc = "Jump to next buffer"},
-      { "gB",         ":bprevious<cr>",                             desc = "Jump to previous buffer"},
       { "<Esc>",      ":lua vim.o.hlsearch = false<CR>",            desc = "Disable incremental search highlighting"},
       { "x",          [["_x]],                                      desc = "Delete character"},
       { "<leader>rr", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], desc = "Replace word under the cursor globally" },
@@ -27,8 +25,6 @@ wk.add({
       { "<leader>qc", "<cmd>cclose<cr>", desc = "Close quickfix list"},
       { "<leader>qf", "<cmd>cfirst<cr>", desc = "Go to first item in quickfix list"},
       { "<leader>ql", "<cmd>clast<cr>",  desc = "Go to last item in quickfix list"},
-      { "<leader>qn", "<cmd>cnext<cr>",  desc = "Go to next item in quickfix list"},
-      { "<leader>qp", "<cmd>cprev<cr>",  desc = "Go to previous item in quickfix list"},
 
       { "<A-=>",      "<C-w>=",            desc = "Reset the split size" },
       { "<A-m>",      "<C-w>|",            desc = "Maximize the split width" },
@@ -73,9 +69,4 @@ map('n', '<C-h>', require('smart-splits').move_cursor_left,  { desc = "Switch to
 map('n', '<C-j>', require('smart-splits').move_cursor_down,  { desc = "Switch to below split" })
 map('n', '<C-k>', require('smart-splits').move_cursor_up,    { desc = "Switch to above split" })
 map('n', '<C-l>', require('smart-splits').move_cursor_right, { desc = "Switch to right split" })
--- swapping buffers between windows
--- map('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
--- map('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
--- map('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
--- map('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
 -- }}}}
