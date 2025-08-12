@@ -379,7 +379,7 @@ $cyanAlpha    = ${cyan}
 end
 
 function extras_fun.tmux()
-   local statusline = config.transparent and "\nset-option -g status-style 'fg=${fg},bg=${bg}'\n"
+   local statusline = config.transparent and "\nset-option -g status-style 'fg=${fg},bg=default'\n"
                       or "\nset-option -g status-style 'fg=${fg},bg=${bg_mid}'\n"
 	return util.replace_vars([[
 # panes

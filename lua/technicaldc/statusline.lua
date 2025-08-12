@@ -102,6 +102,7 @@ function _G.setup_statusline()
       "%=",
       "%{get(b:,'gitsigns_status','')} ",
       "%{get(b:,'gitsigns_head','')} ",
+      "%y",
       get_location(),
       get_block(),
    }
