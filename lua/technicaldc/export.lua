@@ -387,9 +387,8 @@ set -g pane-border-line 'double'
 set -g pane-border-style 'fg=${bg_mid}'
 set -g pane-active-border-style 'fg=${fg_edge}' ]]
 .. statusline .. [[
-set-option -g status-left "#[fg=${fg},bg=${bg_mid2}] #S #[default]"
-set-option -g status-right "#[fg=${fg},bg=${bg_mid2}] #(whoami)::#H "
-set-window-option -g window-status-separator ""
+set-option -g status-left "#[fg=${fg},bg=${bg_mid2}] #S #[default] "
+set-window-option -g window-status-separator " "
 set-window-option -g window-status-style fg=${fg}
 set-window-option -g window-status-style bg=${bg_mid}
 set-window-option -g window-status-current-style "fg=${bg},bg=${fg_edge}"
