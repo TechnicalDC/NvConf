@@ -261,7 +261,7 @@ return {
 			items = {
 				{
 					name = 'browse files',
-					action = 'lua require("oil").open()',
+					action = 'lua require("mini.files").open(vim.uv.cwd(), true)',
 					section = 'telescope'
 				},
 				{
@@ -428,5 +428,12 @@ return {
          end,
       })
 
+      vim.keymap.set( "n", "<leader>of", function()
+         require("mini.files").open(vim.uv.cwd(), true)
+      end,{ desc = "Open mini.files (cwd)" })
+
+      vim.keymap.set("n", "<leader>oF", function()
+         require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+      end, {desc = "Open mini.files (Directory of Current File)" })
    end
 }
