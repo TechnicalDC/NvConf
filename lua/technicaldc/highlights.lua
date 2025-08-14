@@ -63,6 +63,12 @@ hl(0, "MiniFilesTitle", { fg = palette.fg_mid, bg = palette.bg_mid })
 hl(0, "MiniFilesTitleFocused", { link = "FloatTitle" })
 hl(0, "MiniFilesBorderModified", { link = "FloatBorder" })
 
+-- MINI-PICK
+hl(0, "MiniPickPrompt", { fg = palette.fg_mid, bg = palette.bg_mid })
+hl(0, "MiniPickPromptPrefix", { fg = palette.fg_mid, bg = palette.bg_mid })
+hl(0, "MiniPickPromptCaret", { fg = palette.fg_mid, bg = palette.bg_mid })
+hl(0, "MiniPickMatchCurrent", { fg = palette.bg_edge, bg = palette.fg_edge })
+
 hl(0, "MiniNotifyBorder", { fg = palette.bg_edge, bg = palette.bg_edge })
 
 -- TELESCOPE

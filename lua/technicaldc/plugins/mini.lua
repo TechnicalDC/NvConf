@@ -41,10 +41,21 @@ return {
          local has_statusline = vim.o.laststatus > 0
          local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
          return {
-            title_pos = "center",
+            -- title_pos = "center",
             anchor = 'SE',
             col = vim.o.columns,
             row = vim.o.lines - pad
+         }
+      end
+
+      -- Centered on screen
+      local pick_win_config = function()
+         local height = math.floor(0.618 * vim.o.lines)
+         local width = math.floor(0.618 * vim.o.columns)
+         return {
+            anchor = 'NW', height = height, width = width,
+            row = math.floor(0.5 * (vim.o.lines - height)),
+            col = math.floor(0.5 * (vim.o.columns - width)),
          }
       end
 
@@ -72,7 +83,10 @@ return {
 
       require('mini.align').setup()
       require('mini.git').setup()
-      require('mini.pick').setup()
+      require('mini.pick').setup({ window = {
+         config = pick_win_config,
+         prompt_prefix = '>> ',
+      } })
       require('mini.notify').setup({
          window = {
             winblend = 0,
@@ -273,7 +287,7 @@ return {
 				},
 				{
 					name = 'recent files',
-					action = 'lua require("telescope.builtin").oldfiles()',
+					action = 'Pick oldfiles',
 					section = 'telescope'
 				},
 				{
@@ -373,7 +387,6 @@ return {
          },
       })
 
-      pick.setup()
       extras.setup()
       vim.ui.select = pick.ui_select
 
@@ -431,6 +444,7 @@ return {
 
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Find files" } )
       vim.keymap.set("n", "<leader>fh", "<CMD>Pick help<CR>", { desc = "Find help files" } )
+      vim.keymap.set("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers<CR>", { desc = "Find buffers" } )
       vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps" } )
