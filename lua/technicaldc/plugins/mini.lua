@@ -6,6 +6,7 @@ return {
       -- IMPORTS {{{
 		local starter = require('mini.starter')
       local miniFiles = require('mini.files')
+      local pick = require("mini.pick")
 		local autocmd = vim.api.nvim_create_autocmd
 		local map     = vim.keymap.set
 		local headers = require("technicaldc.header_ascii")
@@ -376,6 +377,9 @@ return {
          },
       })
 
+      pick.setup()
+      vim.ui.select = pick.ui_select
+
 		autocmd("User",{
 			pattern = "MiniStarterOpened",
 			callback = function(args)
@@ -427,6 +431,16 @@ return {
             vim.api.nvim_win_set_config(args.data.win_id, config)
          end,
       })
+
+      vim.keymap.set("n", "<leader>ff", function () require("telescope.builtin").find_files() end, { desc = "Find files" } )
+      vim.keymap.set("n", "<leader>fh", function () require("telescope.builtin").help_tags()  end, { desc = "Find help files" } )
+      vim.keymap.set("n", "<leader>fb", function () require("telescope.builtin").buffers()    end, { desc = "Find buffers" } )
+      -- { "<leader>fw", function ()
+      --    require("telescope.builtin").grep_string()
+      -- end, desc = "Find word under the cursor" },
+      -- { "<leader>fW", function ()
+      --    require("telescope.builtin").live_grep()
+      -- end, desc = "Find word" },
 
       vim.keymap.set( "n", "<leader>of", function()
          require("mini.files").open(vim.uv.cwd(), true)
