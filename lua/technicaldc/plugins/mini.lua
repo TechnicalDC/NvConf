@@ -7,6 +7,7 @@ return {
 		local starter = require('mini.starter')
       local miniFiles = require('mini.files')
       local pick = require("mini.pick")
+      local extras = require("mini.extra")
 		local autocmd = vim.api.nvim_create_autocmd
 		local map     = vim.keymap.set
 		local headers = require("technicaldc.header_ascii")
@@ -378,6 +379,7 @@ return {
       })
 
       pick.setup()
+      extras.setup()
       vim.ui.select = pick.ui_select
 
 		autocmd("User",{
@@ -432,15 +434,13 @@ return {
          end,
       })
 
-      vim.keymap.set("n", "<leader>ff", function () require("telescope.builtin").find_files() end, { desc = "Find files" } )
-      vim.keymap.set("n", "<leader>fh", function () require("telescope.builtin").help_tags()  end, { desc = "Find help files" } )
-      vim.keymap.set("n", "<leader>fb", function () require("telescope.builtin").buffers()    end, { desc = "Find buffers" } )
-      -- { "<leader>fw", function ()
-      --    require("telescope.builtin").grep_string()
-      -- end, desc = "Find word under the cursor" },
-      -- { "<leader>fW", function ()
-      --    require("telescope.builtin").live_grep()
-      -- end, desc = "Find word" },
+      vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Find files" } )
+      vim.keymap.set("n", "<leader>fh", "<CMD>Pick help<CR>", { desc = "Find help files" } )
+      vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers<CR>", { desc = "Find buffers" } )
+      vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
+      vim.keymap.set("n", "<leader>fb", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps" } )
+      vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Find oldfiles" } )
+      vim.keymap.set("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Find buffers" } )
 
       vim.keymap.set( "n", "<leader>of", function()
          require("mini.files").open(vim.uv.cwd(), true)
