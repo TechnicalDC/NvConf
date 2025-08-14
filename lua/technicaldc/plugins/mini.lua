@@ -267,13 +267,8 @@ return {
 					section = 'telescope'
 				},
 				{
-					name = 'open notes',
-					action = 'lua require("telescope.builtin").find_files({cwd = "~/Notes/", prompt_title = "Open Notes"})',
-					section = 'telescope'
-				},
-				{
 					name = 'find files',
-					action = 'lua require("telescope.builtin").find_files()',
+					action = 'Pick files',
 					section = 'telescope'
 				},
 				{
