@@ -5,9 +5,14 @@ return {
 
       -- IMPORTS {{{
 		local starter = require('mini.starter')
+      local miniFiles = require('mini.files')
+      local pick = require("mini.pick")
+      local extras = require("mini.extra")
 		local autocmd = vim.api.nvim_create_autocmd
 		local map     = vim.keymap.set
 		local headers = require("technicaldc.header_ascii")
+      local show_dotfiles = true
+      local filter_show = function(fs_entry) return true end
       -- }}}
 
       -- OPTS {{{
@@ -36,17 +41,52 @@ return {
          local has_statusline = vim.o.laststatus > 0
          local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
          return {
-            title_pos = "center",
+            -- title_pos = "center",
             anchor = 'SE',
             col = vim.o.columns,
             row = vim.o.lines - pad
          }
       end
+
+      -- Centered on screen
+      local pick_win_config = function()
+         local height = math.floor(0.618 * vim.o.lines)
+         local width = math.floor(0.618 * vim.o.columns)
+         return {
+            anchor = 'NW', height = height, width = width,
+            row = math.floor(0.5 * (vim.o.lines - height)),
+            col = math.floor(0.5 * (vim.o.columns - width)),
+         }
+      end
+
+      local my_prefix = function(fs_entry)
+         if fs_entry.fs_type == 'directory' then
+            return ' ', 'MiniFilesDirectory'
+         end
+         return miniFiles.default_prefix(fs_entry)
+      end
+
+      local filter_hide = function(fs_entry)
+         return not vim.startswith(fs_entry.name, '.')
+      end
+
+      local toggle_dotfiles = function()
+         show_dotfiles = not show_dotfiles
+         local new_filter = show_dotfiles and filter_show or filter_hide
+         miniFiles.refresh({ content = { filter = new_filter } })
+      end
+
+      local set_mark = function(id, path, desc)
+         miniFiles.set_bookmark(id, path, { desc = desc })
+      end
       -- }}}
 
       require('mini.align').setup()
       require('mini.git').setup()
-      require('mini.pick').setup()
+      require('mini.pick').setup({ window = {
+         config = pick_win_config,
+         prompt_prefix = '>> ',
+      } })
       require('mini.notify').setup({
          window = {
             winblend = 0,
@@ -237,22 +277,17 @@ return {
 			items = {
 				{
 					name = 'browse files',
-					action = 'lua require("oil").open()',
-					section = 'telescope'
-				},
-				{
-					name = 'open notes',
-					action = 'lua require("telescope.builtin").find_files({cwd = "~/Notes/", prompt_title = "Open Notes"})',
+					action = 'lua require("mini.files").open(vim.uv.cwd(), true)',
 					section = 'telescope'
 				},
 				{
 					name = 'find files',
-					action = 'lua require("telescope.builtin").find_files()',
+					action = 'Pick files',
 					section = 'telescope'
 				},
 				{
 					name = 'recent files',
-					action = 'lua require("telescope.builtin").oldfiles()',
+					action = 'Pick oldfiles',
 					section = 'telescope'
 				},
 				{
@@ -319,6 +354,42 @@ return {
 			silent = false,
 		})
 
+      miniFiles.setup({
+         -- Module mappings created only inside explorer.
+         -- Use `''` (empty string) to not create one.
+         mappings = {
+            close       = 'q',
+            go_in       = 'l',
+            go_in_plus  = '<CR>',
+            go_out      = 'h',
+            go_out_plus = 'H',
+            mark_goto   = "'",
+            mark_set    = 'm',
+            reset       = '<BS>',
+            reveal_cwd  = '@',
+            show_help   = 'g?',
+            synchronize = 's',
+            trim_left   = '<',
+            trim_right  = '>',
+         },
+         content = { prefix = my_prefix },
+         windows = {
+            -- Maximum number of windows to show side by side
+            max_number = 3,
+            -- Whether to show preview of file/directory under cursor
+            preview = true,
+            -- Width of focused window
+            width_focus = 30,
+            -- Width of non-focused window
+            width_nofocus = 30,
+            -- Width of preview window
+            width_preview = 50,
+         },
+      })
+
+      extras.setup()
+      vim.ui.select = pick.ui_select
+
 		autocmd("User",{
 			pattern = "MiniStarterOpened",
 			callback = function(args)
@@ -326,6 +397,66 @@ return {
 				vim.opt_local.statuscolumn = ""
 				map("n", "j", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", opts)
 				map("n", "k", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", opts)
-			end})
+			end
+      })
+
+      autocmd('User', {
+         pattern = 'MiniFilesBufferCreate',
+         callback = function(args)
+            local buf_id = args.data.buf_id
+            -- Tweak left-hand side of mapping to your liking
+            vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id })
+         end 
+      })
+
+      autocmd('User', {
+         pattern = 'MiniFilesWindowOpen',
+         callback = function(args)
+            local win_id = args.data.win_id
+            -- Customize window-local settings
+            local config = vim.api.nvim_win_get_config(win_id)
+            config.border, config.title_pos = 'double', 'center'
+            vim.api.nvim_win_set_config(win_id, config)
+         end,
+      })
+
+      autocmd('User', {
+         pattern = 'MiniFilesWindowUpdate',
+         callback = function(args)
+            local config = vim.api.nvim_win_get_config(args.data.win_id)
+
+            vim.wo[args.data.win_id].number = true
+            vim.wo[args.data.win_id].relativenumber = true
+            vim.wo[args.data.win_id].statuscolumn = "%s%=%{v:relnum ? v:relnum : v:lnum} "
+
+
+            -- Ensure title padding
+            if config.title[#config.title][1] ~= ' ' then
+               table.insert(config.title, { ' ', 'NormalFloat' })
+            end
+            if config.title[1][1] ~= ' ' then
+               table.insert(config.title, 1, { ' ', 'NormalFloat' })
+            end
+
+            vim.api.nvim_win_set_config(args.data.win_id, config)
+         end,
+      })
+
+      vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Find files" } )
+      vim.keymap.set("n", "<leader>fh", "<CMD>Pick help<CR>", { desc = "Find help files" } )
+      vim.keymap.set("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
+      vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers<CR>", { desc = "Find buffers" } )
+      vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
+      vim.keymap.set("n", "<leader>fb", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps" } )
+      vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Find oldfiles" } )
+      vim.keymap.set("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Find buffers" } )
+
+      vim.keymap.set( "n", "<leader>of", function()
+         require("mini.files").open(vim.uv.cwd(), true)
+      end,{ desc = "Open mini.files (cwd)" })
+
+      vim.keymap.set("n", "<leader>oF", function()
+         require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+      end, {desc = "Open mini.files (Directory of Current File)" })
    end
 }
