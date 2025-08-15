@@ -84,7 +84,7 @@ return {
       require('mini.align').setup()
       require('mini.git').setup()
       require('mini.pick').setup({ window = {
-         config = pick_win_config,
+         -- config = pick_win_config,
          prompt_prefix = '>> ',
       } })
       require('mini.notify').setup({
