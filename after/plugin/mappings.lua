@@ -20,12 +20,6 @@ wk.add({
       { "<leader>rw", [[:%s/\s\+$//e<CR>]],                         desc = "Remove whitespaces" },
       { "<leader>xx", "<cmd>!chmod +x %<CR>",                       desc = "Make file executable" },
 
-      -- Quickfix
-      { "<leader>qo", "<cmd>copen<cr>",  desc = "Open quickfix list"},
-      { "<leader>qc", "<cmd>cclose<cr>", desc = "Close quickfix list"},
-      { "<leader>qf", "<cmd>cfirst<cr>", desc = "Go to first item in quickfix list"},
-      { "<leader>ql", "<cmd>clast<cr>",  desc = "Go to last item in quickfix list"},
-
       { "<A-=>",      "<C-w>=",            desc = "Reset the split size" },
       { "<A-m>",      "<C-w>|",            desc = "Maximize the split width" },
       { "<leader>dt", "<cmd>diffthis<CR>", desc = "Toggle diff for current buffer" },

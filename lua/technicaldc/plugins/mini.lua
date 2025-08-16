@@ -2,7 +2,7 @@ return {
    "echasnovski/mini.nvim",
    version = '*',
    config = function ()
-
+      -- NOTE:
       -- IMPORTS {{{
 		local starter = require('mini.starter')
       local miniFiles = require('mini.files')
@@ -81,12 +81,29 @@ return {
       end
       -- }}}
 
+      require('mini.hipatterns').setup({
+         highlighters = {
+            fixme = { pattern = ' FIXME:', group = 'MiniHipatternsFixme' },
+            hack  = { pattern = ' HACK:',  group = 'MiniHipatternsHack'  },
+            todo  = { pattern = ' TODO:',  group = 'MiniHipatternsTodo'  },
+            note  = { pattern = ' NOTE:',  group = 'MiniHipatternsNote'  },
+            debug = { pattern = ' DEBUG:',  group = 'MiniHipatternsHack'  },
+         }
+      })
       require('mini.align').setup()
+      require('mini.clue').setup()
       require('mini.git').setup()
-      require('mini.pick').setup({ window = {
-         -- config = pick_win_config,
-         prompt_prefix = '>> ',
-      } })
+      require('mini.pick').setup({
+         options = {
+            content_from_bottom = true
+         },
+         window = {
+            config = {
+               width =  vim.o.columns <= 80 and vim.o.columns or math.floor(0.618 * vim.o.columns)
+            },
+            prompt_prefix = '>> ',
+         }
+      })
       require('mini.notify').setup({
          window = {
             winblend = 0,
@@ -406,7 +423,7 @@ return {
             local buf_id = args.data.buf_id
             -- Tweak left-hand side of mapping to your liking
             vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id })
-         end 
+         end
       })
 
       autocmd('User', {
@@ -444,10 +461,10 @@ return {
 
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Find files" } )
       vim.keymap.set("n", "<leader>fh", "<CMD>Pick help<CR>", { desc = "Find help files" } )
+      vim.keymap.set("n", "<leader>fH", "<CMD>Pick hl_groups<CR>", { desc = "Find help files" } )
       vim.keymap.set("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers<CR>", { desc = "Find buffers" } )
       vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
-      vim.keymap.set("n", "<leader>fb", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps" } )
       vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Find oldfiles" } )
       vim.keymap.set("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Find buffers" } )
 
