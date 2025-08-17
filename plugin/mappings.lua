@@ -8,8 +8,16 @@ local imap = function (lhs, rhs, desc)
    vim.keymap.set("i", lhs, rhs, { desc = desc })
 end
 
+local smap = function (lhs, rhs, desc)
+   vim.keymap.set("s", lhs, rhs, { desc = desc })
+end
+
 local vmap = function (lhs, rhs, desc)
    vim.keymap.set("v", lhs, rhs, { desc = desc })
+end
+
+local xmap = function (lhs, rhs, desc)
+   vim.keymap.set("x", lhs, rhs, { desc = desc })
 end
 
 -- SMART SPLITS {{{{
@@ -24,6 +32,17 @@ nmap( '<C-k>', require('smart-splits').move_cursor_up,    "Switch to above split
 nmap( '<C-l>', require('smart-splits').move_cursor_right, "Switch to right split")
 -- }}}}
 
+xmap( "<leader>p", [["_dP]], "Paste Ultra Pro Max" )
+
+nmap( "<leader>Y",  "maggVGy`a",                                  "Copy entire content" )
+nmap( "<leader>s",  ":setlocal spell!<CR>",                       "Toggle spell checker" )
+nmap( "Y",          "y$",                                         "Copy text till end of line" )
+nmap( "<BS>",       "^",                                          "Move to first non-blank character" )
+nmap( "<Esc>",      ":lua vim.o.hlsearch = false<CR>",            "Disable incremental search highlighting" )
+nmap( "x",          [["_x]],                                      "Delete character" )
+nmap( "<leader>rr", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], "Replace word under the cursor globally" )
+nmap( "<leader>rw", [[:%s/\s\+$//e<CR>]],                         "Remove whitespaces" )
+nmap( "<leader>xx", "<cmd>!chmod +x %<CR>",                       "Make file executable" )
 nmap( "<A-=>",      "<C-w>=",            "Reset the split size" )
 nmap( "<A-m>",      "<C-w>|",            "Maximize the split width" )
 nmap( "<leader>dt", "<cmd>diffthis<CR>", "Toggle diff for current buffer" )
@@ -41,3 +60,11 @@ imap( "<C-j>", function() ls.jump(1) end,           "Jump to next node" )
 imap( "<C-k>", function() ls.jump(-1) end,          "Jump to previous node" )
 imap( "<C-n>", function() ls.change_choice(1)  end, "Select next choice" )
 imap( "<C-p>", function() ls.change_choice(-1) end, "Select previous choice" )
+smap( "<C-j>", function() ls.jump(1) end,           "Jump to next node" )
+smap( "<C-k>", function() ls.jump(-1) end,          "Jump to previous node" )
+smap( "<C-n>", function() ls.change_choice(1)  end, "Select next choice" )
+smap( "<C-p>", function() ls.change_choice(-1) end, "Select previous choice" )
+
+vmap( "<",         "<gv",  "Indent inwards" )
+vmap( ">",         ">gv",  "Indent outwards" )
+vmap( "<leader>d", "\"_d", "Delete ultra pro max" )
