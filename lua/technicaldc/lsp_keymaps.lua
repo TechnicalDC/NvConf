@@ -11,9 +11,9 @@ map("n", "<leader>F",  vim.lsp.buf.format,                  { desc = "Format cod
 map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder,    { desc = "Add folder to workspace" } )
 map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove folder from workspace" } )
 
-map("n", "<leader>fr", function()
-	require("telescope.builtin").lsp_references()
-end, { desc = "Go to references" } )
+-- map("n", "<leader>fr", function()
+-- 	require("telescope.builtin").lsp_references()
+-- end, { desc = "Go to references" } )
 
 map( "n", "<leader>wl", function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))

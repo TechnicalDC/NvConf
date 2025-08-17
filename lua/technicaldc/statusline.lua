@@ -63,7 +63,7 @@ local get_filename = function ()
    local head = vim.fn.expand("%:.:h")
    head = table.concat(vim.fn.split(head, "/"), sep)
    if head == "" then
-      return ""
+      return " [Unnamed]"
    end
 
    local tail = vim.fn.expand("%:t")
