@@ -24,11 +24,11 @@ nmap( '<C-k>', require('smart-splits').move_cursor_up,    "Switch to above split
 nmap( '<C-l>', require('smart-splits').move_cursor_right, "Switch to right split")
 -- }}}}
 
-nmap( "<A-=>",      "<C-w>=",            "Reset the split size" ),
-nmap( "<A-m>",      "<C-w>|",            "Maximize the split width" ),
-nmap( "<leader>dt", "<cmd>diffthis<CR>", "Toggle diff for current buffer" ),
-nmap( "<leader>th", "<C-w>t<C-w>K",      "Toggle vertical splits to horizontal" ),
-nmap( "<leader>tv", "<C-w>t<C-w>H",      "Toggle horizontal splits to vertical" ),
+nmap( "<A-=>",      "<C-w>=",            "Reset the split size" )
+nmap( "<A-m>",      "<C-w>|",            "Maximize the split width" )
+nmap( "<leader>dt", "<cmd>diffthis<CR>", "Toggle diff for current buffer" )
+nmap( "<leader>th", "<C-w>t<C-w>K",      "Toggle vertical splits to horizontal" )
+nmap( "<leader>tv", "<C-w>t<C-w>H",      "Toggle horizontal splits to vertical" )
 
 -- Quickfix
 nmap( "<leader>qo", "<cmd>copen<cr>",  "Open quickfix list" )
