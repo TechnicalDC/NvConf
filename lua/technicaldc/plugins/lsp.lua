@@ -5,7 +5,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       'TechnicalDC/nvim-lspconfig',
       "nvim-treesitter/nvim-treesitter",
-      'kyazdani42/nvim-web-devicons',
    },
    event = { "BufReadPre", "BufNewFile" },
    config = function ()

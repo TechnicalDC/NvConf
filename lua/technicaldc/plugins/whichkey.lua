@@ -1,6 +1,5 @@
 return {
    "folke/which-key.nvim",
-   dependencies = { "kyazdani42/nvim-web-devicons" },
    enabled = true;
    event = "VeryLazy",
    config = function()
