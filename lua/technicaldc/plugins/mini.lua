@@ -461,12 +461,12 @@ return {
 
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Find files" } )
       vim.keymap.set("n", "<leader>fh", "<CMD>Pick help<CR>", { desc = "Find help files" } )
-      vim.keymap.set("n", "<leader>fH", "<CMD>Pick hl_groups<CR>", { desc = "Find help files" } )
+      vim.keymap.set("n", "<leader>fH", "<CMD>Pick hl_groups<CR>", { desc = "Find highlights" } )
       vim.keymap.set("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers<CR>", { desc = "Find buffers" } )
       vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
       vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Find oldfiles" } )
-      vim.keymap.set("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Find buffers" } )
+      vim.keymap.set("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Grep word" } )
 
       vim.keymap.set( "n", "<leader>of", function()
          require("mini.files").open(vim.uv.cwd(), true)
