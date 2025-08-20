@@ -79,12 +79,12 @@ return {
             },
          },
          win = {
-            -- don't allow the popup to overlap with the cursor
-            no_overlap = false,
+            no_overlap = true,
             -- width = 0.999,
             height = { min = 4, max = 20 },
+            -- row = vim.o.lines - 10,
             border = vim.o.winborder,
-            padding = { 2, 3 }, -- extra window padding [top/bottom, right/left]
+            padding = { 1, 3 }, -- extra window padding [top/bottom, right/left]
             title = true,
             title_pos = "center",
             zindex = 1000,
