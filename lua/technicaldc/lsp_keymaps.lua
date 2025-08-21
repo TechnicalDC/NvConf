@@ -10,24 +10,3 @@ map("n", "<leader>gt", vim.lsp.buf.type_definition,         { desc = "Go to type
 map("n", "<leader>F",  vim.lsp.buf.format,                  { desc = "Format code" } )
 map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder,    { desc = "Add folder to workspace" } )
 map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove folder from workspace" } )
-
--- map("n", "<leader>fr", function()
--- 	require("telescope.builtin").lsp_references()
--- end, { desc = "Go to references" } )
-
-map( "n", "<leader>wl", function()
-	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-end, { desc = "List workspace folder" })
-
-map( "n", "<leader>K", function ()
-	vim.lsp.buf.hover()
-end, { desc = "Hover docs" })
-
-map( "n", "[d", function()
-	vim.diagnostic.jump({ count = -1, float = true })
-end, { desc = "Go to previous diagnostics" })
-
-map( "n", "]d", function()
-	vim.diagnostic.jump({ count = 1, float = true })
-end, { desc = "Go to next diagnostics" })
-
