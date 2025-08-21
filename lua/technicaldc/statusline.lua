@@ -1,26 +1,26 @@
 local config = require("technicaldc.config")
 local modes = {
-    ['n']  = {'NORMAL',     'N',   'StatusLineModeNormal'},
-    ['no'] = {'N·OPERATOR', 'N·P', 'StatuslineMode'},
-    ['v']  = {'VISUAL',     'V',   'StatusLineModeVisual'},
-    ['V']  = {'V·LINE',     'V·L', 'StatusLineModeVisual'},
-    ['']   = {'V·BLOCK',    'V·B', 'StatuslineModeVisual'},
-    [''] = {'V·BLOCK',    'V·B', 'StatuslineModeVisual'},
-    ['s']  = {'SELECT',     'S',   'StatuslineModeVisual'},
-    ['S']  = {'S·LINE',     'S·L', 'StatuslineModeVisual'},
-    [''] = {'S·BLOCK',    'S·B', 'StatuslineModeVisual'},
-    ['i']  = {'INSERT',     'I',   'StatusLineModeInsert'},
-    ['ic'] = {'INSERT',     'I',   'StatuslineModeInsert'},
-    ['R']  = {'REPLACE',    'R',   'StatusLineModeReplace'},
-    ['Rv'] = {'V·REPLACE',  'V·R', 'StatuslineModeReplace'},
-    ['c']  = {'COMMAND',    'C',   'StatusLineModeCommand'},
-    ['cv'] = {'VIM·EX',     'V·E', 'StatuslineModeCommand'},
-    ['ce'] = {'EX',         'E',   'StatuslineModeCommand'},
-    ['r']  = {'PROMPT',     'P',   'StatusLineModeConfirm'},
-    ['rm'] = {'MORE',       'M',   'StatuslineModeConfirm'},
-    ['r?'] = {'CONFIRM',    'C',   'StatuslineModeConfirm'},
-    ['!']  = {'SHELL',      'S',   'StatusLineModeTerminal'},
-    ['t']  = {'TERMINAL',   'T',   'StatuslineModeTerminal'}
+    ['n']  = {'NORMAL',     'N'},
+    ['no'] = {'N·OPERATOR', 'N·P'},
+    ['v']  = {'VISUAL',     'V', },
+    ['V']  = {'V·LINE',     'V·L'},
+    ['']   = {'V·BLOCK',    'V·B'},
+    [''] = {'V·BLOCK',    'V·B'},
+    ['s']  = {'SELECT',     'S', },
+    ['S']  = {'S·LINE',     'S·L'},
+    [''] = {'S·BLOCK',    'S·B'},
+    ['i']  = {'INSERT',     'I', },
+    ['ic'] = {'INSERT',     'I', },
+    ['R']  = {'REPLACE',    'R', },
+    ['Rv'] = {'V·REPLACE',  'V·R'},
+    ['c']  = {'COMMAND',    'C', },
+    ['cv'] = {'VIM·EX',     'V·E'},
+    ['ce'] = {'EX',         'E', },
+    ['r']  = {'PROMPT',     'P', },
+    ['rm'] = {'MORE',       'M', },
+    ['r?'] = {'CONFIRM',    'C', },
+    ['!']  = {'SHELL',      'S', },
+    ['t']  = {'TERMINAL',   'T', }
 }
 
 local excludes = function()
@@ -32,19 +32,13 @@ end
 
 local get_current_mode = function()
 	local current_mode = vim.api.nvim_get_mode().mode
-   local mode = string.format(' %s ', modes[current_mode][2])
+   local mode = string.format('%s', modes[current_mode][1])
 	-- if vim.o.columns <= 80 then
 	-- 	mode = string.format(' %s ', modes[current_mode][2])
 	-- else
 	-- 	mode = string.format(' %s ', modes[current_mode][1])
 	-- end
-   return "%#" .. modes[current_mode][3] .. "#" .. mode .. "%#StatusLine#"
-end
-
-local get_block = function()
-	local current_mode = vim.api.nvim_get_mode().mode
-   local mode = string.format(' %s ', modes[current_mode][2])
-   return "%#" .. modes[current_mode][3] .. "#" .. " " .. "%#StatusLine#"
+   return "[" .. mode .. "] "
 end
 
 local get_filename = function ()
@@ -52,29 +46,23 @@ local get_filename = function ()
       return ""
    end
 
-   local sep = config.transparent and "/" or "%#StatusLineFilenameSep#/%#StatusLineFileName#"
-
+   local filename = ""
    local cwd = vim.fn.getcwd()
    local home = os.getenv("HOME")
-
-   cwd = home and cwd:gsub(home, "~") or cwd
-   cwd = table.concat(vim.fn.split(cwd, "/"), sep)
-
    local head = vim.fn.expand("%:.:h")
-   head = table.concat(vim.fn.split(head, "/"), sep)
+   cwd = home and cwd:gsub(home, "~") or cwd
+
    if head == "" then
       return " [Unnamed]"
    end
 
    local tail = vim.fn.expand("%:t")
 
-   local filename = config.transparent and " " or " %#StatusLineFilename#"
-
 	if config.statusline.show_cwd then
-      filename = filename .. (cwd and cwd .. sep or "")
+      filename = filename .. cwd
 	end
 
-   filename = filename .. (head == "." and "" or head .. sep) .. ("%#StatusLine#" .. tail .. "%#StatusLine#")
+   filename = "[" .. filename .. (head == "." and "" or head) .. tail .. "]"
 
    return filename
 end
@@ -90,7 +78,7 @@ local get_location = function ()
    if excludes() then
       return ""
    end
-   return " %-3.(%l/%L "
+   return " [%-3.(%l/%L]"
 end
 
 function _G.setup_statusline()
@@ -104,7 +92,6 @@ function _G.setup_statusline()
       "%{get(b:,'gitsigns_head','')} ",
       "%y",
       get_location(),
-      get_block(),
    }
 end
 
