@@ -379,24 +379,21 @@ $cyanAlpha    = ${cyan}
 end
 
 function extras_fun.tmux()
-   local statusline = config.transparent and "\nset-option -g status-style 'fg=${fg},bg=default'\n"
-                      or "\nset-option -g status-style 'fg=${fg},bg=${bg_mid}'\n"
 	return util.replace_vars([[
 # panes
 set -g pane-border-line 'double'
 set -g pane-border-style 'fg=${bg_mid}'
-set -g pane-active-border-style 'fg=${fg_edge}' ]]
-.. statusline .. [[
-set-option -g status-left "#[fg=${fg},bg=${bg_mid2}] #S #[default] "
+set -g pane-active-border-style 'fg=${fg_edge}' 
+set-option -g status-style 'fg=${fg},bg=default'
+set-option -g status-left "[#S] "
 set-option -g status-right ""
 set-window-option -g window-status-separator " "
-set-window-option -g window-status-style fg=${fg}
-set-window-option -g window-status-style bg=${bg_mid}
-set-window-option -g window-status-current-style "fg=${bg},bg=${fg_edge}"
-setw -g window-status-current-format ' #I.#W '
+setw -g window-status-current-format '[#I.#W]'
+setw -g window-status-current-style 'fg=${fg}'
 setw -g window-status-format ' #I.#W '
+setw -g window-status-style 'fg=${fg_mid2}'
 # messages
-set -g message-style 'fg=${bg_mid} bg=${orange}'
+set -g message-style 'fg=${orange} bg=default'
 	]],palette)
 end
 
