@@ -12,6 +12,7 @@ if is_transparent then
    hl(0, "FloatBorder", { fg = palette.fg_mid, bg = "None" })
    hl(0, "FloatTitle",  { fg = palette.fg,     bg = "None" })
    hl(0, "PmenuKind",   { bg = "None" })
+   hl(0, "MiniPickMatchRanges", { fg = palette.green, bg = "None"})
 
    hl(0, "StatusLine",            { fg = palette.fg_mid, bg = "None" })
    hl(0, "StatusLineNC",          { fg = palette.fg_mid, bg = "None" })
