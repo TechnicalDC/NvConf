@@ -2,13 +2,13 @@
 set -g foreground "#c0c8cc"
 set -g selection  "#363a3b"
 set -g comment    "#858c90"
-set -g red        "#ebb8b5"
-set -g orange     "#e2c09e"
-set -g yellow     "#c7cb9e"
-set -g green      "#a7d3b7"
-set -g blue       "#c7c0eb"
-set -g purple     "#e1b8d5"
-set -g cyan       "#98d3d7"
+set -g red        "#f7b2af"
+set -g orange     "#eabd8f"
+set -g yellow     "#c8cc90"
+set -g green      "#9bd7b2"
+set -g blue       "#c7bef7"
+set -g purple     "#e9b3da"
+set -g cyan       "#85d7dd"
 
 # Syntax highlighting
 set -g fish_color_normal $foreground
