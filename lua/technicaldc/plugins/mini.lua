@@ -112,7 +112,8 @@ return {
             config = {
                width =  vim.o.columns <= 80 and vim.o.columns or math.floor(0.618 * vim.o.columns)
             },
-            prompt_prefix = '>> ',
+            prompt_caret = "| ]",
+            prompt_prefix = '[ ',
          }
       })
       require('mini.notify').setup({
