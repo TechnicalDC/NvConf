@@ -7,6 +7,7 @@ return {
 		local starter = require('mini.starter')
       local miniFiles = require('mini.files')
       local pick = require("mini.pick")
+      local diff = require("mini.diff")
       local extras = require("mini.extra")
 		local autocmd = vim.api.nvim_create_autocmd
 		local map     = vim.keymap.set
@@ -81,6 +82,16 @@ return {
       end
       -- }}}
 
+      diff.setup({
+         view = {
+            style = "sign",
+            signs = {
+               add    = '┃',
+               change = '┃',
+               delete = '┃',
+            }
+         }
+      })
       require('mini.hipatterns').setup({
          highlighters = {
             fixme = { pattern = ' FIXME:', group = 'MiniHipatternsFixme' },
@@ -434,15 +445,6 @@ return {
             vim.wo[args.data.win_id].number = true
             vim.wo[args.data.win_id].relativenumber = true
             vim.wo[args.data.win_id].statuscolumn = "%s%=%{v:relnum ? v:relnum : v:lnum} "
-
-
-            -- Ensure title padding
-            if config.title[#config.title][1] ~= ' ' then
-               table.insert(config.title, { ' ', 'NormalFloat' })
-            end
-            if config.title[1][1] ~= ' ' then
-               table.insert(config.title, 1, { ' ', 'NormalFloat' })
-            end
 
             vim.api.nvim_win_set_config(args.data.win_id, config)
          end,
