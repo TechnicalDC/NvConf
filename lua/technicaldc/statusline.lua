@@ -58,16 +58,23 @@ local get_filename = function ()
 
    local tail = vim.fn.expand("%:t")
 
+   if vim.bo.filetype == "help" then
+      return "[" .. tail .. "]"
+   end
+
 	if config.statusline.show_cwd then
       filename = filename .. cwd
 	end
 
-   filename = "[" .. filename .. (head == "." and "" or head) .. tail .. "]"
+   filename = "[" .. filename .. (head == "." and "" or head .. "/") .. tail .. "]"
 
    return filename
 end
 
 local is_modified = function ()
+   if vim.bo.filetype == "help" then
+      return ""
+   end
    if excludes() then
       return ""
    end
