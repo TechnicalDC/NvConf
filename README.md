@@ -9,7 +9,7 @@ My own lua-based [neovim](https://neovim.org/) configuration.
 
 ## Features
 
-* Fuzzy finder, File manager, Dashboard and manu more using [mini.nvim](https://github.com/echasnovski/mini.nvim)
+* Fuzzy finder, File manager, Dashboard and many more using [mini.nvim](https://github.com/echasnovski/mini.nvim)
 * Autocompletion via [blink.cmp](https://github.com/saghen/blink.cmp)
 * Integrated with tmux via [smart-splits.nvim ](https://github.com/mrjones2014/smart-splits.nvim)
 * LSP Support using [mason.nvim](https://github.com/williamboman/mason.nvim)
