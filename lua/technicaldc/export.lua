@@ -341,7 +341,7 @@ function extras_fun.rofi()
 	return util.replace_vars([[
 * {
    foreground    : ${fg};
-   background    : ${bg};
+   background    : ${bg}EC;
    selected-bg   : ${fg_edge};
    selected-fg   : ${bg};
 	promptbg		  : ${bg_mid2};
