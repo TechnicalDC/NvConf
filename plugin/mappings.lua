@@ -38,7 +38,7 @@ nmap( "<leader>Y",  "maggVGy`a",                                  "Copy entire c
 nmap( "<leader>s",  ":setlocal spell!<CR>",                       "Toggle spell checker" )
 nmap( "Y",          "y$",                                         "Copy text till end of line" )
 nmap( "<BS>",       "^",                                          "Move to first non-blank character" )
-nmap( "<Esc>",      ":lua vim.o.hlsearch = false<CR>",            "Disable incremental search highlighting" )
+nmap( "<leader><Esc>",      ":lua vim.o.hlsearch = false<CR>",            "Disable incremental search highlighting" )
 nmap( "x",          [["_x]],                                      "Delete character" )
 nmap( "<leader>rr", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], "Replace word under the cursor globally" )
 nmap( "<leader>rw", [[:%s/\s\+$//e<CR>]],                         "Remove whitespaces" )
