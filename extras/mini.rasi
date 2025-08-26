@@ -1,8 +1,8 @@
 * {
    foreground    : #c0c8cc;
-   background    : #1d2021EC;
+   background    : #11262dEC;
    selected-bg   : #d2dade;
-   selected-fg   : #1d2021;
-	promptbg		  : #515556;
+   selected-fg   : #11262d;
+	promptbg		  : #445a62;
 }
 	
