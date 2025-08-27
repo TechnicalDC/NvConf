@@ -53,7 +53,7 @@ local get_filename = function ()
    cwd = home and cwd:gsub(home, "~") or cwd
 
    if head == "" then
-      return " [Unnamed]"
+      return " [No Name]"
    end
 
    local tail = vim.fn.expand("%:t")
