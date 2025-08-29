@@ -43,7 +43,10 @@ return {
             border = 'thick',
          },
          quote = { icon = '┃' },
-         bullet = { enabled = true, },
+         bullet = {
+            enabled = true,
+            icons = {'◆', '◇'},
+         },
          dash = { enabled = true },
          completions = {
             blink = { enabled = true },
