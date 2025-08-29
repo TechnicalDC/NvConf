@@ -384,6 +384,7 @@ function extras_fun.tmux()
 set -g pane-border-line 'double'
 set -g pane-border-style 'fg=${bg_mid}'
 set -g pane-active-border-style 'fg=${fg_edge}' 
+set -g popup-border-style 'fg=${fg_edge}' 
 set-option -g status-style 'fg=${fg},bg=default'
 set-option -g status-left "[#S] "
 set-option -g status-right ""
