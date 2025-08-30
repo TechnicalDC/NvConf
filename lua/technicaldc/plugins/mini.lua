@@ -102,6 +102,7 @@ return {
          }
       })
       require('mini.align').setup()
+      require('mini.ai').setup()
       require('mini.clue').setup()
       require('mini.git').setup()
       require('mini.pick').setup({
