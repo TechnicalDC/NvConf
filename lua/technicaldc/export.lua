@@ -322,18 +322,11 @@ function  extras_fun.fzf()
 	return util.replace_vars([[
    set --export FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "
    --color=fg:${fg},fg+:${bg_edge},bg:-1,bg+:${fg_edge} \
-   # --color=hl:${green},hl+:${bg_edge} "
-   # --color=prompt:${fg} \
-   # --color=input-border:${bg_edge},input-bg:${bg_edge},query:${fg} \
-   # --color=list-border:${bg_edge2},list-bg:${bg_edge2} \
-   # --color=preview-border:${bg_edge2},preview-bg:${bg_edge2}"
+   --color=border:${fg_edge}"
    # 
    set --export _ZO_FZF_OPTS $_ZO_FZF_OPTS "
-   --color=fg:${fg},fg+:${bg_edge},bg:-1,bg+:${fg_edge} "
-   # --color=hl:${green},hl+:${bg_edge} \
-   # --color=prompt:${fg} \
-   # --color=input-border:${bg_edge},input-bg:${bg_edge},query:${fg} \
-   # --color=list-border:${bg_edge2},list-bg:${bg_edge2}"
+   --color=fg:${fg},fg+:${bg_edge},bg:-1,bg+:${fg_edge} 
+   --color=border:${fg_edge}"
 	]],palette)
 end
 
