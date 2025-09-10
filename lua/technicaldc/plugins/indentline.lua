@@ -26,24 +26,24 @@
 --
 --
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
+   "lukas-reineke/indent-blankline.nvim",
+   main = "ibl",
    event = { "BufReadPre", "BufNewFile" },
-	config = function ()
-		require("ibl").setup({
-			indent = {
-				char = "┊",
-				tab_char = "┊",
-			},
-			whitespace = {
-				remove_blankline_trail = false,
-			},
-			scope = { enabled = false },
-			exclude = {
-				filetypes = {
-					"markdown"
-				}
-			}
-		})
-	end
+   config = function ()
+      require("ibl").setup({
+         indent = {
+            char = "·",
+            tab_char = "┊",
+         },
+         whitespace = {
+            remove_blankline_trail = false,
+         },
+         scope = { enabled = false },
+         exclude = {
+            filetypes = {
+               "markdown"
+            }
+         }
+      })
+   end
 }

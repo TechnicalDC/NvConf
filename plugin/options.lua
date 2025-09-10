@@ -1,7 +1,5 @@
 ---@diagnostic disable: undefined-global
 local set = vim.opt
-local setl = vim.opt_local
-local fn = vim.fn
 local config = require("technicaldc.config")
 
 -- CONFIGURATION {{{
