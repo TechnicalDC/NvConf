@@ -171,7 +171,7 @@ vim.lsp.config('lua_ls', {
 			float = {
 				scope = "cursor",
 				severity_sort = true,
-				border = "rounded",
+				border = "double",
 				max_width = 70,
 				max_height = 10,
 				wrap = true,
