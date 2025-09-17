@@ -48,7 +48,7 @@ set.fillchars:append({
 })
 
 set.listchars:append("eol:󰌑")
-set.listchars:append("tab:  ")
+set.listchars:append("tab:··")
 set.listchars:append("lead:·")
 set.listchars:append("leadmultispace:·")
 set.listchars:append("extends:>")
