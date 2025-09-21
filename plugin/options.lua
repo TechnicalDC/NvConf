@@ -3,15 +3,15 @@ local set = vim.opt
 local config = require("technicaldc.config")
 
 -- CONFIGURATION {{{
-set.guicursor		 = ""
-set.title			 = false
+set.guicursor      = ""
+set.title          = false
 set.titlestring    = "nvim - %F"
 set.swapfile       = false
 set.splitbelow     = true
 set.splitright     = true
 set.showmode       = false
 set.showtabline    = 0
-set.laststatus 	 = config.laststatus
+set.laststatus     = config.laststatus
 set.number         = config.number
 set.relativenumber = config.relativenumber
 set.wildmenu       = true
@@ -19,11 +19,11 @@ set.wildmode       = "longest:full,list:full"
 set.wildignore     = "*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf,*.gif,*.png,*.jpg,*.mp4,*mp3"
 set.encoding       = "UTF-8"
 set.foldenable     = false
-set.foldcolumn		 = "0"
+set.foldcolumn     = "0"
 set.foldmethod     = "marker"
 set.foldmarker     = "{{{,}}}"
 set.foldexpr       = "v:lua.vim.treesitter.foldexpr()"
-set.foldtext	    = "v:lua.custom_fold_text()"
+set.foldtext       = "v:lua.custom_fold_text()"
 set.cursorline     = true
 set.showmatch      = true
 set.linebreak      = true
@@ -47,12 +47,12 @@ set.fillchars:append({
 	verthoriz = '╬',
 })
 
-set.listchars:append("eol:󰌑")
-set.listchars:append("tab:··")
-set.listchars:append("lead:·")
-set.listchars:append("leadmultispace:·")
-set.listchars:append("extends:>")
-set.listchars:append("precedes:<")
+set.listchars = "eol:󰌑"
+   .. ",tab:··"
+   .. ",lead:·"
+   .. ",leadmultispace:·"
+   .. ",extends:>"
+   .. ",precedes:<"
 
 set.list          = true
 set.diffopt       = "filler,vertical,iwhiteall,iblank"

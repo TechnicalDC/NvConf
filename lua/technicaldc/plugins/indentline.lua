@@ -36,7 +36,7 @@ return {
             tab_char = "┊",
          },
          whitespace = {
-            remove_blankline_trail = false,
+            remove_blankline_trail = true,
          },
          scope = { enabled = false },
          exclude = {
