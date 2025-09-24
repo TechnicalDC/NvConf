@@ -57,15 +57,16 @@ return {
             cell = 'trimmed',
             filler = 'RenderMarkdownTableRow',
          },
-         checkbox = {
-            custom = {
-               important = {
-                  raw = '[!]',
-                  rendered = '󰓎 ',
-                  highlight = 'DiagnosticWarn',
-               },
-            },
-         },
+         -- checkbox = {
+         --    checked = { scope_highlight = '@markup.strikethrough' },
+         --    custom = {
+         --       important = {
+         --          raw = '[!]',
+         --          rendered = '󰓎 ',
+         --          highlight = 'DiagnosticWarn',
+         --       },
+         --    },
+         -- },
       })
    end
 }
