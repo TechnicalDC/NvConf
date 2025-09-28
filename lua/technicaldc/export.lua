@@ -286,7 +286,7 @@ set -g cyan       "${cyan}"
 
 # Syntax highlighting
 set -g fish_color_normal $foreground
-set -g fish_color_command $foreground
+set -g fish_color_command $green
 set -g fish_color_keyword $purple
 set -g fish_color_quote $yellow
 set -g fish_color_redirection $foreground

@@ -81,10 +81,9 @@ return {
          win = {
             no_overlap = true,
             -- width = 0.999,
-            height = { min = 4, max = 20 },
+            -- height = { min = 4, max = 20 },
             -- row = vim.o.lines - 10,
-            border = "none",
-            -- border = vim.o.winborder,
+            border = vim.o.winborder,
             padding = { 1, 3 }, -- extra window padding [top/bottom, right/left]
             title = true,
             title_pos = "left",
