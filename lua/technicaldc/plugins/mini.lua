@@ -6,6 +6,7 @@ return {
       -- IMPORTS {{{
       local starter = require('mini.starter')
       local miniFiles = require('mini.files')
+      local hipatterns = require('mini.hipatterns')
       local pick = require("mini.pick")
       local diff = require("mini.diff")
       local extras = require("mini.extra")
@@ -92,17 +93,19 @@ return {
             }
          }
       })
-      require('mini.hipatterns').setup({
+      hipatterns.setup({
          highlighters = {
             fixme = { pattern = ' FIXME:', group = 'MiniHipatternsFixme' },
             hack  = { pattern = ' HACK:',  group = 'MiniHipatternsHack'  },
             todo  = { pattern = ' TODO:',  group = 'MiniHipatternsTodo'  },
             note  = { pattern = ' NOTE:',  group = 'MiniHipatternsNote'  },
             debug = { pattern = ' DEBUG:',  group = 'MiniHipatternsHack'  },
+            hex_color = hipatterns.gen_highlighter.hex_color(),
          }
       })
       require('mini.align').setup()
       require('mini.ai').setup()
+      require('mini.cursorword').setup()
       require('mini.clue').setup()
       require('mini.git').setup()
       require('mini.pick').setup({
@@ -321,7 +324,7 @@ return {
                section = 'telescope'
             },
             {
-               name = 'edit new buffer',
+               name = 'new file',
                action = 'enew',
                section = 'builtin'
             },
