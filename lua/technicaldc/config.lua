@@ -16,5 +16,11 @@ return {
       exclude_filetype = {
          "ministarter"
       }
+   },
+   signs = {
+      Error = "",
+      Warn = "",
+      Hint = "󰌵",
+      Info = ""
    }
 }
