@@ -41,7 +41,6 @@ nmap( "<BS>",       "^",                                          "Move to first
 nmap( "<leader><Esc>",      ":lua vim.o.hlsearch = false<CR>",            "Disable incremental search highlighting" )
 nmap( "x",          [["_x]],                                      "Delete character" )
 nmap( "<leader>rr", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], "Replace word under the cursor globally" )
-nmap( "<leader>rw", [[:%s/\s\+$//e<CR>]],                         "Remove whitespaces" )
 nmap( "<leader>xx", "<cmd>!chmod +x %<CR>",                       "Make file executable" )
 nmap( "<A-=>",      "<C-w>=",            "Reset the split size" )
 nmap( "<A-m>",      "<C-w>|",            "Maximize the split width" )

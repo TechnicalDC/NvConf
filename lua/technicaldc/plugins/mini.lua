@@ -10,6 +10,7 @@ return {
       local pick = require("mini.pick")
       local diff = require("mini.diff")
       local extras = require("mini.extra")
+      local trailspace = require('mini.trailspace')
       local autocmd = vim.api.nvim_create_autocmd
       local map     = vim.keymap.set
       local headers = require("technicaldc.header_ascii")
@@ -108,6 +109,7 @@ return {
       require('mini.cursorword').setup()
       require('mini.clue').setup()
       require('mini.git').setup()
+      trailspace.setup()
       require('mini.pick').setup({
          options = {
             content_from_bottom = true
@@ -463,6 +465,8 @@ return {
       vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
       vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Find oldfiles" } )
       vim.keymap.set("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Grep word" } )
+
+      vim.keymap.set("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
 
       vim.keymap.set( "n", "<leader>of", function()
          require("mini.files").open(vim.uv.cwd(), true)
