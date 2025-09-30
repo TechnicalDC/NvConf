@@ -13,12 +13,12 @@ return {
             sign = false,
             position = "inline",
             icons = {
-               '█ ',
-               '██ ',
-               '███ ',
-               '████ ',
-               '█████ ',
-               '██████ '
+               '󰲠 ',
+               '󰲢 ',
+               '󰲤 ',
+               '󰲦 ',
+               '󰲨 ',
+               '󰲪 '
             },
             backgrounds = {
                'Headline1Bg',
