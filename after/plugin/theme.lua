@@ -1,2 +1,3 @@
 -- vim.cmd.colorscheme("minihues")
-vim.cmd.colorscheme("mini-aqua")
+vim.cmd.colorscheme("rose-pine")
+-- vim.cmd.colorscheme("mini-aqua")
