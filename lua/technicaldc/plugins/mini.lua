@@ -4,18 +4,18 @@ return {
    config = function ()
       -- NOTE:
       -- IMPORTS {{{
-      local starter = require('mini.starter')
-      local miniFiles = require('mini.files')
-      local hipatterns = require('mini.hipatterns')
-      local pick = require("mini.pick")
-      local diff = require("mini.diff")
-      local extras = require("mini.extra")
-      local trailspace = require('mini.trailspace')
-      local autocmd = vim.api.nvim_create_autocmd
-      local map     = vim.keymap.set
-      local headers = require("technicaldc.header_ascii")
+      local starter       = require('mini.starter')
+      local miniFiles     = require('mini.files')
+      local hipatterns    = require('mini.hipatterns')
+      local pick          = require("mini.pick")
+      local diff          = require("mini.diff")
+      local extras        = require("mini.extra")
+      local trailspace    = require('mini.trailspace')
+      local autocmd       = vim.api.nvim_create_autocmd
+      local map           = vim.keymap.set
+      local headers       = require("technicaldc.header_ascii")
       local show_dotfiles = true
-      local filter_show = function(fs_entry) return true end
+      local filter_show   = function(fs_entry) return true end
       -- }}}
 
       -- OPTS {{{
@@ -457,16 +457,16 @@ return {
          end,
       })
 
-      vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Find files" } )
-      vim.keymap.set("n", "<leader>fh", "<CMD>Pick help<CR>", { desc = "Find help files" } )
-      vim.keymap.set("n", "<leader>fH", "<CMD>Pick hl_groups<CR>", { desc = "Find highlights" } )
-      vim.keymap.set("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
-      vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers<CR>", { desc = "Find buffers" } )
-      vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
-      vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Find oldfiles" } )
-      vim.keymap.set("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Grep word" } )
+      map("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Find files" } )
+      map("n", "<leader>fh", "<CMD>Pick help<CR>", { desc = "Find help files" } )
+      map("n", "<leader>fH", "<CMD>Pick hl_groups<CR>", { desc = "Find highlights" } )
+      map("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
+      map("n", "<leader>fb", "<CMD>Pick buffers<CR>", { desc = "Find buffers" } )
+      map("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
+      map("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Find oldfiles" } )
+      map("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Grep word" } )
 
-      vim.keymap.set("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
+      map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
 
       vim.keymap.set( "n", "<leader>of", function()
          require("mini.files").open(vim.uv.cwd(), true)
