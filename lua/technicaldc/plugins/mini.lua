@@ -317,12 +317,12 @@ return {
             },
             {
                name = 'find files',
-               action = 'Pick files',
+               action = 'lua require("telescope.builtin").find_files()',
                section = 'telescope'
             },
             {
                name = 'recent files',
-               action = 'Pick oldfiles',
+               action = 'lua require("telescope.builtin").oldfiles()',
                section = 'telescope'
             },
             {
@@ -457,14 +457,7 @@ return {
          end,
       })
 
-      map("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Find files" } )
-      map("n", "<leader>fh", "<CMD>Pick help<CR>", { desc = "Find help files" } )
-      map("n", "<leader>fH", "<CMD>Pick hl_groups<CR>", { desc = "Find highlights" } )
-      map("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
-      map("n", "<leader>fb", "<CMD>Pick buffers<CR>", { desc = "Find buffers" } )
-      map("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Open explorer" } )
-      map("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Find oldfiles" } )
-      map("n", "<leader>fg", "<CMD>Pick grep<CR>", { desc = "Grep word" } )
+      -- map("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
 
       map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
 
