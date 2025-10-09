@@ -10,17 +10,30 @@ return {
       global_keymaps = true,
       global_keymaps_prefix = "<leader>R",
       kulala_keymaps_prefix = "",
-      icons = {
-         inlay = {
-            loading = "⏳",
-            done = "✔",
-            error = "✘",
+      ui = {
+         display_mode = "float",
+         win_opts = {
+            width = 80,
+            height = 20,
+            border = "double",
+            title = " kulala ",
+            title_pos = "center",
+            -- split = "vertical",
+            -- bo = { number = true, wrap = true }, -- buffer options
+            wo = { foldmethod = "indent" }, -- window options
          },
-         lualine = "🐼",
-         textHighlight = "WarningMsg", -- highlight group for request elapsed time
-         loadingHighlight = "Normal",
-         doneHighlight = "String",
-         errorHighlight = "ErrorMsg",
-      },
+         icons = {
+            inlay = {
+               loading = "⏳",
+               done = "✔",
+               error = "✘",
+            },
+            lualine = "🐼",
+            textHighlight = "WarningMsg", -- highlight group for request elapsed time
+            loadingHighlight = "Normal",
+            doneHighlight = "String",
+            errorHighlight = "ErrorMsg",
+         },
+      }
    },
 }

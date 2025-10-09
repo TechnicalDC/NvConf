@@ -44,7 +44,7 @@ return {
          local has_statusline = vim.o.laststatus > 0
          local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
          return {
-            -- title_pos = "center",
+            title_pos = "center",
             anchor = 'SE',
             col = vim.o.columns,
             row = vim.o.lines - pad
@@ -326,7 +326,7 @@ return {
                section = 'telescope'
             },
             {
-               name = 'new file',
+               name = 'edit new file',
                action = 'enew',
                section = 'builtin'
             },
@@ -451,13 +451,12 @@ return {
 
             vim.wo[args.data.win_id].number = true
             vim.wo[args.data.win_id].relativenumber = true
+            -- vim.wo[args.data.win_id].title_pos = "center"
             vim.wo[args.data.win_id].statuscolumn = "%s%=%{v:relnum ? v:relnum : v:lnum} "
 
             vim.api.nvim_win_set_config(args.data.win_id, config)
          end,
       })
-
-      -- map("n", "<leader>fk", "<CMD>Pick keymaps<CR>", { desc = "Find keymaps " } )
 
       map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
 
