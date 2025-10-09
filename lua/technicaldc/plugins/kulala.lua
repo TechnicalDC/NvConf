@@ -13,20 +13,18 @@ return {
       ui = {
          display_mode = "float",
          win_opts = {
-            width = 80,
-            height = 20,
             border = "double",
             title = " kulala ",
             title_pos = "center",
             -- split = "vertical",
-            -- bo = { number = true, wrap = true }, -- buffer options
             wo = { foldmethod = "indent" }, -- window options
          },
+         show_icons = "signcolumn",
          icons = {
             inlay = {
-               loading = "⏳",
-               done = "✔",
-               error = "✘",
+               loading = "󰥔",
+               done = "",
+               error = "",
             },
             lualine = "🐼",
             textHighlight = "WarningMsg", -- highlight group for request elapsed time

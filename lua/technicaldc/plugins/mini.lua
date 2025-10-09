@@ -110,18 +110,18 @@ return {
       require('mini.clue').setup()
       require('mini.git').setup()
       trailspace.setup()
-      require('mini.pick').setup({
-         options = {
-            content_from_bottom = true
-         },
-         window = {
-            config = {
-               width =  vim.o.columns <= 80 and vim.o.columns or math.floor(0.618 * vim.o.columns)
-            },
-            prompt_caret = "▓ ]",
-            prompt_prefix = '[ ',
-         }
-      })
+      -- require('mini.pick').setup({
+      --    options = {
+      --       content_from_bottom = true
+      --    },
+      --    window = {
+      --       config = {
+      --          width =  vim.o.columns <= 80 and vim.o.columns or math.floor(0.618 * vim.o.columns)
+      --       },
+      --       prompt_caret = "▓ ]",
+      --       prompt_prefix = '[ ',
+      --    }
+      -- })
       require('mini.notify').setup({
          window = {
             winblend = 0,

@@ -16,6 +16,8 @@ return {
             StatusLineFilenameSep = { bg = "none" },
             WinBar                = { bg = "none" },
             WinBarNC              = { bg = "none" },
+            BlinkCmpSource        = { bg = "none" },
+            TelescopeSelection    = { link = "PmenuSel" },
          },
       })
    end

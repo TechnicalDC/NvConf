@@ -37,27 +37,21 @@ return {
    config = function ()
       local toggle_preview = require("telescope.actions.layout").toggle_preview
       local actions = require("telescope.actions")
+      local themes = require("telescope.themes")
 
       require('telescope').setup{
-         defaults = {
-            layout_strategy = "center",  -- Other layouts: vertical, horizontal, center
-            layout_config = {
-               prompt_position = "top",
-            },
-            sorting_strategy = "ascending",
+         defaults = themes.get_dropdown({
             prompt_prefix = "   ",
             entry_prefix = "  ",
-            multi_icon = " ",
-            selection_caret = "█ ",
-            border = true,
+            multi_icon = " ",
+            selection_caret = "▋ ",
+            dynamic_preview_title = true,
             borderchars = {
                { '═', '║', '═', '║', '╔', '╗', '╝', '╚'},
                prompt = {"═", "║", " ", "║", '╔', '╗', "║", "║"},
                results = {"═", "║", "═", "║", "╠", "╣", "╝", "╚"},
                preview = { '═', '║', '═', '║', '╔', '╗', '╝', '╚'},
             },
-            results_title = "",
-            prompt_title = " prompt ",
             file_ignore_patterns = {
                "**\\*.xlsx",
                "**\\*.png",
@@ -67,8 +61,6 @@ return {
                "**\\*.zip",
                "**\\*.docx",
             },
-            preview = true,
-            dynamic_preview_title = true,
 
             mappings = {
                n = {
@@ -79,10 +71,9 @@ return {
                },
                i = {
                   ["<C-/>"] = "which_key",
-                  ["<C-p>"] = toggle_preview,
                }
             }
-         },
+         }),
          pickers = {
             buffers = {
                sort_mru = false,
@@ -93,7 +84,7 @@ return {
          extensions = {
             ["ui-select"] = {
                require("telescope.themes").get_dropdown {
-                  layout_strategy = "horizontal",  -- Other layouts: vertical, horizontal, center
+                  layout_strategy = "center",  -- Other layouts: vertical, horizontal, center
                   preview = false,
                }
             }
