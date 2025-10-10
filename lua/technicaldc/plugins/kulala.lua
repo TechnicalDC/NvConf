@@ -14,7 +14,7 @@ return {
          display_mode = "float",
          win_opts = {
             border = "double",
-            title = " kulala ",
+            title = " kulala - response ",
             title_pos = "center",
             -- split = "vertical",
             wo = { foldmethod = "indent" }, -- window options

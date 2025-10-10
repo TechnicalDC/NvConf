@@ -42,9 +42,9 @@ return {
       require('telescope').setup{
          defaults = themes.get_dropdown({
             prompt_prefix = "   ",
-            entry_prefix = "  ",
-            multi_icon = " ",
-            selection_caret = "▋ ",
+            entry_prefix = " ",
+            multi_icon = "▌",
+            selection_caret = "▌",
             dynamic_preview_title = true,
             borderchars = {
                { '═', '║', '═', '║', '╔', '╗', '╝', '╚'},
