@@ -10,6 +10,8 @@ vim.lsp.config("*", {
    capabilities = capabilities
 })
 
+vim.lsp.config('tinymist',{ cmd = { 'tinymist' }, filetypes = { 'typst' }, root_markers = { '.git' }, })
+
 vim.lsp.config("jdtls",{
    cmd = { "jdtls", "-configuration", "~/.cache/jdtls/config", "-data", "~/.cache/jdtls/workspace" },
    filetypes = { "java" },
