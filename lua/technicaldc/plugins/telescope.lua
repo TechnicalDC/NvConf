@@ -41,6 +41,9 @@ return {
 
       require('telescope').setup{
          defaults = themes.get_dropdown({
+            layout_config = {
+               anchor = "S"
+            },
             prompt_prefix = "   ",
             entry_prefix = " ",
             multi_icon = "▌",
