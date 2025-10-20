@@ -1,3 +1,5 @@
+local config = require("technicaldc.config")
+
 return {
    'saghen/blink.cmp',
    dependencies = {
@@ -93,13 +95,13 @@ return {
          enabled = true,
          window = {
             scrollbar = false,
-            border = vim.o.winborder,
+            border = config.winborder,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
          }
       },
       completion = {
          menu = {
-            border = vim.o.winborder,
+            border = config.winborder,
             scrollbar = true,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
             draw = {
@@ -122,7 +124,7 @@ return {
             auto_show = true,
             window = {
                scrollbar = true,
-               border = vim.o.winborder,
+               border = config.winborder,
                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
                direction_priority = {
                   menu_north = { 'e', 'w', 'n', 's' },

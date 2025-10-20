@@ -5,6 +5,7 @@ return {
    indent = 3,
    apply_custom_highlights = true,
    transparent = true,
+   winborder = "rounded",
    statusline = {
       show_cwd = false,
       exclude_filetype = {
