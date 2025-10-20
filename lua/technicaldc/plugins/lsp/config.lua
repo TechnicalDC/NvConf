@@ -179,7 +179,7 @@ vim.diagnostic.config({
    float = {
       scope = "cursor",
       severity_sort = true,
-      border = "double",
+      border = vim.o.winborder,
       max_width = 70,
       max_height = 10,
       wrap = true,

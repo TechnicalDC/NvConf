@@ -93,13 +93,13 @@ return {
          enabled = true,
          window = {
             scrollbar = false,
-            border = "double",
+            border = vim.o.winborder,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
          }
       },
       completion = {
          menu = {
-            border = "double",
+            border = vim.o.winborder,
             scrollbar = true,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
             draw = {
@@ -122,7 +122,7 @@ return {
             auto_show = true,
             window = {
                scrollbar = true,
-               border = "double",
+               border = vim.o.winborder,
                winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
                direction_priority = {
                   menu_north = { 'e', 'w', 'n', 's' },

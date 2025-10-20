@@ -31,7 +31,7 @@ set.wrap           = false
 set.ignorecase     = true
 set.smartcase      = true
 set.clipboard      = "unnamedplus"
-set.winborder      = "double"
+set.winborder      = "rounded"
 set.fillchars:append({
    fold      = "─",
    foldopen  = "",

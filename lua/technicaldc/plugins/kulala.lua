@@ -13,7 +13,7 @@ return {
       ui = {
          display_mode = "float",
          win_opts = {
-            border = "double",
+            border = vim.o.winborder,
             title = " kulala - response ",
             title_pos = "center",
             -- split = "vertical",
