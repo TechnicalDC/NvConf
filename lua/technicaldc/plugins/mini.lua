@@ -451,7 +451,6 @@ return {
 
             vim.wo[args.data.win_id].number = true
             vim.wo[args.data.win_id].relativenumber = true
-            -- vim.wo[args.data.win_id].title_pos = "center"
             vim.wo[args.data.win_id].statuscolumn = "%s%=%{v:relnum ? v:relnum : v:lnum} "
 
             vim.api.nvim_win_set_config(args.data.win_id, config)
