@@ -8,6 +8,12 @@ return {
             transparency = true,
          },
          highlight_groups = {
+            -- StatusLine              = { bg   = "overlay" },
+            -- StatusLineNC            = { bg   = "none" },
+            -- StatusLineTerm          = { bg   = "none" },
+            -- StatusLineTermNC        = { bg   = "none" },
+            -- StatusLineFilename      = { bg   = "none" },
+            -- StatusLineFilenameSep   = { bg   = "none" },
             WinBar                  = { bg   = "none" },
             WinBarNC                = { bg   = "none" },
             BlinkCmpSource          = { bg   = "none" },
