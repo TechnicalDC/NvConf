@@ -8,8 +8,8 @@ return {
             transparency = true,
          },
          highlight_groups = {
-            -- StatusLine              = { bg   = "overlay" },
-            -- StatusLineNC            = { bg   = "none" },
+            -- StatusLine = { fg = "overlay", bg = "overlay", blend = 10 },
+            -- StatusLineNC = { fg = "subtle", bg = "surface" },
             -- StatusLineTerm          = { bg   = "none" },
             -- StatusLineTermNC        = { bg   = "none" },
             -- StatusLineFilename      = { bg   = "none" },
