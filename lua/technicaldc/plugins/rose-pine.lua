@@ -8,7 +8,7 @@ return {
             transparency = true,
          },
          highlight_groups = {
-            -- StatusLine = { fg = "overlay", bg = "overlay", blend = 10 },
+            StatusLine = { fg = "love", bg = "love", blend = 15 },
             -- StatusLineNC = { fg = "subtle", bg = "surface" },
             -- StatusLineTerm          = { bg   = "none" },
             -- StatusLineTermNC        = { bg   = "none" },

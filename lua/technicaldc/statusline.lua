@@ -38,7 +38,7 @@ local get_current_mode = function()
 	-- else
 	-- 	mode = string.format(' %s ', modes[current_mode][1])
 	-- end
-   return "[" .. mode .. "] "
+   return "[" .. mode .. "]"
 end
 
 local get_filename = function ()
@@ -59,14 +59,14 @@ local get_filename = function ()
    local tail = vim.fn.expand("%:t")
 
    if vim.bo.filetype == "help" then
-      return "[" .. tail .. "]"
+      return " " .. tail
    end
 
 	if config.statusline.show_cwd then
       filename = filename .. cwd
 	end
 
-   filename = "[" .. filename .. (head == "." and "" or head .. "/") .. tail .. "]"
+   filename = " " .. filename .. (head == "." and "" or head .. "/") .. tail
 
    return filename
 end
@@ -95,9 +95,7 @@ function _G.setup_statusline()
       is_modified(),
       " %<",
       "%=",
-      "%{get(b:,'gitsigns_status','')} ",
-      "%{get(b:,'gitsigns_head','')} ",
-      "%y",
+      "%Y",
       get_location(),
    }
 end
