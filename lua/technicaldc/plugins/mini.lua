@@ -4,74 +4,11 @@ return {
    config = function ()
       -- NOTE:
       -- IMPORTS {{{
-      local miniFiles     = require('mini.files')
       local hipatterns    = require('mini.hipatterns')
-      local pick          = require("mini.pick")
       local diff          = require("mini.diff")
       local extras        = require("mini.extra")
       local trailspace    = require('mini.trailspace')
-      local autocmd       = vim.api.nvim_create_autocmd
       local map           = vim.keymap.set
-      local headers       = require("technicaldc.header_ascii")
-      local show_dotfiles = true
-      local filter_show   = function(fs_entry) return true end
-      -- }}}
-
-      -- OPTS {{{
-      local opts    = { buffer = true }
-      local notify_opts = {
-         ERROR = { duration = 5000, hl_group = 'DiagnosticError'  },
-         WARN  = { duration = 5000, hl_group = 'DiagnosticWarn'   },
-         INFO  = { duration = 5000, hl_group = 'DiagnosticInfo'   },
-         DEBUG = { duration = 0,    hl_group = 'DiagnosticHint'   },
-         TRACE = { duration = 0,    hl_group = 'DiagnosticOk'     },
-         OFF   = { duration = 0,    hl_group = 'MiniNotifyNormal' },
-      }
-      -- }}}
-
-      -- FUNCTIONS {{{
-      local win_config = function()
-         local has_statusline = vim.o.laststatus > 0
-         local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
-         return {
-            title_pos = "center",
-            anchor = 'SE',
-            col = vim.o.columns,
-            row = vim.o.lines - pad
-         }
-      end
-
-      -- Centered on screen
-      local pick_win_config = function()
-         local height = math.floor(0.618 * vim.o.lines)
-         local width = math.floor(0.618 * vim.o.columns)
-         return {
-            anchor = 'NW', height = height, width = width,
-            row = math.floor(0.5 * (vim.o.lines - height)),
-            col = math.floor(0.5 * (vim.o.columns - width)),
-         }
-      end
-
-      local my_prefix = function(fs_entry)
-         if fs_entry.fs_type == 'directory' then
-            return ' ', 'MiniFilesDirectory'
-         end
-         return miniFiles.default_prefix(fs_entry)
-      end
-
-      local filter_hide = function(fs_entry)
-         return not vim.startswith(fs_entry.name, '.')
-      end
-
-      local toggle_dotfiles = function()
-         show_dotfiles = not show_dotfiles
-         local new_filter = show_dotfiles and filter_show or filter_hide
-         miniFiles.refresh({ content = { filter = new_filter } })
-      end
-
-      local set_mark = function(id, path, desc)
-         miniFiles.set_bookmark(id, path, { desc = desc })
-      end
       -- }}}
 
       diff.setup({
@@ -275,72 +212,9 @@ return {
          silent = false,
       })
 
-      miniFiles.setup({
-         -- Module mappings created only inside explorer.
-         -- Use `''` (empty string) to not create one.
-         mappings = {
-            close       = 'q',
-            go_in       = 'l',
-            go_in_plus  = '<CR>',
-            go_out      = 'h',
-            go_out_plus = 'H',
-            mark_goto   = "'",
-            mark_set    = 'm',
-            reset       = '<BS>',
-            reveal_cwd  = '@',
-            show_help   = 'g?',
-            synchronize = 's',
-            trim_left   = '<',
-            trim_right  = '>',
-         },
-         content = { prefix = my_prefix },
-         windows = {
-            -- Maximum number of windows to show side by side
-            max_number = 3,
-            -- Whether to show preview of file/directory under cursor
-            preview = true,
-            -- Width of focused window
-            width_focus = 30,
-            -- Width of non-focused window
-            width_nofocus = 30,
-            -- Width of preview window
-            width_preview = 50,
-         },
-      })
-
       extras.setup()
-      vim.ui.select = pick.ui_select
-
-      autocmd('User', {
-         pattern = 'MiniFilesBufferCreate',
-         callback = function(args)
-            local buf_id = args.data.buf_id
-            -- Tweak left-hand side of mapping to your liking
-            vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id })
-         end
-      })
-
-      autocmd('User', {
-         pattern = 'MiniFilesWindowUpdate',
-         callback = function(args)
-            local config = vim.api.nvim_win_get_config(args.data.win_id)
-
-            vim.wo[args.data.win_id].number = true
-            vim.wo[args.data.win_id].relativenumber = true
-            vim.wo[args.data.win_id].statuscolumn = "%s%=%{v:relnum ? v:relnum : v:lnum} "
-
-            vim.api.nvim_win_set_config(args.data.win_id, config)
-         end,
-      })
 
       map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
 
-      vim.keymap.set( "n", "<leader>of", function()
-         require("mini.files").open(vim.uv.cwd(), true)
-      end,{ desc = "Open mini.files (cwd)" })
-
-      vim.keymap.set("n", "<leader>oF", function()
-         require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-      end, {desc = "Open mini.files (Directory of Current File)" })
    end
 }
