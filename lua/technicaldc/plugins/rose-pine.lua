@@ -5,19 +5,24 @@ return {
    config = function()
       require("rose-pine").setup({
          styles = {
-            transparency = true,
+            transparency = false,
          },
          highlight_groups = {
-            StatusLine = { fg = "love", bg = "love", blend = 15 },
-            -- StatusLineNC = { fg = "subtle", bg = "surface" },
-            -- StatusLineTerm          = { bg   = "none" },
-            -- StatusLineTermNC        = { bg   = "none" },
-            -- StatusLineFilename      = { bg   = "none" },
-            -- StatusLineFilenameSep   = { bg   = "none" },
-            WinBar                  = { bg   = "none" },
-            WinBarNC                = { bg   = "none" },
-            BlinkCmpSource          = { bg   = "none" },
-            TelescopeSelection      = { link = "PmenuSel" },
+            -- StatusLine      = { fg   = "love", bg   = "love", blend = 15 },
+            -- StatusLineNC    = { fg   = "subtle", bg = "surface" },
+            -- WinBar          = { bg   = "none" },
+            -- WinBarNC        = { bg   = "none" },
+            TelescopeBorder = { fg = "highlight_high", bg = "none" },
+            TelescopeNormal = { bg = "none" },
+            TelescopePromptNormal = { bg = "base" },
+            TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+            TelescopeSelectionCaret = { fg = "rose", bg = "none" },
+            -- BlinkCmpSource  = { bg   = "none" },
+            TelescopeSelection = { link = "PmenuSel" },
+            NormalFloat        = { link = "Normal" },
+            FloatBorder        = { bg   = "none" },
+            FloatTitle         = { bg   = "none" },
+            WhichKeyBorder     = { link = "FloatBorder" },
          },
       })
    end

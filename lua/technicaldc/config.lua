@@ -9,7 +9,8 @@ return {
    statusline = {
       show_cwd = false,
       exclude_filetype = {
-         "ministarter"
+         "ministarter",
+         -- "dashboard"
       }
    },
    winbar = {
