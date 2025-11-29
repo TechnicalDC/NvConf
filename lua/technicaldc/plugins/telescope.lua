@@ -15,7 +15,7 @@ return {
       { "<leader>fH", function ()
          require("telescope.builtin").highlights()
       end, desc = "Find highlights" },
-      { "<leader>fo", function ()
+      { "<leader>fr", function ()
          require("telescope.builtin").oldfiles()
       end, desc = "Find recent files" },
       { "<leader>fb", function ()

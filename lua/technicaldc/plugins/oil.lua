@@ -1,8 +1,11 @@
 return {
    'stevearc/oil.nvim',
    opts = {},
-   dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
    lazy = false,
+   keys = {
+      { "<leader>fo", "<cmd>Oil --float --preview<cr>", desc = "Open Oil with preview" },
+   },
    config = function ()
       require("oil").setup({
          -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
@@ -137,12 +140,9 @@ return {
             win_options = {
                winblend = 0,
             },
-            -- optionally override the oil buffers window title with custom function: fun(winid: integer): string
             get_win_title = nil,
             -- preview_split: Split direction: "auto", "left", "right", "above", "below".
             preview_split = "auto",
-            -- This is the config that will be passed to nvim_open_win.
-            -- Change values here to customize the layout
             override = function(conf)
                return conf
             end,
