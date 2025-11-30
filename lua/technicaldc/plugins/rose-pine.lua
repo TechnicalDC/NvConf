@@ -17,7 +17,7 @@ return {
             TelescopePromptNormal = { bg = "base" },
             TelescopeResultsNormal = { fg = "subtle", bg = "none" },
             TelescopeSelectionCaret = { fg = "rose", bg = "none" },
-            -- BlinkCmpSource  = { bg   = "none" },
+            BlinkCmpSource  = { bg   = "none" },
             TelescopeSelection = { link = "PmenuSel" },
             NormalFloat        = { link = "Normal" },
             FloatBorder        = { bg   = "none" },
