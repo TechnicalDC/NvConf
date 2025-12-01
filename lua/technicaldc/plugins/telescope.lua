@@ -4,6 +4,7 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim'
    },
+   enabled = false,
    event = { "BufReadPre", "BufNewFile" },
    keys = {
       { "<leader>ff", function ()
