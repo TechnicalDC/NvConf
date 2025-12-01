@@ -11,6 +11,21 @@ return {
       { "<leader>fw", function() Snacks.picker.grep_word() end,  desc = "Find word under the cursor" },
       { "<leader>fW", function() Snacks.picker.grep() end,       desc = "Find word" },
       { "<leader>fs", function() Snacks.picker.spelling() end,   desc = "Fix spelling" },
+      { "<leader>od", function ()
+         Snacks.win({
+            file = "/home/dilip/Handy/data_dictionary.d",
+            width = 0.8,
+            height = 0.8,
+            border = "rounded",
+            wo = {
+               spell = false,
+               wrap = false,
+               signcolumn = "yes",
+               statuscolumn = " ",
+               conceallevel = 3,
+            },
+         })
+      end, desc = "Open data dictionary"}
    },
    opts = {
       -- your configuration comes here
@@ -38,7 +53,7 @@ return {
                height = 10,
                padding = 1,
             },
-            { section = "keys", gap = 1, padding = 1 },
+            { section = "keys", padding = 1 },
             { section = "startup" },
          },
       },
