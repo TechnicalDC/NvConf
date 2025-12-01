@@ -9,7 +9,6 @@ require("mason-lspconfig").setup({
       -- "pyright",
       "tinymist",
       "marksman",
-      "ts_ls",
       -- "jdtls",
    }
 })
