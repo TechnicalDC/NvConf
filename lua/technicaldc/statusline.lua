@@ -1,4 +1,5 @@
 local config = require("technicaldc.config")
+local hl = vim.api.nvim_set_hl
 local modes = {
     ['n']  = {'NORMAL',     'N'},
     ['no'] = {'N·OPERATOR', 'N·P'},
@@ -32,13 +33,8 @@ end
 
 local get_current_mode = function()
 	local current_mode = vim.api.nvim_get_mode().mode
-   local mode = string.format('%s', modes[current_mode][1])
-	-- if vim.o.columns <= 80 then
-	-- 	mode = string.format(' %s ', modes[current_mode][2])
-	-- else
-	-- 	mode = string.format(' %s ', modes[current_mode][1])
-	-- end
-   return "[" .. mode .. "]"
+   local mode = string.format('%s', modes[current_mode][2])
+   return "%#StatuslineMode# " .. mode .. " %#StatusLine#"
 end
 
 local get_filename = function ()
@@ -85,7 +81,7 @@ local get_location = function ()
    if excludes() then
       return ""
    end
-   return " [%-3.(%l/%L]"
+   return " %-3.(%l/%L"
 end
 
 function _G.setup_statusline()
@@ -97,6 +93,7 @@ function _G.setup_statusline()
       "%=",
       "%Y",
       get_location(),
+      "▐"
    }
 end
 

@@ -8,7 +8,8 @@ return {
             transparency = false,
          },
          highlight_groups = {
-            -- StatusLine      = { fg   = "love", bg   = "love", blend = 15 },
+            StatusLine      = { fg   = "love", bg   = "love", blend = 15 },
+            StatusLineMode      = { fg   = "base", bg   = "love" },
             -- StatusLineNC    = { fg   = "subtle", bg = "surface" },
             -- WinBar          = { bg   = "none" },
             -- WinBarNC        = { bg   = "none" },
