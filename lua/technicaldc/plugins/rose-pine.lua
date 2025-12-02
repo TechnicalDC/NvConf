@@ -21,6 +21,7 @@ return {
             FloatBorder             = { bg   = "none" },
             FloatTitle              = { bg   = "none" },
             WhichKeyBorder          = { link = "FloatBorder" },
+            SnacksDashboardTitle    = { fg = "rose" }
          },
       })
    end
