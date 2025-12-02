@@ -1,3 +1,5 @@
+local headers = require("technicaldc.header_ascii")
+
 return {
    "folke/snacks.nvim",
    priority = 1000,
@@ -33,6 +35,7 @@ return {
          enabled = true,
          preset = {
             pick = "telescope.nvim",
+            header = headers.neovim,
             keys = {
                { icon = " ", key = "f", desc = "Find File", action = "<leader>ff" },
                { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
@@ -44,21 +47,16 @@ return {
             }
          },
          sections = {
+            -- {
+            --    section = "terminal",
+            --    cmd = "chafa ~/.config/nvim/assets/rose-pine-2.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+            --    height = 10,
+            --    padding = 1,
+            -- },
             {
-               section = "terminal",
-               cmd = "chafa ~/.config/nvim/assets/rose-pine-2.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
-               height = 10,
-               padding = 1,
-            },
-            {
-               pane = 2,
+               -- pane = 2,
+               { section = "header" },
                { section = "keys", padding = 1 },
-               {
-                  section = "terminal",
-                  cmd = "task",
-                  height = 5,
-                  padding = 1,
-               },
                { section = "startup" },
             }
          },
