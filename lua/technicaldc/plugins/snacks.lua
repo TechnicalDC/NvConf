@@ -46,12 +46,21 @@ return {
          sections = {
             {
                section = "terminal",
-               cmd = "chafa ~/.config/nvim/assets/rose-pine.jpg --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+               cmd = "chafa ~/.config/nvim/assets/rose-pine-2.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
                height = 10,
                padding = 1,
             },
-            { section = "keys", padding = 1 },
-            { section = "startup" },
+            {
+               pane = 2,
+               { section = "keys", padding = 1 },
+               {
+                  section = "terminal",
+                  cmd = "task",
+                  height = 5,
+                  padding = 1,
+               },
+               { section = "startup" },
+            }
          },
       },
       input = { enabled = true },
