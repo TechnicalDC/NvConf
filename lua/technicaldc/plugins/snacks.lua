@@ -1,4 +1,6 @@
 local headers = require("technicaldc.header_ascii")
+-- local ltw = require("little-taskwarrior")
+-- ltw.setup({ })
 
 return {
    "folke/snacks.nvim",
@@ -56,8 +58,13 @@ return {
             {
                -- pane = 2,
                { section = "header" },
-               { section = "keys", padding = 1 },
-               { section = "startup" },
+               { icon = "", title = "Shortcuts" },
+               { section = "keys", padding = 1, indent = 2 },
+               -- {
+               --    text = ltw.get_snacks_dashboard_tasks(56, "dir", "special"),
+               --    pane = 2,
+               --    indent = 2,
+               -- },
             }
          },
       },
