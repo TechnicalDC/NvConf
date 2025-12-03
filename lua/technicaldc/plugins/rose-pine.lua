@@ -10,6 +10,7 @@ return {
          highlight_groups = {
             StatusLine              = { fg   = "love", bg = "love", blend = 15 },
             StatusLineMode          = { fg   = "base", bg = "love" },
+            StatusLineTerm          = { fg   = "love", bg = "love", blend = 15 },
             TelescopeBorder         = { fg   = "highlight_high", bg = "none" },
             TelescopeNormal         = { bg   = "none" },
             TelescopePromptNormal   = { bg   = "base" },

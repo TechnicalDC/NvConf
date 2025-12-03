@@ -56,7 +56,7 @@ return {
                      pane = 1,
                   },
                   {
-                     text = ltw.get_snacks_dashboard_tasks(56, "dir", "special"),
+                     text = ltw.get_snacks_dashboard_tasks(56, "dir", "error"),
                      pane = 1,
                      indent = 2,
                   },
