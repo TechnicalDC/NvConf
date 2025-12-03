@@ -43,22 +43,20 @@ return {
                keys = {
                   { icon = " ", key = "f", desc = "Find File", action = "<leader>ff" },
                   { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-                  { icon = " ", key = "g", desc = "Find Text", action = "<leader>fW" },
-                  { icon = " ", key = "r", desc = "Recent Files", action = "<leader>fr" },
                   { icon = " ", key = "b", desc = "Browse Files", action = "<leader>fo" },
-                  { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
                   { icon = " ", key = "q", desc = "Quit", action = ":qa" },
                }
             },
             sections = {
                {
                   { section = "header", padding = 1 },
-                  { pane = 2, title = "Shortcuts", padding = 1 },
-                  { pane = 2, section = "keys", padding = 1, indent = 2 },
+                  { pane = 1, title = "Shortcuts", icon = " " },
+                  { pane = 1, section = "keys", padding = 1, indent = 2 },
+                  { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
                   {
                      title = "Little TaskWarrior",
+                     icon = " ",
                      pane = 2,
-                     padding = 1
                   },
                   {
                      text = ltw.get_snacks_dashboard_tasks(56, "dir", "special"),
