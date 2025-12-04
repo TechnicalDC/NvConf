@@ -8,13 +8,13 @@ return {
    keys = {
       { "<leader>ff", function() Snacks.picker.files() end,      desc = "Find files" },
       { "<leader>fh", function() Snacks.picker.help() end,       desc = "Find help files" },
-      { "<leader>fH", function() Snacks.picker.highlights() end, desc = "Find highlights" },
+      { "<leader>fH", function() Snacks.picker.highlights({ layout = "select" }) end, desc = "Find highlights" },
       { "<leader>fr", function() Snacks.picker.recent() end,     desc = "Find recent files" },
       { "<leader>fb", function() Snacks.picker.buffers() end,    desc = "Find buffers" },
       { "<leader>fw", function() Snacks.picker.grep_word() end,  desc = "Find word under the cursor" },
       { "<leader>fW", function() Snacks.picker.grep() end,       desc = "Find word" },
       { "<leader>fm", function() Snacks.picker.marks() end,      desc = "Find Marks" },
-      { "<leader>fs", function() Snacks.picker.spelling() end,   desc = "Fix spelling" },
+      { "<leader>fs", function() Snacks.picker.spelling({ layout = "select" }) end,   desc = "Fix spelling" },
       { "<leader>od", function ()
          Snacks.win({
             file = "/home/dilip/Handy/data_dictionary.d",
