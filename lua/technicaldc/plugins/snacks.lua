@@ -13,6 +13,7 @@ return {
       { "<leader>fb", function() Snacks.picker.buffers() end,    desc = "Find buffers" },
       { "<leader>fw", function() Snacks.picker.grep_word() end,  desc = "Find word under the cursor" },
       { "<leader>fW", function() Snacks.picker.grep() end,       desc = "Find word" },
+      { "<leader>fm", function() Snacks.picker.marks() end,      desc = "Find Marks" },
       { "<leader>fs", function() Snacks.picker.spelling() end,   desc = "Fix spelling" },
       { "<leader>od", function ()
          Snacks.win({

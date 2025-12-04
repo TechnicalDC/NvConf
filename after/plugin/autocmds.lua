@@ -1,12 +1,6 @@
 ---@diagnostic disable: undefined-global
 local autocmd = vim.api.nvim_create_autocmd
 
--- autocmd("ColorScheme", {
--- 	callback = function ()
--- 		require("technicaldc.highlights")
--- 	end
--- })
-
 -- Vertically center documents when in insert mode
 autocmd(
 	{"InsertEnter"},
@@ -22,11 +16,44 @@ autocmd('TextYankPost', {
   end,
 })
 
+-- restore cursor to file position in previous editing session
+vim.api.nvim_create_autocmd("BufReadPost", {
+	callback = function(args)
+		local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+		local line_count = vim.api.nvim_buf_line_count(args.buf)
+		if mark[1] > 0 and mark[1] <= line_count then
+			vim.api.nvim_win_set_cursor(0, mark)
+			-- defer centering slightly so it's applied after render
+			vim.schedule(function()
+				vim.cmd("normal! zz")
+			end)
+		end
+	end,
+})
+
 -- Auto resize the split on window resize
 autocmd("VimResized", {
    callback = function ()
       vim.cmd("tabdo wincmd =")
    end
+})
+
+-- show cursorline only in active window enable
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+	group = vim.api.nvim_create_augroup("active_cursorline", { clear = true }),
+	callback = function()
+      if vim.bo.filetype ~= "snacks_picker_input" then
+   		vim.opt_local.cursorline = true
+      end
+	end,
+})
+
+-- show cursorline only in active window disable
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+	group = "active_cursorline",
+	callback = function()
+		vim.opt_local.cursorline = false
+	end,
 })
 
 -- Create directories when saving files
