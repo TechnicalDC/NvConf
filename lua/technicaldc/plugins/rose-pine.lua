@@ -22,7 +22,16 @@ return {
             FloatBorder             = { bg   = "none" },
             FloatTitle              = { bg   = "none" },
             WhichKeyBorder          = { link = "FloatBorder" },
-            SnacksDashboardTitle    = { fg = "rose" }
+            SnacksDashboardTitle    = { fg = "rose" },
+            NoiceCmdline            = { link = "StatusLine" },
+            NoiceCmdlineIcon    = { link = "StatusLineMode" },
+            NoiceCmdlineIconCmdline    = { link = "StatusLineMode" },
+            NoiceCmdlineIconCalculator = { link = "StatusLineMode" },
+            NoiceCmdlineIconFilter     = { link = "StatusLineMode" },
+            NoiceCmdlineIconLua        = { link = "StatusLineMode" },
+            NoiceCmdlineIconInput      = { link = "StatusLineMode" },
+            NoiceCmdlineIconHelp       = { link = "StatusLineMode" },
+            NoiceCmdlineIconSearch     = { link = "StatusLineMode" },
          },
       })
    end
