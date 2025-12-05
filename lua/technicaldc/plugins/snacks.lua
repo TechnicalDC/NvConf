@@ -71,7 +71,7 @@ return {
                      section = "recent_files",
                      indent = 2,
                      padding = 1,
-                     limit = 9
+                     limit = 5
                   },
                }
             },
