@@ -1,5 +1,6 @@
 return {
    'stevearc/oil.nvim',
+   enabled = false,
    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
    keys = {
       { "<leader>fo", "<cmd>Oil --float --preview<cr>", desc = "Open Oil with preview" },
