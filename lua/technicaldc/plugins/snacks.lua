@@ -45,7 +45,7 @@ return {
                keys = {
                   { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
                   { icon = " ", key = "f", desc = "Find File", action = "<leader>ff" },
-                  { icon = " ", key = "b", desc = "Browse Files", action = "<leader>fo" },
+                  { icon = " ", key = "b", desc = "Browse Files", action = "<leader>of" },
                   { icon = " ", key = "s", desc = "Restore Session", section = "session" },
                   { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
                   { icon = " ", key = "q", desc = "Quit", action = ":qa" },

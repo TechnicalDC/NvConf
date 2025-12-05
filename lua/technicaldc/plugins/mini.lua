@@ -57,6 +57,7 @@ return {
       require('mini.align').setup()
       require('mini.ai').setup()
       require('mini.git').setup()
+      require('mini.sessions').setup()
       -- trailspace.setup()
       require('mini.bracketed').setup({
          -- First-level elements are tables describing behavior of a target:
