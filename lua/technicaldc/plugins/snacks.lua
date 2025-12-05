@@ -43,9 +43,10 @@ return {
                pick = "telescope.nvim",
                header = headers.nvchad,
                keys = {
-                  { icon = " ", key = "f", desc = "Find File", action = "<leader>ff" },
                   { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+                  { icon = " ", key = "f", desc = "Find File", action = "<leader>ff" },
                   { icon = " ", key = "b", desc = "Browse Files", action = "<leader>fo" },
+                  { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
                   { icon = " ", key = "q", desc = "Quit", action = ":qa" },
                }
             },

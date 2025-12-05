@@ -4,20 +4,43 @@ return {
    config = function ()
       -- NOTE:
       -- IMPORTS {{{
+      local miniFiles     = require('mini.files')
       local hipatterns    = require('mini.hipatterns')
       local diff          = require("mini.diff")
       local extras        = require("mini.extra")
       local trailspace    = require('mini.trailspace')
+      local autocmd       = vim.api.nvim_create_autocmd
       local map           = vim.keymap.set
+      local show_dotfiles = true
+      local filter_show   = function(fs_entry) return true end
+      -- }}}
+
+      -- FUNCTIONS {{{
+      -- local my_prefix = function(fs_entry)
+      --    if fs_entry.fs_type == 'directory' then
+      --       return ' ', 'MiniFilesDirectory'
+      --    end
+      --    return miniFiles.default_prefix(fs_entry)
+      -- end
+
+      local filter_hide = function(fs_entry)
+         return not vim.startswith(fs_entry.name, '.')
+      end
+
+      local toggle_dotfiles = function()
+         show_dotfiles = not show_dotfiles
+         local new_filter = show_dotfiles and filter_show or filter_hide
+         miniFiles.refresh({ content = { filter = new_filter } })
+      end
       -- }}}
 
       diff.setup({
          view = {
             style = "sign",
             signs = {
-               add    = '┃',
-               change = '┃',
-               delete = '┃',
+               add    = '▌',
+               change = '▌',
+               delete = '▌',
             }
          }
       })
@@ -33,9 +56,8 @@ return {
       })
       require('mini.align').setup()
       require('mini.ai').setup()
-      require('mini.clue').setup()
       require('mini.git').setup()
-      -- trailspace.setup()
+      trailspace.setup()
       require('mini.bracketed').setup({
          -- First-level elements are tables describing behavior of a target:
          --
@@ -211,9 +233,71 @@ return {
          silent = false,
       })
 
+      -- miniFiles.setup({
+      --    -- Module mappings created only inside explorer.
+      --    -- Use `''` (empty string) to not create one.
+      --    mappings = {
+      --       close       = 'q',
+      --       go_in       = 'l',
+      --       go_in_plus  = '<CR>',
+      --       go_out      = 'h',
+      --       go_out_plus = 'H',
+      --       mark_goto   = "'",
+      --       mark_set    = 'm',
+      --       reset       = '<BS>',
+      --       reveal_cwd  = '@',
+      --       show_help   = 'g?',
+      --       synchronize = 's',
+      --       trim_left   = '<',
+      --       trim_right  = '>',
+      --    },
+      --    content = { prefix = my_prefix },
+      --    windows = {
+      --       -- Maximum number of windows to show side by side
+      --       max_number = 3,
+      --       -- Whether to show preview of file/directory under cursor
+      --       preview = true,
+      --       -- Width of focused window
+      --       width_focus = 30,
+      --       -- Width of non-focused window
+      --       width_nofocus = 30,
+      --       -- Width of preview window
+      --       width_preview = 50,
+      --    },
+      -- })
+
       extras.setup()
+
+      autocmd('User', {
+         pattern = 'MiniFilesBufferCreate',
+         callback = function(args)
+            local buf_id = args.data.buf_id
+            -- Tweak left-hand side of mapping to your liking
+            vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id })
+         end
+      })
+
+      autocmd('User', {
+         pattern = 'MiniFilesWindowUpdate',
+         callback = function(args)
+            local config = vim.api.nvim_win_get_config(args.data.win_id)
+
+            vim.wo[args.data.win_id].number = true
+            vim.wo[args.data.win_id].relativenumber = true
+            vim.wo[args.data.win_id].statuscolumn = "%s%=%{v:relnum ? v:relnum : v:lnum} "
+
+            vim.api.nvim_win_set_config(args.data.win_id, config)
+         end,
+      })
 
       map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
 
+      -- vim.keymap.set( "n", "<leader>of", function()
+      --    require("mini.files").open(vim.uv.cwd(), true)
+      -- end,{ desc = "Open mini.files (cwd)" })
+
+      -- vim.keymap.set("n", "<leader>oF", function()
+      --    require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+      -- end, {desc = "Open mini.files (Directory of Current File)" })
    end
 }
