@@ -57,7 +57,7 @@ return {
       require('mini.align').setup()
       require('mini.ai').setup()
       require('mini.git').setup()
-      trailspace.setup()
+      -- trailspace.setup()
       require('mini.bracketed').setup({
          -- First-level elements are tables describing behavior of a target:
          --
@@ -290,7 +290,7 @@ return {
       --    end,
       -- })
 
-      map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
+      -- map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
 
       -- vim.keymap.set( "n", "<leader>of", function()
       --    require("mini.files").open(vim.uv.cwd(), true)
