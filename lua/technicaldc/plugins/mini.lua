@@ -268,27 +268,27 @@ return {
 
       extras.setup()
 
-      autocmd('User', {
-         pattern = 'MiniFilesBufferCreate',
-         callback = function(args)
-            local buf_id = args.data.buf_id
-            -- Tweak left-hand side of mapping to your liking
-            vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id })
-         end
-      })
+      -- autocmd('User', {
+      --    pattern = 'MiniFilesBufferCreate',
+      --    callback = function(args)
+      --       local buf_id = args.data.buf_id
+      --       -- Tweak left-hand side of mapping to your liking
+      --       vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = buf_id })
+      --    end
+      -- })
 
-      autocmd('User', {
-         pattern = 'MiniFilesWindowUpdate',
-         callback = function(args)
-            local config = vim.api.nvim_win_get_config(args.data.win_id)
-
-            vim.wo[args.data.win_id].number = true
-            vim.wo[args.data.win_id].relativenumber = true
-            vim.wo[args.data.win_id].statuscolumn = "%s%=%{v:relnum ? v:relnum : v:lnum} "
-
-            vim.api.nvim_win_set_config(args.data.win_id, config)
-         end,
-      })
+      -- autocmd('User', {
+      --    pattern = 'MiniFilesWindowUpdate',
+      --    callback = function(args)
+      --       local config = vim.api.nvim_win_get_config(args.data.win_id)
+      --
+      --       vim.wo[args.data.win_id].number = true
+      --       vim.wo[args.data.win_id].relativenumber = true
+      --       vim.wo[args.data.win_id].statuscolumn = "%s%=%{v:relnum ? v:relnum : v:lnum} "
+      --
+      --       vim.api.nvim_win_set_config(args.data.win_id, config)
+      --    end,
+      -- })
 
       map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
 
