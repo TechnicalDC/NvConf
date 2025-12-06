@@ -83,6 +83,12 @@ return {
          notifier = { enabled = true },
          picker = {
             enabled = true,
+            icons = {
+               ui = {
+                  selected   = "󰱒 ",
+                  unselected = "󰄱 ",
+               }
+            },
             layout = {
                cycle = true,
                preset = function()
@@ -125,7 +131,7 @@ return {
                      backdrop = false,
                      row = -1,
                      width = 0,
-                     height = 0.4,
+                     height = 0.3,
                      border = "top",
                      title = " {title} {live} {flags}",
                      title_pos = "left",

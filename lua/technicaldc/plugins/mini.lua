@@ -296,5 +296,17 @@ return {
       -- })
 
       -- map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
+
+      -- Session
+      map("n", "<leader>ss", "<cmd>mksession!<cr>", { desc = "Save session (local)" } )
+      map("n", "<leader>so", "<cmd>lua MiniSessions.select()<cr>", { desc = "Open Session" } )
+      map("n", "<leader>sS", function ()
+         local session_dir = vim.fn.stdpath("data") .. "/session/"
+         vim.ui.input({ prompt = 'Session name' }, function(session_name)
+            if vim.fn.filereadable(session_dir .. session_name) == 0 then
+               vim.cmd("mksession! " .. session_dir .. session_name)
+            end
+         end)
+      end, { desc = "Save session (global)" } )
    end
 }

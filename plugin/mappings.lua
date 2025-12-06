@@ -17,7 +17,7 @@ map("x",  "<leader>p", [["_dP]], { desc = "Paste Ultra Pro Max" } )
 
 map({ "n", "v" }, "<leader>n",     ":norm ",                            { desc = "Run normal commands" } )
 map("n", "<leader>Y",     "maggVGy`a",                                  { desc = "Copy entire content" } )
-map("n", "<leader>s",     ":setlocal spell!<CR>",                       { desc = "Toggle spell checker" } )
+map("n", "<leader>st",     ":setlocal spell!<CR>",                       { desc = "Toggle spell checker" } )
 map("n", "Y",             "y$",                                         { desc = "Copy text till end of line" } )
 map("n", "<BS>",          "^",                                          { desc = "Move to first non-blank character" } )
 map("n", "<leader><Esc>", ":lua vim.o.hlsearch = false<CR>",            { desc = "Disable incremental search highlighting" } )
@@ -29,6 +29,7 @@ map("n", "<A-m>",         "<C-w>|",                                     { desc =
 map("n", "<leader>dt",    "<cmd>diffthis<CR>",                          { desc = "Toggle diff for current buffer" } )
 map("n", "<leader>th",    "<C-w>t<C-w>K",                               { desc = "Toggle vertical splits to horizontal" } )
 map("n", "<leader>tv",    "<C-w>t<C-w>H",                               { desc = "Toggle horizontal splits to vertical" } )
+
 
 -- Quickfix
 map("n",  "<leader>qo", "<cmd>copen<cr>",  { desc = "Open quickfix list" } )
