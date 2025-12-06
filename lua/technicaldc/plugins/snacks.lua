@@ -6,16 +6,16 @@ return {
    priority = 1000,
    lazy = false,
    keys = {
-      { "<leader>ol", function() Snacks.lazygit.open() end,      desc = "Open lazygit" },
-      { "<leader>ff", function() Snacks.picker.files() end,      desc = "Find files" },
-      { "<leader>fh", function() Snacks.picker.help() end,       desc = "Find help files" },
-      { "<leader>fH", function() Snacks.picker.highlights({ layout = "select" }) end, desc = "Find highlights" },
-      { "<leader>fr", function() Snacks.picker.recent() end,     desc = "Find recent files" },
-      { "<leader>fb", function() Snacks.picker.buffers() end,    desc = "Find buffers" },
-      { "<leader>fw", function() Snacks.picker.grep_word() end,  desc = "Find word under the cursor" },
-      { "<leader>fW", function() Snacks.picker.grep() end,       desc = "Find word" },
-      { "<leader>fm", function() Snacks.picker.marks() end,      desc = "Find Marks" },
-      { "<leader>fs", function() Snacks.picker.spelling({ layout = "select" }) end,   desc = "Fix spelling" },
+      { "<leader>ol", function() Snacks.lazygit.open() end,                        desc = "Open lazygit" },
+      { "<leader>ff", function() Snacks.picker.files() end,                        desc = "Find files" },
+      { "<leader>fh", function() Snacks.picker.help() end,                         desc = "Find help files" },
+      { "<leader>fH", function() Snacks.picker.highlights({ layout = "ivy_no_preview" }) end, desc = "Find highlights" },
+      { "<leader>fr", function() Snacks.picker.recent() end,                       desc = "Find recent files" },
+      { "<leader>fb", function() Snacks.picker.buffers() end,                      desc = "Find buffers" },
+      { "<leader>fw", function() Snacks.picker.grep_word() end,                    desc = "Find word under the cursor" },
+      { "<leader>fW", function() Snacks.picker.grep() end,                         desc = "Find word" },
+      { "<leader>fm", function() Snacks.picker.marks() end,                        desc = "Find Marks" },
+      { "<leader>fs", function() Snacks.picker.spelling({ layout = "ivy_no_preview" }) end,   desc = "Fix spelling" },
       { "<leader>od", function ()
          Snacks.win({
             file = "/home/dilip/Handy/data_dictionary.d",
@@ -85,8 +85,9 @@ return {
          },
          picker = {
             enabled = true,
+            layout = "ivy_preview",
             layouts = {
-               custom_ivy = {
+               ivy_preview = {
                   reverse = true,
                   layout = {
                      box = "vertical",
@@ -100,30 +101,31 @@ return {
                      {
                         box = "horizontal",
                         { win = "list", border = "none" },
+                        { win = "preview", title = "{preview}", width = 0.5, border = "rounded" },
                      },
                      { win = "input", height = 1, border = "none" },
                   },
                },
-               custom_ivy_split = {
-                  preview = "main",
+               ivy_no_preview = {
                   reverse = true,
+                  hidden = { "preview" },
                   layout = {
                      box = "vertical",
                      backdrop = false,
+                     row = -1,
                      width = 0,
                      height = 0.4,
-                     position = "bottom",
                      border = "top",
                      title = " {title} {live} {flags}",
                      title_pos = "left",
                      {
                         box = "horizontal",
                         { win = "list", border = "none" },
-                        { win = "preview", title = "{preview}", width = 0.6, border = "left" },
+                        { win = "preview", title = "{preview}", width = 0.5, border = "left" },
                      },
                      { win = "input", height = 1, border = "none" },
                   },
-               }
+               },
             }
          },
          quickfile = { enabled = true },
