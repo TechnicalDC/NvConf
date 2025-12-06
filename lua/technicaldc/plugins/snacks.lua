@@ -75,6 +75,7 @@ return {
                      padding = 1,
                      limit = 5
                   },
+                  { pane = 2, section = "startup", },
                }
             },
          },

@@ -1,6 +1,12 @@
 return {
    "echasnovski/mini.nvim",
    version = '*',
+   -- event = { "BufReadPre", "BufNewFile" },
+   lazy = false,
+   keys = {
+      { "<leader>of", function() require("mini.files").open(vim.uv.cwd(), true) end, desc = "Open mini.files (cwd)" },
+      { "<leader>oF", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open mini.files (Directory of Current File)" },
+   },
    config = function ()
       -- NOTE:
       -- IMPORTS {{{
@@ -8,28 +14,20 @@ return {
       local hipatterns    = require('mini.hipatterns')
       local diff          = require("mini.diff")
       local extras        = require("mini.extra")
-      local trailspace    = require('mini.trailspace')
+      -- local trailspace    = require('mini.trailspace')
       local autocmd       = vim.api.nvim_create_autocmd
       local map           = vim.keymap.set
       local show_dotfiles = true
-      local filter_show   = function(fs_entry) return true end
       -- }}}
 
       -- FUNCTIONS {{{
-      local my_prefix = function(fs_entry)
-         if fs_entry.fs_type == 'directory' then
-            return ' ', 'MiniFilesDirectory'
-         end
-         return miniFiles.default_prefix(fs_entry)
-      end
-
       local filter_hide = function(fs_entry)
          return not vim.startswith(fs_entry.name, '.')
       end
 
       local toggle_dotfiles = function()
          show_dotfiles = not show_dotfiles
-         local new_filter = show_dotfiles and filter_show or filter_hide
+         local new_filter = show_dotfiles and true or filter_hide
          miniFiles.refresh({ content = { filter = new_filter } })
       end
       -- }}}
@@ -252,7 +250,6 @@ return {
             trim_left   = '<',
             trim_right  = '>',
          },
-         content = { prefix = my_prefix },
          windows = {
             -- Maximum number of windows to show side by side
             max_number = 3,
@@ -291,14 +288,13 @@ return {
          end,
       })
 
+      -- autocmd('FileType', {
+      --    pattern = "snacks_dashboard",
+      --    callback = function(args)
+      --       vim.b[args.buf].minitrailspace_disable = true
+      --    end
+      -- })
+
       -- map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
-
-      vim.keymap.set( "n", "<leader>of", function()
-         require("mini.files").open(vim.uv.cwd(), true)
-      end,{ desc = "Open mini.files (cwd)" })
-
-      vim.keymap.set("n", "<leader>oF", function()
-         require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-      end, {desc = "Open mini.files (Directory of Current File)" })
    end
 }
