@@ -6,15 +6,15 @@ return {
    priority = 1000,
    lazy = false,
    keys = {
-      { "<leader>ol", function() Snacks.lazygit.open() end,                        desc = "Open lazygit" },
-      { "<leader>ff", function() Snacks.picker.files() end,                        desc = "Find files" },
-      { "<leader>fh", function() Snacks.picker.help() end,                         desc = "Find help files" },
+      { "<leader>ol", function() Snacks.lazygit.open() end,                                   desc = "Open lazygit" },
+      { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find files" },
+      { "<leader>fh", function() Snacks.picker.help({ layout = "ivy_no_preview" }) end,       desc = "Find help files" },
       { "<leader>fH", function() Snacks.picker.highlights({ layout = "ivy_no_preview" }) end, desc = "Find highlights" },
-      { "<leader>fr", function() Snacks.picker.recent() end,                       desc = "Find recent files" },
-      { "<leader>fb", function() Snacks.picker.buffers() end,                      desc = "Find buffers" },
-      { "<leader>fw", function() Snacks.picker.grep_word() end,                    desc = "Find word under the cursor" },
-      { "<leader>fW", function() Snacks.picker.grep() end,                         desc = "Find word" },
-      { "<leader>fm", function() Snacks.picker.marks() end,                        desc = "Find Marks" },
+      { "<leader>fr", function() Snacks.picker.recent() end,                                  desc = "Find recent files" },
+      { "<leader>fb", function() Snacks.picker.buffers({ layout = "ivy_no_preview" }) end,    desc = "Find buffers" },
+      { "<leader>fw", function() Snacks.picker.grep_word() end,                               desc = "Find word under the cursor" },
+      { "<leader>fW", function() Snacks.picker.grep() end,                                    desc = "Find word" },
+      { "<leader>fm", function() Snacks.picker.marks() end,                                   desc = "Find Marks" },
       { "<leader>fs", function() Snacks.picker.spelling({ layout = "ivy_no_preview" }) end,   desc = "Fix spelling" },
       { "<leader>od", function ()
          Snacks.win({
