@@ -46,7 +46,7 @@ return {
                   { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
                   { icon = " ", key = "f", desc = "Find File", action = "<leader>ff" },
                   { icon = " ", key = "b", desc = "Browse Files", action = "<leader>of" },
-                  { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+                  { icon = " ", key = "s", desc = "Restore Session", action = ":lua MiniSessions.select()" },
                   { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
                   { icon = " ", key = "q", desc = "Quit", action = ":qa" },
                }
@@ -83,7 +83,49 @@ return {
             enabled = true,
             style = "fancy",
          },
-         picker = { enabled = true },
+         picker = {
+            enabled = true,
+            layouts = {
+               custom_ivy = {
+                  reverse = true,
+                  layout = {
+                     box = "vertical",
+                     backdrop = false,
+                     row = -1,
+                     width = 0,
+                     height = 0.4,
+                     border = "top",
+                     title = " {title} {live} {flags}",
+                     title_pos = "left",
+                     {
+                        box = "horizontal",
+                        { win = "list", border = "none" },
+                     },
+                     { win = "input", height = 1, border = "none" },
+                  },
+               },
+               custom_ivy_split = {
+                  preview = "main",
+                  reverse = true,
+                  layout = {
+                     box = "vertical",
+                     backdrop = false,
+                     width = 0,
+                     height = 0.4,
+                     position = "bottom",
+                     border = "top",
+                     title = " {title} {live} {flags}",
+                     title_pos = "left",
+                     {
+                        box = "horizontal",
+                        { win = "list", border = "none" },
+                        { win = "preview", title = "{preview}", width = 0.6, border = "left" },
+                     },
+                     { win = "input", height = 1, border = "none" },
+                  },
+               }
+            }
+         },
          quickfile = { enabled = true },
          scroll = { enabled = true },
          statuscolumn = { enabled = true },
