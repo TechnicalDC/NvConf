@@ -86,6 +86,13 @@ return {
          picker = {
             enabled = true,
             layout = "ivy_preview",
+            sources = {
+               select = {
+                  layout = {
+                     preset = "ivy_no_preview",
+                  },
+               },
+            },
             layouts = {
                ivy_preview = {
                   reverse = true,
