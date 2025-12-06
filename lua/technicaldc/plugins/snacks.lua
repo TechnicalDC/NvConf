@@ -79,14 +79,17 @@ return {
             },
          },
          input = { enabled = true },
-         notifier = {
-            enabled = true,
-            style = "fancy",
-         },
+         notifier = { enabled = true },
          picker = {
             enabled = true,
-            layout = "ivy_preview",
+            layout = {
+               cycle = true,
+               preset = function()
+                  return vim.o.columns >= 120 and "ivy_preview" or "ivy_no_preview"
+               end,
+            },
             sources = {
+               files = { exclude = { "*.png", "*.jpg", "*.jpeg" } },
                select = {
                   layout = {
                      preset = "ivy_no_preview",
