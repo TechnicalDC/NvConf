@@ -4,8 +4,23 @@ return {
    -- event = { "BufReadPre", "BufNewFile" },
    lazy = false,
    keys = {
+      -- MiniFiles
       { "<leader>of", function() require("mini.files").open(vim.uv.cwd(), true) end, desc = "Open mini.files (cwd)" },
       { "<leader>oF", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open mini.files (Directory of Current File)" },
+      -- MiniSessions
+      { "<leader>ss", "<cmd>mksession!<cr>", desc = "Create session (local)" },
+      { "<leader>so", "<cmd>lua MiniSessions.select()<cr>", desc = "Open session" },
+      { "<leader>sw", "<cmd>lua MiniSessions.write()<cr>", desc = "Write session" },
+      { "<leader>sS", function ()
+         local session_dir = vim.fn.stdpath("data") .. "/session/"
+         vim.ui.input({ prompt = 'Session name' }, function(session_name)
+            if vim.fn.filereadable(session_dir .. session_name) == 0 then
+               vim.cmd("mksession! " .. session_dir .. session_name)
+            end
+         end)
+      end, desc = "Create session (global)" },
+
+      -- { "<leader>rw", "<cmd> lua MiniTrailspace.trim()<cr>" desc = "Remove whitespaces" },
    },
    config = function ()
       -- NOTE:
@@ -16,7 +31,6 @@ return {
       local extras        = require("mini.extra")
       -- local trailspace    = require('mini.trailspace')
       local autocmd       = vim.api.nvim_create_autocmd
-      local map           = vim.keymap.set
       local show_dotfiles = true
       -- }}}
 
@@ -56,7 +70,11 @@ return {
       require('mini.ai').setup()
       require('mini.git').setup()
       require('mini.sessions').setup()
-      -- trailspace.setup()
+      -- trailspace.setup({
+         -- Highlight only in normal buffers (ones with empty 'buftype'). This is
+         -- useful to not show trailing whitespace where it usually doesn't matter.
+         -- only_in_normal_buffers = true,
+      -- })
       require('mini.bracketed').setup({
          -- First-level elements are tables describing behavior of a target:
          --
@@ -294,19 +312,5 @@ return {
       --       vim.b[args.buf].minitrailspace_disable = true
       --    end
       -- })
-
-      -- map("n", "<leader>rw", trailspace.trim, { desc = "Remove whitespaces" } )
-
-      -- Session
-      map("n", "<leader>ss", "<cmd>mksession!<cr>", { desc = "Save session (local)" } )
-      map("n", "<leader>so", "<cmd>lua MiniSessions.select()<cr>", { desc = "Open Session" } )
-      map("n", "<leader>sS", function ()
-         local session_dir = vim.fn.stdpath("data") .. "/session/"
-         vim.ui.input({ prompt = 'Session name' }, function(session_name)
-            if vim.fn.filereadable(session_dir .. session_name) == 0 then
-               vim.cmd("mksession! " .. session_dir .. session_name)
-            end
-         end)
-      end, { desc = "Save session (global)" } )
    end
 }
