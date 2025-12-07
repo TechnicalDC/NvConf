@@ -16,3 +16,9 @@ git clone https://github.com/TechnicalDC/NvConf ~/.config/nvim
 # Windows
 git clone https://github.com/TechnicalDC/NvConf ~/Appdata/Local/nvim
 ```
+
+## Screenshots
+
+![picker](https://raw.githubusercontent.com/TechnicalDC/NvConf/refs/heads/main/images/dashboard.png)
+
+![picker](https://raw.githubusercontent.com/TechnicalDC/NvConf/refs/heads/main/images/picker.png)
