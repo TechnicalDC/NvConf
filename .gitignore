@@ -2,3 +2,4 @@
 ./lua/.luarc.json
 lazy-lock.json
 session.vim
+Session.vim
