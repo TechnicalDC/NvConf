@@ -83,6 +83,9 @@ return {
          notifier = { enabled = true },
          picker = {
             enabled = true,
+            matcher = {
+               frecency = true,
+            },
             icons = {
                ui = {
                   selected   = "󰱒 ",
