@@ -37,7 +37,7 @@ return {
                   ' ',
                   filename,
                   ' ',
-                  gui = modified and 'italic' or '',
+                  gui = modified and 'italic,bold' or '',
                },
             }
          end,
