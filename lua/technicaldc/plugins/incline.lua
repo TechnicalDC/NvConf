@@ -1,5 +1,6 @@
 return {
    'b0o/incline.nvim',
+   event = { "BufReadPre", "BufNewFile" },
    config = function()
       local colors = require("rose-pine.palette")
       local icons = require("mini.icons")
