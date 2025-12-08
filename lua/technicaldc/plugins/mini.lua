@@ -69,6 +69,7 @@ return {
       require('mini.align').setup()
       require('mini.ai').setup()
       require('mini.git').setup()
+      require('mini.icons').setup()
       require('mini.sessions').setup()
       -- trailspace.setup({
          -- Highlight only in normal buffers (ones with empty 'buftype'). This is
