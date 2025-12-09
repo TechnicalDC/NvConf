@@ -37,6 +37,24 @@ local get_current_mode = function()
    return "%#StatuslineMode# " .. mode .. " %#StatusLine#"
 end
 
+local get_filepath = function ()
+   if excludes() then
+      return ""
+   end
+
+   local filename = ""
+   local cwd = vim.fn.getcwd()
+   local home = os.getenv("HOME")
+   local directory = vim.fn.expand("%:.:h")
+   cwd = home and cwd:gsub(home, "~") or cwd
+
+   if directory == "" then
+      return " [No Name]"
+   end
+
+   return "  " .. directory
+end
+
 local get_filename = function ()
    if excludes() then
       return ""
@@ -87,7 +105,8 @@ end
 function _G.setup_statusline()
    return table.concat {
       get_current_mode(),
-      get_filename(),
+      -- get_filename(),
+      get_filepath(),
       is_modified(),
       " %<",
       "%=",
