@@ -107,7 +107,7 @@ function _G.setup_statusline()
       get_current_mode(),
       -- get_filename(),
       get_filepath(),
-      is_modified(),
+      -- is_modified(),
       " %<",
       "%=",
       "%Y",
