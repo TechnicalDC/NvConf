@@ -1,5 +1,5 @@
 local config = require("technicaldc.config")
-local hl = vim.api.nvim_set_hl
+local icons = require("mini.icons")
 local modes = {
     ['n']  = {'NORMAL',     'N'},
     ['no'] = {'N·OPERATOR', 'N·P'},
@@ -52,6 +52,10 @@ local get_filepath = function ()
       return " [No Name]"
    end
 
+   if directory == "." then
+      directory = "current"
+   end
+
    return "  " .. directory
 end
 
@@ -102,6 +106,10 @@ local get_location = function ()
    return " %-3.(%l/%L"
 end
 
+local get_filetype = function ()
+    return icons.get("filetype",vim.bo.filetype) .. " " .. vim.bo.filetype .. " "
+end
+
 function _G.setup_statusline()
    return table.concat {
       get_current_mode(),
@@ -110,7 +118,7 @@ function _G.setup_statusline()
       -- is_modified(),
       " %<",
       "%=",
-      "%Y",
+      get_filetype(),
       get_location(),
       "▐"
    }
