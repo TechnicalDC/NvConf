@@ -26,10 +26,14 @@ return {
                fg = "base",
                bg = transparency and "none" or "foam"
             },
-            MiniFilesTitleFocused   = { fg = "base", bg =  "rose" },
-            WhichKeyBorder          = { link = "FloatBorder" },
+            SnacksPickerPreviewBorder = {
+               fg = "overlay",
+               bg = transparency and "none" or "surface"
+            },
             SnacksDashboardTitle    = { fg = "rose" },
             SnacksPickerPreviewTitle = { fg = "base", bg =  "rose" },
+            MiniFilesTitleFocused   = { fg = "base", bg =  "rose" },
+            WhichKeyBorder          = { link = "FloatBorder" },
             NoiceCmdline            = { link = "StatusLine" },
             NoiceCmdlineIcon    = { link = "StatusLineMode" },
             NoiceCmdlineIconCmdline    = { link = "StatusLineMode" },
