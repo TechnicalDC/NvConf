@@ -27,7 +27,7 @@ return {
                bg = transparency and "none" or "foam"
             },
             SnacksPickerPreviewBorder = {
-               fg = "overlay",
+               fg = "highlight_high",
                bg = transparency and "none" or "surface"
             },
             SnacksDashboardTitle    = { fg = "rose" },

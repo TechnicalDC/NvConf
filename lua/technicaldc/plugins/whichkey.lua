@@ -86,7 +86,7 @@ return {
             border = vim.o.winborder,
             padding = { 1, 3 }, -- extra window padding [top/bottom, right/left]
             title = true,
-            title_pos = "center",
+            title_pos = "left",
             zindex = 1000,
             -- Additional vim.wo and vim.bo options
             bo = {},

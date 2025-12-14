@@ -6,7 +6,7 @@ return {
    priority = 1000,
    lazy = false,
    keys = {
-      -- { "<leader>ol", function() Snacks.lazygit.open() end,                                   desc = "Open lazygit" },
+      { "<leader>ol", function() Snacks.lazygit.open() end,                                   desc = "Open lazygit" },
       { "<leader>oe", function() Snacks.explorer() end,                                       desc = "Open file explorer" },
       { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find files" },
       { "<leader>fh", function() Snacks.picker.help({ layout = "ivy_no_preview" }) end,       desc = "Find help files" },
@@ -82,6 +82,11 @@ return {
          },
          explorer = { enabled = true },
          input = { enabled = true },
+         lazygit = {
+            theme = {
+               inactiveBorderColor = { fg = "SnacksPickerPreviewBorder" }
+            }
+         },
          notifier = { enabled = true },
          picker = {
             enabled = true,
@@ -201,7 +206,7 @@ return {
                      {
                         win = "input",
                         height = 1,
-                        border = "bottom",
+                        border = "none",
                         title = "{title} {live} {flags}",
                         title_pos = "center",
                      },
@@ -214,6 +219,14 @@ return {
          quickfile = { enabled = true },
          scroll = { enabled = true },
          statuscolumn = { enabled = true },
+         styles = {
+            lazygit = {
+               backdrop = false,
+               title = " Lazygit ",
+               title_pos = "left",
+               border = true
+            }
+         },
          words = { enabled = true },
       }
 

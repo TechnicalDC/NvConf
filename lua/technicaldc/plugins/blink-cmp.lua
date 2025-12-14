@@ -101,7 +101,8 @@ return {
       },
       completion = {
          menu = {
-            border = config.winborder,
+            border = "none",
+            -- border = config.winborder,
             scrollbar = true,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
             draw = {
