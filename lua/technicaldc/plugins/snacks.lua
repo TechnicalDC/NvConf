@@ -6,7 +6,7 @@ return {
    priority = 1000,
    lazy = false,
    keys = {
-      { "<leader>ol", function() Snacks.lazygit.open() end,                                   desc = "Open lazygit" },
+      -- { "<leader>ol", function() Snacks.lazygit.open() end,                                   desc = "Open lazygit" },
       { "<leader>oe", function() Snacks.explorer() end,                                       desc = "Open file explorer" },
       { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find files" },
       { "<leader>fh", function() Snacks.picker.help({ layout = "ivy_no_preview" }) end,       desc = "Find help files" },
