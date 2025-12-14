@@ -26,8 +26,10 @@ return {
                fg = "base",
                bg = transparency and "none" or "foam"
             },
+            MiniFilesTitleFocused   = { fg = "base", bg =  "rose" },
             WhichKeyBorder          = { link = "FloatBorder" },
             SnacksDashboardTitle    = { fg = "rose" },
+            SnacksPickerPreviewTitle = { fg = "base", bg =  "rose" },
             NoiceCmdline            = { link = "StatusLine" },
             NoiceCmdlineIcon    = { link = "StatusLineMode" },
             NoiceCmdlineIconCmdline    = { link = "StatusLineMode" },
