@@ -7,6 +7,7 @@ return {
    lazy = false,
    keys = {
       { "<leader>ol", function() Snacks.lazygit.open() end,                                   desc = "Open lazygit" },
+      { "<leader>oe", function() Snacks.explorer() end,                                       desc = "Open file explorer" },
       { "<leader>ff", function() Snacks.picker.files() end,                                   desc = "Find files" },
       { "<leader>fh", function() Snacks.picker.help({ layout = "ivy_no_preview" }) end,       desc = "Find help files" },
       { "<leader>fH", function() Snacks.picker.highlights({ layout = "ivy_no_preview" }) end, desc = "Find highlights" },
@@ -79,6 +80,7 @@ return {
                }
             },
          },
+         explorer = { enabled = true },
          input = { enabled = true },
          notifier = { enabled = true },
          picker = {
@@ -105,6 +107,46 @@ return {
                      preset = "ivy_no_preview",
                   },
                },
+               explorer = {
+                  layout = { preset = "explorer", preview = false },
+                  config = function(opts)
+                     return require("snacks.picker.source.explorer").setup(opts)
+                  end,
+                  win = {
+                     list = {
+                        keys = {
+                           ["<BS>"] = "explorer_up",
+                           ["l"] = "confirm",
+                           ["h"] = "explorer_close", -- close directory
+                           ["a"] = "explorer_add",
+                           ["d"] = "explorer_del",
+                           ["r"] = "explorer_rename",
+                           ["c"] = "explorer_copy",
+                           ["m"] = "explorer_move",
+                           ["o"] = "explorer_open", -- open with system application
+                           ["P"] = "toggle_preview",
+                           ["y"] = { "explorer_yank", mode = { "n", "x" } },
+                           ["p"] = "explorer_paste",
+                           ["u"] = "explorer_update",
+                           ["<c-c>"] = "tcd",
+                           ["<leader>/"] = "picker_grep",
+                           ["<c-t>"] = "terminal",
+                           ["."] = "explorer_focus",
+                           ["I"] = "toggle_ignored",
+                           ["H"] = "toggle_hidden",
+                           ["Z"] = "explorer_close_all",
+                           ["]g"] = "explorer_git_next",
+                           ["[g"] = "explorer_git_prev",
+                           ["]d"] = "explorer_diagnostic_next",
+                           ["[d"] = "explorer_diagnostic_prev",
+                           ["]w"] = "explorer_warn_next",
+                           ["[w"] = "explorer_warn_prev",
+                           ["]e"] = "explorer_error_next",
+                           ["[e"] = "explorer_error_prev",
+                        },
+                     },
+                  },
+               }
             },
             layouts = {
                ivy_preview = {
@@ -146,6 +188,27 @@ return {
                      { win = "input", height = 1, border = "none" },
                   },
                },
+               explorer = {
+                  preview = "main",
+                  layout = {
+                     backdrop = false,
+                     width = 40,
+                     min_width = 40,
+                     height = 0,
+                     position = "left",
+                     border = "none",
+                     box = "vertical",
+                     {
+                        win = "input",
+                        height = 1,
+                        border = "bottom",
+                        title = "{title} {live} {flags}",
+                        title_pos = "center",
+                     },
+                     { win = "list", border = "none" },
+                     { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+                  },
+               }
             }
          },
          quickfile = { enabled = true },

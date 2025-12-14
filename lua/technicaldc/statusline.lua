@@ -103,7 +103,7 @@ local get_location = function ()
    if excludes() then
       return ""
    end
-   return " %-3.(%l/%L"
+   return " %-3.(%l/%L "
 end
 
 local get_filetype = function ()
@@ -114,11 +114,11 @@ function _G.setup_statusline()
    return table.concat {
       get_current_mode(),
       -- get_filename(),
-      get_filepath(),
+      -- get_filepath(),
       -- is_modified(),
       " %<",
       "%=",
-      get_filetype(),
+      -- get_filetype(),
       get_location(),
       "▐"
    }
