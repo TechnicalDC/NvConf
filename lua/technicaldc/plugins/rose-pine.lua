@@ -3,9 +3,10 @@ return {
    "rose-pine/neovim",
    name = "rose-pine",
    config = function()
+      local transparency = false
       require("rose-pine").setup({
          styles = {
-            transparency = true,
+            transparency = transparency,
          },
          highlight_groups = {
             StatusLine              = { fg   = "love", bg = "love", blend = 15 },
@@ -13,17 +14,18 @@ return {
             StatusLineTerm          = { fg   = "love", bg = "love", blend = 15 },
             InclineNormal           = { fg   = "love", bg = "love", blend = 15 },
             InclineNormalNC         = { fg   = "love", bg = "love", blend = 15 },
-            TelescopeBorder         = { fg   = "highlight_high", bg = "none" },
-            TelescopeNormal         = { bg   = "none" },
-            TelescopePromptNormal   = { bg   = "base" },
-            TelescopeResultsNormal  = { fg   = "subtle", bg = "none" },
-            TelescopeSelectionCaret = { fg   = "rose", bg = "none" },
             BlinkCmpSource          = { bg   = "none" },
             TelescopeSelection      = { link = "PmenuSel" },
             Folded                  = { link = "Comment" },
-            NormalFloat             = { link = "Normal" },
-            FloatBorder             = { bg   = "none" },
-            FloatTitle              = { bg   = "none" },
+            -- NormalFloat             = { link = "Normal" },
+            FloatBorder             = {
+               fg = "surface",
+               bg = transparency and "none" or "surface"
+            },
+            FloatTitle              = {
+               fg = "base",
+               bg = transparency and "none" or "foam"
+            },
             WhichKeyBorder          = { link = "FloatBorder" },
             SnacksDashboardTitle    = { fg = "rose" },
             NoiceCmdline            = { link = "StatusLine" },
