@@ -18,8 +18,8 @@ return {
             local ft_icon, _, _ = icons.get("file", filename)
             local modified = vim.bo[props.buf].modified
             local readonly = vim.bo[props.buf].readonly
-            local modified_icon = " "
-            local readonly_icon = " "
+            local modified_icon = ""
+            local readonly_icon = ""
             local search_icon = ""
 
             if ft_icon == nil then
@@ -30,10 +30,7 @@ return {
                '▌',
                ft_icon and {
                   ' ',
-                  modified and modified_icon or ft_icon .. ' ',
-                  ' ',
-                  guibg = colors.subtle,
-                  guifg = colors.surface
+                  modified and modified_icon or ft_icon,
                } or '',
                {
                   ' ',
@@ -41,6 +38,7 @@ return {
                   ' ',
                   gui = modified and 'italic,bold' or '',
                },
+               "▐"
             }
          end,
       }
