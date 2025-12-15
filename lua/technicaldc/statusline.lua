@@ -118,7 +118,7 @@ function _G.setup_statusline()
       -- is_modified(),
       " %<",
       "%=",
-      -- get_filetype(),
+      get_filetype(),
       get_location(),
       "▐"
    }
