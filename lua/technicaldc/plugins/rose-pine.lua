@@ -9,11 +9,11 @@ return {
             transparency = transparency,
          },
          highlight_groups = {
-            StatusLine              = { fg   = "love", bg = "love", blend = 15 },
-            StatusLineMode          = { fg   = "base", bg = "love" },
-            StatusLineTerm          = { fg   = "love", bg = "love", blend = 15 },
-            InclineNormal           = { fg   = "love", bg = "love", blend = 15 },
-            InclineNormalNC         = { fg   = "love", bg = "love", blend = 15 },
+            StatusLine      = { fg = "subtle", bg  = "surface" },
+            StatusLineMode  = { fg = "surface", bg = "subtle" },
+            StatusLineTerm  = { fg = "subtle", bg  = "surface" },
+            InclineNormal   = { fg = "subtle", bg  = "surface" },
+            InclineNormalNC = { fg = "subtle", bg  = "surface" },
             BlinkCmpSource          = { bg   = "none" },
             TelescopeSelection      = { link = "PmenuSel" },
             Folded                  = { link = "Comment" },
@@ -23,8 +23,8 @@ return {
                bg = transparency and "none" or "surface"
             },
             FloatTitle              = {
-               fg = "base",
-               bg = transparency and "none" or "foam"
+               fg = "surface",
+               bg = transparency and "none" or "subtle"
             },
             SnacksPickerPreviewBorder = {
                fg = "highlight_high",

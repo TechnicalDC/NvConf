@@ -31,8 +31,8 @@ return {
                   ' ',
                   modified and modified_icon or ft_icon .. ' ',
                   ' ',
-                  guibg = colors.love,
-                  guifg = colors.base
+                  guibg = colors.subtle,
+                  guifg = colors.surface
                } or '',
                {
                   ' ',
