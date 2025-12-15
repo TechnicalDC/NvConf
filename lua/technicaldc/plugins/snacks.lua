@@ -23,6 +23,8 @@ return {
             width = 0.8,
             height = 0.8,
             border = "rounded",
+            title = " data dictionary ",
+            title_pos = "left",
             wo = {
                spell = false,
                wrap = false,
