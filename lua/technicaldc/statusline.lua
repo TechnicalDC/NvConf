@@ -33,7 +33,7 @@ end
 
 local get_current_mode = function()
 	local current_mode = vim.api.nvim_get_mode().mode
-   local mode = string.format('%s', modes[current_mode][2])
+   local mode = string.format('%s', modes[current_mode][1])
    return "%#StatuslineMode# " .. mode .. " %#StatusLine#"
 end
 
@@ -107,11 +107,12 @@ local get_location = function ()
 end
 
 local get_filetype = function ()
-    return icons.get("filetype",vim.bo.filetype) .. " " .. vim.bo.filetype .. " "
+   return icons.get("filetype",vim.bo.filetype) .. " " .. vim.bo.filetype .. " "
 end
 
 function _G.setup_statusline()
    return table.concat {
+      "▌",
       get_current_mode(),
       -- get_filename(),
       -- get_filepath(),

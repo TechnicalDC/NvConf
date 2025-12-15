@@ -27,6 +27,7 @@ return {
             end
 
             return {
+               '▌',
                ft_icon and {
                   ' ',
                   modified and modified_icon or ft_icon .. ' ',
