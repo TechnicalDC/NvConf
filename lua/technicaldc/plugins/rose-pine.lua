@@ -10,7 +10,7 @@ return {
          },
          highlight_groups = {
             StatusLine      = { fg = "subtle", bg  = "surface" },
-            StatusLineMode  = { fg = "surface", bg = "subtle" },
+            StatusLineMode  = { fg = "surface", bg = "subtle", bold = true },
             StatusLineTerm  = { fg = "subtle", bg  = "surface" },
             InclineNormal   = { fg = "subtle", bg  = "surface" },
             InclineNormalNC = { fg = "subtle", bg  = "surface" },
