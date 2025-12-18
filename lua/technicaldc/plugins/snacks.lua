@@ -183,7 +183,7 @@ return {
                      backdrop = false,
                      row = -1,
                      width = 0,
-                     height = 0.3,
+                     height = 0.5,
                      border = "top",
                      title = " {title} {live} {flags}",
                      title_pos = "left",
