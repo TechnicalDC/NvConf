@@ -89,7 +89,10 @@ return {
                inactiveBorderColor = { fg = "SnacksPickerPreviewBorder" }
             }
          },
-         notifier = { enabled = true },
+         notifier = {
+            enabled = true,
+            render = "minimal"
+         },
          picker = {
             enabled = true,
             matcher = {
@@ -163,7 +166,7 @@ return {
                      backdrop = false,
                      row = -1,
                      width = 0,
-                     height = 0.6,
+                     height = 0.5,
                      border = "top",
                      title = " {title} {live} {flags}",
                      title_pos = "left",
@@ -183,7 +186,7 @@ return {
                      backdrop = false,
                      row = -1,
                      width = 0,
-                     height = 0.5,
+                     height = 0.4,
                      border = "top",
                      title = " {title} {live} {flags}",
                      title_pos = "left",
