@@ -59,11 +59,13 @@ return {
                   { section = "header", padding = 1 },
                   {
                      title = "Little TaskWarrior",
+                     enabled = vim.fn.executable("task") == 1,
                      icon = " ",
                      pane = 1,
                   },
                   {
                      text = ltw.get_snacks_dashboard_tasks(56, "dir", "error"),
+                     enabled = vim.fn.executable("task") == 1,
                      pane = 1,
                      indent = 2,
                   },
