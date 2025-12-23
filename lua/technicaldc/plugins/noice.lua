@@ -28,6 +28,9 @@ return {
         enabled = true,
         view = "mini",
      },
+     lsp = {
+        message = { view = "mini" }
+     }
   },
   dependencies = {
      "MunifTanjim/nui.nvim",
