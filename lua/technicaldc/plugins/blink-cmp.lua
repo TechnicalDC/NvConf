@@ -4,7 +4,6 @@ return {
    'saghen/blink.cmp',
    dependencies = {
       'LMON4D3/LuaSnip',
-      'TechnicalDC/blink-cmp-progress',
    },
    version = 'v0.*',
    opts = {
@@ -73,21 +72,8 @@ return {
          }
       },
       sources = {
-         providers = {
-            progress = {
-               name = "Progress",
-               module = "blink-cmp-progress",
-               opts = {
-                  insert = true,
-                  custom_items = {
-                     { label = "{mfdeclre.i}", kind = vim.lsp.protocol.CompletionItemKind.Keyword}
-                  }
-               }
-            }
-         },
          default = { 'lsp', 'path', 'snippets', 'buffer' },
          per_filetype = {
-            progress = { 'lsp','snippets', 'buffer', 'progress' },
             markdown = { 'lsp', 'snippets', 'buffer', 'path' },
          },
       },

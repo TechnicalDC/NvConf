@@ -9,7 +9,7 @@ return {
             "diff",
 				"java",
             "json",
-            "latex",
+            "typst",
             "lua",
             "markdown",
             "markdown_inline",
