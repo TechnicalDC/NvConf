@@ -17,7 +17,7 @@ return {
          index_file = "index.md",
 
          -- Automatically discover and register nested wiki roots.
-         discover_nested_roots = false,
+         discover_nested_roots = true,
 
          -- Defines the keymaps used by neowiki.
          -- Setting a keymap to `false` or an empty string will disable it.
