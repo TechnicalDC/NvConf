@@ -1,6 +1,6 @@
 return {
 	'mfussenegger/nvim-jdtls',
-   enabled = true,
+   enabled = false,
 	dependencies = {
 		"mfussenegger/nvim-dap",
 		"rcarriga/nvim-dap-ui",

@@ -7,8 +7,8 @@ return {
       require("rose-pine").setup({
          styles = {
             transparency = transparency,
-            bold = false,
-            italic = false,
+            -- bold = false,
+            -- italic = false,
          },
          highlight_groups = {
             StatusLine      = { fg = "subtle", bg  = "surface" },
