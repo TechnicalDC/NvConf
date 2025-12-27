@@ -36,6 +36,8 @@ map("n",  "<leader>qo", "<cmd>copen<cr>",  { desc = "Open quickfix list" } )
 map("n",  "<leader>qc", "<cmd>cclose<cr>", { desc = "Close quickfix list" } )
 map("n",  "<leader>qf", "<cmd>cfirst<cr>", { desc = "Go to first item in quickfix list" } )
 map("n",  "<leader>ql", "<cmd>clast<cr>",  { desc = "Go to last item in quickfix list" } )
+map("n",  "<leader>qn", "<cmd>cnext<cr>", { desc = "Go to next item in quickfix list" } )
+map("n",  "<leader>ql", "<cmd>cprev<cr>",  { desc = "Go to prev item in quickfix list" } )
 
 map("i",   "<C-c>", "<Esc>", { desc = "Escape the matrix" } )
 map({ "i", "s" },   "<C-j>", function() ls.jump(1) end,           { desc = "Jump to next node" } )
