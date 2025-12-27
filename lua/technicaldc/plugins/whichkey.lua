@@ -35,6 +35,7 @@ return {
             { '<leader>d', group = 'Diff' },
             { '<leader>r', group = 'Rename' },
             { '<leader>x', group = 'Execute' },
+            { '<leader>s', group = 'Session' },
             { 'g',         group = 'Goto' },
             { 's',         group = 'Surround' },
             { 'z',         group = 'Fold' },
