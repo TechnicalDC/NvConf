@@ -11,6 +11,7 @@ return {
          heading = {
             border = false,
             sign = true,
+            width = "block",
             position = "right",
             left_pad = 1,
             -- icons = {
