@@ -37,8 +37,13 @@ return {
             SnacksInputNormal        = { link = "NormalFloat" },
             SnacksDashboardTitle     = { fg   = "rose" },
             SnacksPickerPreviewTitle = { fg   = "base", bg = "rose" },
+
             MiniFilesTitleFocused    = { fg   = "base", bg = "rose" },
+
             WhichKeyBorder           = { link = "FloatBorder" },
+
+            RenderMarkdownLink       = { fg = "foam", underline = true },
+
             NoiceCmdline             = { link = "StatusLine" },
             NoiceCmdlineIcon    = { link = "StatusLineMode" },
             NoiceCmdlineIconCmdline    = { link = "StatusLineMode" },
