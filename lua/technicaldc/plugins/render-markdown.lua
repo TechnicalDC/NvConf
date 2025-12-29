@@ -42,7 +42,7 @@ return {
             style = 'full',
             border = 'thick',
          },
-         quote = { icon = '┃' },
+         quote = { icon = '▌' },
          bullet = {
             enabled = true,
             icons = {'◆', '◇'},
@@ -53,20 +53,26 @@ return {
             lsp = { enabled = true }
          },
          pipe_table = {
-            preset = 'round',
+            preset = 'none',
             cell = 'trimmed',
             filler = 'RenderMarkdownTableRow',
+            border = {
+               '┌', '┬', '┐',
+               '├', '┼', '┤',
+               '└', '┴', '┘',
+               '│', '─',
+            },
          },
-         -- checkbox = {
-         --    checked = { scope_highlight = '@markup.strikethrough' },
-         --    custom = {
-         --       important = {
-         --          raw = '[!]',
-         --          rendered = '󰓎 ',
-         --          highlight = 'DiagnosticWarn',
-         --       },
-         --    },
-         -- },
+         checkbox = {
+            checked = { scope_highlight = '@markup.strikethrough' },
+            custom = {
+               important = {
+                  raw = '[!]',
+                  rendered = '󰓎 ',
+                  highlight = 'DiagnosticWarn',
+               },
+            },
+         },
       })
    end
 }
