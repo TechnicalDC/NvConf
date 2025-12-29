@@ -10,7 +10,7 @@ return {
          anti_conceal = { enabled = true },
          heading = {
             border = false,
-            sign = false,
+            sign = true,
             position = "inline",
             icons = {
                '󰲠 ',
