@@ -46,8 +46,8 @@ return {
             WhichKeyBorder           = { link = "FloatBorder" },
 
             -- RenderMarkdownLink       = { fg = "foam", underline = true },
-            RenderMarkdownH2         = { fg = "base", reverse = true },
-            RenderMarkdownH2Bg       = { fg = "foam", },
+            -- RenderMarkdownH2         = { fg = "foam", reverse = true },
+            -- RenderMarkdownH2Bg       = { fg = "base", bg = "foam" },
 
             NoiceCmdline             = { link = "StatusLine" },
             NoiceCmdlineIcon    = { link = "StatusLineMode" },

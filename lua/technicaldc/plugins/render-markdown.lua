@@ -12,7 +12,7 @@ return {
             border = false,
             sign = true,
             width = "block",
-            position = "right",
+            -- position = "right",
             left_pad = 1,
             -- icons = {
             --    "",
@@ -40,8 +40,10 @@ return {
             },
          },
          code = {
+            width = 'block',
+            left_pad = 2,
+            right_pad = 2,
             sign = false,
-            style = 'full',
             border = 'thick',
          },
          quote = { icon = '▌' },
