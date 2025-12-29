@@ -2,7 +2,6 @@ local headers = require("technicaldc.header_ascii")
 
 return {
    "folke/snacks.nvim",
-   dependencies = { { "praczet/little-taskwarrior.nvim", opts = {} } },
    priority = 1000,
    lazy = false,
    keys = {
@@ -37,8 +36,6 @@ return {
       end, desc = "Open data dictionary"}
    },
    config = function ()
-      local ltw = require("little-taskwarrior")
-      ltw.setup({})
       local opts = {
          bigfile = { enabled = true },
          dashboard = {
@@ -59,18 +56,6 @@ return {
             sections = {
                {
                   { section = "header", padding = 1 },
-                  {
-                     title = "Little TaskWarrior",
-                     enabled = vim.fn.executable("task") == 1,
-                     icon = " ",
-                     pane = 1,
-                  },
-                  {
-                     text = ltw.get_snacks_dashboard_tasks(56, "dir", "error"),
-                     enabled = vim.fn.executable("task") == 1,
-                     pane = 1,
-                     indent = 2,
-                  },
                   { pane = 2, title = "Shortcuts", icon = " " },
                   { pane = 2, section = "keys", padding = 1, indent = 2 },
                   {
