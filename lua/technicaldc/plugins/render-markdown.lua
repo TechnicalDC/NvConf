@@ -10,10 +10,11 @@ return {
          anti_conceal = { enabled = true },
          heading = {
             border = false,
-            sign = true,
+            sign = false,
             width = "block",
             -- position = "right",
             left_pad = 1,
+            right_pad = 1,
             -- icons = {
             --    "",
             --    "",
@@ -23,12 +24,12 @@ return {
             --    "",
             -- },
             backgrounds = {
-               'RenderMarkdownH1Bg',
-               'RenderMarkdownH2Bg',
-               'RenderMarkdownH3Bg',
-               'RenderMarkdownH4Bg',
-               'RenderMarkdownH5Bg',
-               'RenderMarkdownH6Bg',
+               'MarkdownH1Bg',
+               'MarkdownH2Bg',
+               'MarkdownH3Bg',
+               'MarkdownH4Bg',
+               'MarkdownH5Bg',
+               'MarkdownH6Bg',
             },
             foregrounds = {
                'RenderMarkdownH1',

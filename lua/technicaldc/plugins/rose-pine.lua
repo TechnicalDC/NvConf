@@ -51,7 +51,12 @@ return {
 
             -- RenderMarkdownLink       = { fg = "foam", underline = true },
             -- RenderMarkdownH2         = { fg = "foam", reverse = true },
-            -- RenderMarkdownH2Bg       = { fg = "base", bg = "foam" },
+            MarkdownH1Bg       = { fg = "base", bg = "love" },
+            MarkdownH2Bg       = { fg = "base", bg = "foam" },
+            MarkdownH3Bg       = { fg = "base", bg = "rose" },
+            MarkdownH4Bg       = { fg = "base", bg = "gold" },
+            MarkdownH5Bg       = { fg = "base", bg = "iris" },
+            MarkdownH6Bg       = { fg = "base", bg = "pine" },
 
             NoiceCmdline               = { link = "StatusLine" },
             NoiceCmdlineIcon           = { link = "StatusLineModeInsert" },
