@@ -112,7 +112,6 @@ end
 
 function _G.setup_statusline()
    return table.concat {
-      "▌",
       get_current_mode(),
       -- get_filename(),
       -- get_filepath(),
