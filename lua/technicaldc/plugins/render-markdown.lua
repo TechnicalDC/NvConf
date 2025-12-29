@@ -64,7 +64,6 @@ return {
             },
          },
          checkbox = {
-            checked = { scope_highlight = '@markup.strikethrough' },
             custom = {
                important = {
                   raw = '[!]',
