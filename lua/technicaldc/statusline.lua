@@ -1,27 +1,21 @@
 local config = require("technicaldc.config")
 local icons = require("mini.icons")
 local modes = {
-    ['n']  = {'NORMAL',     'N'},
-    ['no'] = {'N·OPERATOR', 'N·P'},
-    ['v']  = {'VISUAL',     'V', },
-    ['V']  = {'V·LINE',     'V·L'},
-    ['']   = {'V·BLOCK',    'V·B'},
-    [''] = {'V·BLOCK',    'V·B'},
-    ['s']  = {'SELECT',     'S', },
-    ['S']  = {'S·LINE',     'S·L'},
-    [''] = {'S·BLOCK',    'S·B'},
-    ['i']  = {'INSERT',     'I', },
-    ['ic'] = {'INSERT',     'I', },
-    ['R']  = {'REPLACE',    'R', },
-    ['Rv'] = {'V·REPLACE',  'V·R'},
-    ['c']  = {'COMMAND',    'C', },
-    ['cv'] = {'VIM·EX',     'V·E'},
-    ['ce'] = {'EX',         'E', },
-    ['r']  = {'PROMPT',     'P', },
-    ['rm'] = {'MORE',       'M', },
-    ['r?'] = {'CONFIRM',    'C', },
-    ['!']  = {'SHELL',      'S', },
-    ['t']  = {'TERMINAL',   'T', }
+    ['n']  = {'NORMAL',     'N',   'StatuslineModeNormal'},
+    ['v']  = {'VISUAL',     'V',   'StatuslineModeVisual'},
+    ['V']  = {'V·LINE',     'V·L', 'StatuslineModeVisual'},
+    ['']   = {'V·BLOCK',    'V·B', 'StatuslineModeVisual'},
+    [''] = {'V·BLOCK',    'V·B', 'StatuslineModeVisual'},
+    ['s']  = {'SELECT',     'S',   'StatuslineModeVisual'},
+    ['S']  = {'S·LINE',     'S·L', 'StatuslineModeVisual'},
+    [''] = {'S·BLOCK',    'S·B', 'StatuslineModeVisual'},
+    ['i']  = {'INSERT',     'I',   'StatuslineModeInsert'},
+    ['ic'] = {'INSERT',     'I',   'StatuslineModeInsert'},
+    ['R']  = {'REPLACE',    'R',   'StatuslineModeInsert'},
+    ['Rv'] = {'V·REPLACE',  'V·R', 'StatuslineModeInsert'},
+    ['c']  = {'COMMAND',    'C',   'StatuslineModeCommand'},
+    ['!']  = {'SHELL',      'S',   'StatuslineModeCommand'},
+    ['t']  = {'TERMINAL',   'T',   'StatuslineModeCommand'}
 }
 
 local excludes = function()
@@ -34,29 +28,15 @@ end
 local get_current_mode = function()
 	local current_mode = vim.api.nvim_get_mode().mode
    local mode = string.format('%s', modes[current_mode][1])
-   return "%#StatuslineMode# " .. mode .. " %#StatusLine#"
+   local hl = string.format('%s', modes[current_mode][3])
+   return "%#" .. hl .. "# " .. mode .. " %#StatusLine#"
 end
 
-local get_filepath = function ()
-   if excludes() then
-      return ""
-   end
-
-   local filename = ""
-   local cwd = vim.fn.getcwd()
-   local home = os.getenv("HOME")
-   local directory = vim.fn.expand("%:.:h")
-   cwd = home and cwd:gsub(home, "~") or cwd
-
-   if directory == "" then
-      return " [No Name]"
-   end
-
-   if directory == "." then
-      directory = "current"
-   end
-
-   return "  " .. directory
+local get_end_block = function()
+	local current_mode = vim.api.nvim_get_mode().mode
+   local mode = string.format('%s', modes[current_mode][1])
+   local hl = string.format('%s', modes[current_mode][3])
+   return "%#" .. hl .. "#▐%#StatusLine#"
 end
 
 local get_filename = function ()
@@ -113,14 +93,13 @@ end
 function _G.setup_statusline()
    return table.concat {
       get_current_mode(),
-      -- get_filename(),
-      -- get_filepath(),
-      -- is_modified(),
+      get_filename(),
+      is_modified(),
       " %<",
       "%=",
       get_filetype(),
       get_location(),
-      "%#StatuslineMode#▐"
+      get_end_block(),
    }
 end
 
