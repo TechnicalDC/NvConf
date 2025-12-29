@@ -19,8 +19,7 @@ return {
             StatusLineModeInsert  = { fg = "surface", bg = "foam", bold = true },
             StatusLineModeCommand = { fg = "surface", bg = "gold", bold = true },
 
-            InclineNormal   = { fg = "subtle", bg  = "surface" },
-            InclineNormalNC = { fg = "subtle", bg  = "surface" },
+            ["@markup.link.label.markdown_inline"] = { fg = "foam", underline = true },
 
             BlinkCmpSource          = { bg   = "none" },
 

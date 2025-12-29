@@ -2,6 +2,7 @@ local config = require("technicaldc.config")
 local icons = require("mini.icons")
 local modes = {
     ['n']  = {'NORMAL',     'N',   'StatuslineModeNormal'},
+    ['no'] = {'N·OPERATOR', 'N·P','StatuslineModeNormal'},
     ['v']  = {'VISUAL',     'V',   'StatuslineModeVisual'},
     ['V']  = {'V·LINE',     'V·L', 'StatuslineModeVisual'},
     ['']   = {'V·BLOCK',    'V·B', 'StatuslineModeVisual'},
@@ -15,7 +16,12 @@ local modes = {
     ['Rv'] = {'V·REPLACE',  'V·R', 'StatuslineModeInsert'},
     ['c']  = {'COMMAND',    'C',   'StatuslineModeCommand'},
     ['!']  = {'SHELL',      'S',   'StatuslineModeCommand'},
-    ['t']  = {'TERMINAL',   'T',   'StatuslineModeCommand'}
+    ['t']  = {'TERMINAL',   'T',   'StatuslineModeCommand'},
+    ['cv'] = {'VIM·EX',     'V·E','StatuslineModeCommand'},
+    ['ce'] = {'EX',         'E',  'StatuslineModeCommand'},
+    ['r']  = {'PROMPT',     'P',  'StatuslineModeInsert'},
+    ['rm'] = {'MORE',       'M',  'StatuslineModeInsert'},
+    ['r?'] = {'CONFIRM',    'C',  'StatuslineModeInsert'},
 }
 
 local excludes = function()
