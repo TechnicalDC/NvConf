@@ -12,7 +12,7 @@ return {
          },
          highlight_groups = {
             StatusLine      = { fg = "subtle", bg  = "surface" },
-            StatusLineMode  = { fg = "surface", bg = "subtle", bold = true },
+            StatusLineMode  = { fg = "surface", bg = "love", bold = true },
             StatusLineTerm  = { fg = "subtle", bg  = "surface" },
 
             InclineNormal   = { fg = "subtle", bg  = "surface" },
@@ -28,7 +28,7 @@ return {
             },
             FloatTitle              = {
                fg = "surface",
-               bg = transparency and "none" or "subtle"
+               bg = transparency and "none" or "rose"
             },
 
             SnacksPickerPreviewBorder = {
@@ -41,7 +41,7 @@ return {
             SnacksDashboardTitle     = { fg   = "rose" },
             SnacksPickerPreviewTitle = { fg   = "base", bg = "rose" },
 
-            MiniFilesTitleFocused    = { fg   = "base", bg = "rose" },
+            MiniFilesTitleFocused    = { fg   = "base", bg = "love" },
 
             WhichKeyBorder           = { link = "FloatBorder" },
 

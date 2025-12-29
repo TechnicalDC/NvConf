@@ -120,7 +120,7 @@ function _G.setup_statusline()
       "%=",
       get_filetype(),
       get_location(),
-      "▐"
+      "%#StatuslineMode#▐"
    }
 end
 
