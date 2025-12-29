@@ -14,10 +14,12 @@ return {
             StatusLine      = { fg = "subtle", bg  = "surface" },
             StatusLineMode  = { fg = "surface", bg = "subtle", bold = true },
             StatusLineTerm  = { fg = "subtle", bg  = "surface" },
+
             InclineNormal   = { fg = "subtle", bg  = "surface" },
             InclineNormalNC = { fg = "subtle", bg  = "surface" },
+
             BlinkCmpSource          = { bg   = "none" },
-            TelescopeSelection      = { link = "PmenuSel" },
+
             Folded                  = { link = "Comment" },
             -- NormalFloat             = { link = "Normal" },
             FloatBorder             = {
@@ -28,6 +30,7 @@ return {
                fg = "surface",
                bg = transparency and "none" or "subtle"
             },
+
             SnacksPickerPreviewBorder = {
                fg = "highlight_high",
                bg = transparency and "none" or "surface"
@@ -42,7 +45,9 @@ return {
 
             WhichKeyBorder           = { link = "FloatBorder" },
 
-            RenderMarkdownLink       = { fg = "foam", underline = true },
+            -- RenderMarkdownLink       = { fg = "foam", underline = true },
+            -- RenderMarkdownH2         = { fg = "base", },
+            -- RenderMarkdownH2Bg       = { fg = "love", reverse = true },
 
             NoiceCmdline             = { link = "StatusLine" },
             NoiceCmdlineIcon    = { link = "StatusLineMode" },

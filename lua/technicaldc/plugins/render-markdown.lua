@@ -11,22 +11,23 @@ return {
          heading = {
             border = false,
             sign = true,
-            position = "inline",
-            icons = {
-               '󰲠 ',
-               '󰲢 ',
-               '󰲤 ',
-               '󰲦 ',
-               '󰲨 ',
-               '󰲪 '
-            },
+            position = "right",
+            left_pad = 1,
+            -- icons = {
+            --    "",
+            --    "",
+            --    "",
+            --    "",
+            --    "",
+            --    "",
+            -- },
             backgrounds = {
-               'Headline1Bg',
-               'Headline2Bg',
-               'Headline3Bg',
-               'Headline4Bg',
-               'Headline5Bg',
-               'Headline6Bg',
+               'RenderMarkdownH1Bg',
+               'RenderMarkdownH2Bg',
+               'RenderMarkdownH3Bg',
+               'RenderMarkdownH4Bg',
+               'RenderMarkdownH5Bg',
+               'RenderMarkdownH6Bg',
             },
             foregrounds = {
                'RenderMarkdownH1',
@@ -64,6 +65,7 @@ return {
             },
          },
          checkbox = {
+            checked = { icon = '󰄵 ' },
             custom = {
                important = {
                   raw = '[!]',
