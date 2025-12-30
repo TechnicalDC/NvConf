@@ -10,7 +10,7 @@ return {
          anti_conceal = { enabled = true },
          heading = {
             border = false,
-            sign = false,
+            sign = true,
             width = "block",
             position = "right",
             left_pad = 1,
