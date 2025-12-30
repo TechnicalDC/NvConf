@@ -162,7 +162,7 @@ return {
                      {
                         box = "horizontal",
                         { win = "list", border = "none" },
-                        { win = "preview", title = "{preview}", width = 0.5, border = "rounded" },
+                        { win = "preview", title = "{preview}", width = 0.5, border = "rounded",title_pos = "left", },
                      },
                      { win = "input", height = 1, border = "none" },
                   },
