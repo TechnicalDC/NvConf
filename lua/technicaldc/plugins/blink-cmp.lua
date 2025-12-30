@@ -87,8 +87,7 @@ return {
       },
       completion = {
          menu = {
-            border = "none",
-            -- border = config.winborder,
+            border = config.winborder,
             scrollbar = true,
             winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
             draw = {

@@ -5,11 +5,6 @@ return {
    config = function()
       local transparency = false
       require("rose-pine").setup({
-         styles = {
-            transparency = transparency,
-            -- bold = false,
-            -- italic = false,
-         },
          highlight_groups = {
             StatusLine            = { fg = "subtle", bg  = "surface" },
             StatusLineTerm        = { fg = "subtle", bg  = "surface" },
@@ -24,19 +19,19 @@ return {
             BlinkCmpSource          = { bg   = "none" },
 
             Folded                  = { link = "Comment" },
-            -- NormalFloat             = { link = "Normal" },
+            NormalFloat             = { link = "Normal" },
             FloatBorder             = {
-               fg = "surface",
-               bg = transparency and "none" or "surface"
+               fg = "highlight_high",
+               bg = "none"
             },
             FloatTitle              = {
                fg = "surface",
-               bg = transparency and "none" or "rose"
+               bg = "rose"
             },
 
             SnacksPickerPreviewBorder = {
                fg = "highlight_high",
-               bg = transparency and "none" or "surface"
+               bg = "none"
             },
             SnacksInputBorder        = { link = "FloatBorder" },
             SnacksInputTitle         = { link = "FloatTitle" },
