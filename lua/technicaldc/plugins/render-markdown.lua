@@ -92,11 +92,18 @@ return {
             },
          },
          checkbox = {
-            checked = { icon = '󰄵 ' },
+            checked = { icon = '󰄵' },
+            unchecked = { icon = '󰄱' },
             custom = {
+               todo = {
+                  raw = '[-]',
+                  rendered = '',
+                  highlight = 'RenderMarkdownTodo',
+                  scope_highlight = nil
+               },
                important = {
                   raw = '[!]',
-                  rendered = '󰓎 ',
+                  rendered = '󰓎',
                   highlight = 'DiagnosticWarn',
                },
             },
