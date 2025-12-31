@@ -50,7 +50,8 @@ return {
          quote = { icon = '▌' },
          bullet = {
             enabled = true,
-            icons = {'◆', '◇'},
+            -- icons = {'◆', '◇'},
+            icons = {'', ''},
          },
          dash = { enabled = true },
          completions = {

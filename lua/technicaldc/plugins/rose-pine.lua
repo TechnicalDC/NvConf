@@ -16,6 +16,8 @@ return {
 
             ["@markup.link.label.markdown_inline"] = { fg = "foam", underdashed = true },
 
+            RenderMarkdownUnchecked = { fg = "love" },
+
             BlinkCmpSource          = { bg   = "none" },
 
             Folded                  = { link = "Comment" },
