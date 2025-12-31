@@ -14,7 +14,7 @@ return {
             StatusLineModeInsert  = { fg = "surface", bg = "foam", bold = true },
             StatusLineModeCommand = { fg = "surface", bg = "gold", bold = true },
 
-            ["@markup.link.label.markdown_inline"] = { fg = "foam", underline = true },
+            ["@markup.link.label.markdown_inline"] = { fg = "foam", underdashed = true },
 
             BlinkCmpSource          = { bg   = "none" },
 
