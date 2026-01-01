@@ -35,9 +35,9 @@ return {
              ["core.dirman"] = { -- Manages Neorg workspaces
                 config = {
                    workspaces = {
-                      default  = "~/neorg",
+                      main  = "~/neorg",
                    },
-                   default_workspace = "default",
+                   default_workspace = "main",
                 },
              },
              ["core.keybinds"] = {
