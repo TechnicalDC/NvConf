@@ -71,7 +71,10 @@ return {
                }
             },
          },
-         explorer = { enabled = true },
+         explorer = {
+            enabled = true,
+            replace_netrw = false,
+         },
          input = { enabled = true },
          lazygit = {
             theme = {

@@ -256,6 +256,7 @@ return {
       })
 
       miniFiles.setup({
+         options = { use_as_default_explorer = false, },
          -- Module mappings created only inside explorer.
          -- Use `''` (empty string) to not create one.
          mappings = {
