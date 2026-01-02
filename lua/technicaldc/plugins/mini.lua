@@ -29,7 +29,7 @@ return {
       local hipatterns    = require('mini.hipatterns')
       local diff          = require("mini.diff")
       local extras        = require("mini.extra")
-      -- local trailspace    = require('mini.trailspace')
+      -- local trailspace    = require('mini.ttailspace')
       local autocmd       = vim.api.nvim_create_autocmd
       local show_dotfiles = true
       -- }}}
@@ -76,6 +76,7 @@ return {
          },
       })
       require('mini.sessions').setup()
+      require('mini.starter').setup()
       -- trailspace.setup({
          -- Highlight only in normal buffers (ones with empty 'buftype'). This is
          -- useful to not show trailing whitespace where it usually doesn't matter.
