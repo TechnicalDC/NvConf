@@ -69,6 +69,7 @@ return {
       require('mini.align').setup()
       require('mini.ai').setup()
       require('mini.git').setup()
+      require('mini.pick').setup()
       require('mini.icons').setup({
          filetype = {
             progress = { glyph = "" }
